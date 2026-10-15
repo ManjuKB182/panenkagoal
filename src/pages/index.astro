@@ -12,9 +12,13 @@ import { istDay, kickoffTime, shortDate, ytWatch } from '../lib/format';
 const shows = getShows();
 const { panenka, isl } = getVideos();
 const longForm = panenka.filter((v) => !isShort(v));
-const hero = longForm.find((v) => v.show) ?? longForm[0] ?? panenka[0];
 const showName = (slug?: string) => shows.find((s) => s.slug === slug)?.name;
-const latest = panenka.filter((v) => v.id !== hero?.id).slice(0, 12);
+// Latest episodes rail: full episodes, newest first, never Shorts. "All" shows the newest 12; each show chip shows
+// that show's newest 8 (Football Kathe is filmed vertically, so a show's vertical episodes count too).
+const allIds = new Set(longForm.slice(0, 12).map((v) => v.id));
+const showIds = new Set(shows.flatMap((s) => panenka.filter((v) => v.show === s.slug).slice(0, 8).map((v) => v.id)));
+const episodes = panenka.filter((v) => allIds.has(v.id) || showIds.has(v.id));
+const shortsRail = panenka.filter((v) => isShort(v) && !v.show).slice(0, 10);
 // Hero slider: the five newest full episodes.
 const slides = longForm.slice(0, 5);
 // Hero titles: drop hashtags and keep the part before the first " | " (YouTube titles carry show names and tags after it).
@@ -150,7 +154,7 @@ const jsonLd = {
 
   <section class="wrap module reveal" aria-labelledby="latest-h">
     <div class="mod-head">
-      <h2 id="latest-h">Latest from Panenka</h2>
+      <h2 id="latest-h">Latest episodes</h2>
       <a href="/watch">All shows →</a>
     </div>
     <div class="chips" role="tablist" aria-label="Filter by show" data-filter-for="latest-rail">
@@ -158,13 +162,25 @@ const jsonLd = {
       {shows.map((s) => <button class="chip" role="tab" aria-selected="false" data-show={s.slug}>{s.name}</button>)}
     </div>
     <div class="rail" id="latest-rail">
-      {latest.map((v) => (
-        <div data-show={v.show ?? ''}>
-          <VideoCard video={v} badge={showName(v.show) ?? (isShort(v) ? 'Short' : undefined)} />
+      {episodes.map((v) => (
+        <div data-show={v.show ?? ''} data-all={allIds.has(v.id) ? '1' : '0'} hidden={!allIds.has(v.id)}>
+          <VideoCard video={v} badge={showName(v.show)} />
         </div>
       ))}
     </div>
   </section>
+
+  {shortsRail.length > 0 && (
+    <section class="wrap module reveal" aria-labelledby="shorts-h">
+      <div class="mod-head">
+        <h2 id="shorts-h">Shorts</h2>
+        <a href="/watch#shorts">All shorts →</a>
+      </div>
+      <div class="rail shorts-rail">
+        {shortsRail.map((v) => <VideoCard video={v} size="vertical" />)}
+      </div>
+    </section>
+  )}
 
   <section class="wrap module split reveal">
     <div class="col" aria-labelledby="news-h">
@@ -317,7 +333,7 @@ const jsonLd = {
         if (railId) {
           const show = tab.dataset.show ?? '';
           document.querySelectorAll<HTMLElement>(`#${railId} > [data-show]`).forEach((el) => {
-            el.hidden = show !== '' && el.dataset.show !== show;
+            el.hidden = show === '' ? el.dataset.all !== '1' : el.dataset.show !== show;
           });
         }
       }),
@@ -377,6 +393,12 @@ const jsonLd = {
   .lg { font-size: 11px; font-weight: 700; padding: 3px 6px; border-radius: 4px; background: var(--accent); color: var(--on-accent); }
 
   .rail { margin-top: 16px; }
+  .rail > [hidden] { display: none; }
+  /* Shorts are 9:16, so the rail fits more of them per row. */
+  .shorts-rail { margin-top: 0; grid-auto-columns: calc((100% - 6 * 16px) / 7); }
+  @media (max-width: 1200px) { .shorts-rail { grid-auto-columns: calc((100% - 4 * 16px) / 5); } }
+  @media (max-width: 900px) { .shorts-rail { grid-auto-columns: 30%; } }
+  @media (max-width: 560px) { .shorts-rail { grid-auto-columns: 44%; } }
 
   .split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; }
   .col { display: grid; gap: 16px; align-content: start; }
