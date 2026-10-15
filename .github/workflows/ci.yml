@@ -20,8 +20,8 @@ jobs:
     if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - run: npm run validate:data
@@ -35,8 +35,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions: { contents: read, pull-requests: write, deployments: write }
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with: { node-version: 22, cache: npm }
       - run: npm ci
       # Each PR gets its own Neon branch (free plan: 10 branches), deleted when the PR closes.
@@ -49,12 +49,12 @@ jobs:
       - run: npm run db:migrate && npm run snapshots:pull && npm run build
         env: { DATABASE_URL: '${{ steps.db.outputs.db_url_pooled }}' }
       - id: deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=${{ env.CF_PROJECT }} --branch=pr-${{ github.event.number }}
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@v9
         with:
           script: |
             await github.rest.issues.createComment({
@@ -78,8 +78,8 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: { group: deploy-production, cancel-in-progress: false }
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - run: npm run db:migrate && npm run snapshots:pull && npm run build
@@ -87,7 +87,7 @@ jobs:
       - if: env.HAS_CF != 'true'
         run: echo "::notice::Cloudflare secrets not set yet; built but not deployed. See README → One-time setup."
       - if: env.HAS_CF == 'true'
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
