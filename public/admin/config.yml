@@ -1,7 +1,7 @@
 # Sveltia CMS config. Docs: https://sveltiacms.app/en/docs
 backend:
   name: github
-  repo: OWNER/panenkagoal # TODO: set to the real GitHub owner/repo
+  repo: ManjuKB182/panenkagoal
   branch: main
   # base_url: https://<your-sveltia-cms-auth-worker>.workers.dev  # TODO after deploying the free auth Worker
 
