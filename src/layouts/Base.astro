@@ -19,11 +19,17 @@ const ogImage = new URL(image, SITE.url).href;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // Apply the saved theme before first paint. With nothing saved, CSS follows the system setting.
+      try { const t = localStorage.getItem('pg-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}
+      document.documentElement.classList.add('js');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#c8102e" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
@@ -51,6 +57,12 @@ const ogImage = new URL(image, SITE.url).href;
     </main>
     <Footer />
     <script>
+      // Fade modules in as they scroll into view.
+      const io = 'IntersectionObserver' in window
+        ? new IntersectionObserver((entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io?.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' })
+        : null;
+      document.querySelectorAll('.reveal').forEach((el) => (io ? io.observe(el) : el.classList.add('is-in')));
+
       // Lite YouTube: swap a thumbnail for the real player only when tapped.
       document.addEventListener('click', (e) => {
         const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-yt]');

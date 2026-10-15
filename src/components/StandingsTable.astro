@@ -79,6 +79,14 @@ const hasZones = Boolean(z.top || z.promotion || z.relegation);
   /* Flex goes on an inner span: a flex <td> stops behaving like a table cell and breaks the row lines. */
   .team { min-width: 170px; white-space: normal; font-weight: 600; color: var(--text); }
   .tm { display: flex; align-items: center; gap: 10px; }
+  /* Phones: narrower club column and tighter cells so P, GD and Pts always fit. */
+  @media (max-width: 560px) {
+    .team { min-width: 0; }
+    .tm { gap: 8px; }
+    .tm img { width: 18px; height: 18px; }
+    td, th { padding-inline: 7px !important; }
+    .pos { width: 34px; padding-left: 12px !important; }
+  }
   .team img { width: 22px; height: 22px; object-fit: contain; flex: none; border-radius: 4px; }
   .pts { font-weight: 700; color: var(--text); }
   td { color: var(--text-2); }

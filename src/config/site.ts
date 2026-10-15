@@ -22,7 +22,8 @@ export const SITE = {
 
 export type SectionKey = 'mens' | 'wofo' | 'youth' | 'karnataka';
 
-export const SECTIONS: Record<SectionKey, { title: string; titleKn: string; blurb: string }> = {
+// `title` is the short nav label; `heading` (when set) is the page heading.
+export const SECTIONS: Record<SectionKey, { title: string; heading?: string; titleKn: string; blurb: string }> = {
   mens: {
     title: "Men's",
     titleKn: 'ಪುರುಷರ',
@@ -30,6 +31,7 @@ export const SECTIONS: Record<SectionKey, { title: string; titleKn: string; blur
   },
   wofo: {
     title: 'WoFo',
+    heading: "Women's Football",
     titleKn: 'ಮಹಿಳಾ',
     blurb: "Women's football: IWL, IWL 2, the Karnataka Women's League and the national team.",
   },

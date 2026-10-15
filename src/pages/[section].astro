@@ -17,11 +17,11 @@ const comps = COMPETITIONS.filter((c) => c.section === section).map((comp) => ({
 const videos = getSectionVideos(section, SECTION_KEYWORDS[section], 8);
 const news = getNews(section).slice(0, 12);
 ---
-<Base title={meta.title} description={meta.blurb}>
+<Base title={meta.heading ?? meta.title} description={meta.blurb}>
   <header class="sec-hero">
     <div class="wrap">
       <p class="kn" lang="kn">{meta.titleKn}</p>
-      <h1>{meta.title}</h1>
+      <h1>{meta.heading ?? meta.title}</h1>
       <p class="blurb">{meta.blurb}</p>
     </div>
   </header>
@@ -74,6 +74,7 @@ const news = getNews(section).slice(0, 12);
   .tcard { display: flex; flex-direction: column; }
   .meta { padding: 10px 16px 0; }
   .flat { flex: 1; padding: 10px 16px 16px; }
+  @media (max-width: 560px) { .flat { padding: 8px 10px 12px; } .meta { padding-inline: 12px; } }
   .flat :global(.tbl) { height: 100%; }
   .empty { padding: 16px; }
 </style>

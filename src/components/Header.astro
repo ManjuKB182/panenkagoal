@@ -6,38 +6,52 @@ import { kickoffTime, shortDate } from '../lib/format';
 const path = Astro.url.pathname;
 const active = (href: string) => path === href || path.startsWith(`${href}/`);
 
-// Score strip: latest senior results, then the next fixtures (ESPN-style scoreboard).
+// Score strip: latest senior results, then the next fixtures.
 const now = new Date().toISOString();
 const senior = getAllMatches().filter((m) => m.comp.section !== 'youth');
-const results = senior.filter((m) => m.status === 'ft').sort((a, b) => b.kickoff.localeCompare(a.kickoff)).slice(0, 4).reverse();
-const next = senior.filter((m) => m.status === 'scheduled' && m.kickoff > now).sort((a, b) => a.kickoff.localeCompare(b.kickoff)).slice(0, 6);
+const results = senior.filter((m) => m.status === 'ft').sort((a, b) => b.kickoff.localeCompare(a.kickoff)).slice(0, 5).reverse();
+const next = senior.filter((m) => m.status === 'scheduled' && m.kickoff > now).sort((a, b) => a.kickoff.localeCompare(b.kickoff)).slice(0, 7);
 const strip = [...results, ...next];
 const short = (name: string, code?: string) => code ?? name.replace(/\b(FC|SC|Football Club)\b/g, '').trim().slice(0, 14);
+// With enough cards the strip loops slowly on its own (paused on hover); the list is rendered twice for a seamless loop.
+const loop = strip.length >= 6;
 ---
 <header class="site-header">
   <div class="wrap bar">
-    <a class="logo" href="/" aria-label={`${SITE.name} home`}>
-      <picture><source srcset="/logo-96.webp" type="image/webp" /><img class="mark" src="/logo-96.png" alt="" width="40" height="40" /></picture>
-      <span class="word">Panenka <b>Goal</b></span>
+    <a class="mark" href="/" aria-label={`${SITE.name} home`}>
+      <picture><source srcset="/logo-96.webp" type="image/webp" /><img src="/logo-96.png" alt="" width="44" height="44" /></picture>
+    </a>
+    <span class="divider" aria-hidden="true"></span>
+    <a class="word" href="/">
+      <span class="name">Panenka <b>Goal</b></span>
+      <span class="sub">Football in Kannada</span>
     </a>
     <nav class="main-nav" aria-label="Main">
       {NAV.map((n) => <a href={n.href} aria-current={active(n.href) ? 'page' : undefined}>{n.label}</a>)}
     </nav>
+    <button class="theme" type="button" id="theme-toggle" aria-label="Switch to dark mode" title="Light / dark">
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor" /></svg>
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor" /><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" /></g></svg>
+    </button>
   </div>
 </header>
 
 {strip.length > 0 && (
   <div class="scores" aria-label="Latest results and next fixtures">
-    <div class="wrap strip">
-      {strip.map((m) => (
-        <a class="sc" href={`/stats/${m.comp.slug}`}>
-          <span class="sc-top">
-            <span class="comp">{m.comp.short}</span>
-            <span class={`state ${m.status}`}>{m.status === 'ft' ? 'FT' : `${shortDate(m.kickoff)} · ${kickoffTime(m.kickoff)}`}</span>
-          </span>
-          <span class="row"><span class="t">{short(m.home, m.homeShort)}</span>{m.status === 'ft' && <b class={m.homeScore! > m.awayScore! ? 'w' : ''}>{m.homeScore}</b>}</span>
-          <span class="row"><span class="t">{short(m.away, m.awayShort)}</span>{m.status === 'ft' && <b class={m.awayScore! > m.homeScore! ? 'w' : ''}>{m.awayScore}</b>}</span>
-        </a>
+    <div class={`track ${loop ? 'loop' : ''}`}>
+      {(loop ? [0, 1] : [0]).map((copy) => (
+        <div class="set" aria-hidden={copy === 1 ? 'true' : undefined}>
+          {strip.map((m) => (
+            <a class="sc" href={`/stats/${m.comp.slug}`} tabindex={copy === 1 ? -1 : undefined}>
+              <span class="sc-top">
+                <span class="comp">{m.comp.short}</span>
+                <span class={`state ${m.status}`}>{m.status === 'ft' ? 'FT' : `${shortDate(m.kickoff)} · ${kickoffTime(m.kickoff)}`}</span>
+              </span>
+              <span class="row"><span class="t">{short(m.home, m.homeShort)}</span>{m.status === 'ft' && <b class={m.homeScore! > m.awayScore! ? 'w' : ''}>{m.homeScore}</b>}</span>
+              <span class="row"><span class="t">{short(m.away, m.awayShort)}</span>{m.status === 'ft' && <b class={m.awayScore! > m.homeScore! ? 'w' : ''}>{m.awayScore}</b>}</span>
+            </a>
+          ))}
+        </div>
       ))}
     </div>
   </div>
@@ -56,55 +70,99 @@ const short = (name: string, code?: string) => code ?? name.replace(/\b(FC|SC|Fo
   <a href="/news" aria-current={active('/news') ? 'page' : undefined}>News</a>
 </nav>
 
+<script>
+  const btn = document.getElementById('theme-toggle')!;
+  const root = document.documentElement;
+  const isDark = () => root.dataset.theme === 'dark' || (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+  const label = () => btn.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode');
+  label();
+  btn.addEventListener('click', () => {
+    const next = isDark() ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('pg-theme', next); } catch {}
+    label();
+  });
+</script>
+
 <style>
-  .site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--brand); color: #fff; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12); }
-  .bar { display: flex; align-items: center; gap: 24px; min-height: 60px; }
-  .logo { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; flex: none; }
-  .mark { width: 40px; height: 40px; flex: none; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25)); }
-  .word { font: 700 23px/1 var(--display); letter-spacing: 0.01em; text-transform: uppercase; }
-  .word b { color: var(--accent); font-weight: 700; }
+  .site-header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30;
+    background: color-mix(in srgb, var(--header-bg) 92%, transparent);
+    backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  /* A thin flag stripe is the only large use of the brand colours. */
+  .site-header::before { content: ''; display: block; height: 3px; background: linear-gradient(90deg, var(--accent) 0 50%, var(--brand) 50% 100%); }
+  .bar { display: flex; align-items: center; gap: 14px; min-height: 64px; }
+  .mark { flex: none; display: block; }
+  .mark img { width: 44px; height: 44px; transition: transform 0.3s ease; }
+  .mark:hover img { transform: rotate(-12deg); }
+  .divider { width: 1px; height: 30px; background: var(--line-strong); flex: none; }
+  .word { display: grid; line-height: 1.05; text-decoration: none; color: var(--text); flex: none; }
+  .name { font: 700 22px/1 var(--display); letter-spacing: 0.02em; text-transform: uppercase; }
+  .name b { color: var(--brand-text); font-weight: 700; }
+  .sub { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-top: 3px; }
   .main-nav { display: flex; align-self: stretch; margin-left: auto; }
   .main-nav a {
-    display: flex; align-items: center; color: rgba(255, 255, 255, 0.88); text-decoration: none;
-    font-weight: 600; font-size: 15px; padding: 0 14px; white-space: nowrap; box-shadow: inset 0 -3px 0 transparent;
-    transition: color 0.15s, box-shadow 0.15s, background-color 0.15s;
+    display: flex; align-items: center; color: var(--text-2); text-decoration: none; font-weight: 600; font-size: 15px;
+    padding: 0 13px; white-space: nowrap; box-shadow: inset 0 -2px 0 transparent; transition: color 0.15s, box-shadow 0.15s;
   }
-  .main-nav a:hover { color: #fff; background: rgba(0, 0, 0, 0.1); }
-  .main-nav a[aria-current='page'] { color: #fff; box-shadow: inset 0 -3px 0 var(--accent); }
+  .main-nav a:hover { color: var(--text); }
+  .main-nav a[aria-current='page'] { color: var(--text); box-shadow: inset 0 -2px 0 var(--brand); }
+  .theme {
+    flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%;
+    border: 1px solid var(--line); background: var(--surface); color: var(--text-2); cursor: pointer; transition: color 0.15s, border-color 0.15s, transform 0.3s;
+  }
+  .theme:hover { color: var(--text); border-color: var(--line-strong); }
+  .theme:active { transform: rotate(30deg); }
+  .theme svg { width: 18px; height: 18px; }
+  .sun { display: none; }
+  :global(:root[data-theme='dark']) .sun { display: block; }
+  :global(:root[data-theme='dark']) .moon { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .sun { display: block; }
+    :global(:root:not([data-theme='light'])) .moon { display: none; }
+  }
 
-  .scores { background: var(--ink); color: #fff; }
-  .strip { display: flex; overflow-x: auto; scrollbar-width: none; }
-  .sc {
-    flex: 1 0 150px; max-width: 200px; display: grid; gap: 3px; padding: 9px 14px; color: #fff; text-decoration: none;
-    border-right: 1px solid rgba(255, 255, 255, 0.08); transition: background-color 0.15s;
-  }
-  .sc:first-child { border-left: 1px solid rgba(255, 255, 255, 0.08); }
-  .sc:hover { background: var(--ink-2); }
-  .sc-top { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; font-weight: 600; color: #9aa0a8; }
-  .comp { color: var(--accent); letter-spacing: 0.04em; }
-  .state.ft { color: #fff; }
+  .scores { background: var(--strip-bg); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .track { display: flex; width: max-content; }
+  .track:not(.loop) { width: auto; overflow-x: auto; scrollbar-width: none; max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+  .track.loop { animation: ticker 60s linear infinite; }
+  .scores:hover .track.loop, .scores:focus-within .track.loop { animation-play-state: paused; }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+  .set { display: flex; }
+  .sc { flex: none; width: 176px; display: grid; gap: 3px; padding: 9px 14px; color: var(--text); text-decoration: none; border-right: 1px solid var(--line); transition: background-color 0.15s; }
+  .sc:hover { background: var(--surface); }
+  .sc-top { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; font-weight: 600; color: var(--text-3); }
+  .comp { font-weight: 700; color: var(--text-2); letter-spacing: 0.04em; }
+  .state.ft { color: var(--text); }
   .row { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; font-weight: 600; line-height: 1.35; }
-  .row .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #d9dce0; }
-  .row b { color: #9aa0a8; font-weight: 700; }
-  .row b.w { color: #fff; }
+  .row .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-2); }
+  .row b { color: var(--text-3); font-weight: 700; }
+  .row b.w { color: var(--text); }
 
   .tabbar, .secnav { display: none; }
-  @media (max-width: 860px) {
+  @media (max-width: 960px) {
     .main-nav { display: none; }
-    .bar { min-height: 54px; }
-    .mark { width: 34px; height: 34px; }
-    .word { font-size: 20px; }
-    .secnav { display: block; background: var(--surface); border-bottom: 1px solid var(--line); }
+    .theme { margin-left: auto; }
+  }
+  @media (max-width: 960px) {
+    .bar { min-height: 56px; gap: 10px; }
+    .mark img { width: 36px; height: 36px; }
+    .divider { height: 24px; }
+    .name { font-size: 19px; }
+    .sub { font-size: 9.5px; }
+    .secnav { display: block; background: var(--header-bg); border-bottom: 1px solid var(--line); }
     .secnav .wrap { display: flex; overflow-x: auto; scrollbar-width: none; }
-    .secnav a { flex: none; font-weight: 600; font-size: 14px; text-decoration: none; color: var(--text-2); padding: 12px 12px 10px; box-shadow: inset 0 -3px 0 transparent; }
-    .secnav a[aria-current='page'] { color: var(--brand); box-shadow: inset 0 -3px 0 var(--brand); }
+    .secnav a { flex: none; font-weight: 600; font-size: 14px; text-decoration: none; color: var(--text-2); padding: 11px 12px 9px; box-shadow: inset 0 -2px 0 transparent; }
+    .secnav a[aria-current='page'] { color: var(--text); box-shadow: inset 0 -2px 0 var(--brand); }
     .tabbar {
       display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; inset: auto 0 0 0; z-index: 40;
-      background: var(--surface); padding-bottom: env(safe-area-inset-bottom, 0px); border-top: 1px solid var(--line);
-      box-shadow: 0 -2px 10px rgba(18, 20, 23, 0.06);
+      background: color-mix(in srgb, var(--header-bg) 94%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      padding-bottom: env(safe-area-inset-bottom, 0px); border-top: 1px solid var(--line);
     }
     .tabbar a { color: var(--text-3); text-decoration: none; text-align: center; font-weight: 600; font-size: 12.5px; padding: 13px 4px; }
-    .tabbar a[aria-current='page'] { color: var(--brand); box-shadow: inset 0 3px 0 var(--brand); }
+    .tabbar a[aria-current='page'] { color: var(--brand-text); box-shadow: inset 0 2px 0 var(--brand); }
     :global(body) { padding-bottom: 64px; }
   }
 </style>

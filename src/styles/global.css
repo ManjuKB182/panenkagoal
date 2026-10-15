@@ -1,40 +1,58 @@
 /* Panenka Goal design system.
-   Follows sports-media conventions (ESPN, BBC Sport, Sky Sports, OneFootball):
-   a solid brand header, a dark score strip, a neutral grey page and white cards.
-   Brand colours come from the Kannada flag: kumkuma red leads, arishina yellow accents. */
+   Neutral surfaces in light and dark; kumkuma red and arishina yellow (the Kannada flag) are accents only.
+   Theme: <html data-theme="light|dark"> set by the toggle; with no choice saved it follows the system. */
 :root {
-  --bg: #f0f1f3;
+  --bg: #f4f5f7;
   --surface: #ffffff;
-  --surface-2: #f6f7f8;
-  --line: #e2e4e8;
-  --line-strong: #cfd3d9;
-  --text: #121417;
-  --text-2: #464b53;
-  --text-3: #767c86;
+  --surface-2: #f6f7f9;
+  --line: #e3e6ea;
+  --line-strong: #cfd4da;
+  --text: #14161a;
+  --text-2: #4a505a;
+  --text-3: #7a818c;
+  --header-bg: #ffffff;
+  --strip-bg: #f0f2f5;
 
-  --brand: #c8102e;        /* kumkuma */
-  --brand-dark: #a00c24;
-  --brand-tint: #fdecee;
-  --accent: #f5c400;       /* arishina */
-  --accent-tint: #fff7d1;
-  --on-accent: #121417;
-  --ink: #121417;          /* score strip, footer */
-  --ink-2: #1d2025;
+  --brand: #c8102e;        /* kumkuma: buttons, active marks */
+  --brand-text: #b00d27;   /* red text on light surfaces */
+  --brand-tint: #fdeef0;
+  --accent: #f5c400;       /* arishina: badges, highlights */
+  --accent-tint: #fff8d6;
+  --on-accent: #14161a;
+  --ink: #111316;          /* footer and the hero stage, in both themes */
 
   --win: #1f8a4c;
   --draw: #9aa0a8;
   --loss: #c8102e;
+  --shadow: 0 1px 2px rgba(20, 22, 26, 0.05), 0 4px 14px rgba(20, 22, 26, 0.04);
 
   --display: 'Barlow Semi Condensed', 'Arial Narrow', Arial, sans-serif;
   --body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --kn: 'Noto Sans Kannada', 'Tunga', sans-serif;
 
-  --gutter: 20px;
-  --max: 1200px;
-  --r: 8px;
+  --gutter: clamp(16px, 3vw, 40px);
+  --max: 1360px;
+  --r: 10px;
   --r-sm: 6px;
-  --shadow: 0 1px 2px rgba(18, 20, 23, 0.06);
   color-scheme: light;
+}
+
+/* Dark tokens: once for an explicit choice, once for "follow the system" with nothing saved. */
+:root[data-theme='dark'] {
+  --bg: #0f1012; --surface: #17191c; --surface-2: #1e2125; --line: #2a2e33; --line-strong: #3a3f46;
+  --text: #eef0f3; --text-2: #b4bac3; --text-3: #858c96; --header-bg: #121417; --strip-bg: #15171a;
+  --brand: #e5484d; --brand-text: #ff7378; --brand-tint: #2a1517; --accent-tint: #2b2611;
+  --win: #46b97a; --shadow: none;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0f1012; --surface: #17191c; --surface-2: #1e2125; --line: #2a2e33; --line-strong: #3a3f46;
+    --text: #eef0f3; --text-2: #b4bac3; --text-3: #858c96; --header-bg: #121417; --strip-bg: #15171a;
+    --brand: #e5484d; --brand-text: #ff7378; --brand-tint: #2a1517; --accent-tint: #2b2611;
+    --win: #46b97a; --shadow: none;
+    color-scheme: dark;
+  }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -47,12 +65,13 @@ body {
   font-variant-numeric: tabular-nums;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 img { max-width: 100%; height: auto; display: block; }
-a { color: var(--brand); text-underline-offset: 3px; }
+a { color: var(--brand-text); text-underline-offset: 3px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
 h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; color: var(--text); }
-h1 { font-size: clamp(30px, 4vw, 42px); font-weight: 700; line-height: 1.1; }
+h1 { font-size: clamp(30px, 4vw, 44px); font-weight: 700; line-height: 1.08; }
 h2 { font-size: 22px; font-weight: 700; line-height: 1.2; }
 h3 { font-size: 18px; font-weight: 700; line-height: 1.25; }
 p { margin: 0; }
@@ -60,21 +79,18 @@ p { margin: 0; }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
 .stack { display: grid; gap: 16px; }
-.eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand); text-decoration: none; }
+.eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand-text); text-decoration: none; }
 .muted { color: var(--text-3); font-size: 13.5px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* Section header: title on a hairline rule, with a red marker under the title (BBC/Sky pattern). */
-.module { padding-block: 28px; }
-.mod-head {
-  display: flex; align-items: flex-end; justify-content: space-between; gap: 12px;
-  border-bottom: 1px solid var(--line-strong); margin-bottom: 16px;
-}
-.mod-head h2 { padding-bottom: 8px; margin-bottom: -1px; border-bottom: 3px solid var(--brand); }
+/* Section header: title on a hairline rule with a short red marker under it. */
+.module { padding-block: 32px; }
+.mod-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.mod-head h2 { padding-bottom: 9px; margin-bottom: -1px; border-bottom: 2px solid var(--brand); }
 .mod-head a { font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; padding-bottom: 10px; }
 .mod-head a:hover { text-decoration: underline; }
 
-/* Pill tabs (OneFootball/FotMob pattern) */
+/* Pill tabs: the selected one is solid ink, not red, so pages stay calm. */
 .chips { display: flex; gap: 6px; flex-wrap: wrap; }
 .chip {
   border: 1px solid var(--line); background: var(--surface); color: var(--text-2);
@@ -82,31 +98,39 @@ p { margin: 0; }
   transition: background-color 0.15s, color 0.15s, border-color 0.15s;
 }
 .chip:hover { border-color: var(--line-strong); color: var(--text); }
-.chip[aria-selected='true'], .chip.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.chip[aria-selected='true'], .chip.on { background: var(--text); border-color: var(--text); color: var(--bg); }
 
-/* Badges */
 .badge { display: inline-block; font: 700 11px/1 var(--body); letter-spacing: 0.03em; text-transform: uppercase; padding: 5px 7px; border-radius: 4px; background: var(--accent); color: var(--on-accent); }
 .badge.red { background: var(--brand); color: #fff; }
 .src { font: 600 12px/1 var(--body); color: var(--text-2); white-space: nowrap; }
-.src.panenka { color: var(--brand); }
+.src.panenka { color: var(--brand-text); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; background: var(--brand); color: #fff; font: 600 14.5px/1 var(--body);
+  padding: 12px 20px; border-radius: 99px; text-decoration: none; border: 1px solid transparent; transition: filter 0.15s, background-color 0.15s;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--line-strong); }
+.btn.ghost:hover { background: var(--surface-2); filter: none; }
 
 /* Horizontal rail that snaps on phones */
-.rail { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 3 * 16px) / 4); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: thin; }
+.rail { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 4 * 16px) / 5); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: thin; }
 .rail > * { scroll-snap-align: start; min-width: 0; }
+@media (max-width: 1200px) { .rail { grid-auto-columns: calc((100% - 3 * 16px) / 4); } }
 @media (max-width: 900px) { .rail { grid-auto-columns: 42%; gap: 12px; } }
 @media (max-width: 560px) { .rail { grid-auto-columns: 78%; } }
 
-/* White cards. Add .red or .yellow to a .card-head for a coloured top edge. */
+/* White (or dark) cards. .card-head.red / .yellow / .green add a thin coloured top edge. */
 .panel-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
-.card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 18px; border-bottom: 1px solid var(--line); }
 .card-head h2, .card-head h3 { font-size: 18px; }
 .card-head a { font-size: 13.5px; font-weight: 600; text-decoration: none; white-space: nowrap; }
 .card-head a:hover { text-decoration: underline; }
-.card-head.red { box-shadow: inset 0 3px 0 var(--brand); }
-.card-head.yellow { box-shadow: inset 0 3px 0 var(--accent); }
-.card-head.green { box-shadow: inset 0 3px 0 var(--win); }
-.card-body { padding: 14px 16px; }
-.note { border-radius: var(--r); background: var(--accent-tint); border: 1px solid #f1df8f; padding: 12px 16px; font-size: 15px; }
+.card-head.red { box-shadow: inset 0 2px 0 var(--brand); }
+.card-head.yellow { box-shadow: inset 0 2px 0 var(--accent); }
+.card-head.green { box-shadow: inset 0 2px 0 var(--win); }
+.card-body { padding: 14px 18px; }
+.note { border-radius: var(--r); background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); padding: 12px 16px; font-size: 15px; }
 
 /* Table shell: tables scroll inside their own box, never the page */
 .tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
@@ -116,11 +140,17 @@ p { margin: 0; }
 .tbl tr:last-child td { border-bottom: 0; }
 .tbl .l { text-align: left; }
 
+/* Scroll reveal. Content is only hidden once JS has marked the page, so nothing is lost without JS. */
+html.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+html.js .reveal.is-in { opacity: 1; transform: none; }
+
 @media (max-width: 560px) {
-  :root { --gutter: 14px; }
-  .module { padding-block: 22px; }
+  .module { padding-block: 24px; }
   /* Chip rows scroll sideways on phones instead of wrapping onto several lines. */
   .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
   .chip { flex: none; }
 }
-@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+  html.js .reveal { opacity: 1; transform: none; }
+}
