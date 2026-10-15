@@ -1,0 +1,38 @@
+---
+import type { MerchItem } from '../lib/data';
+import { SITE } from '../config/site';
+
+interface Props { item: MerchItem; full?: boolean }
+const { item, full = false } = Astro.props;
+const STATUS = { 'coming-soon': 'Coming soon', 'pre-order': 'Pre-order', live: 'Available', 'sold-out': 'Sold out' } as const;
+const orderable = (item.status === 'live' || item.status === 'pre-order') && SITE.whatsapp;
+const message = `Hi Panenka! I'd like to order: ${item.name}. Size: ___. Qty: 1. (${SITE.url}/merch/${item.slug})`;
+const waLink = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+const words = item.name.split(' ');
+---
+<article class={`mt ${item.colour}`}>
+  <a class="art" href={`/merch/${item.slug}`} aria-label={item.name}>
+    <span>{words.slice(0, -1).join(' ')}<br />{words.at(-1)}</span>
+  </a>
+  <div class="meta">
+    <span class={`badge ${item.status === 'live' ? 'red' : ''}`}>{STATUS[item.status]}</span>
+    <h3><a href={`/merch/${item.slug}`}>{item.name}</a></h3>
+    {full && <p>{item.blurb}</p>}
+    <p class="muted">{item.price ? `₹${item.price.toLocaleString('en-IN')}` : 'Price at launch'} · {item.sizes.join(', ')}</p>
+    {orderable && <a class="wa" href={waLink} rel="noopener">Order on WhatsApp</a>}
+  </div>
+</article>
+
+<style>
+  .mt { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: grid; box-shadow: var(--shadow); }
+  .art { aspect-ratio: 1; display: grid; place-items: center; text-align: center; text-decoration: none; padding: 20px; font: 700 clamp(28px, 3vw, 34px)/1 var(--display); text-transform: uppercase; letter-spacing: -0.01em; }
+  .yellow .art { background: #f5c400; color: #1d1b18; }
+  .red .art { background: #c8102e; color: #fff; }
+  .ink .art { background: #1d1b18; color: #f5c400; }
+  .paper .art { background: #efe9dc; color: #c8102e; }
+  .meta { padding: 16px; display: grid; gap: 6px; justify-items: start; }
+  h3 { font: 600 17px/1.3 var(--body); }
+  h3 a { color: var(--text); text-decoration: none; }
+  h3 a:hover { color: var(--brand); }
+  .wa { display: inline-block; background: #1f8f4e; color: #fff; font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 99px; text-decoration: none; margin-top: 6px; }
+</style>

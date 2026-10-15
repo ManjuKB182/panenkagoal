@@ -1,0 +1,136 @@
+# Sveltia CMS config. Docs: https://sveltiacms.app/en/docs
+backend:
+  name: github
+  repo: OWNER/panenkagoal # TODO: set to the real GitHub owner/repo
+  branch: main
+  # base_url: https://<your-sveltia-cms-auth-worker>.workers.dev  # TODO after deploying the free auth Worker
+
+media_folder: public/uploads
+public_folder: /uploads
+site_url: https://panenkagoal.com
+
+collections:
+  - name: results
+    label: Results (manual leagues)
+    files:
+      - name: bdfa-sd
+        label: BDFA Super Division
+        file: data/manual/bdfa-sd.json
+        format: json
+        fields:
+          - { name: season, label: Season, widget: string }
+          - { name: seasonLabel, label: Season label, widget: string }
+          - { name: note, label: Note, widget: text, required: false }
+          - { name: teams, label: Teams, widget: list, field: { name: team, label: Team, widget: string } }
+          - name: results
+            label: Results
+            label_singular: Result
+            widget: list
+            summary: '{{fields.date}}: {{fields.home}} {{fields.homeScore}}–{{fields.awayScore}} {{fields.away}}'
+            fields:
+              - { name: date, label: Date, widget: datetime, format: YYYY-MM-DD, date_format: DD MMM YYYY, time_format: false }
+              - { name: home, label: Home team, widget: string }
+              - { name: homeScore, label: Home goals, widget: number, value_type: int, min: 0 }
+              - { name: awayScore, label: Away goals, widget: number, value_type: int, min: 0 }
+              - { name: away, label: Away team, widget: string }
+              - { name: venue, label: Venue, widget: string, required: false }
+          - name: fixtures
+            label: Upcoming fixtures
+            label_singular: Fixture
+            widget: list
+            required: false
+            summary: '{{fields.date}}: {{fields.home}} v {{fields.away}}'
+            fields:
+              - { name: date, label: Date, widget: datetime, format: YYYY-MM-DD, time_format: false }
+              - { name: time, label: Kick-off (24h, IST), widget: string, required: false, hint: 'e.g. 15:30' }
+              - { name: home, label: Home team, widget: string }
+              - { name: away, label: Away team, widget: string }
+              - { name: venue, label: Venue, widget: string, required: false }
+          - name: scorers
+            label: Top scorers
+            widget: list
+            required: false
+            summary: '{{fields.player}} ({{fields.team}}): {{fields.goals}}'
+            fields:
+              - { name: player, label: Player, widget: string }
+              - { name: team, label: Team, widget: string }
+              - { name: goals, label: Goals, widget: number, value_type: int, min: 0 }
+
+  - name: merch
+    label: Merch
+    label_singular: Product
+    folder: data/merch
+    format: json
+    extension: json
+    create: true
+    identifier_field: slug
+    slug: '{{fields.slug}}'
+    fields:
+      - { name: slug, label: URL slug, widget: string, hint: 'lowercase-with-dashes; must match the file name' }
+      - { name: name, label: Name, widget: string }
+      - { name: status, label: Status, widget: select, options: [coming-soon, pre-order, live, sold-out] }
+      - { name: price, label: Price (₹), widget: number, value_type: int, required: false }
+      - { name: sizes, label: Sizes, widget: list }
+      - { name: colour, label: Tile colour, widget: select, options: [yellow, red, ink, paper] }
+      - { name: blurb, label: Description, widget: text }
+      - { name: order, label: Sort order, widget: number, value_type: int }
+
+  - name: social
+    label: Social
+    files:
+      - name: x-posts
+        label: X posts to feature
+        file: data/x-posts.json
+        format: json
+        fields:
+          - name: posts
+            label: Posts
+            widget: list
+            summary: '@{{fields.handle}}: {{fields.text}}'
+            fields:
+              - { name: url, label: Post URL, widget: string, hint: 'https://x.com/handle/status/123…' }
+              - { name: handle, label: Handle (without @), widget: string }
+              - { name: text, label: Post text, widget: text }
+              - { name: postedAt, label: Posted at, widget: datetime }
+              - { name: section, label: Section, widget: select, options: [mens, wofo, youth, karnataka], required: false }
+      - name: handles
+        label: Official accounts to watch
+        file: data/social-handles.json
+        format: json
+        fields:
+          - { name: note, label: Note, widget: text, required: false }
+          - { name: instagram, label: Instagram handles, widget: list, required: false }
+          - { name: x, label: X handles, widget: list, required: false }
+
+  - name: shows
+    label: Shows
+    files:
+      - name: shows
+        label: YouTube shows
+        file: data/shows.json
+        format: json
+        fields:
+          - name: shows
+            label: Shows
+            widget: list
+            fields:
+              - { name: slug, label: Slug, widget: string }
+              - { name: name, label: Name, widget: string }
+              - { name: nameKn, label: Name in Kannada, widget: string, required: false }
+              - { name: playlistId, label: YouTube playlist ID, widget: string }
+              - { name: titleMatch, label: Title match (regex), widget: string, required: false }
+              - { name: blurb, label: Description, widget: text }
+
+  - name: section-videos
+    label: Section videos
+    files:
+      - name: section-videos
+        label: Videos pinned to each section
+        file: data/section-videos.json
+        format: json
+        description: YouTube video IDs (the part after watch?v=). Pinned videos show first; title matches fill the rest.
+        fields:
+          - { name: mens, label: "Men's", widget: list, required: false }
+          - { name: wofo, label: WoFo, widget: list, required: false }
+          - { name: youth, label: Youth, widget: list, required: false }
+          - { name: karnataka, label: Karnataka, widget: list, required: false }

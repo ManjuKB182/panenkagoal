@@ -1,0 +1,110 @@
+---
+import { NAV, SITE } from '../config/site';
+import { getAllMatches } from '../lib/data';
+import { kickoffTime, shortDate } from '../lib/format';
+
+const path = Astro.url.pathname;
+const active = (href: string) => path === href || path.startsWith(`${href}/`);
+
+// Score strip: latest senior results, then the next fixtures (ESPN-style scoreboard).
+const now = new Date().toISOString();
+const senior = getAllMatches().filter((m) => m.comp.section !== 'youth');
+const results = senior.filter((m) => m.status === 'ft').sort((a, b) => b.kickoff.localeCompare(a.kickoff)).slice(0, 4).reverse();
+const next = senior.filter((m) => m.status === 'scheduled' && m.kickoff > now).sort((a, b) => a.kickoff.localeCompare(b.kickoff)).slice(0, 6);
+const strip = [...results, ...next];
+const short = (name: string, code?: string) => code ?? name.replace(/\b(FC|SC|Football Club)\b/g, '').trim().slice(0, 14);
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label={`${SITE.name} home`}>
+      <picture><source srcset="/logo-96.webp" type="image/webp" /><img class="mark" src="/logo-96.png" alt="" width="40" height="40" /></picture>
+      <span class="word">Panenka <b>Goal</b></span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      {NAV.map((n) => <a href={n.href} aria-current={active(n.href) ? 'page' : undefined}>{n.label}</a>)}
+    </nav>
+  </div>
+</header>
+
+{strip.length > 0 && (
+  <div class="scores" aria-label="Latest results and next fixtures">
+    <div class="wrap strip">
+      {strip.map((m) => (
+        <a class="sc" href={`/stats/${m.comp.slug}`}>
+          <span class="sc-top">
+            <span class="comp">{m.comp.short}</span>
+            <span class={`state ${m.status}`}>{m.status === 'ft' ? 'FT' : `${shortDate(m.kickoff)} · ${kickoffTime(m.kickoff)}`}</span>
+          </span>
+          <span class="row"><span class="t">{short(m.home, m.homeShort)}</span>{m.status === 'ft' && <b class={m.homeScore! > m.awayScore! ? 'w' : ''}>{m.homeScore}</b>}</span>
+          <span class="row"><span class="t">{short(m.away, m.awayShort)}</span>{m.status === 'ft' && <b class={m.awayScore! > m.homeScore! ? 'w' : ''}>{m.awayScore}</b>}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+)}
+
+<nav class="secnav" aria-label="Sections">
+  <div class="wrap">
+    {NAV.slice(0, 4).map((n) => <a href={n.href} aria-current={active(n.href) ? 'page' : undefined}>{n.label}</a>)}
+  </div>
+</nav>
+<nav class="tabbar" aria-label="Quick links">
+  <a href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a>
+  <a href="/watch" aria-current={active('/watch') ? 'page' : undefined}>Watch</a>
+  <a href="/stats" aria-current={active('/stats') ? 'page' : undefined}>Stats</a>
+  <a href="/merch" aria-current={active('/merch') ? 'page' : undefined}>Merch</a>
+  <a href="/news" aria-current={active('/news') ? 'page' : undefined}>News</a>
+</nav>
+
+<style>
+  .site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--brand); color: #fff; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12); }
+  .bar { display: flex; align-items: center; gap: 24px; min-height: 60px; }
+  .logo { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; flex: none; }
+  .mark { width: 40px; height: 40px; flex: none; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25)); }
+  .word { font: 700 23px/1 var(--display); letter-spacing: 0.01em; text-transform: uppercase; }
+  .word b { color: var(--accent); font-weight: 700; }
+  .main-nav { display: flex; align-self: stretch; margin-left: auto; }
+  .main-nav a {
+    display: flex; align-items: center; color: rgba(255, 255, 255, 0.88); text-decoration: none;
+    font-weight: 600; font-size: 15px; padding: 0 14px; white-space: nowrap; box-shadow: inset 0 -3px 0 transparent;
+    transition: color 0.15s, box-shadow 0.15s, background-color 0.15s;
+  }
+  .main-nav a:hover { color: #fff; background: rgba(0, 0, 0, 0.1); }
+  .main-nav a[aria-current='page'] { color: #fff; box-shadow: inset 0 -3px 0 var(--accent); }
+
+  .scores { background: var(--ink); color: #fff; }
+  .strip { display: flex; overflow-x: auto; scrollbar-width: none; }
+  .sc {
+    flex: 1 0 150px; max-width: 200px; display: grid; gap: 3px; padding: 9px 14px; color: #fff; text-decoration: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.08); transition: background-color 0.15s;
+  }
+  .sc:first-child { border-left: 1px solid rgba(255, 255, 255, 0.08); }
+  .sc:hover { background: var(--ink-2); }
+  .sc-top { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; font-weight: 600; color: #9aa0a8; }
+  .comp { color: var(--accent); letter-spacing: 0.04em; }
+  .state.ft { color: #fff; }
+  .row { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; font-weight: 600; line-height: 1.35; }
+  .row .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #d9dce0; }
+  .row b { color: #9aa0a8; font-weight: 700; }
+  .row b.w { color: #fff; }
+
+  .tabbar, .secnav { display: none; }
+  @media (max-width: 860px) {
+    .main-nav { display: none; }
+    .bar { min-height: 54px; }
+    .mark { width: 34px; height: 34px; }
+    .word { font-size: 20px; }
+    .secnav { display: block; background: var(--surface); border-bottom: 1px solid var(--line); }
+    .secnav .wrap { display: flex; overflow-x: auto; scrollbar-width: none; }
+    .secnav a { flex: none; font-weight: 600; font-size: 14px; text-decoration: none; color: var(--text-2); padding: 12px 12px 10px; box-shadow: inset 0 -3px 0 transparent; }
+    .secnav a[aria-current='page'] { color: var(--brand); box-shadow: inset 0 -3px 0 var(--brand); }
+    .tabbar {
+      display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; inset: auto 0 0 0; z-index: 40;
+      background: var(--surface); padding-bottom: env(safe-area-inset-bottom, 0px); border-top: 1px solid var(--line);
+      box-shadow: 0 -2px 10px rgba(18, 20, 23, 0.06);
+    }
+    .tabbar a { color: var(--text-3); text-decoration: none; text-align: center; font-weight: 600; font-size: 12.5px; padding: 13px 4px; }
+    .tabbar a[aria-current='page'] { color: var(--brand); box-shadow: inset 0 3px 0 var(--brand); }
+    :global(body) { padding-bottom: 64px; }
+  }
+</style>

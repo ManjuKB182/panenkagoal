@@ -1,0 +1,37 @@
+---
+import type { Match } from '../lib/types';
+import { kickoffTime, shortDate } from '../lib/format';
+
+interface Props { matches: Match[]; showDate?: boolean }
+const { matches, showDate = false } = Astro.props;
+---
+<ul class="ml">
+  {matches.map((m) => (
+    <li>
+      <span class="h">{m.home}</span>
+      <span class={`st ${m.status}`}>
+        {m.status === 'ft' || m.status === 'live' ? (
+          <><b>{m.homeScore} – {m.awayScore}</b><small>{m.status === 'ft' ? 'FT' : 'LIVE'}</small></>
+        ) : m.status === 'postponed' ? (
+          <small>Postponed</small>
+        ) : (
+          <><b>{kickoffTime(m.kickoff)}</b>{showDate && <small>{shortDate(m.kickoff)}</small>}</>
+        )}
+        {(m.status === 'ft') && showDate && <small>{shortDate(m.kickoff)}</small>}
+      </span>
+      <span class="a">{m.away}</span>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .ml { list-style: none; margin: 0; padding: 0; }
+  li { display: grid; grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr); gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; font-weight: 600; }
+  li:last-child { border-bottom: 0; }
+  .h { text-align: right; }
+  .st { display: grid; justify-items: center; line-height: 1.25; }
+  .st b { font-weight: 700; font-size: 16px; padding: 3px 10px; border-radius: 6px; background: var(--surface-2); color: var(--text); }
+  .st small { font-size: 11.5px; font-weight: 600; color: var(--text-3); margin-top: 3px; }
+  .st.live b { background: var(--brand-tint); color: var(--brand); }
+  .st.live small { color: var(--brand); }
+</style>

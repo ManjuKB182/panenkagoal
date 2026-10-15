@@ -1,0 +1,98 @@
+---
+import type { Competition } from '../config/competitions';
+import type { StandingRow } from '../lib/types';
+
+interface Props { rows: StandingRow[]; comp: Competition; compact?: boolean; limit?: number; caption?: string }
+const { rows, comp, compact = false, limit, caption } = Astro.props;
+const shown = limit ? rows.slice(0, limit) : rows;
+const z = comp.zones ?? {};
+const zone = (pos: number) =>
+  z.top && pos <= z.top ? 'top' : z.promotion && pos <= z.promotion ? 'promo' : z.relegation && pos > rows.length - z.relegation ? 'rel' : '';
+const move = (r: StandingRow) => (r.prevPos && r.prevPos !== r.pos ? (r.prevPos > r.pos ? 'up' : 'down') : '');
+const hasZones = Boolean(z.top || z.promotion || z.relegation);
+---
+<div class="tbl">
+  <table>
+    {caption && <caption class="sr-only">{caption}</caption>}
+    <thead>
+      <tr>
+        <th class="l" scope="col">#</th>
+        <th class="l" scope="col">Club</th>
+        <th scope="col" title="Played">P</th>
+        {!compact && <th scope="col" title="Won">W</th>}
+        {!compact && <th scope="col" title="Drawn">D</th>}
+        {!compact && <th scope="col" title="Lost">L</th>}
+        {!compact && <th scope="col" title="Goals for">GF</th>}
+        {!compact && <th scope="col" title="Goals against">GA</th>}
+        <th scope="col" title="Goal difference">GD</th>
+        <th scope="col" title="Points">Pts</th>
+        {!compact && <th class="l" scope="col">Form</th>}
+      </tr>
+    </thead>
+    <tbody>
+      {shown.map((r) => (
+        <tr class={zone(r.pos)} data-team={r.team}>
+          <td class="l pos">
+            {r.pos}
+            {move(r) === 'up' && <span class="mv up" title={`Up from ${r.prevPos}`}>▲</span>}
+            {move(r) === 'down' && <span class="mv down" title={`Down from ${r.prevPos}`}>▼</span>}
+          </td>
+          <td class="l team">
+            <span class="tm">
+              {r.logo && <img src={r.logo} alt="" width="20" height="20" loading="lazy" />}
+              <span class="full">{r.team}</span>
+            </span>
+          </td>
+          <td>{r.played}</td>
+          {!compact && <td>{r.won}</td>}
+          {!compact && <td>{r.drawn}</td>}
+          {!compact && <td>{r.lost}</td>}
+          {!compact && <td>{r.gf}</td>}
+          {!compact && <td>{r.ga}</td>}
+          <td>{r.gd > 0 ? `+${r.gd}` : r.gd}</td>
+          <td class="pts">{r.points}</td>
+          {!compact && (
+            <td class="l">
+              <span class="form">{(r.form ?? '').split('').map((f) => <i class={f}>{f}</i>)}</span>
+            </td>
+          )}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  {hasZones && !compact && (
+    <p class="legend">
+      {z.top && <span class="lg top">Top {z.top}{comp.slug === 'isl' ? ': playoffs' : ''}</span>}
+      {z.promotion && <span class="lg promo">Promotion</span>}
+      {z.relegation && <span class="lg rel">Relegation</span>}
+    </p>
+  )}
+</div>
+
+<style>
+  .pos { width: 48px; font-weight: 600; color: var(--text-2); position: relative; padding-left: 16px !important; }
+  .pos::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 0 3px 3px 0; background: transparent; }
+  tr.top .pos::before { background: var(--win); }
+  tr.promo .pos::before { background: var(--accent); }
+  tr.rel .pos::before { background: var(--brand); }
+  tbody tr:hover td { background: var(--surface-2); }
+  /* Flex goes on an inner span: a flex <td> stops behaving like a table cell and breaks the row lines. */
+  .team { min-width: 170px; white-space: normal; font-weight: 600; color: var(--text); }
+  .tm { display: flex; align-items: center; gap: 10px; }
+  .team img { width: 22px; height: 22px; object-fit: contain; flex: none; border-radius: 4px; }
+  .pts { font-weight: 700; color: var(--text); }
+  td { color: var(--text-2); }
+  .mv { font-size: 8px; margin-left: 5px; vertical-align: 2px; }
+  .mv.up { color: var(--win); }
+  .mv.down { color: var(--loss); }
+  .form { display: inline-flex; gap: 3px; }
+  .form i { width: 18px; height: 18px; display: grid; place-items: center; font: 600 10px/1 var(--body); font-style: normal; color: #fff; border-radius: 50%; }
+  .form .W { background: var(--win); }
+  .form .D { background: var(--draw); }
+  .form .L { background: var(--loss); }
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; padding: 10px 14px; font-size: 13px; color: var(--text-3); border-top: 1px solid var(--line); }
+  .lg::before { content: ''; display: inline-block; width: 10px; height: 3px; border-radius: 2px; margin-right: 7px; vertical-align: 3px; }
+  .lg.top::before { background: var(--win); }
+  .lg.promo::before { background: var(--accent); }
+  .lg.rel::before { background: var(--brand); }
+</style>

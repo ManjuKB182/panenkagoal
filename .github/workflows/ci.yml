@@ -1,0 +1,94 @@
+# Checks every push and PR. PRs get a preview deploy; merges to main deploy panenkagoal.com.
+name: ci
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+  push:
+    branches: [main]
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CF_PROJECT: panenkagoal
+
+jobs:
+  check:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run validate:data
+      - run: npm test
+      - run: npm run check
+      - run: npm run build # builds from the snapshots committed in the repo
+
+  preview:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    needs: check
+    runs-on: ubuntu-latest
+    permissions: { contents: read, pull-requests: write, deployments: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      # Each PR gets its own Neon branch (free plan: 10 branches), deleted when the PR closes.
+      - id: db
+        uses: neondatabase/create-branch-action@v6
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          branch_name: pr-${{ github.event.number }}
+          api_key: ${{ secrets.NEON_API_KEY }}
+      - run: npm run db:migrate && npm run snapshots:pull && npm run build
+        env: { DATABASE_URL: '${{ steps.db.outputs.db_url_pooled }}' }
+      - id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ env.CF_PROJECT }} --branch=pr-${{ github.event.number }}
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number: context.issue.number,
+              body: `Preview: ${{ steps.deploy.outputs.deployment-url }}`,
+            });
+
+  cleanup:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: neondatabase/delete-branch-action@v3
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          branch: pr-${{ github.event.number }}
+          api_key: ${{ secrets.NEON_API_KEY }}
+
+  release:
+    if: github.event_name == 'push'
+    needs: check
+    runs-on: ubuntu-latest
+    concurrency: { group: deploy-production, cancel-in-progress: false }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run db:migrate && npm run snapshots:pull && npm run build
+        env: { DATABASE_URL: '${{ secrets.DATABASE_URL }}' }
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ env.CF_PROJECT }} --branch=main
+      - name: Smoke test
+        run: |
+          sleep 20
+          for path in / /stats /stats/isl /watch; do
+            curl -fsS -o /dev/null "https://panenkagoal.com$path" && echo "ok $path"
+          done

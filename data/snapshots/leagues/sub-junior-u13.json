@@ -1,0 +1,2500 @@
+{
+  "slug": "sub-junior-u13",
+  "seasonLabel": "AIFF Sub Junior League 2025-26",
+  "season": "2025-26",
+  "stages": [
+    {
+      "name": "Play-Off Round",
+      "groups": [
+        {
+          "name": "Group A",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Minerva Academy FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13797-logo_small-1790845672.png",
+              "played": 3,
+              "won": 3,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 18,
+              "ga": 4,
+              "gd": 14,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "Sreenidi Deccan Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SreenidhiDeccanFootballClubLogo_1637303730.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 7,
+              "ga": 3,
+              "gd": 4,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "Techtro Lucknow FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_14576-logo_small-1625042708.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 7,
+              "ga": 10,
+              "gd": -3,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "RKM FOOTBALL ACADEMY",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_RKMFA_1675477867.jpeg",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 3,
+              "ga": 18,
+              "gd": -15,
+              "points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final Round",
+      "groups": [
+        {
+          "name": "Group A",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "CLASSIC FOOTBALL ACADEMY",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_CFALOGO_1635601830.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 6,
+              "ga": 2,
+              "gd": 4,
+              "points": 7
+            },
+            {
+              "pos": 2,
+              "team": "Alchemy International FA",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11395-logo_small-1765175480.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 9,
+              "ga": 4,
+              "gd": 5,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "Punjab FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11135-logo_small-1757679563.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 4,
+              "ga": 5,
+              "gd": -1,
+              "points": 4
+            },
+            {
+              "pos": 4,
+              "team": "Rudra FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_RudraLogo_1783949748.jpg",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 2,
+              "ga": 10,
+              "gd": -8,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Group B",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Minerva Academy FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13797-logo_small-1790845672.png",
+              "played": 3,
+              "won": 3,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 25,
+              "ga": 3,
+              "gd": 22,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "FOOTBALL 4 CHANGE ACADEMY",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12771-logo_small-1628786764.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 11,
+              "ga": 8,
+              "gd": 3,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Jamshedpur FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_jfclogo_1583230074.jpg",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 4,
+              "ga": 5,
+              "gd": -1,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "Football Club Mangalore",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12360-logo_small-1767855249.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 6,
+              "ga": 30,
+              "gd": -24,
+              "points": 3
+            }
+          ]
+        },
+        {
+          "name": "Group C",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Reliance Foundation Young Champs",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11472-logo_small-1602054182.jpg",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 11,
+              "ga": 3,
+              "gd": 8,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "FC Madras",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11396-logo_small-1732536353.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 18,
+              "ga": 4,
+              "gd": 14,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "East Bengal FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_EastBengalFClogowebp1_1680264050.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 13,
+              "ga": 7,
+              "gd": 6,
+              "points": 6
+            },
+            {
+              "pos": 4,
+              "team": "Belgaum United Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_9ADC5BA16C9642158E8D5DF9650E77ED_1701449351.jpeg",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 2,
+              "ga": 30,
+              "gd": -28,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Group D",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Bengaluru Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8021-logo_small-1578937550.png",
+              "played": 3,
+              "won": 3,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 8,
+              "ga": 3,
+              "gd": 5,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "Mohun Bagan Super Giant",
+              "logo": "https://aiff.b-cdn.net/logos/sm_14303-logo_small-1688391074.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 8,
+              "ga": 4,
+              "gd": 4,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "Sudeva Delhi FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11400-logo_small-1635259548.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 6,
+              "ga": 10,
+              "gd": -4,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "Sreenidi Deccan Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SreenidhiDeccanFootballClubLogo_1637303730.png",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 2,
+              "ga": 7,
+              "gd": -5,
+              "points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Zonal Group Stage",
+      "groups": [
+        {
+          "name": "Group D",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Football Club Mangalore",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12360-logo_small-1767855249.png",
+              "played": 14,
+              "won": 12,
+              "drawn": 2,
+              "lost": 0,
+              "gf": 64,
+              "ga": 18,
+              "gd": 46,
+              "points": 38
+            },
+            {
+              "pos": 2,
+              "team": "Belgaum United Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_9ADC5BA16C9642158E8D5DF9650E77ED_1701449351.jpeg",
+              "played": 14,
+              "won": 10,
+              "drawn": 1,
+              "lost": 3,
+              "gf": 66,
+              "ga": 22,
+              "gd": 44,
+              "points": 31
+            },
+            {
+              "pos": 3,
+              "team": "Dempo Sports Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20200107at134209_1578384848.jpeg",
+              "played": 14,
+              "won": 6,
+              "drawn": 6,
+              "lost": 2,
+              "gf": 42,
+              "ga": 21,
+              "gd": 21,
+              "points": 24
+            },
+            {
+              "pos": 4,
+              "team": "SESA Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SFANewLogo_1658138240.png",
+              "played": 14,
+              "won": 6,
+              "drawn": 2,
+              "lost": 6,
+              "gf": 38,
+              "ga": 22,
+              "gd": 16,
+              "points": 20
+            },
+            {
+              "pos": 5,
+              "team": "Salgaocar FC",
+              "logo": "https://aiff.b-cdn.net/logos/8010-logo-1480663371.png",
+              "played": 14,
+              "won": 6,
+              "drawn": 2,
+              "lost": 6,
+              "gf": 37,
+              "ga": 43,
+              "gd": -6,
+              "points": 20
+            },
+            {
+              "pos": 6,
+              "team": "FC Goa",
+              "logo": "https://aiff.b-cdn.net/logos/11041-logo-1516860996.png",
+              "played": 14,
+              "won": 4,
+              "drawn": 6,
+              "lost": 4,
+              "gf": 43,
+              "ga": 33,
+              "gd": 10,
+              "points": 18
+            },
+            {
+              "pos": 7,
+              "team": "South Goa United Club of Sports & Culture ",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_InShot20240611154508440_1729531275.png",
+              "played": 14,
+              "won": 2,
+              "drawn": 1,
+              "lost": 11,
+              "gf": 24,
+              "ga": 51,
+              "gd": -27,
+              "points": 7
+            },
+            {
+              "pos": 8,
+              "team": "Churchill Brothers FC Goa",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8009-logo_small-1645794148.png",
+              "played": 14,
+              "won": 0,
+              "drawn": 0,
+              "lost": 14,
+              "gf": 4,
+              "ga": 108,
+              "gd": -104,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Group E",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Alchemy International FA",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11395-logo_small-1765175480.png",
+              "played": 14,
+              "won": 13,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 57,
+              "ga": 4,
+              "gd": 53,
+              "points": 40
+            },
+            {
+              "pos": 2,
+              "team": "Bengaluru Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8021-logo_small-1578937550.png",
+              "played": 14,
+              "won": 12,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 90,
+              "ga": 13,
+              "gd": 77,
+              "points": 37
+            },
+            {
+              "pos": 3,
+              "team": "PFC Kerala",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_PFCKeralaPngLogo_1747911403.png",
+              "played": 14,
+              "won": 9,
+              "drawn": 1,
+              "lost": 4,
+              "gf": 24,
+              "ga": 16,
+              "gd": 8,
+              "points": 28
+            },
+            {
+              "pos": 4,
+              "team": "South United FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11949-logo_small-1658233791.jpg",
+              "played": 14,
+              "won": 5,
+              "drawn": 1,
+              "lost": 8,
+              "gf": 34,
+              "ga": 37,
+              "gd": -3,
+              "points": 16
+            },
+            {
+              "pos": 5,
+              "team": "Sporting Club KERALA",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_logo06_1763113217.png",
+              "played": 14,
+              "won": 4,
+              "drawn": 4,
+              "lost": 6,
+              "gf": 23,
+              "ga": 32,
+              "gd": -9,
+              "points": 16
+            },
+            {
+              "pos": 6,
+              "team": "Gokulam Kerala FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11821-logo_small-1704290734.png",
+              "played": 14,
+              "won": 4,
+              "drawn": 1,
+              "lost": 9,
+              "gf": 19,
+              "ga": 50,
+              "gd": -31,
+              "points": 13
+            },
+            {
+              "pos": 7,
+              "team": "Altius International Football Academy - AIFA",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_AIFARGBPNG1_1683533007.png",
+              "played": 14,
+              "won": 2,
+              "drawn": 3,
+              "lost": 9,
+              "gf": 11,
+              "ga": 36,
+              "gd": -25,
+              "points": 9
+            },
+            {
+              "pos": 8,
+              "team": "Kerala Blasters Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8982-logo_small-1608191863.jpg",
+              "played": 14,
+              "won": 0,
+              "drawn": 2,
+              "lost": 12,
+              "gf": 8,
+              "ga": 78,
+              "gd": -70,
+              "points": 2
+            }
+          ]
+        },
+        {
+          "name": "Group H",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Mohun Bagan Super Giant",
+              "logo": "https://aiff.b-cdn.net/logos/sm_14303-logo_small-1688391074.png",
+              "played": 12,
+              "won": 9,
+              "drawn": 3,
+              "lost": 0,
+              "gf": 31,
+              "ga": 4,
+              "gd": 27,
+              "points": 30
+            },
+            {
+              "pos": 2,
+              "team": "East Bengal FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_EastBengalFClogowebp1_1680264050.png",
+              "played": 12,
+              "won": 8,
+              "drawn": 3,
+              "lost": 1,
+              "gf": 31,
+              "ga": 7,
+              "gd": 24,
+              "points": 27
+            },
+            {
+              "pos": 3,
+              "team": "BENGAL FOOTBALL ACADEMY",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11777-logo_small-1784522354.png",
+              "played": 12,
+              "won": 7,
+              "drawn": 4,
+              "lost": 1,
+              "gf": 28,
+              "ga": 9,
+              "gd": 19,
+              "points": 25
+            },
+            {
+              "pos": 4,
+              "team": "SKM SPORTS FOUNDATION (KALNA)",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SKMSFlogo_1720508654.jpeg",
+              "played": 12,
+              "won": 5,
+              "drawn": 1,
+              "lost": 6,
+              "gf": 21,
+              "ga": 18,
+              "gd": 3,
+              "points": 16
+            },
+            {
+              "pos": 5,
+              "team": "Bhawanipore FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_BhawaniporeClubLogo_1769362135.png",
+              "played": 12,
+              "won": 4,
+              "drawn": 0,
+              "lost": 8,
+              "gf": 13,
+              "ga": 26,
+              "gd": -13,
+              "points": 12
+            },
+            {
+              "pos": 6,
+              "team": "Adamas United Sports Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG20240402211655_1712072860.jpg",
+              "played": 12,
+              "won": 2,
+              "drawn": 0,
+              "lost": 10,
+              "gf": 8,
+              "ga": 40,
+              "gd": -32,
+              "points": 6
+            },
+            {
+              "pos": 7,
+              "team": "BIDHANNAGAR MUNICIPAL SPORTS ACADEMY",
+              "logo": "https://aiff.b-cdn.net/logos/11644-Slogo-1576385866.png",
+              "played": 12,
+              "won": 1,
+              "drawn": 1,
+              "lost": 10,
+              "gf": 10,
+              "ga": 38,
+              "gd": -28,
+              "points": 4
+            },
+            {
+              "pos": 8,
+              "team": "Mohammedan Sporting Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8020-logo_small-1645793900.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Group A",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Punjab FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11135-logo_small-1757679563.png",
+              "played": 10,
+              "won": 9,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 63,
+              "ga": 5,
+              "gd": 58,
+              "points": 28
+            },
+            {
+              "pos": 2,
+              "team": "Minerva Academy FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13797-logo_small-1790845672.png",
+              "played": 9,
+              "won": 7,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 63,
+              "ga": 7,
+              "gd": 56,
+              "points": 22
+            },
+            {
+              "pos": 3,
+              "team": "Namdhari Sports Academy",
+              "logo": "https://aiff.b-cdn.net/logos/lr_12488-logo-1655547091.png",
+              "played": 10,
+              "won": 5,
+              "drawn": 1,
+              "lost": 4,
+              "gf": 23,
+              "ga": 19,
+              "gd": 4,
+              "points": 16
+            },
+            {
+              "pos": 4,
+              "team": "Corbett FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13750-logo_small-1629904943.png",
+              "played": 10,
+              "won": 4,
+              "drawn": 1,
+              "lost": 5,
+              "gf": 19,
+              "ga": 23,
+              "gd": -4,
+              "points": 13
+            },
+            {
+              "pos": 5,
+              "team": "Real Kashmir FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11497-logo_small-1645793815.png",
+              "played": 9,
+              "won": 2,
+              "drawn": 0,
+              "lost": 7,
+              "gf": 14,
+              "ga": 43,
+              "gd": -29,
+              "points": 6
+            },
+            {
+              "pos": 6,
+              "team": "Mother's Pride Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Untitled_1685433186.jpg",
+              "played": 10,
+              "won": 0,
+              "drawn": 0,
+              "lost": 10,
+              "gf": 5,
+              "ga": 90,
+              "gd": -85,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Group F",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "FC Madras",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11396-logo_small-1732536353.png",
+              "played": 10,
+              "won": 10,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 89,
+              "ga": 3,
+              "gd": 86,
+              "points": 30
+            },
+            {
+              "pos": 2,
+              "team": "Sreenidi Deccan Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SreenidhiDeccanFootballClubLogo_1637303730.png",
+              "played": 10,
+              "won": 8,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 60,
+              "ga": 12,
+              "gd": 48,
+              "points": 24
+            },
+            {
+              "pos": 3,
+              "team": "Vels Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Velslogo_1753695301.jpg",
+              "played": 10,
+              "won": 3,
+              "drawn": 2,
+              "lost": 5,
+              "gf": 17,
+              "ga": 40,
+              "gd": -23,
+              "points": 11
+            },
+            {
+              "pos": 4,
+              "team": "SP FOOTBALL ACADEMY ",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG20220223WA0018_1681483988.jpg",
+              "played": 10,
+              "won": 2,
+              "drawn": 2,
+              "lost": 6,
+              "gf": 10,
+              "ga": 40,
+              "gd": -30,
+              "points": 8
+            },
+            {
+              "pos": 5,
+              "team": "Dream Big Soccer School India, Karur",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_6179069582631876666120_1698129099.jpg",
+              "played": 10,
+              "won": 2,
+              "drawn": 1,
+              "lost": 7,
+              "gf": 8,
+              "ga": 44,
+              "gd": -36,
+              "points": 7
+            },
+            {
+              "pos": 6,
+              "team": "YAZHI F C",
+              "logo": "https://aiff.b-cdn.net/logos/sm_18993-logo_small-1769251006.jpg",
+              "played": 10,
+              "won": 2,
+              "drawn": 1,
+              "lost": 7,
+              "gf": 5,
+              "ga": 50,
+              "gd": -45,
+              "points": 7
+            }
+          ]
+        },
+        {
+          "name": "Group G",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Jamshedpur FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_jfclogo_1583230074.jpg",
+              "played": 10,
+              "won": 10,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 41,
+              "ga": 2,
+              "gd": 39,
+              "points": 30
+            },
+            {
+              "pos": 2,
+              "team": "RKM FOOTBALL ACADEMY",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_RKMFA_1675477867.jpeg",
+              "played": 10,
+              "won": 3,
+              "drawn": 5,
+              "lost": 2,
+              "gf": 16,
+              "ga": 14,
+              "gd": 2,
+              "points": 14
+            },
+            {
+              "pos": 3,
+              "team": "Future Stars Sports Academy ",
+              "logo": "https://aiff.b-cdn.net/logos/lr_17992-logo-1712192657.jpg",
+              "played": 10,
+              "won": 3,
+              "drawn": 2,
+              "lost": 5,
+              "gf": 9,
+              "ga": 19,
+              "gd": -10,
+              "points": 11
+            },
+            {
+              "pos": 4,
+              "team": "Inter Kashi",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_PHOTO20231101180704_1698865826.jpg",
+              "played": 9,
+              "won": 2,
+              "drawn": 3,
+              "lost": 4,
+              "gf": 8,
+              "ga": 24,
+              "gd": -16,
+              "points": 9
+            },
+            {
+              "pos": 5,
+              "team": "United Sports Club",
+              "logo": "https://aiff.b-cdn.net/logos/8076-logo-1481010216.png",
+              "played": 8,
+              "won": 2,
+              "drawn": 1,
+              "lost": 5,
+              "gf": 9,
+              "ga": 13,
+              "gd": -4,
+              "points": 7
+            },
+            {
+              "pos": 6,
+              "team": "SP ONE FOUNDATION",
+              "logo": "https://aiff.b-cdn.net/logos/sm_19115-logo_small-1757654840.jpg",
+              "played": 9,
+              "won": 2,
+              "drawn": 1,
+              "lost": 6,
+              "gf": 11,
+              "ga": 22,
+              "gd": -11,
+              "points": 7
+            }
+          ]
+        },
+        {
+          "name": "Group B",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Sudeva Delhi FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11400-logo_small-1635259548.png",
+              "played": 10,
+              "won": 9,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 84,
+              "ga": 15,
+              "gd": 69,
+              "points": 27
+            },
+            {
+              "pos": 2,
+              "team": "Techtro Lucknow FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_14576-logo_small-1625042708.png",
+              "played": 10,
+              "won": 9,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 37,
+              "ga": 12,
+              "gd": 25,
+              "points": 27
+            },
+            {
+              "pos": 3,
+              "team": "BLG- THE DIAMOND ROCK F.C.",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_MPPLTEAMSLOGO7TDRFABALAGHAT_1677123470.jpg",
+              "played": 10,
+              "won": 5,
+              "drawn": 1,
+              "lost": 4,
+              "gf": 29,
+              "ga": 24,
+              "gd": 5,
+              "points": 16
+            },
+            {
+              "pos": 4,
+              "team": "Delhi Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_DELHIFCLOGOPNGW11_1616388430.png",
+              "played": 10,
+              "won": 4,
+              "drawn": 0,
+              "lost": 6,
+              "gf": 22,
+              "ga": 48,
+              "gd": -26,
+              "points": 12
+            },
+            {
+              "pos": 5,
+              "team": "Rajasthan United Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1617780510.png",
+              "played": 10,
+              "won": 2,
+              "drawn": 1,
+              "lost": 7,
+              "gf": 27,
+              "ga": 39,
+              "gd": -12,
+              "points": 7
+            },
+            {
+              "pos": 6,
+              "team": "Jaipur Elite Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_clublogo_1626324243.jpeg",
+              "played": 10,
+              "won": 0,
+              "drawn": 0,
+              "lost": 10,
+              "gf": 7,
+              "ga": 68,
+              "gd": -61,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Group C",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Reliance Foundation Young Champs",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11472-logo_small-1602054182.jpg",
+              "played": 14,
+              "won": 14,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 149,
+              "ga": 1,
+              "gd": 148,
+              "points": 42
+            },
+            {
+              "pos": 2,
+              "team": "Rudra FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_RudraLogo_1783949748.jpg",
+              "played": 14,
+              "won": 10,
+              "drawn": 0,
+              "lost": 4,
+              "gf": 99,
+              "ga": 20,
+              "gd": 79,
+              "points": 30
+            },
+            {
+              "pos": 3,
+              "team": "Rising Pune F.C.",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13535-logo_small-1732603147.jpg",
+              "played": 14,
+              "won": 10,
+              "drawn": 0,
+              "lost": 4,
+              "gf": 75,
+              "ga": 21,
+              "gd": 54,
+              "points": 30
+            },
+            {
+              "pos": 4,
+              "team": "Sanjeevan Sports Academy",
+              "logo": "https://aiff.b-cdn.net/logos/sm_19031-logo_small-1765177562.jpg",
+              "played": 14,
+              "won": 9,
+              "drawn": 0,
+              "lost": 5,
+              "gf": 60,
+              "ga": 40,
+              "gd": 20,
+              "points": 27
+            },
+            {
+              "pos": 5,
+              "team": "Baroda Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_1554125736347_1599897872.png",
+              "played": 14,
+              "won": 7,
+              "drawn": 0,
+              "lost": 7,
+              "gf": 52,
+              "ga": 63,
+              "gd": -11,
+              "points": 21
+            },
+            {
+              "pos": 6,
+              "team": "FLORY SOCCER ACADEMY",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_be5f610a533e4a9c8aa1b5a058e894d7_1771213295.jpeg",
+              "played": 14,
+              "won": 4,
+              "drawn": 0,
+              "lost": 10,
+              "gf": 27,
+              "ga": 78,
+              "gd": -51,
+              "points": 12
+            },
+            {
+              "pos": 7,
+              "team": "Oscar Foundation- Mumbai",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12188-logo_small-1720439327.jpg",
+              "played": 14,
+              "won": 2,
+              "drawn": 0,
+              "lost": 12,
+              "gf": 16,
+              "ga": 105,
+              "gd": -89,
+              "points": 6
+            },
+            {
+              "pos": 8,
+              "team": "NAVRACHANA SPORTS ACADEMY",
+              "logo": "https://aiff.b-cdn.net/logos/lr_14440-logo-1613632967.jpg",
+              "played": 14,
+              "won": 0,
+              "drawn": 0,
+              "lost": 14,
+              "gf": 4,
+              "ga": 154,
+              "gd": -150,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Group I",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "CLASSIC FOOTBALL ACADEMY",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_CFALOGO_1635601830.png",
+              "played": 6,
+              "won": 6,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 27,
+              "ga": 2,
+              "gd": 25,
+              "points": 18
+            },
+            {
+              "pos": 2,
+              "team": "FOOTBALL 4 CHANGE ACADEMY",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12771-logo_small-1628786764.png",
+              "played": 6,
+              "won": 5,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 23,
+              "ga": 5,
+              "gd": 18,
+              "points": 15
+            },
+            {
+              "pos": 3,
+              "team": "Lenruol Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_lenruolfc_1689187869.png",
+              "played": 6,
+              "won": 4,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 29,
+              "ga": 6,
+              "gd": 23,
+              "points": 12
+            },
+            {
+              "pos": 4,
+              "team": "PEHLUM LAMHIL LAWM",
+              "logo": "https://aiff.b-cdn.net/logos/13510-Slogo-1576385903.jpg",
+              "played": 6,
+              "won": 2,
+              "drawn": 1,
+              "lost": 3,
+              "gf": 15,
+              "ga": 21,
+              "gd": -6,
+              "points": 7
+            },
+            {
+              "pos": 5,
+              "team": "Shillong Lajong FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1660315168.png",
+              "played": 6,
+              "won": 2,
+              "drawn": 1,
+              "lost": 3,
+              "gf": 7,
+              "ga": 25,
+              "gd": -18,
+              "points": 7
+            },
+            {
+              "pos": 6,
+              "team": "North East United FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11042-logo_small-1576475847.png",
+              "played": 6,
+              "won": 0,
+              "drawn": 1,
+              "lost": 5,
+              "gf": 8,
+              "ga": 22,
+              "gd": -14,
+              "points": 1
+            },
+            {
+              "pos": 7,
+              "team": "Bodofa Football Club, Chirang",
+              "played": 6,
+              "won": 0,
+              "drawn": 1,
+              "lost": 5,
+              "gf": 6,
+              "ga": 34,
+              "gd": -28,
+              "points": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Qualifier Round",
+      "groups": [
+        {
+          "name": "Group QF A",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Northern United Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_fc_1677561965.jpg",
+              "played": 1,
+              "won": 1,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 4,
+              "ga": 2,
+              "gd": 2,
+              "points": 3
+            },
+            {
+              "pos": 2,
+              "team": "LUCKNOW FALCONS FOOTBALL CLUB",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG4006_1749283975.png",
+              "played": 1,
+              "won": 0,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 2,
+              "ga": 4,
+              "gd": -2,
+              "points": 0
+            },
+            {
+              "pos": 3,
+              "team": "Techtro Lucknow FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_14576-logo_small-1625042708.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF B",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "ARA FC",
+              "logo": "https://aiff.b-cdn.net/logos/11783-logo-1494995964.png",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 20,
+              "ga": 0,
+              "gd": 20,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "Kahaani Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_kahaani5ColourLogo_1577956263.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 4,
+              "ga": 10,
+              "gd": -6,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Nashik Juniors Football Club - Nashik",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_NJ_1757840324.jpg",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 1,
+              "ga": 15,
+              "gd": -14,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF C",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Maharashtra Oranje FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_MaharashtraOranjeFootballClub_1694505500.jpg",
+              "played": 3,
+              "won": 3,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 19,
+              "ga": 1,
+              "gd": 18,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "SSE BFC Soccer Schools, Mumbai",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SSEBFClogo_1687852552.jpg",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 12,
+              "ga": 2,
+              "gd": 10,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "Hungry Hearts Soccer School",
+              "logo": "https://aiff.b-cdn.net/logos/sm_15926-logo_small-1654681108.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 5,
+              "ga": 15,
+              "gd": -10,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "Mumbai - Football School of India",
+              "logo": "https://aiff.b-cdn.net/logos/11463-Slogo-1576385742.png",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 0,
+              "ga": 18,
+              "gd": -18,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF D",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "India Rush Soccer Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Logo_1578642843.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 13,
+              "ga": 1,
+              "gd": 12,
+              "points": 7
+            },
+            {
+              "pos": 2,
+              "team": "MUM -Somaiya Sports Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SomaiyaSportsAcademy_1679728894.jpg",
+              "played": 3,
+              "won": 2,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 11,
+              "ga": 2,
+              "gd": 9,
+              "points": 7
+            },
+            {
+              "pos": 3,
+              "team": "The Soccer Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_TSAoldcolors_1751805705.jpg",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 7,
+              "ga": 14,
+              "gd": -7,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "Kenkre FC",
+              "logo": "https://aiff.b-cdn.net/logos/9425-logo-1523701555.jpg",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 2,
+              "ga": 16,
+              "gd": -14,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF E",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "MUM - Dsouza Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_DFALogoNew012Copy_1750333655.png",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 25,
+              "ga": 2,
+              "gd": 23,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "Mumbai Soccer Prodigies",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_MSPFINALLOGO_1782219330.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 7,
+              "ga": 14,
+              "gd": -7,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Bravo Football",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_BravoFootballLogo_1707119780.png",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 3,
+              "ga": 19,
+              "gd": -16,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF F",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Rudra FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_RudraLogo_1783949748.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 5,
+              "ga": 1,
+              "gd": 4,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "Community Football Club India ",
+              "logo": "https://aiff.b-cdn.net/logos/12356-Slogo-1576385887.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 6,
+              "ga": 4,
+              "gd": 2,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Conscient Football Mumbai",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20240722at121331AM1_1721823594.jpeg",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 1,
+              "ga": 7,
+              "gd": -6,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF G",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "PUNE-UKM Kothrud FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_2420095074290820877632649863656194077511089n_1670578129.jpg",
+              "played": 3,
+              "won": 2,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 5,
+              "ga": 2,
+              "gd": 3,
+              "points": 7
+            },
+            {
+              "pos": 2,
+              "team": "Sports Mania",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_PHOTO20241026161637_1734967428.jpg",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 14,
+              "ga": 3,
+              "gd": 11,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "Adrenaline Sports",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_ASLogoFinal_1780767014.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 10,
+              "ga": 6,
+              "gd": 4,
+              "points": 4
+            },
+            {
+              "pos": 4,
+              "team": "Snigmay Pune Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SPFCM_1678962455.png",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 2,
+              "ga": 20,
+              "gd": -18,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF H",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Sanjeevan Sports Academy",
+              "logo": "https://aiff.b-cdn.net/logos/sm_19031-logo_small-1765177562.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 34,
+              "ga": 2,
+              "gd": 32,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "City FC Pune",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_CITYFCLOGO2021_1658769379.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 6,
+              "ga": 24,
+              "gd": -18,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Sportiqo Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG0832_1758020808.jpeg",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 7,
+              "ga": 21,
+              "gd": -14,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF I",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Sporting Club KERALA",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_logo06_1763113217.png",
+              "played": 3,
+              "won": 3,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 20,
+              "ga": 1,
+              "gd": 19,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "New Football Club Kerala",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_FOOTBALLCLUBKERALA11_1749178615.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 8,
+              "ga": 11,
+              "gd": -3,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "Don Bosco Vaduthala",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11787-logo_small-1718284323.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 4,
+              "ga": 10,
+              "gd": -6,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "Sportto Soccer Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11989-logo_small-1676443945.png",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 2,
+              "ga": 12,
+              "gd": -10,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF J",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "South United FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11949-logo_small-1658233791.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 9,
+              "ga": 0,
+              "gd": 9,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "Kickstart FC Karnataka",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12772-logo_small-1683175136.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 5,
+              "ga": 4,
+              "gd": 1,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Roots Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_rootsfootballpng200x200_1659611505.png",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 0,
+              "ga": 10,
+              "gd": -10,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF K",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Raman Sports Academy",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12361-logo_small-1754491550.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 6,
+              "ga": 1,
+              "gd": 5,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "Bangalore City FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_bcfclogo2_1597415004.jpg",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 5,
+              "ga": 4,
+              "gd": 1,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "The Sports School",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_TSSLOGO_1721190499.png",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 1,
+              "ga": 7,
+              "gd": -6,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF L",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Snipers Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SNIPERSLOG_1630644197.jpeg",
+              "played": 1,
+              "won": 1,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 3,
+              "ga": 3,
+              "gd": 0,
+              "points": 3
+            },
+            {
+              "pos": 2,
+              "team": "Sporthood FC",
+              "played": 1,
+              "won": 0,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 3,
+              "ga": 3,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 3,
+              "team": "Conscient Football Bangalore",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13743-logo_small-1721892224.jpeg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF M",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "FC Tamilions",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_FCTLogoBW_1681320278.jpg",
+              "played": 3,
+              "won": 2,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 7,
+              "ga": 4,
+              "gd": 3,
+              "points": 7
+            },
+            {
+              "pos": 2,
+              "team": "Aazura Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/afalogo_1572080046.jpg",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 18,
+              "ga": 8,
+              "gd": 10,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "Sirukalathur Galatipet Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SGFCAIFFLOGO_1732476701.jpg",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 6,
+              "ga": 14,
+              "gd": -8,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "Murugappa Youth Football Academy",
+              "logo": "https://aiff.b-cdn.net/logos/sm_19040-logo_small-1750832501.png",
+              "played": 3,
+              "won": 0,
+              "drawn": 1,
+              "lost": 2,
+              "gf": 4,
+              "ga": 9,
+              "gd": -5,
+              "points": 1
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF N",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "SETHU, MADURAI",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20250812at105652AM_1754986256.jpeg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 9,
+              "ga": 0,
+              "gd": 9,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "FC Marina Academy, Chennai",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Untitleddesign1_1680783114.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 4,
+              "ga": 6,
+              "gd": -2,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Great Goals",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_greatgoalsNBlogoblack_1690365815.png",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 3,
+              "ga": 10,
+              "gd": -7,
+              "points": 0
+            },
+            {
+              "pos": 4,
+              "team": "Mahogany FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Mahogany2006LogoSquareTransparent_1698319278.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF O",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Vels Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Velslogo_1753695301.jpg",
+              "played": 3,
+              "won": 3,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 30,
+              "ga": 0,
+              "gd": 30,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "Thadam FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_TFC_1737099591.jpg",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 15,
+              "ga": 10,
+              "gd": 5,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "Puzhal Football Coaching Association",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_PFCAFootballLogoWHITEBG_1721592056.jpg",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 2,
+              "ga": 23,
+              "gd": -21,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "Football Plus Professional Soccer Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_GriffinLogoV606_1667817925.png",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 1,
+              "ga": 15,
+              "gd": -14,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF T",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "A & N Soccer School",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20240704at133032dfc789b9_1722245983.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 14,
+              "ga": 2,
+              "gd": 12,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "FC Madurai",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_LOGOFCMADURAI_1683788600.jpg",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 4,
+              "ga": 3,
+              "gd": 1,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Reeds FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_16526-logo_small-1766558565.png",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 0,
+              "ga": 13,
+              "gd": -13,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF U",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Dream Big Soccer School India, Karur",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_6179069582631876666120_1698129099.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 21,
+              "ga": 1,
+              "gd": 20,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "First Kick School of Soccer Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Untitleddesign18_1787205735.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 6,
+              "ga": 14,
+              "gd": -8,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "NOVA Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_NOVAFCLogo_1750220053.jpg",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 1,
+              "ga": 13,
+              "gd": -12,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF V",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "BIDHANNAGAR MUNICIPAL SPORTS ACADEMY",
+              "logo": "https://aiff.b-cdn.net/logos/11644-Slogo-1576385866.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 4,
+              "ga": 3,
+              "gd": 1,
+              "points": 4
+            },
+            {
+              "pos": 2,
+              "team": "SP ONE FOUNDATION",
+              "logo": "https://aiff.b-cdn.net/logos/sm_19115-logo_small-1757654840.jpg",
+              "played": 2,
+              "won": 0,
+              "drawn": 2,
+              "lost": 0,
+              "gf": 6,
+              "ga": 6,
+              "gd": 0,
+              "points": 2
+            },
+            {
+              "pos": 3,
+              "team": "United Sports Club",
+              "logo": "https://aiff.b-cdn.net/logos/8076-logo-1481010216.png",
+              "played": 2,
+              "won": 0,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 7,
+              "ga": 8,
+              "gd": -1,
+              "points": 1
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF W",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "SKM SPORTS FOUNDATION (KALNA)",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SKMSFlogo_1720508654.jpeg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 4,
+              "ga": 1,
+              "gd": 3,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "Adamas United Sports Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG20240402211655_1712072860.jpg",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 2,
+              "ga": 3,
+              "gd": -1,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Panihati Fashion Zone Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_FZLOGOWHITE_1682874366.jpeg",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 0,
+              "ga": 2,
+              "gd": -2,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF X",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "FOOTBALL 4 CHANGE ACADEMY",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12771-logo_small-1628786764.png",
+              "played": 4,
+              "won": 4,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 35,
+              "ga": 3,
+              "gd": 32,
+              "points": 12
+            },
+            {
+              "pos": 2,
+              "team": "PEHLUM LAMHIL LAWM",
+              "logo": "https://aiff.b-cdn.net/logos/13510-Slogo-1576385903.jpg",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 18,
+              "ga": 2,
+              "gd": 16,
+              "points": 9
+            },
+            {
+              "pos": 3,
+              "team": "Little Star Academy",
+              "logo": "https://aiff.b-cdn.net/logos/sm_14557-logo_small-1679826989.png",
+              "played": 4,
+              "won": 1,
+              "drawn": 1,
+              "lost": 2,
+              "gf": 5,
+              "ga": 27,
+              "gd": -22,
+              "points": 4
+            },
+            {
+              "pos": 4,
+              "team": "BBFS Shillong",
+              "logo": "https://aiff.b-cdn.net/logos/sm_19106-logo_small-1732173293.png",
+              "played": 4,
+              "won": 0,
+              "drawn": 2,
+              "lost": 2,
+              "gf": 6,
+              "ga": 11,
+              "gd": -5,
+              "points": 2
+            },
+            {
+              "pos": 5,
+              "team": "4 For All Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Logoacademynobg_1738860184.png",
+              "played": 4,
+              "won": 0,
+              "drawn": 1,
+              "lost": 3,
+              "gf": 3,
+              "ga": 24,
+              "gd": -21,
+              "points": 1
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF Y",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "SADAR HILLS FA",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_sfamainlogo_1749720796.png",
+              "played": 3,
+              "won": 3,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 15,
+              "ga": 7,
+              "gd": 8,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "MUVANLAI ATHLETICS",
+              "logo": "https://aiff.b-cdn.net/logos/11492-Slogo-1576385742.jpg",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 12,
+              "ga": 9,
+              "gd": 3,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "LAMKA FA",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_NewLogocopybb_1748498086.jpg",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 13,
+              "ga": 10,
+              "gd": 3,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "ASUFII FA",
+              "logo": "https://aiff.b-cdn.net/logos/sm_16748-logo_small-1698472781.JPG",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 4,
+              "ga": 18,
+              "gd": -14,
+              "points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pre-Qualifier Round (Karnataka Zone)",
+      "groups": [
+        {
+          "name": "GROUP QF Q",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "South United FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11949-logo_small-1658233791.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 11,
+              "ga": 0,
+              "gd": 11,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "Raman Sports Academy",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12361-logo_small-1754491550.jpg",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 3,
+              "ga": 3,
+              "gd": 0,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "Snipers Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SNIPERSLOG_1630644197.jpeg",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 0,
+              "ga": 11,
+              "gd": -11,
+              "points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pre-Qualifier Round (Tamil Nadu Zone)",
+      "groups": [
+        {
+          "name": "Group QF P",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Vels Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Velslogo_1753695301.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 9,
+              "ga": 1,
+              "gd": 8,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "SETHU, MADURAI",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20250812at105652AM_1754986256.jpeg",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 3,
+              "ga": 6,
+              "gd": -3,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "FC Tamilions",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_FCTLogoBW_1681320278.jpg",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 2,
+              "ga": 7,
+              "gd": -5,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "GROUP QF R",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Dream Big Soccer School India, Karur",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_6179069582631876666120_1698129099.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 18,
+              "ga": 0,
+              "gd": 18,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "A & N Soccer School",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20240704at133032dfc789b9_1722245983.jpg",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 1,
+              "ga": 7,
+              "gd": -6,
+              "points": 3
+            },
+            {
+              "pos": 3,
+              "team": "FC Madurai",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_LOGOFCMADURAI_1683788600.jpg",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 0,
+              "ga": 12,
+              "gd": -12,
+              "points": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "aiff-67966",
+      "kickoff": "2026-05-07T02:30:00.000Z",
+      "home": "Sudeva Delhi FC",
+      "away": "Mohun Bagan Super Giant",
+      "homeScore": 1,
+      "awayScore": 5,
+      "status": "ft",
+      "venue": "FURRY FIELD, FC MADRAS"
+    },
+    {
+      "id": "aiff-67968",
+      "kickoff": "2026-05-07T10:30:00.000Z",
+      "home": "Bengaluru Football Club",
+      "away": "Sreenidi Deccan Football Club",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "ft",
+      "venue": "FURRY FIELD, FC MADRAS"
+    },
+    {
+      "id": "aiff-67967",
+      "kickoff": "2026-05-07T10:30:00.000Z",
+      "home": "East Bengal FC",
+      "away": "Belgaum United Football Academy",
+      "homeScore": 9,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "SCAMPER PARK, FC MADRAS"
+    },
+    {
+      "id": "aiff-68485",
+      "kickoff": "2026-05-08T02:00:00.000Z",
+      "home": "CLASSIC FOOTBALL ACADEMY",
+      "away": "FOOTBALL 4 CHANGE ACADEMY",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "SCAMPER PARK, FC MADRAS"
+    },
+    {
+      "id": "aiff-68486",
+      "kickoff": "2026-05-08T10:30:00.000Z",
+      "home": "Minerva Academy FC",
+      "away": "Alchemy International FA",
+      "homeScore": 5,
+      "awayScore": 2,
+      "status": "ft",
+      "venue": "SCAMPER PARK, FC MADRAS"
+    },
+    {
+      "id": "aiff-68487",
+      "kickoff": "2026-05-09T02:00:00.000Z",
+      "home": "Reliance Foundation Young Champs",
+      "away": "Mohun Bagan Super Giant",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "SCAMPER PARK, FC MADRAS"
+    },
+    {
+      "id": "aiff-68488",
+      "kickoff": "2026-05-09T10:30:00.000Z",
+      "home": "Bengaluru Football Club",
+      "away": "FC Madras",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "SCAMPER PARK, FC MADRAS"
+    },
+    {
+      "id": "aiff-68600",
+      "kickoff": "2026-05-11T02:00:00.000Z",
+      "home": "CLASSIC FOOTBALL ACADEMY",
+      "away": "Reliance Foundation Young Champs",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "SCAMPER PARK, FC MADRAS"
+    },
+    {
+      "id": "aiff-68601",
+      "kickoff": "2026-05-11T11:00:00.000Z",
+      "home": "Minerva Academy FC",
+      "away": "Bengaluru Football Club",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "SCAMPER PARK, FC MADRAS"
+    },
+    {
+      "id": "aiff-68729",
+      "kickoff": "2026-05-13T10:30:00.000Z",
+      "home": "CLASSIC FOOTBALL ACADEMY",
+      "away": "Minerva Academy FC",
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "ft",
+      "venue": "SCAMPER PARK, FC MADRAS"
+    }
+  ],
+  "scorers": [
+    {
+      "player": "Areez Alam A",
+      "team": "FC Madras",
+      "goals": 47
+    },
+    {
+      "player": "Lourembam Bikash Singh",
+      "team": "Sanjeevan Sports Academy",
+      "goals": 47
+    },
+    {
+      "player": "TAJ MOHAMMAD",
+      "team": "Sudeva Delhi FC",
+      "goals": 36
+    },
+    {
+      "player": "SHOURY VARAK",
+      "team": "Baroda Football Academy",
+      "goals": 30
+    },
+    {
+      "player": "Mohammad Ahmad Wadoo",
+      "team": "Reliance Foundation Young Champs",
+      "goals": 25
+    }
+  ],
+  "updatedAt": "2026-10-15T14:51:03.824Z"
+}

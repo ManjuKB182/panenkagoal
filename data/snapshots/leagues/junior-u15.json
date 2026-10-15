@@ -1,0 +1,256 @@
+{
+  "slug": "junior-u15",
+  "seasonLabel": "Kalinga Arrows Cup 2026",
+  "season": "Kalinga Arrows Cup 2026",
+  "stages": [
+    {
+      "name": "Group Stage",
+      "groups": [
+        {
+          "name": "Group A",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Bengaluru Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8021-logo_small-1578937550.png",
+              "played": 3,
+              "won": 3,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 18,
+              "ga": 7,
+              "gd": 11,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "AIFF FIFA Talent Academy, Odisha",
+              "logo": "https://aiff.b-cdn.net/logos/sm_19686-logo_small-1728900749.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 12,
+              "ga": 11,
+              "gd": 1,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "FOOTBALL 4 CHANGE ACADEMY",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12771-logo_small-1628786764.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 7,
+              "ga": 14,
+              "gd": -7,
+              "points": 3
+            },
+            {
+              "pos": 4,
+              "team": "Punjab FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11135-logo_small-1757679563.png",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 3,
+              "ga": 8,
+              "gd": -5,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Group B",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Sudeva Delhi FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11400-logo_small-1635259548.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 16,
+              "ga": 8,
+              "gd": 8,
+              "points": 7
+            },
+            {
+              "pos": 2,
+              "team": "FC Madras",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11396-logo_small-1732536353.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 2,
+              "lost": 0,
+              "gf": 14,
+              "ga": 5,
+              "gd": 9,
+              "points": 5
+            },
+            {
+              "pos": 3,
+              "team": "AIFF FIFA Talent Academy, Telangana",
+              "logo": "https://aiff.b-cdn.net/logos/sm_21554-logo_small-1768910639.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 9,
+              "ga": 8,
+              "gd": 1,
+              "points": 4
+            },
+            {
+              "pos": 4,
+              "team": "ODM FOOTBALL SCHOOLS",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_ODMFootballSchoolsLogo_1785305626.jpeg",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 4,
+              "ga": 22,
+              "gd": -18,
+              "points": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "aiff-73431",
+      "kickoff": "2026-09-06T02:30:00.000Z",
+      "home": "AIFF FIFA Talent Academy, Telangana",
+      "away": "Sudeva Delhi FC",
+      "homeScore": 4,
+      "awayScore": 5,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    },
+    {
+      "id": "aiff-73432",
+      "kickoff": "2026-09-06T09:30:00.000Z",
+      "home": "ODM FOOTBALL SCHOOLS",
+      "away": "FC Madras",
+      "homeScore": 1,
+      "awayScore": 10,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    },
+    {
+      "id": "aiff-73485",
+      "kickoff": "2026-09-08T02:30:00.000Z",
+      "home": "FOOTBALL 4 CHANGE ACADEMY",
+      "away": "ODM FOOTBALL SCHOOLS",
+      "homeScore": 6,
+      "awayScore": 2,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    },
+    {
+      "id": "aiff-73486",
+      "kickoff": "2026-09-08T09:30:00.000Z",
+      "home": "Punjab FC",
+      "away": "AIFF FIFA Talent Academy, Telangana",
+      "homeScore": 7,
+      "awayScore": 0,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    },
+    {
+      "id": "aiff-73487",
+      "kickoff": "2026-09-09T02:30:00.000Z",
+      "home": "Bengaluru Football Club",
+      "away": "FC Madras",
+      "homeScore": 8,
+      "awayScore": 3,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    },
+    {
+      "id": "aiff-73488",
+      "kickoff": "2026-09-09T09:30:00.000Z",
+      "home": "AIFF FIFA Talent Academy, Odisha",
+      "away": "Sudeva Delhi FC",
+      "homeScore": 5,
+      "awayScore": 2,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    },
+    {
+      "id": "aiff-73571",
+      "kickoff": "2026-09-10T02:30:00.000Z",
+      "home": "ODM FOOTBALL SCHOOLS",
+      "away": "AIFF FIFA Talent Academy, Telangana",
+      "homeScore": 5,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    },
+    {
+      "id": "aiff-73572",
+      "kickoff": "2026-09-10T09:30:00.000Z",
+      "home": "FOOTBALL 4 CHANGE ACADEMY",
+      "away": "Punjab FC",
+      "homeScore": 4,
+      "awayScore": 4,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    },
+    {
+      "id": "aiff-73573",
+      "kickoff": "2026-09-11T02:30:00.000Z",
+      "home": "FC Madras",
+      "away": "Sudeva Delhi FC",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    },
+    {
+      "id": "aiff-73574",
+      "kickoff": "2026-09-11T09:30:00.000Z",
+      "home": "Bengaluru Football Club",
+      "away": "AIFF FIFA Talent Academy, Odisha",
+      "homeScore": 5,
+      "awayScore": 2,
+      "status": "ft",
+      "venue": "AIFF FIFA ODISHA TALENT ACADEMY"
+    }
+  ],
+  "scorers": [
+    {
+      "player": "Areez Alam A",
+      "team": "FC Madras",
+      "goals": 9
+    },
+    {
+      "player": "TAJ MOHAMMAD",
+      "team": "Sudeva Delhi FC",
+      "goals": 8
+    },
+    {
+      "player": "IRENGBAM NIRUS MEITEI",
+      "team": "Punjab FC",
+      "goals": 7
+    },
+    {
+      "player": "Md Musha",
+      "team": "Bengaluru Football Club",
+      "goals": 6
+    },
+    {
+      "player": "Akash Mondal",
+      "team": "Bengaluru Football Club",
+      "goals": 5
+    }
+  ],
+  "updatedAt": "2026-10-15T14:51:02.041Z"
+}

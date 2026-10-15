@@ -1,0 +1,51 @@
+# Scheduled data jobs. Rebuilds and deploys only when a job reports changed data.
+# Cron lines must match SCHEDULES in scripts/ingest/index.ts. Times are UTC (IST = UTC+5:30).
+name: ingest
+on:
+  schedule:
+    - cron: '17,47 * * * *' # videos + news, every 30 min
+    - cron: '23 */2 * * *'  # ISL, every 2 h
+    - cron: '41 */6 * * *'  # IFL, IWL, IWL 2, I-League 2, every 6 h
+    - cron: '5 1 * * *'     # AIFF youth leagues, 06:35 IST
+    - cron: '35 18 * * *'   # daily rebuild at 00:05 IST
+  workflow_dispatch:
+    inputs:
+      job:
+        description: Job to run
+        type: choice
+        options: [all, videos, news, isl, aiff-ifl, youth]
+        default: all
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency: { group: deploy-production, cancel-in-progress: false }
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      YT_API_KEY: ${{ secrets.YT_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      # Restore the latest data from Neon so this run merges with what earlier runs collected.
+      - run: npm run snapshots:pull
+      - id: ingest
+        run: npm run ingest -- --schedule "${{ github.event.schedule }}" --job "${{ inputs.job || 'auto' }}"
+        continue-on-error: true # a failed source still lets the others deploy; the run is marked below
+      - if: steps.ingest.outputs.changed == 'true'
+        run: npm run build
+      - if: steps.ingest.outputs.changed == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=panenkagoal --branch=main
+      - if: steps.ingest.outcome == 'failure'
+        run: |
+          echo "::error::One or more ingest jobs failed. See the ingest step log."
+          exit 1

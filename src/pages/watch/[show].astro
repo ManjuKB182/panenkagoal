@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import VideoCard from '../../components/VideoCard.astro';
+import { getShows, getVideos, type Show } from '../../lib/data';
+
+export function getStaticPaths() {
+  return getShows().map((show) => ({ params: { show: show.slug }, props: { show } }));
+}
+const { show } = Astro.props as { show: Show };
+const videos = getVideos().panenka.filter((v) => v.show === show.slug);
+const playlist = `https://www.youtube.com/playlist?list=${show.playlistId}`;
+---
+<Base title={show.name} description={show.blurb}>
+  <section class="wrap module">
+    <a class="eyebrow" href="/watch">Watch</a>
+    <h1>{show.name}</h1>
+    {show.nameKn && <p class="kn" lang="kn" style="font-size:20px">{show.nameKn}</p>}
+    <p style="max-width:60ch;margin-top:6px">{show.blurb} <a href={playlist} rel="noopener">Full playlist on YouTube →</a></p>
+  </section>
+  <section class="wrap grid">
+    {videos.map((v) => <VideoCard video={v} />)}
+  </section>
+  {videos.length === 0 && <p class="wrap muted">Episodes appear here after the next update.</p>}
+</Base>
+
+<style>
+  .eyebrow { text-decoration: none; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 20px; }
+</style>

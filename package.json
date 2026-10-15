@@ -1,0 +1,32 @@
+{
+  "name": "panenkagoal",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "vitest run",
+    "ingest": "tsx scripts/ingest/index.ts",
+    "db:migrate": "tsx scripts/db-migrate.ts",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "snapshots:pull": "tsx scripts/pull-snapshots.ts"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@neondatabase/serverless": "^1.2.0",
+    "astro": "^7.3.8",
+    "fast-xml-parser": "^5.11.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  }
+}

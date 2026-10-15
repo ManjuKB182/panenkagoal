@@ -1,0 +1,34 @@
+{
+  "shows": [
+    {
+      "slug": "neeli-pade",
+      "name": "Neeli Pade",
+      "nameKn": "ನೀಲಿ ಪಡೆ",
+      "playlistId": "PLEHFPqueXIIrSwG3zFx7j3dbB7-l5_ep_",
+      "blurb": "Our flagship podcast on Indian football, BFC and Karnataka football.",
+      "titleMatch": "neeli ?pade|ನೀಲಿ ಪಡೆ"
+    },
+    {
+      "slug": "md-previews",
+      "name": "MD Previews",
+      "playlistId": "PLEHFPqueXIIqwP7hYYcqPU0X2IihzpPaD",
+      "blurb": "Matchday previews and quick takes.",
+      "titleMatch": "\\bMD ?preview|match ?day preview"
+    },
+    {
+      "slug": "interviews",
+      "name": "Special Interviews",
+      "playlistId": "PLEHFPqueXIIo2dCGn7kc1CRjqoDWccynC",
+      "blurb": "Conversations with players, coaches and people who run the game.",
+      "titleMatch": "interview"
+    },
+    {
+      "slug": "football-kathe",
+      "name": "Football Kathe Namma Jothe",
+      "nameKn": "ಫುಟ್ಬಾಲ್ ಕಥೆ ನಮ್ಮ ಜೊತೆ",
+      "playlistId": "PLEHFPqueXIIr2o-V1bxh5ajTBOawKuij3",
+      "blurb": "Football stories, told in Kannada.",
+      "titleMatch": "kathe|ಕಥೆ"
+    }
+  ]
+}

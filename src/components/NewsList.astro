@@ -1,0 +1,39 @@
+---
+import type { NewsItem } from '../lib/types';
+import { SECTIONS } from '../config/site';
+import { timeAgo } from '../lib/format';
+
+interface Props { items: NewsItem[]; showSummary?: boolean }
+const { items, showSummary = false } = Astro.props;
+---
+{items.length === 0 ? (
+  <p class="muted">No headlines for this section right now. We check for new ones every 30 minutes.</p>
+) : (
+  <ul class="news">
+    {items.map((n) => (
+      <li>
+        <div class="body">
+          <a href={n.url} rel="noopener" target={n.source === 'Panenka' ? undefined : '_blank'}>{n.title}</a>
+          {showSummary && n.summary && <p class="sum">{n.summary}</p>}
+          <p class="muted">
+            <span class={`src ${n.source === 'Panenka' ? 'panenka' : ''}`}>{n.source}</span>
+            {' · '}{timeAgo(n.publishedAt)}
+            {n.section && <> · {SECTIONS[n.section].title}</>}
+          </p>
+        </div>
+      </li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .news { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
+  li { display: grid; gap: 4px; padding: 14px 18px; border-bottom: 1px solid var(--line); transition: background-color 0.15s; }
+  li:hover { background: var(--surface-2); }
+  li:last-child { border-bottom: 0; }
+  .body { display: grid; gap: 4px; }
+  .body a { color: var(--text); font-weight: 600; text-decoration: none; line-height: 1.4; font-size: 16.5px; }
+  .body a:hover { color: var(--brand); }
+  .sum { color: var(--text-2); font-size: 15px; line-height: 1.5; }
+  .muted { font-size: 13px; }
+</style>

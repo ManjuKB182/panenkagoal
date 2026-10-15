@@ -1,0 +1,45 @@
+---
+import { NAV, SITE } from '../config/site';
+---
+<footer>
+  <div class="wrap grid">
+    <div class="stack" style="gap:8px">
+      <div class="brand"><img src="/logo-192.png" alt="" width="64" height="64" loading="lazy" /><p class="name">Panenka <b>Goal</b></p></div>
+      <p class="kn" lang="kn">{SITE.taglineKn}</p>
+      <p class="small">Made by fans, for fans. Not affiliated with the AIFF, ISL or any club.</p>
+    </div>
+    <nav aria-label="Footer">
+      {NAV.map((n) => <a href={n.href}>{n.label}</a>)}
+      <a href="/news">News</a>
+      <a href="/about">About &amp; data sources</a>
+    </nav>
+    <div class="social">
+      <a href={SITE.socials.youtube} rel="me">YouTube</a>
+      <a href={SITE.socials.instagram} rel="me">Instagram</a>
+      <a href={SITE.socials.x} rel="me">X</a>
+    </div>
+  </div>
+  <div class="wrap small credits">
+    Tables and fixtures: Indian Super League, AIFF and Indian Football League websites, credited on each page.
+    BDFA tables entered by Panenka Goal. News headlines link to their publishers.
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: 48px; background: var(--ink); color: #cfc8bb; padding-block: 40px 28px; font-size: 15px;
+    border-top: 3px solid; border-image: linear-gradient(90deg, var(--accent) 0 50%, var(--brand) 50% 100%) 1;
+  }
+  .grid { display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+  .brand img { width: 64px; height: 64px; }
+  .name { font: 700 24px/1 var(--display); text-transform: uppercase; color: #fff; }
+  .name b { color: var(--accent); }
+  .social { display: grid; gap: 8px; align-content: start; }
+  nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; align-content: start; }
+  a { color: #ece8df; text-decoration: none; }
+  a:hover { color: #fff; text-decoration: underline; }
+  .small { font-size: 13.5px; color: #9d968a; }
+  .credits { margin-top: 28px; padding-top: 18px; border-top: 1px solid #34312c; }
+  @media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+</style>

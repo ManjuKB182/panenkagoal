@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import NewsList from '../components/NewsList.astro';
+import { SECTIONS, type SectionKey } from '../config/site';
+import { getNews } from '../lib/data';
+
+const items = getNews().slice(0, 80);
+---
+<Base title="News" description="Indian football headlines from KhelNow, AIFF and official accounts, filed by section.">
+  <section class="wrap module">
+    <p class="eyebrow">News wire</p>
+    <h1>News</h1>
+    <p class="muted" style="margin-top:6px">Headlines link to the original publisher.</p>
+    <div class="chips" role="tablist" aria-label="Section" style="margin-top:14px">
+      <button class="chip" role="tab" aria-selected="true" data-sec="">All</button>
+      {(Object.keys(SECTIONS) as SectionKey[]).map((k) => <button class="chip" role="tab" aria-selected="false" data-sec={k}>{SECTIONS[k].title}</button>)}
+    </div>
+  </section>
+  <section class="wrap" id="wire">
+    {items.map((n) => <div data-sec={n.section ?? ''}><NewsList items={[n]} showSummary /></div>)}
+  </section>
+</Base>
+
+<script>
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-sec][role="tab"]')];
+  tabs.forEach((tab) =>
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+      const sec = tab.dataset.sec;
+      document.querySelectorAll<HTMLElement>('#wire > [data-sec]').forEach((el) => (el.hidden = !!sec && el.dataset.sec !== sec));
+    }),
+  );
+</script>
+
+<style>
+  #wire > div + div :global(.news) { border-top: 0; }
+</style>

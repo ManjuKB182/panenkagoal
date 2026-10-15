@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config/site';
+import { COMPETITIONS } from '../config/competitions';
+---
+<Base title="About" description="Who we are, and where every table and headline on Panenka Goal comes from.">
+  <article class="wrap module prose">
+    <p class="eyebrow">About</p>
+    <h1>Football talk, in Kannada</h1>
+    <p lang="kn" class="kn" style="font-size:20px">{SITE.taglineKn}</p>
+    <p>
+      Panenka Goal is a fan-made channel covering Indian football, Karnataka football, youth football and women's football,
+      mainly in Kannada. This site collects our shows, the tables that matter to us, and the day's headlines in one place.
+    </p>
+
+    <h2>Where the data comes from</h2>
+    <ul>
+      {COMPETITIONS.map((c) => <li><b>{c.name}:</b> <a href={c.sourceUrl} rel="noopener">{c.sourceLabel}</a></li>)}
+      <li><b>Videos:</b> our YouTube channel and the official MG Indian Super League channel. Videos play from YouTube.</li>
+      <li><b>News:</b> Indian football headlines from the public feeds of KhelNow, The Hindu, Times of India and Deccan Herald, plus posts from official accounts. We show the headline and a one-line summary, and every item links to the original article.</li>
+    </ul>
+    <p>
+      We fetch each source a few times a day at most and credit it on every table. If you run one of these sources and want
+      something changed or removed, message us on <a href={SITE.socials.instagram} rel="noopener">Instagram</a> and we will act on it.
+    </p>
+    <p class="muted">Our fetcher identifies itself as <code>PanenkaGoalBot</code>.</p>
+  </article>
+</Base>
+
+<style>
+  .prose { max-width: 72ch; display: grid; gap: 14px; }
+  .prose h2 { margin-top: 12px; }
+  ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+</style>

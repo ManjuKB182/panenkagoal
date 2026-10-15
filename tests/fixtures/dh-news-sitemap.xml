@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+    <loc>https://www.deccanherald.com/sports/football/bengaluru-fc-beat-sc-delhi-in-isl-opener-4180001</loc>
+    <news:news><news:publication><news:name>Deccan Herald</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-10-11T18:30:00.000Z</news:publication_date>
+      <news:title>Bengaluru FC beat SC Delhi in ISL opener</news:title></news:news>
+  </url>
+  <url>
+    <loc>https://www.deccanherald.com/sports/football/psg-down-man-city-4-2-in-pulsating-champions-league-clash-4183235</loc>
+    <news:news><news:publication><news:name>Deccan Herald</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-10-14T21:57:48.923Z</news:publication_date>
+      <news:title>Champions League : PSG down Man City 4-2 in pulsating clash</news:title></news:news>
+  </url>
+  <url>
+    <loc>https://www.deccanherald.com/sports/cricket/india-vs-new-zealand-indore-test-4183300</loc>
+    <news:news><news:publication><news:name>Deccan Herald</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-10-15T08:00:00.000Z</news:publication_date>
+      <news:title>India vs New Zealand: Indore Test, day two</news:title></news:news>
+  </url>
+</urlset>

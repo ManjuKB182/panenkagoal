@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import MerchTile from '../../components/MerchTile.astro';
+import { getMerch, type MerchItem } from '../../lib/data';
+import { SITE } from '../../config/site';
+
+export function getStaticPaths() {
+  return getMerch().map((item) => ({ params: { slug: item.slug }, props: { item } }));
+}
+const { item } = Astro.props as { item: MerchItem };
+const jsonLd = item.price
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: item.name,
+      description: item.blurb,
+      brand: { '@type': 'Brand', name: SITE.name },
+      offers: {
+        '@type': 'Offer', priceCurrency: 'INR', price: item.price,
+        availability: item.status === 'sold-out' ? 'https://schema.org/SoldOut' : item.status === 'pre-order' ? 'https://schema.org/PreOrder' : 'https://schema.org/InStock',
+      },
+    }
+  : undefined;
+---
+<Base title={item.name} description={item.blurb} jsonLd={jsonLd}>
+  <section class="wrap module">
+    <a class="eyebrow" href="/merch" style="text-decoration:none">← All merch</a>
+    <div style="max-width:520px;margin-top:12px"><MerchTile item={item} full /></div>
+  </section>
+</Base>

@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import { COMPETITIONS } from '../../config/competitions';
+import { SECTIONS } from '../../config/site';
+import { getLeague } from '../../lib/data';
+import { longDateTime } from '../../lib/format';
+
+const cards = COMPETITIONS.map((comp) => {
+  const data = getLeague(comp);
+  const leader = data?.stages[0]?.groups.length === 1 ? data.stages[0].groups[0].rows[0] : undefined;
+  const topScorer = data?.scorers[0];
+  return { comp, data, leader, topScorer };
+});
+---
+<Base title="Stats" description="Points tables, fixtures, results and top scorers for ISL, IFL, IWL, IWL 2, I-League 2, AIFF youth leagues and the BDFA Super Division.">
+  <div class="wrap module">
+    <p class="eyebrow">Stats</p>
+    <h1>Tables &amp; numbers</h1>
+    <p class="muted" style="margin-top:8px;max-width:65ch">Updated automatically from the official league websites several times a day. BDFA results are entered by our team after each matchday.</p>
+  </div>
+  <div class="wrap grid">
+    {cards.map(({ comp, data, leader, topScorer }) => (
+      <a class="lg-card" href={`/stats/${comp.slug}`}>
+        <span class="sec">{SECTIONS[comp.section].title}</span>
+        <span class="name">{comp.name}</span>
+        <span class="muted">{data?.seasonLabel ?? 'Season not started'}</span>
+        <dl>
+          {leader && <><dt>Top</dt><dd>{leader.team} · {leader.points} pts</dd></>}
+          {topScorer && <><dt>Scorer</dt><dd>{topScorer.player} · {topScorer.goals}</dd></>}
+        </dl>
+        <span class="upd">{data?.updatedAt ? `Updated ${longDateTime(data.updatedAt)}` : 'No results yet'}</span>
+      </a>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+  .lg-card {
+    display: grid; gap: 6px; align-content: start; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--r); color: var(--text); text-decoration: none; box-shadow: var(--shadow); transition: border-color 0.15s, transform 0.15s;
+  }
+  .lg-card:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+  .lg-card:hover .name { color: var(--brand); }
+  .sec { font-size: 13px; font-weight: 600; color: var(--brand); }
+  .name { font: 700 21px/1.2 var(--display); }
+  dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 8px 0 0; font-size: 15px; }
+  dt { color: var(--text-3); font-size: 13px; font-weight: 600; padding-top: 1px; }
+  dd { margin: 0; color: var(--text-2); }
+  .upd { font-size: 13px; color: var(--text-3); margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--line); }
+</style>

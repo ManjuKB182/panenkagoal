@@ -1,0 +1,65 @@
+// Site-wide settings. Edit here, not in components.
+
+export const SITE = {
+  name: 'Panenka Goal',
+  nameKn: 'ಪನೇಂಕ GOAL',
+  url: 'https://panenkagoal.com',
+  tagline: 'Indian football talk, in Kannada',
+  taglineKn: 'ನಮ್ಮ ಜೊತೆ, ಕನ್ನಡದಲ್ಲಿ FOOTBALL ಮಾತುಕತೆ',
+  description:
+    "Podcasts, tables and news on Indian football, Karnataka football, youth football and women's football. Made by fans, mainly in Kannada.",
+  // WhatsApp number for merch orders: country code + number, digits only (e.g. 919876543210).
+  // Leave empty until the merch section goes live; order buttons stay hidden without it.
+  whatsapp: '',
+  socials: {
+    youtube: 'https://www.youtube.com/@Panenka_goal',
+    instagram: 'https://www.instagram.com/panenka_goal_',
+    x: 'https://x.com/panenka_goal',
+  },
+  youtubeChannelId: 'UCCRYLPSwKjeySyxKJgGKibA',
+  islChannelId: 'UCJk-aQ7NZtqYtpcqKDt_vZg',
+} as const;
+
+export type SectionKey = 'mens' | 'wofo' | 'youth' | 'karnataka';
+
+export const SECTIONS: Record<SectionKey, { title: string; titleKn: string; blurb: string }> = {
+  mens: {
+    title: "Men's",
+    titleKn: 'ಪುರುಷರ',
+    blurb: 'ISL, IFL, I-League 2, Santosh Trophy and the Blue Tigers.',
+  },
+  wofo: {
+    title: 'WoFo',
+    titleKn: 'ಮಹಿಳಾ',
+    blurb: "Women's football: IWL, IWL 2, the Karnataka Women's League and the national team.",
+  },
+  youth: {
+    title: 'Youth',
+    titleKn: 'ಯುವ',
+    blurb: 'AIFF Elite, Junior and Sub-Junior leagues, RFDL, and the pathway into academies.',
+  },
+  karnataka: {
+    title: 'Karnataka',
+    titleKn: 'ಕರ್ನಾಟಕ',
+    blurb: 'BDFA Super Division, KWL, Bengaluru clubs and the fight for our stadiums.',
+  },
+};
+
+export const NAV = [
+  { href: '/mens', label: "Men's" },
+  { href: '/wofo', label: 'WoFo' },
+  { href: '/youth', label: 'Youth' },
+  { href: '/karnataka', label: 'Karnataka' },
+  { href: '/stats', label: 'Stats' },
+  { href: '/watch', label: 'Watch' },
+  { href: '/merch', label: 'Merch' },
+] as const;
+
+// Files Panenka's own videos under a section when the TITLE mentions it (hashtags are ignored,
+// because almost every title carries #indianfootball). Pin extra videos per section in data/section-videos.json.
+export const SECTION_KEYWORDS: Record<SectionKey, RegExp> = {
+  mens: /\b(isl|ifl|i-?league|blue tigers|india|santosh|super cup|durand|mohun bagan|east bengal|kerala blasters)\b/i,
+  wofo: /\b(wofo|women'?s?|girls'?|iwl|kwl|kickstart|kemp ?fc|blue tigress(es)?|mithila)\b/i,
+  youth: /\b(youth|rfdl|rfydl|u-?1[3-8]|u-?2[03]|academy|grassroots|junior|elite league|scams?)\b/i,
+  karnataka: /\b(karnataka|bdfa|ksfa|bengaluru|bangalore|bfc|sc bengaluru|south united|kannada|bfs|kanteerava)\b/i,
+};
