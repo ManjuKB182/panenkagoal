@@ -34,7 +34,8 @@ jobs:
       - uses: actions/setup-node@v7
         with: { node-version: 22, cache: npm }
       - run: npm ci
-      # Restore the latest data from Neon so this run merges with what earlier runs collected.
+      # Create the Neon tables if missing (idempotent), then restore the latest data so this run merges with earlier runs.
+      - run: npm run db:migrate
       - run: npm run snapshots:pull
       - id: ingest
         run: npm run ingest -- --schedule "${{ github.event.schedule }}" --job "${{ inputs.job || 'auto' }}"
