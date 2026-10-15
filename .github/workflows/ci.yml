@@ -5,6 +5,7 @@ on:
     types: [opened, synchronize, reopened, closed]
   push:
     branches: [main]
+  workflow_dispatch: # manual redeploy: Actions → ci → Run workflow
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -73,7 +74,7 @@ jobs:
           api_key: ${{ secrets.NEON_API_KEY }}
 
   release:
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: check
     runs-on: ubuntu-latest
     concurrency: { group: deploy-production, cancel-in-progress: false }
