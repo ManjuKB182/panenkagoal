@@ -27,6 +27,8 @@ jobs:
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       YT_API_KEY: ${{ secrets.YT_API_KEY }}
+      # Until the secrets exist the job still fetches (a free health check of every source) but does not deploy.
+      HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -39,7 +41,7 @@ jobs:
         continue-on-error: true # a failed source still lets the others deploy; the run is marked below
       - if: steps.ingest.outputs.changed == 'true'
         run: npm run build
-      - if: steps.ingest.outputs.changed == 'true'
+      - if: steps.ingest.outputs.changed == 'true' && env.HAS_CF == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

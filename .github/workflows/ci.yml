@@ -11,6 +11,9 @@ concurrency:
 
 env:
   CF_PROJECT: panenkagoal
+  # Deploy steps are skipped (not failed) until the Cloudflare and Neon secrets are set up.
+  HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+  HAS_NEON: ${{ vars.NEON_PROJECT_ID != '' }}
 
 jobs:
   check:
@@ -27,7 +30,7 @@ jobs:
       - run: npm run build # builds from the snapshots committed in the repo
 
   preview:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    if: github.event_name == 'pull_request' && github.event.action != 'closed' && vars.NEON_PROJECT_ID != ''
     needs: check
     runs-on: ubuntu-latest
     permissions: { contents: read, pull-requests: write, deployments: write }
@@ -60,7 +63,7 @@ jobs:
             });
 
   cleanup:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && vars.NEON_PROJECT_ID != ''
     runs-on: ubuntu-latest
     steps:
       - uses: neondatabase/delete-branch-action@v3
@@ -81,12 +84,16 @@ jobs:
       - run: npm ci
       - run: npm run db:migrate && npm run snapshots:pull && npm run build
         env: { DATABASE_URL: '${{ secrets.DATABASE_URL }}' }
-      - uses: cloudflare/wrangler-action@v3
+      - if: env.HAS_CF != 'true'
+        run: echo "::notice::Cloudflare secrets not set yet; built but not deployed. See README → One-time setup."
+      - if: env.HAS_CF == 'true'
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=${{ env.CF_PROJECT }} --branch=main
       - name: Smoke test
+        if: env.HAS_CF == 'true'
         run: |
           sleep 20
           for path in / /stats /stats/isl /watch; do
