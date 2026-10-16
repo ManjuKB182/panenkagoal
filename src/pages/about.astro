@@ -1,34 +1,76 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE } from '../config/site';
-import { COMPETITIONS } from '../config/competitions';
+import { SITE, SECTIONS } from '../config/site';
+import { getShows } from '../lib/data';
+
+const shows = getShows();
 ---
-<Base title="About" description="Who we are, and where every table and headline on Panenka Goal comes from.">
+<Base title="About" description="Panenka Goal is a fan-made channel talking Indian and Karnataka football in Kannada. Meet the team, the shows and what we stand for.">
+  <header class="bg-photo hero" style="--img:url(/bg/crowd.jpg)">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h1>Football talk, in Kannada</h1>
+      <p lang="kn" class="kn tag">{SITE.taglineKn}</p>
+    </div>
+  </header>
+
   <article class="wrap module prose">
-    <p class="eyebrow">About</p>
-    <h1>Football talk, in Kannada</h1>
-    <p lang="kn" class="kn" style="font-size:20px">{SITE.taglineKn}</p>
-    <p>
-      Panenka Goal is a fan-made channel covering Indian football, Karnataka football, youth football and women's football,
-      mainly in Kannada. This site collects our shows, the tables that matter to us, and the day's headlines in one place.
+    <p class="lead">
+      Panenka Goal is a fan-made channel for people who love football and think in Kannada. We talk about Indian football, Karnataka
+      football, youth football and women's football, the way we would over chai before kickoff.
     </p>
 
-    <h2>Where the data comes from</h2>
-    <ul>
-      {COMPETITIONS.map((c) => <li><b>{c.name}:</b> <a href={c.sourceUrl} rel="noopener">{c.sourceLabel}</a></li>)}
-      <li><b>Videos:</b> our YouTube channel and the official MG Indian Super League channel. Videos play from YouTube.</li>
-      <li><b>News:</b> Indian football headlines from the public feeds of KhelNow, The Hindu, Times of India and Deccan Herald, plus posts from official accounts. We show the headline and a one-line summary, and every item links to the original article.</li>
-    </ul>
+    <h2>Why we exist</h2>
     <p>
-      We fetch each source a few times a day at most and credit it on every table. If you run one of these sources and want
-      something changed or removed, message us on <a href={SITE.socials.instagram} rel="noopener">Instagram</a> and we will act on it.
+      Most football conversation in India happens in English or Hindi. Plenty of us watch, argue and celebrate in Kannada, and we
+      wanted a home for that. Panenka Goal is that home: honest opinions, real love for the game, and a special soft spot for the
+      clubs, players and grounds of Karnataka.
     </p>
-    <p class="muted">Our fetcher identifies itself as <code>PanenkaGoalBot</code>.</p>
+
+    <h2>What we cover</h2>
+    <ul class="cov">
+      {Object.values(SECTIONS).map((s) => <li><b>{s.heading ?? s.title}.</b> {s.blurb}</li>)}
+    </ul>
+
+    <h2>Our shows</h2>
+    <div class="shows">
+      {shows.map((s) => (
+        <a class="show" href={`/watch/${s.slug}`}>
+          <b>{s.name}</b>
+          {s.nameKn && <span class="kn" lang="kn">{s.nameKn}</span>}
+          <span class="muted">{s.blurb}</span>
+        </a>
+      ))}
+    </div>
+
+    <h2>What we believe</h2>
+    <ul>
+      <li>Football is better when more people can follow it in their own language.</li>
+      <li>Our own players, our own leagues and our own stadiums deserve the spotlight, from the ISL to the BDFA Super Division.</li>
+      <li>Women's and youth football are not side stories. They are where the future of the game is being built.</li>
+      <li>We are fans first. We are not affiliated with the AIFF, the ISL or any club, and our opinions are our own.</li>
+    </ul>
+
+    <h2>Say hello</h2>
+    <p>
+      Got a story, a player we should know about, or a show idea? Find us on
+      <a href={SITE.socials.youtube} rel="noopener">YouTube</a>,
+      <a href={SITE.socials.instagram} rel="noopener">Instagram</a> and
+      <a href={SITE.socials.x} rel="noopener">X</a>.
+    </p>
   </article>
 </Base>
 
 <style>
-  .prose { max-width: 72ch; display: grid; gap: 14px; }
-  .prose h2 { margin-top: 12px; }
-  ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+  .hero { padding-block: 48px 28px; }
+  .hero h1 { margin-top: 6px; }
+  .tag { font-size: 20px; margin-top: 8px; }
+  .prose { max-width: 72ch; display: grid; gap: 14px; margin-inline: auto; }
+  .prose h2 { margin-top: 14px; }
+  .lead { font-size: 19px; line-height: 1.6; color: var(--text); }
+  ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+  .shows { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px; }
+  .show { display: grid; gap: 4px; align-content: start; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); text-decoration: none; color: var(--text); transition: border-color 0.15s, transform 0.2s; }
+  .show:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+  .show .kn { color: var(--brand-text); font-weight: 700; font-size: 14px; }
 </style>

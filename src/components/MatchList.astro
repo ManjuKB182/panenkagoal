@@ -7,7 +7,7 @@ const { matches, showDate = false } = Astro.props;
 ---
 <ul class="ml">
   {matches.map((m) => (
-    <li>
+    <li data-mid={m.id} data-ko={m.kickoff}>
       <span class="h">{m.home}</span>
       <span class={`st ${m.status}`}>
         {m.status === 'ft' || m.status === 'live' ? (
@@ -30,8 +30,10 @@ const { matches, showDate = false } = Astro.props;
   li:last-child { border-bottom: 0; }
   .h { text-align: right; }
   .st { display: grid; justify-items: center; line-height: 1.25; }
-  .st b { font-weight: 700; font-size: 16px; padding: 3px 10px; border-radius: 6px; background: var(--surface-2); color: var(--text); }
-  .st small { font-size: 11.5px; font-weight: 600; color: var(--text-3); margin-top: 3px; }
-  .st.live b { background: var(--brand-tint); color: var(--brand); }
-  .st.live small { color: var(--brand); }
+  .st :global(b) { font-weight: 700; font-size: 16px; padding: 3px 10px; border-radius: 6px; background: var(--surface-2); color: var(--text); }
+  .st :global(small) { font-size: 11.5px; font-weight: 600; color: var(--text-3); margin-top: 3px; }
+  .st.live :global(b) { background: var(--brand-tint); color: var(--brand); }
+  .st.live :global(small) { color: var(--brand); font-weight: 700; }
+  .st.live :global(small)::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); margin-right: 5px; vertical-align: 1px; animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: 0.25; } }
 </style>

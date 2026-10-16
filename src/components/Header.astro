@@ -1,27 +1,27 @@
 ---
 import { NAV, SITE } from '../config/site';
 import { getAllMatches } from '../lib/data';
+import ScoreCard from './ScoreCard.astro';
 import { kickoffTime, shortDate } from '../lib/format';
 
 const path = Astro.url.pathname;
 const active = (href: string) => path === href || path.startsWith(`${href}/`);
 
 // Score strip: latest senior results, then the next fixtures.
-const now = new Date().toISOString();
 const senior = getAllMatches().filter((m) => m.comp.section !== 'youth');
 const results = senior.filter((m) => m.status === 'ft').sort((a, b) => b.kickoff.localeCompare(a.kickoff)).slice(0, 5).reverse();
-const next = senior.filter((m) => m.status === 'scheduled' && m.kickoff > now).sort((a, b) => a.kickoff.localeCompare(b.kickoff)).slice(0, 7);
+// Matches that kicked off in the last 3 hours stay in the strip so the live script can update them.
+const recent = new Date(Date.now() - 3 * 3600_000).toISOString();
+const next = senior.filter((m) => (m.status === 'scheduled' && m.kickoff > recent) || m.status === 'live').sort((a, b) => a.kickoff.localeCompare(b.kickoff)).slice(0, 7);
 const strip = [...results, ...next];
 const short = (name: string, code?: string) => code ?? name.replace(/\b(FC|SC|Football Club)\b/g, '').trim().slice(0, 14);
 // With enough cards the strip loops slowly on its own (paused on hover); the list is rendered twice for a seamless loop.
-const loop = strip.length >= 6;
+const pinned = strip.filter((m) => m.status === 'live');
+const moving = strip.filter((m) => m.status !== 'live');
+const loop = moving.length >= 6;
 ---
 <header class="site-header">
   <div class="wrap bar">
-    <a class="mark" href="/" aria-label={`${SITE.name} home`}>
-      <picture><source srcset="/logo-96.webp" type="image/webp" /><img src="/logo-96.png" alt="" width="44" height="44" /></picture>
-    </a>
-    <span class="divider" aria-hidden="true"></span>
     <a class="word" href="/">
       <span class="name">Panenka <b>Goal</b></span>
       <span class="sub">Football in Kannada</span>
@@ -33,26 +33,26 @@ const loop = strip.length >= 6;
       <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor" /></svg>
       <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor" /><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" /></g></svg>
     </button>
+    <span class="divider" aria-hidden="true"></span>
+    <a class="mark" href="/" aria-label={`${SITE.name} home`}>
+      <picture><source srcset="/logo-96.webp" type="image/webp" /><img src="/logo-96.png" alt="" width="44" height="44" /></picture>
+    </a>
   </div>
 </header>
 
 {strip.length > 0 && (
   <div class="scores" aria-label="Latest results and next fixtures">
-    <div class={`track ${loop ? 'loop' : ''}`}>
-      {(loop ? [0, 1] : [0]).map((copy) => (
-        <div class="set" aria-hidden={copy === 1 ? 'true' : undefined}>
-          {strip.map((m) => (
-            <a class="sc" href={`/stats/${m.comp.slug}`} tabindex={copy === 1 ? -1 : undefined}>
-              <span class="sc-top">
-                <span class="comp">{m.comp.short}</span>
-                <span class={`state ${m.status}`}>{m.status === 'ft' ? 'FT' : `${shortDate(m.kickoff)} · ${kickoffTime(m.kickoff)}`}</span>
-              </span>
-              <span class="row"><span class="t">{short(m.home, m.homeShort)}</span>{m.status === 'ft' && <b class={m.homeScore! > m.awayScore! ? 'w' : ''}>{m.homeScore}</b>}</span>
-              <span class="row"><span class="t">{short(m.away, m.awayShort)}</span>{m.status === 'ft' && <b class={m.awayScore! > m.homeScore! ? 'w' : ''}>{m.awayScore}</b>}</span>
-            </a>
-          ))}
-        </div>
-      ))}
+    <div class="pin" id="pin" aria-label="Live now">
+      {pinned.map((m) => <ScoreCard m={m} copy={0} short={short(m.home, m.homeShort)} shortAway={short(m.away, m.awayShort)} />)}
+    </div>
+    <div class="ticker">
+      <div class={`track ${loop ? 'loop' : ''}`} id="track">
+        {(loop ? [0, 1] : [0]).map((copy) => (
+          <div class="set" aria-hidden={copy === 1 ? 'true' : undefined}>
+            {moving.map((m) => <ScoreCard m={m} copy={copy} short={short(m.home, m.homeShort)} shortAway={short(m.away, m.awayShort)} />)}
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 )}
@@ -69,6 +69,68 @@ const loop = strip.length >= 6;
   <a href="/merch" aria-current={active('/merch') ? 'page' : undefined}>Merch</a>
   <a href="/news" aria-current={active('/news') ? 'page' : undefined}>News</a>
 </nav>
+
+<script>
+  // Live scores: patch any match on the page (data-mid) from /api/live. Polls every 30 s only while a match is on or about to start.
+  type Live = { id: string; state: 'live' | 'ft' | 'scheduled'; homeScore?: number; awayScore?: number; clock?: string };
+  const targets = [...document.querySelectorAll<HTMLElement>('[data-mid]')];
+  const near = () => targets.some((el) => { const d = Date.now() - new Date(el.dataset.ko!).getTime(); return d > -10 * 60_000 && d < 3.5 * 3600_000; });
+  // A live card moves out of the scrolling ticker into the fixed "pin" on the left; at full time it goes back.
+  const pinBox = document.getElementById('pin');
+  const sets = () => [...document.querySelectorAll<HTMLElement>('#track .set')];
+  const pin = (id: string) => {
+    if (!pinBox || pinBox.querySelector(`[data-card="${id}"]`)) return;
+    const cards = [...document.querySelectorAll<HTMLElement>(`#track [data-card="${id}"]`)];
+    const first = cards.find((c) => c.dataset.mid);
+    if (!first) return;
+    cards.filter((c) => c !== first).forEach((c) => c.remove());
+    pinBox.append(first);
+  };
+  const unpin = (id: string) => {
+    const el = pinBox?.querySelector<HTMLElement>(`[data-card="${id}"]`);
+    if (!el) return;
+    const [a, b] = sets();
+    const twin = el.cloneNode(true) as HTMLElement;
+    twin.removeAttribute('data-mid'); twin.tabIndex = -1;
+    a?.append(el); b?.append(twin);
+  };
+  const apply = (m: Live) => {
+    if (m.state === 'scheduled') return;
+    const score = `${m.homeScore} – ${m.awayScore}`;
+    const label = m.state === 'ft' ? 'FT' : `LIVE${m.clock && m.clock !== 'LIVE' ? ' ' + m.clock : ''}`;
+    if (m.state === 'live') pin(m.id);
+    if (m.state === 'ft') unpin(m.id);
+    document.querySelectorAll<HTMLElement>(`[data-mid="${m.id}"]`).forEach((el) => {
+      if (el.classList.contains('sc')) {
+        const st = el.querySelector<HTMLElement>('[data-state]')!;
+        st.textContent = label; st.className = `state ${m.state}`;
+        const [h, a] = [m.homeScore!, m.awayScore!];
+        const sides = { home: el.querySelector<HTMLElement>('[data-side=home]')!, away: el.querySelector<HTMLElement>('[data-side=away]')! };
+        sides.home.textContent = String(h); sides.away.textContent = String(a);
+        sides.home.className = m.state === 'ft' && h > a ? 'w' : ''; sides.away.className = m.state === 'ft' && a > h ? 'w' : '';
+      } else {
+        const st = el.querySelector<HTMLElement>('.st');
+        if (!st) return;
+        st.className = `st ${m.state}`;
+        st.innerHTML = '';
+        const b = document.createElement('b'); b.textContent = score;
+        const s = document.createElement('small'); s.textContent = label;
+        st.append(b, s);
+      }
+    });
+  };
+  const tick = async () => {
+    if (document.hidden) return schedule();
+    try {
+      const res = await fetch('/api/live', { cache: 'no-store' });
+      const data: { matches: Live[] } = await res.json();
+      data.matches.forEach(apply);
+      if (data.matches.some((m) => m.state === 'live') || near()) schedule();
+    } catch { /* keep the last known scores */ }
+  };
+  const schedule = () => setTimeout(tick, 30_000);
+  if (targets.length) tick();
+</script>
 
 <script>
   const btn = document.getElementById('theme-toggle')!;
@@ -124,22 +186,30 @@ const loop = strip.length >= 6;
     :global(:root:not([data-theme='light'])) .moon { display: none; }
   }
 
-  .scores { background: var(--strip-bg); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .scores { display: flex; background: var(--strip-bg); border-bottom: 1px solid var(--line); overflow: hidden; }
+  /* Live matches sit still on the left; everything else scrolls past on the right. */
+  .pin { flex: none; display: flex; position: relative; z-index: 2; background: var(--strip-bg); box-shadow: 8px 0 10px -8px rgba(0, 0, 0, 0.25); }
+  .pin:empty { display: none; }
+  .pin :global(.sc) { background: var(--brand-tint); box-shadow: inset 0 -2px 0 var(--brand); }
+  .ticker { flex: 1; min-width: 0; overflow: hidden; }
   .track { display: flex; width: max-content; }
-  .track:not(.loop) { width: auto; overflow-x: auto; scrollbar-width: none; max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+  .track:not(.loop) { width: auto; overflow-x: auto; scrollbar-width: none; padding-inline: var(--gutter); }
   .track.loop { animation: ticker 60s linear infinite; }
-  .scores:hover .track.loop, .scores:focus-within .track.loop { animation-play-state: paused; }
+  .ticker:hover .track.loop, .scores:focus-within .track.loop { animation-play-state: paused; }
   @keyframes ticker { to { transform: translateX(-50%); } }
   .set { display: flex; }
-  .sc { flex: none; width: 176px; display: grid; gap: 3px; padding: 9px 14px; color: var(--text); text-decoration: none; border-right: 1px solid var(--line); transition: background-color 0.15s; }
-  .sc:hover { background: var(--surface); }
-  .sc-top { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; font-weight: 600; color: var(--text-3); }
-  .comp { font-weight: 700; color: var(--text-2); letter-spacing: 0.04em; }
-  .state.ft { color: var(--text); }
-  .row { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; font-weight: 600; line-height: 1.35; }
-  .row .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-2); }
-  .row b { color: var(--text-3); font-weight: 700; }
-  .row b.w { color: var(--text); }
+  .scores :global(.sc) { flex: none; width: 176px; display: grid; gap: 3px; padding: 9px 14px; color: var(--text); text-decoration: none; border-right: 1px solid var(--line); transition: background-color 0.15s; }
+  .scores :global(.sc:hover) { background: var(--surface); }
+  .scores :global(.sc-top) { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; font-weight: 600; color: var(--text-3); }
+  .scores :global(.comp) { font-weight: 700; color: var(--text-2); letter-spacing: 0.04em; }
+  .scores :global(.state.ft) { color: var(--text); }
+  .scores :global(.state.live) { color: var(--brand-text); font-weight: 700; }
+  .scores :global(.state.live::before) { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); margin-right: 5px; vertical-align: 1px; animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: 0.25; } }
+  .scores :global(.row) { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; font-weight: 600; line-height: 1.35; }
+  .scores :global(.row .t) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-2); }
+  .scores :global(.row b) { color: var(--text-3); font-weight: 700; }
+  .scores :global(.row b.w), .pin :global(.row b) { color: var(--text); }
 
   .tabbar, .secnav { display: none; }
   @media (max-width: 960px) {

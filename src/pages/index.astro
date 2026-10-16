@@ -67,7 +67,7 @@ const spot = (slug: string, section: 'wofo' | 'karnataka' | 'youth') => {
   return { comp, rows: rows.some((r) => r.played > 0) ? rows.slice(0, 3) : [], news: getNews(section).slice(0, 2) };
 };
 const spotlights = [
-  { title: 'WoFo', href: '/wofo', ...spot('iwl', 'wofo') },
+  { title: "Women's", href: '/wofo', ...spot('iwl', 'wofo') },
   { title: 'Karnataka', href: '/karnataka', ...spot('bdfa-sd', 'karnataka') },
   { title: 'Youth', href: '/youth', ...spot('elite-u18', 'youth') },
 ];
@@ -152,6 +152,7 @@ const jsonLd = {
     )}
   </section>
 
+  <div class="band bg-photo" style="--img:url(/bg/banner.jpg)">
   <section class="wrap module reveal" aria-labelledby="latest-h">
     <div class="mod-head">
       <h2 id="latest-h">Latest episodes</h2>
@@ -182,6 +183,9 @@ const jsonLd = {
     </section>
   )}
 
+  </div>
+
+  <div class="band bg-photo" style="--img:url(/bg/trophies.jpg)">
   <section class="wrap module split reveal">
     <div class="col" aria-labelledby="news-h">
       <div class="mod-head">
@@ -287,6 +291,7 @@ const jsonLd = {
       </div>
     </div>
   </section>
+  </div>
 </Base>
 
 <script>

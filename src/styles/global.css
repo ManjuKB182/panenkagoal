@@ -154,3 +154,18 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
   html.js .reveal { opacity: 1; transform: none; }
 }
+
+/* Stadium photo backdrop. Set --img on the element; the photo fades out toward the page background so text stays readable. */
+.bg-photo { position: relative; isolation: isolate; }
+.bg-photo::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--img) center / cover no-repeat; opacity: 0.2;
+  -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent 100%); mask-image: linear-gradient(to bottom, #000 35%, transparent 100%);
+}
+.bg-photo.band::before { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent); opacity: 0.14; }
+:root[data-theme='dark'] .bg-photo::before { opacity: 0.32; }
+:root[data-theme='dark'] .bg-photo.band::before { opacity: 0.22; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .bg-photo::before { opacity: 0.32; }
+  :root:not([data-theme='light']) .bg-photo.band::before { opacity: 0.22; }
+}

@@ -1,0 +1,433 @@
+[
+  {
+    "name": "Nikhil Poojary",
+    "club": "Bengaluru FC",
+    "league": "ISL",
+    "position": "Right-back / winger",
+    "dob": "1995-09-03",
+    "birthplace": "Mangaluru, Karnataka",
+    "heightCm": 177,
+    "shirt": 27,
+    "bio": "A Mangaluru-born full-back who came through Mumbai youth sides before a senior career that took in East Bengal, Pune City and Hyderabad FC. He won the 2021-22 ISL title with Hyderabad and joined Bengaluru FC on a four-year deal in January 2024. He has been capped by India at senior level.",
+    "career": [
+      {
+        "club": "Ryan FC / Dodsal FC / Mumbai FC",
+        "years": "youth",
+        "note": "Youth career"
+      },
+      {
+        "club": "East Bengal",
+        "years": "2016-2018",
+        "note": "14 league apps"
+      },
+      {
+        "club": "FC Pune City",
+        "years": "2018-2019",
+        "note": "9 apps, 1 goal"
+      },
+      {
+        "club": "Hyderabad FC",
+        "years": "2019-2024",
+        "note": "79 apps, 1 goal"
+      },
+      {
+        "club": "Bengaluru FC",
+        "years": "2024-present",
+        "note": "27 apps, 0 goals"
+      }
+    ],
+    "stats": [
+      {
+        "label": "India caps",
+        "value": "33"
+      },
+      {
+        "label": "Hyderabad FC league apps",
+        "value": "79"
+      },
+      {
+        "label": "BFC league apps (to early 2026)",
+        "value": "27"
+      }
+    ],
+    "honours": [
+      "Indian Super League 2021-22 (Hyderabad FC)",
+      "SAFF Championship 2023 (India)",
+      "Tri-Nation Series 2017 (India)",
+      "Intercontinental Cup 2023 (India)"
+    ],
+    "intl": "India senior: 33 caps, 1 goal (2017-present); India U23: 5 apps",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Nikhil_Poojary",
+      "https://deccanherald.com/sports/football/bengaluru-fc-rope-in-nikhil-poojary-football-2873378",
+      "https://www.theweek.in/news/sports/2024/01/31/football-news-isl-transfers-bengaluru-fc-sign-wing-back-nikhil-poojary.amp.html"
+    ]
+  },
+  {
+    "name": "Vinith Venkatesh",
+    "club": "Bengaluru FC",
+    "league": "ISL",
+    "position": "Midfielder",
+    "dob": "2005-07-31",
+    "birthplace": "Bengaluru, Karnataka",
+    "heightCm": 180,
+    "shirt": 31,
+    "bio": "A Bengaluru-born midfielder who spent a decade in the Bengaluru FC youth system before breaking into the first team in 2024. He scored in the Durand Cup semi-final against Mohun Bagan and netted the winner on his ISL debut against East Bengal in September 2024. He has featured for India U23.",
+    "career": [
+      {
+        "club": "Bengaluru FC youth",
+        "years": "2013-2023",
+        "note": "Academy"
+      },
+      {
+        "club": "Bengaluru FC B",
+        "years": "2023-2024",
+        "note": "Reserve side"
+      },
+      {
+        "club": "Bengaluru FC",
+        "years": "2024-present",
+        "note": "First team; ISL debut 14 Sep 2024"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ISL 2024-25 apps",
+        "value": "19"
+      },
+      {
+        "label": "ISL 2024-25 goals",
+        "value": "1"
+      }
+    ],
+    "intl": "India U23: 2 apps, 0 goals (as of Aug 2025)",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vinith_Venkatesh",
+      "https://africa.espn.com/football/player/stats/_/id/391474/vinith-venkatesh",
+      "https://www.fotmob.com/tr/players/1667335/vinith-venkatesh"
+    ]
+  },
+  {
+    "name": "Vignesh Dakshinamurthy",
+    "club": "Chennaiyin FC",
+    "league": "ISL",
+    "position": "Left-back",
+    "dob": "1998-03-05",
+    "birthplace": "Srirampura, Karnataka",
+    "heightCm": 181,
+    "bio": "A left-back from Srirampura in Karnataka who started at the Ozone academy before a five-year spell at Mumbai City, where he won the 2020-21 ISL double. He later played for Hyderabad FC, spent 2024 on loan at Odisha FC and then joined Chennaiyin FC. He won two senior India caps in 2018 and is the nephew of former India international Shanmugam Venkatesh.",
+    "career": [
+      {
+        "club": "Ozone FC",
+        "years": "2017-2018",
+        "note": "18 apps, I-League 2nd Division"
+      },
+      {
+        "club": "Mumbai City",
+        "years": "2018-2023",
+        "note": "53 league apps, 2 goals"
+      },
+      {
+        "club": "Hyderabad FC",
+        "years": "2023-2024",
+        "note": "6 apps; swap deal"
+      },
+      {
+        "club": "Odisha FC",
+        "years": "2024",
+        "note": "Loan; 11 league apps"
+      },
+      {
+        "club": "Chennaiyin FC",
+        "years": "2024-present"
+      }
+    ],
+    "stats": [
+      {
+        "label": "India caps",
+        "value": "2"
+      },
+      {
+        "label": "Mumbai City league apps",
+        "value": "53"
+      }
+    ],
+    "honours": [
+      "ISL Premiers (League Winners Shield) 2020-21 (Mumbai City)",
+      "ISL Champions 2020-21 (Mumbai City)",
+      "SAFF Championship runner-up 2018 (India)"
+    ],
+    "intl": "India senior: 2 caps (debut 9 Sep 2018 v Maldives, SAFF Championship); also India U17 and U20",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vignesh_Dakshinamurthy",
+      "https://africa.espn.com/football/player/stats/_/id/280529/vignesh-dakshinamurthy"
+    ]
+  },
+  {
+    "name": "Macarton Louis Nickson",
+    "club": "NorthEast United FC",
+    "league": "ISL",
+    "position": "Defensive midfielder",
+    "dob": "2004-03-19",
+    "birthplace": "Karnataka",
+    "shirt": 15,
+    "bio": "A defensive midfielder who grew up in Bengaluru and spent eight years in the Bengaluru FC academy. Son of former India international Louis Nickson, he broke into the ISL with NorthEast United in 2023-24 and won the Durand Cup with the club in 2024 and 2025. He earned his first senior India call-up in March 2025.",
+    "career": [
+      {
+        "club": "Root FC (Bengaluru)",
+        "years": "2012",
+        "note": "Youth"
+      },
+      {
+        "club": "Bengaluru FC academy",
+        "years": "2013-2021",
+        "note": "Youth"
+      },
+      {
+        "club": "Indian Arrows",
+        "years": "2021-22",
+        "note": "3 apps"
+      },
+      {
+        "club": "Bengaluru United",
+        "years": "2022-23",
+        "note": "9 apps"
+      },
+      {
+        "club": "NorthEast United",
+        "years": "2023-present",
+        "note": "2023-24: 14 league apps; 2024-25: 21 league apps, 2 goals"
+      }
+    ],
+    "stats": [
+      {
+        "label": "NEUFC league 2024-25 apps",
+        "value": "21"
+      },
+      {
+        "label": "NEUFC league 2024-25 goals",
+        "value": "2"
+      },
+      {
+        "label": "India caps",
+        "value": "6"
+      }
+    ],
+    "honours": [
+      "Durand Cup 2024 (NorthEast United)",
+      "Durand Cup 2025 (NorthEast United)"
+    ],
+    "intl": "India senior: 6 apps, 0 goals (2 in 2025, 4 in 2026); India U23: 5 apps",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Macarton_Nickson",
+      "https://www.indiansuperleague.com/interviews/macarton-nickson-interview-team-unity-is-northeast-united-fcs-biggest-strength",
+      "https://africa.espn.com/football/player/bio/_/id/336711/macarton-nickson"
+    ]
+  },
+  {
+    "name": "Hridaya Jain",
+    "club": "Mumbai City FC",
+    "league": "ISL",
+    "position": "Forward / attacking midfielder",
+    "dob": "2005-12-19",
+    "birthplace": "Karnataka",
+    "shirt": 19,
+    "bio": "A Karnataka-born attacker who began at Techtro Swades United and had a loan at FC Bengaluru United. He won the I-League Emerging Player award after scoring four goals in 21 league games for Delhi FC in 2024-25. He then spent a year in Slovenia with NK Brinje Grosuplje before joining Mumbai City.",
+    "career": [
+      {
+        "club": "Techtro Swades United FC",
+        "years": "2023-2024",
+        "note": "5 apps"
+      },
+      {
+        "club": "FC Bengaluru United",
+        "years": "2024",
+        "note": "Loan; 2 apps"
+      },
+      {
+        "club": "Delhi FC",
+        "years": "2024-2025",
+        "note": "I-League: 21 apps, 4 goals"
+      },
+      {
+        "club": "NK Brinje Grosuplje (Slovenia)",
+        "years": "2025-2026",
+        "note": "1 app"
+      },
+      {
+        "club": "Mumbai City",
+        "years": "2026-present",
+        "note": "Joined for 2026-27"
+      }
+    ],
+    "stats": [
+      {
+        "label": "I-League 2024-25 apps",
+        "value": "21"
+      },
+      {
+        "label": "I-League 2024-25 goals",
+        "value": "4"
+      }
+    ],
+    "honours": [
+      "I-League Emerging Player award 2024-25"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Hridaya_Jain",
+      "https://www.indiansuperleague.com/players/forward-233516-hridaya-jain-profile",
+      "https://www.indiansuperleague.com/clubs/506-mumbai-city-fc-profile/squad"
+    ]
+  },
+  {
+    "name": "Dhruv Alva",
+    "club": "Mumbai City FC",
+    "league": "ISL",
+    "position": "Defender",
+    "dob": "2002-08-28",
+    "shirt": 2,
+    "bio": "A defender in the Mumbai City FC squad. We are still collecting verified details for his full profile.",
+    "sources": [
+      "https://africa.espn.com/football/player/bio/_/id/419128/dhruv-alva",
+      "https://www.indiansuperleague.com/clubs/506-mumbai-city-fc-profile/squad",
+      "https://www.the-aiff.com/players/profile/47288?type=club",
+      "https://alchemyfootball.com/",
+      "https://www.fotmob.com/players/1837694/dhruv-alva",
+      "https://x.com/MumbaiCityFC/status/1976143533074776363"
+    ]
+  },
+  {
+    "name": "Franklin Robin Nazareth",
+    "club": "Mumbai City FC",
+    "league": "ISL",
+    "position": "Midfielder",
+    "dob": "2004-01-03",
+    "heightCm": 176,
+    "shirt": 16,
+    "bio": "A midfielder who came through the Reliance Foundation Young Champs academy and joined Mumbai City FC in July 2023 on a deal to May 2027. We are still collecting verified details for his full profile.",
+    "career": [
+      {
+        "club": "Reliance Foundation Young Champs",
+        "years": "2019-2023",
+        "note": "Academy"
+      },
+      {
+        "club": "Mumbai City FC",
+        "years": "2023-present",
+        "note": "Contract to May 2027"
+      }
+    ],
+    "sources": [
+      "https://theawayend.co/2023/07/09/nathan-rodrigues-and-franklin-nazareth-joined-mumbai-city-fc/",
+      "https://www.rfyoungchamps.org/",
+      "https://www.indiansuperleague.com/players/midfielder-182727-franklin-nazareth-profile",
+      "https://africa.espn.com/football/player/bio/_/id/369866/franklin-nazareth",
+      "https://www.fotmob.com/players/1538077/franklin-nazareth"
+    ]
+  },
+  {
+    "name": "Rudra Ved Moola",
+    "club": "FC Goa",
+    "league": "ISL",
+    "position": "Centre-back",
+    "dob": "2000-02-11",
+    "birthplace": "Karnataka",
+    "heightCm": 188,
+    "shirt": 47,
+    "bio": "A centre-back who joined the JSW Bengaluru FC youth academy at 13 and moved to Spain at 18, spending about eight years there across Atletico Saguntino, Mare Nostrum and CD Acero. He returned to India with South United and then Shillong Lajong, and was signed by FC Goa ahead of 2026-27. He is known for aerial strength and physical presence.",
+    "career": [
+      {
+        "club": "JSW Bengaluru FC youth academy",
+        "years": "",
+        "note": "Joined at 13"
+      },
+      {
+        "club": "Atletico Saguntino U19 (Spain)",
+        "years": "",
+        "note": "Debut vs La Creu CF"
+      },
+      {
+        "club": "Mare Nostrum CF (Spain)",
+        "years": "",
+        "note": "Valencian regional senior leagues"
+      },
+      {
+        "club": "CD Acero (Spain)",
+        "years": "",
+        "note": "Tercera RFEF, joined at 22"
+      },
+      {
+        "club": "South United FC",
+        "years": "2025",
+        "note": "16 matches, 1 goal, 1 assist (1,300 min)"
+      },
+      {
+        "club": "Shillong Lajong",
+        "years": "2025-2026",
+        "note": "I-League; 13 clean sheets, ~1,900 min (Khel Now); Soccerway: 14 apps 1 goal"
+      },
+      {
+        "club": "FC Goa",
+        "years": "2026-present",
+        "note": "Signed June/Aug 2026"
+      }
+    ],
+    "stats": [
+      {
+        "label": "I-League 2025-26 apps",
+        "value": "14"
+      },
+      {
+        "label": "I-League 2025-26 goals",
+        "value": "1"
+      }
+    ],
+    "sources": [
+      "https://khelnow.com/football/indian-football-isl-fc-goa-rudra-ved-moola-202606",
+      "https://africa.espn.com/football/player/bio/_/id/419540/rudra-ved",
+      "https://us.soccerway.com/player/ved-rudra/Uu4bmjwe/"
+    ]
+  },
+  {
+    "name": "Priyansh Dubey",
+    "club": "Mohun Bagan Super Giant",
+    "league": "ISL",
+    "position": "Goalkeeper",
+    "dob": "2006-07-22",
+    "shirt": 31,
+    "bio": "A goalkeeper from the Reliance Foundation Young Champs academy who joined Mohun Bagan Super Giant ahead of 2023-24. He started in goal at the 2024 SAFF U-20 Championship for India. We are still collecting verified details for his full profile.",
+    "career": [
+      {
+        "club": "Reliance Foundation Young Champs",
+        "years": "",
+        "note": "Academy"
+      },
+      {
+        "club": "Mohun Bagan Super Giant",
+        "years": "2023-present"
+      }
+    ],
+    "intl": "India U20 (SAFF U-20 Championship 2024, AFC U20 Asian Cup qualifiers); caps count not found",
+    "sources": [
+      "https://www.rfyoungchamps.org/",
+      "https://theawayend.co/2026/02/16/isl-2025-26-10-young-indian-prospects-players-talents/",
+      "https://africa.espn.com/football/player/bio/_/id/410769/priyansh-dubey",
+      "https://www.worldfootball.net/person/pe1823234/priyansh-dubey/"
+    ]
+  },
+  {
+    "name": "Yohan Victor Britto",
+    "club": "Sporting Club Delhi",
+    "league": "ISL",
+    "position": "Forward",
+    "dob": "2004-09-14",
+    "shirt": 99,
+    "bio": "A forward in the Sporting Club Delhi squad. We are still collecting verified details for his full profile.",
+    "sources": [
+      "https://www.indiansuperleague.com/players/forward-226475-yohann-victor-britto-profile",
+      "https://www.indiansuperleague.com/clubs/3234-sporting-club-delhi-profile/squad",
+      "https://africa.espn.com/football/player/bio/_/id/418944/yohann-britto",
+      "https://us.soccerway.com/player/victor-britto-yohann/Ei4TJQL8/transfers"
+    ]
+  }
+]

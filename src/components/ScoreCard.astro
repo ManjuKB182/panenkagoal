@@ -1,0 +1,17 @@
+---
+import type { getAllMatches } from '../lib/data';
+import { kickoffTime, shortDate } from '../lib/format';
+
+type Item = ReturnType<typeof getAllMatches>[number];
+interface Props { m: Item; copy: number; short: string; shortAway: string }
+const { m, copy, short, shortAway } = Astro.props;
+const done = m.status === 'ft' || m.status === 'live';
+---
+<a class="sc" href={`/stats/${m.comp.slug}`} data-card={m.id} data-mid={copy === 0 ? m.id : undefined} data-ko={m.kickoff} tabindex={copy === 1 ? -1 : undefined}>
+  <span class="sc-top">
+    <span class="comp">{m.comp.short}</span>
+    <span class={`state ${m.status}`} data-state>{m.status === 'ft' ? 'FT' : m.status === 'live' ? 'LIVE' : `${shortDate(m.kickoff)} · ${kickoffTime(m.kickoff)}`}</span>
+  </span>
+  <span class="row"><span class="t">{short}</span><b data-side="home" class={m.status === 'ft' && m.homeScore! > m.awayScore! ? 'w' : ''}>{done ? m.homeScore : ''}</b></span>
+  <span class="row"><span class="t">{shortAway}</span><b data-side="away" class={m.status === 'ft' && m.awayScore! > m.homeScore! ? 'w' : ''}>{done ? m.awayScore : ''}</b></span>
+</a>

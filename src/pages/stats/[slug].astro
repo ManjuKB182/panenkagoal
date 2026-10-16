@@ -27,19 +27,19 @@ const jsonLd = {
 };
 ---
 <Base title={`${comp.name} table`} description={`${comp.name} ${data?.season ?? ''} points table, fixtures, results and top scorers.`} jsonLd={jsonLd}>
-  <header class="wrap module head">
+  <header class="bg-photo head-bg" style="--img:url(/bg/crowd.jpg)"><div class="wrap module head">
     <a class="eyebrow" href={`/${comp.section}`}>{SECTIONS[comp.section].title}</a>
     <h1>{comp.name}</h1>
     <p class="muted">{data?.seasonLabel ?? 'Season not started yet'}</p>
-    <nav class="chips" aria-label="On this page">
-      <a class="chip" href="#table">Table</a>
-      <a class="chip" href="#fixtures">Fixtures</a>
-      <a class="chip" href="#results">Results</a>
-      <a class="chip" href="#scorers">Top scorers</a>
-    </nav>
-  </header>
+    <div class="chips" role="tablist" aria-label="League views">
+      <button class="chip" role="tab" id="tab-table" aria-controls="table" aria-selected="true" data-tab="table" type="button">Table</button>
+      <button class="chip" role="tab" id="tab-fixtures" aria-controls="fixtures" aria-selected="false" data-tab="fixtures" type="button">Fixtures</button>
+      <button class="chip" role="tab" id="tab-results" aria-controls="results" aria-selected="false" data-tab="results" type="button">Results</button>
+      <button class="chip" role="tab" id="tab-scorers" aria-controls="scorers" aria-selected="false" data-tab="scorers" type="button">Top scorers</button>
+    </div>
+  </div></header>
 
-  <section class="wrap module" id="table" aria-labelledby="table-h">
+  <section class="wrap module panel" id="table" role="tabpanel" aria-labelledby="tab-table" data-panel="table">
     <h2 id="table-h" class="sr-only">Table</h2>
     {!data || data.stages.every((s) => s.groups.every((g) => g.rows.length === 0)) ? (
       <p class="note">No table yet for this season.</p>
@@ -63,19 +63,22 @@ const jsonLd = {
     </p>
   </section>
 
-  <section class="wrap module two">
-    <div id="fixtures">
+  <section class="wrap module panel" id="fixtures" role="tabpanel" aria-labelledby="tab-fixtures" data-panel="fixtures">
+    <div class="box">
       <h2>Fixtures</h2>
       {upcoming.length ? <MatchList matches={upcoming} showDate /> : <p class="muted">No upcoming fixtures published.</p>}
     </div>
-    <div id="results">
+  </section>
+
+  <section class="wrap module panel" id="results" role="tabpanel" aria-labelledby="tab-results" data-panel="results">
+    <div class="box">
       <h2>Results</h2>
       {results.length ? <MatchList matches={results} showDate /> : <p class="muted">No results yet.</p>}
     </div>
   </section>
 
-  <section class="wrap module" id="scorers" aria-labelledby="sc-h">
-    <h2 id="sc-h">Top scorers</h2>
+  <section class="wrap module panel" id="scorers" role="tabpanel" aria-labelledby="tab-scorers" data-panel="scorers">
+    <h2>Top scorers</h2>
     {data?.scorers.length ? (
       <div class="tbl" style="margin-top:12px">
         <table>
@@ -91,16 +94,31 @@ const jsonLd = {
   </section>
 </Base>
 
+<script>
+  // Tabs: swap panels in place (no scrolling); the URL hash keeps the view linkable.
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-tab]')];
+  const panels = [...document.querySelectorAll<HTMLElement>('[data-panel]')];
+  document.documentElement.classList.add('tabs-on');
+  const show = (name: string, push = true) => {
+    if (!tabs.some((t) => t.dataset.tab === name)) name = 'table';
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === name)));
+    panels.forEach((p) => { p.hidden = p.dataset.panel !== name; });
+    if (push) history.replaceState(null, '', `#${name}`);
+  };
+  tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.tab!)));
+  addEventListener('hashchange', () => show(location.hash.slice(1), false));
+  show(location.hash.slice(1), false);
+</script>
+
 <style>
-  .head { display: grid; gap: 8px; padding-bottom: 8px; }
+  .head { display: grid; gap: 8px; padding-block: 36px 8px; }
   .head .chips { margin-top: 12px; }
   .stage + .stage { margin-top: 32px; }
   .stage h3 { margin-bottom: 12px; font-size: 20px; }
   .groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 24px; }
   .gname { font-weight: 700; color: var(--text-2); }
   .src-line { margin-top: 14px; font-size: 13.5px; color: var(--text-3); }
-  .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
-  .two > div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; box-shadow: var(--shadow); }
-  .two h2 { margin-bottom: 6px; font-size: 22px; }
-  @media (max-width: 860px) { .two { grid-template-columns: minmax(0, 1fr); } }
+  .panel[hidden] { display: none; }
+  .panel > .box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; box-shadow: var(--shadow); }
+  .box h2 { margin-bottom: 6px; font-size: 22px; }
 </style>

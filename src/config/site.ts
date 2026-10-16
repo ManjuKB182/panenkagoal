@@ -30,7 +30,7 @@ export const SECTIONS: Record<SectionKey, { title: string; heading?: string; tit
     blurb: 'ISL, IFL, I-League 2, Santosh Trophy and the Blue Tigers.',
   },
   wofo: {
-    title: 'WoFo',
+    title: "Women's",
     heading: "Women's Football",
     titleKn: 'ಮಹಿಳಾ',
     blurb: "Women's football: IWL, IWL 2, the Karnataka Women's League and the national team.",
@@ -49,7 +49,7 @@ export const SECTIONS: Record<SectionKey, { title: string; heading?: string; tit
 
 export const NAV = [
   { href: '/mens', label: "Men's" },
-  { href: '/wofo', label: 'WoFo' },
+  { href: '/wofo', label: "Women's" },
   { href: '/youth', label: 'Youth' },
   { href: '/karnataka', label: 'Karnataka' },
   { href: '/stats', label: 'Stats' },

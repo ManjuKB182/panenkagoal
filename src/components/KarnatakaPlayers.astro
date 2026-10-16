@@ -1,0 +1,164 @@
+---
+import players from '../../data/players/karnataka-born.json';
+
+// Add a photo by dropping a square-ish image in public/players/ and setting "photo": "/players/<file>" on the player.
+// Optional per player: "position", "bio". League is one of ISL, IFL, IWL, IWL 2.
+interface Player {
+  name: string; club: string; league: string; photo?: string; position?: string; bio?: string;
+  dob?: string | null; birthplace?: string | null; heightCm?: number | null; foot?: string | null; shirt?: number | null;
+  career?: { club: string; years: string; note?: string | null }[]; stats?: { label: string; value: string }[];
+  honours?: string[]; intl?: string | null; sources?: string[];
+}
+const list = players as Player[];
+const leagues = [...new Set(list.map((p) => p.league))];
+const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const age = (dob: string) => Math.floor((Date.now() - new Date(dob).getTime()) / 31_557_600_000);
+const facts = (p: Player) => ([
+  ['Born', p.dob ? `${new Date(p.dob).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} (${age(p.dob)})` : null], ['From', p.birthplace], ['Height', p.heightCm ? `${p.heightCm} cm` : null],
+  ['Foot', p.foot], ['Shirt', p.shirt ? `#${p.shirt}` : null],
+] as [string, string | null | undefined][]).filter((f): f is [string, string] => !!f[1]);
+const initials = (n: string) => n.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+---
+<div class="kp">
+  {leagues.length > 1 && (
+    <div class="chips" role="tablist" aria-label="Filter by league">
+      <button class="chip" role="tab" aria-selected="true" data-league="" type="button">All</button>
+      {leagues.map((l) => <button class="chip" role="tab" aria-selected="false" data-league={l} type="button">{l}</button>)}
+    </div>
+  )}
+  <ul class="grid">
+    {list.map((p) => (
+      <li class="pcard" data-league={p.league}>
+        <button class="open" type="button" data-open={slug(p.name)} aria-haspopup="dialog">
+          <span class="ph">
+            {p.photo ? <img src={p.photo} alt="" width="320" height="400" loading="lazy" /> : <span class="ini" aria-hidden="true">{initials(p.name)}</span>}
+            <span class="badge lg">{p.league}</span>
+          </span>
+          <span class="info">
+            <span class="nm">{p.name}</span>
+            <span class="club">{p.club}</span>
+            <span class="more">View profile →</span>
+          </span>
+        </button>
+      </li>
+    ))}
+  </ul>
+
+  {list.map((p) => (
+    <dialog class="profile" id={`p-${slug(p.name)}`} aria-labelledby={`h-${slug(p.name)}`}>
+      <form method="dialog"><button class="x" aria-label="Close profile">×</button></form>
+      <div class="pbody">
+        <div class="side">
+          <div class="ph big">
+            {p.photo ? <img src={p.photo} alt={p.name} width="320" height="400" /> : <span class="ini" aria-hidden="true">{initials(p.name)}</span>}
+          </div>
+          {facts(p).length > 0 && (
+            <dl class="facts">
+              {facts(p).map(([k, v]) => <><dt>{k}</dt><dd>{v}</dd></>)}
+            </dl>
+          )}
+        </div>
+        <div class="main">
+          <p class="eyebrow">{p.league} · {p.club}</p>
+          <h2 id={`h-${slug(p.name)}`}>{p.name}</h2>
+          {p.position && <p class="muted pos">{p.position}</p>}
+          {p.bio ? <p class="bio">{p.bio}</p> : <p class="muted">Full profile coming soon.</p>}
+          {p.career?.length ? (
+            <section><h3>Career</h3>
+              <ol class="career">{p.career.map((c) => <li><b>{c.club}</b><span>{c.years}</span>{c.note && <small>{c.note}</small>}</li>)}</ol>
+            </section>
+          ) : null}
+          {p.stats?.length ? (
+            <section><h3>Numbers</h3>
+              <div class="stats">{p.stats.map((s) => <div><b>{s.value}</b><span>{s.label}</span></div>)}</div>
+            </section>
+          ) : null}
+          {p.honours?.length ? <section><h3>Honours</h3><ul class="hon">{p.honours.map((h) => <li>{h}</li>)}</ul></section> : null}
+          {p.intl && <section><h3>National team</h3><p>{p.intl}</p></section>}
+        </div>
+      </div>
+    </dialog>
+  ))}
+</div>
+
+<script>
+  const open = (id: string) => {
+    const d = document.getElementById(`p-${id}`) as HTMLDialogElement | null;
+    if (!d || d.open) return;
+    d.showModal();
+    history.replaceState(null, '', `#player-${id}`);
+  };
+  document.querySelectorAll<HTMLDialogElement>('dialog.profile').forEach((d) => {
+    d.addEventListener('click', (e) => { if (e.target === d) d.close(); }); // click on the backdrop
+    d.addEventListener('close', () => history.replaceState(null, '', location.pathname));
+  });
+  if (location.hash.startsWith('#player-')) open(location.hash.slice(8));
+  document.querySelectorAll<HTMLElement>('.kp').forEach((root) => {
+    const chips = root.querySelectorAll<HTMLButtonElement>('.chip');
+    root.querySelectorAll<HTMLButtonElement>('[data-open]').forEach((b) => b.addEventListener('click', () => open(b.dataset.open!)));
+    chips.forEach((c) => c.addEventListener('click', () => {
+      chips.forEach((x) => x.setAttribute('aria-selected', String(x === c)));
+      root.querySelectorAll<HTMLElement>('.pcard').forEach((card) => { card.hidden = !!c.dataset.league && card.dataset.league !== c.dataset.league; });
+    }));
+  });
+</script>
+
+<style>
+  .kp .chips { margin-bottom: 16px; }
+  .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 16px; }
+  .pcard { padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s ease, border-color 0.2s; }
+  .pcard:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+  .pcard[hidden] { display: none; }
+  .ph { position: relative; aspect-ratio: 4 / 5; background: linear-gradient(160deg, var(--accent-tint), var(--brand-tint)); display: grid; place-items: center; }
+  .ph img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .ini { font: 700 56px/1 var(--display); color: var(--brand-text); opacity: 0.55; letter-spacing: 0.02em; }
+  .lg { position: absolute; top: 10px; left: 10px; }
+  .info { padding: 12px 14px 14px; display: grid; gap: 2px; }
+  .info h3 { font-size: 17px; }
+  .club { font-size: 14px; font-weight: 600; color: var(--text-2); }
+  .bio { font-size: 13.5px; color: var(--text-2); margin-top: 6px; }
+  @media (max-width: 560px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .ini { font-size: 44px; } }
+  .open { all: unset; box-sizing: border-box; display: block; width: 100%; cursor: pointer; text-align: left; }
+  .open:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
+  .ph { display: grid; }
+  .nm { font: 700 17px/1.25 var(--display); color: var(--text); }
+  .info { display: grid; gap: 2px; padding: 12px 14px 14px; }
+  .more { font-size: 13px; font-weight: 600; color: var(--brand-text); margin-top: 6px; }
+  .pcard:hover .more { text-decoration: underline; }
+
+  .profile { border: 1px solid var(--line); border-radius: 14px; padding: 0; width: min(920px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); background: var(--surface); color: var(--text); overflow: auto; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35); }
+  .profile::backdrop { background: rgba(10, 12, 15, 0.62); backdrop-filter: blur(3px); }
+  .profile[open] { animation: pop 0.22s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  @keyframes pop { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
+  .x { position: sticky; top: 10px; float: right; margin: 10px 10px 0 0; z-index: 2; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 22px; line-height: 1; cursor: pointer; }
+  .x:hover { background: var(--surface-2); }
+  .pbody { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 28px; padding: 24px; }
+  .side { display: grid; gap: 16px; align-content: start; }
+  .ph.big { aspect-ratio: 4 / 5; border-radius: var(--r); overflow: hidden; background: linear-gradient(160deg, var(--accent-tint), var(--brand-tint)); place-items: center; }
+  .ph.big img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .facts { display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; margin: 0; font-size: 14px; padding: 14px 16px; background: var(--surface-2); border-radius: var(--r); }
+  .facts dt { color: var(--text-3); font-weight: 600; }
+  .facts dd { margin: 0; font-weight: 600; }
+  .main { display: grid; gap: 10px; align-content: start; padding-right: 36px; }
+  .main h2 { font-size: clamp(28px, 4vw, 38px); }
+  .pos { margin-top: -4px; }
+  .main .bio { font-size: 16px; color: var(--text-2); }
+  .main section { display: grid; gap: 8px; margin-top: 8px; }
+  .main h3 { font-size: 13px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-3); padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  .career { list-style: none; margin: 0; padding: 0 0 0 16px; border-left: 2px solid var(--line); display: grid; gap: 12px; }
+  .career li { display: grid; grid-template-columns: 1fr auto; gap: 0 12px; position: relative; font-size: 15px; }
+  .career li::before { content: ''; position: absolute; left: -22px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 3px var(--surface); }
+  .career span { color: var(--text-3); font-size: 13.5px; }
+  .career small { grid-column: 1 / -1; color: var(--text-2); font-size: 13.5px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 10px; }
+  .stats div { background: var(--surface-2); border-radius: var(--r-sm); padding: 10px 12px; display: grid; }
+  .stats b { font: 700 24px/1.1 var(--display); }
+  .stats span { font-size: 12px; color: var(--text-3); font-weight: 600; }
+  .hon { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 15px; }
+  @media (max-width: 720px) {
+    .pbody { grid-template-columns: minmax(0, 1fr); padding: 16px; gap: 16px; }
+    .side { grid-template-columns: 120px minmax(0, 1fr); align-items: start; }
+    .main { padding-right: 0; }
+    .profile { width: calc(100vw - 16px); }
+  }
+</style>

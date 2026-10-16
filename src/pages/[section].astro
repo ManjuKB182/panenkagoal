@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import VideoCard from '../components/VideoCard.astro';
 import NewsList from '../components/NewsList.astro';
+import KarnatakaPlayers from '../components/KarnatakaPlayers.astro';
 import StandingsTable from '../components/StandingsTable.astro';
 import { SECTIONS, SECTION_KEYWORDS, type SectionKey } from '../config/site';
 import { COMPETITIONS } from '../config/competitions';
@@ -11,6 +12,7 @@ export function getStaticPaths() {
   return (Object.keys(SECTIONS) as SectionKey[]).map((section) => ({ params: { section } }));
 }
 
+const HERO_BG: Record<SectionKey, string> = { mens: '/bg/banner.jpg', wofo: '/bg/crowd.jpg', youth: '/bg/here.jpg', karnataka: '/bg/trophies.jpg' };
 const section = Astro.params.section as SectionKey;
 const meta = SECTIONS[section];
 const comps = COMPETITIONS.filter((c) => c.section === section).map((comp) => ({ comp, data: getLeague(comp) }));
@@ -18,7 +20,7 @@ const videos = getSectionVideos(section, SECTION_KEYWORDS[section], 8);
 const news = getNews(section).slice(0, 12);
 ---
 <Base title={meta.heading ?? meta.title} description={meta.blurb}>
-  <header class="sec-hero">
+  <header class="sec-hero bg-photo" style={`--img:url(${HERO_BG[section]})`}>
     <div class="wrap">
       <p class="kn" lang="kn">{meta.titleKn}</p>
       <h1>{meta.heading ?? meta.title}</h1>
@@ -26,7 +28,13 @@ const news = getNews(section).slice(0, 12);
     </div>
   </header>
 
-  {videos.length > 0 && (
+  {section === 'karnataka' ? (
+    <section class="wrap module" aria-labelledby="p-h">
+      <div class="mod-head"><h2 id="p-h">Karnataka-born players</h2><span class="muted pnote">ISL · IFL · IWL · IWL 2</span></div>
+      <p class="lede">Our own, playing at the top. Celebrating players from Karnataka in India's leagues.</p>
+      <KarnatakaPlayers />
+    </section>
+  ) : videos.length > 0 && (
     <section class="wrap module" aria-labelledby="v-h">
       <div class="mod-head"><h2 id="v-h">Episodes</h2><a href="/watch">All shows →</a></div>
       <div class="rail">{videos.map((v) => <VideoCard video={v} />)}</div>
@@ -66,7 +74,9 @@ const news = getNews(section).slice(0, 12);
 </Base>
 
 <style>
-  .sec-hero { padding-block: 32px 4px; }
+  .sec-hero { padding-block: 48px 28px; }
+  .lede { color: var(--text-2); max-width: 62ch; margin: -4px 0 16px; }
+  .pnote { padding-bottom: 10px; }
   .sec-hero .kn { font-size: 16px; font-weight: 700; color: var(--brand); }
   .blurb { max-width: 60ch; font-size: 17px; margin-top: 10px; color: var(--text-2); }
   /* Equal-height table cards; the table fills each card so blocks line up. */
