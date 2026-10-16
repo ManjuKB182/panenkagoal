@@ -168,7 +168,7 @@ async function fetchLeague(c: Competition, prev: LeagueSnapshot | null): Promise
           detail = parseAiffMatchDetail(await getJson(`${api}/fixtures/cms/${m.id.slice(5)}`), names);
         } catch (e) {
           throttled = /429|5\d\d/.test((e as Error).message);
-          console.warn(`::warning::BDFA SD match ${m.id}: ${(e as Error).message}`);
+          console.warn(`::warning::KSFA SD match ${m.id}: ${(e as Error).message}`);
         }
       }
       if (!detail) { fixtures.push(old ?? m); continue; }

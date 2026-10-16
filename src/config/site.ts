@@ -43,7 +43,7 @@ export const SECTIONS: Record<SectionKey, { title: string; heading?: string; tit
   karnataka: {
     title: 'Karnataka',
     titleKn: 'ಕರ್ನಾಟಕ',
-    blurb: 'BDFA Super Division, KWL, Bengaluru clubs and the fight for our stadiums.',
+    blurb: 'KSFA Super Division, KWL, Bengaluru clubs and the fight for our stadiums.',
   },
 };
 

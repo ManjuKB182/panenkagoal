@@ -108,8 +108,8 @@ export const COMPETITIONS: Competition[] = [
   },
   {
     slug: 'bdfa-sd',
-    name: 'BDFA Super Division',
-    short: 'BDFA SD',
+    name: 'KSFA Super Division',
+    short: 'KSFA SD',
     section: 'karnataka',
     gender: 'men',
     source: { kind: 'aiff-tournament', id: 2148 },

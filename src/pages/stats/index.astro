@@ -12,11 +12,11 @@ const cards = COMPETITIONS.map((comp) => {
   return { comp, data, leader, topScorer };
 });
 ---
-<Base title="Stats" description="Points tables, fixtures, results and top scorers for ISL, IFL, IWL, IWL 2, I-League 2, AIFF youth leagues and the BDFA Super Division.">
+<Base title="Stats" description="Points tables, fixtures, results and top scorers for ISL, IFL, IWL, IWL 2, I-League 2, AIFF youth leagues and the KSFA Super Division.">
   <div class="wrap module">
     <p class="eyebrow">Stats</p>
     <h1>Tables &amp; numbers</h1>
-    <p class="muted" style="margin-top:8px;max-width:65ch">Updated automatically from the official league websites several times a day. BDFA results are entered by our team after each matchday.</p>
+    <p class="muted" style="margin-top:8px;max-width:65ch">Updated automatically from the official league websites several times a day.</p>
   </div>
   <div class="wrap grid">
     {cards.map(({ comp, data, leader, topScorer }) => (

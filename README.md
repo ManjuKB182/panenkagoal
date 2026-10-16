@@ -41,7 +41,7 @@ GitHub Actions cron ──► scripts/ingest ──► Neon (datasets table) + d
 | IFL | indianfootballleague.in | every 6 h |
 | IWL, IWL 2, I-League 2 | the-aiff.com API | every 6 h |
 | AIFF youth (U18, U15, U13) | the-aiff.com API | daily, 06:35 |
-| BDFA Super Division (Karnataka Men's Super Division) | AIFF tournament 2148 (table, calendar, per-match scores and scorers) | every 2 h |
+| KSFA Super Division (Karnataka Men's Super Division) | AIFF tournament 2148 (table, calendar, per-match scores and scorers) | every 2 h |
 | X posts | pasted into `/admin` | any time |
 
 Jobs deploy only when data actually changed. A rebuild at 00:05 IST moves "Today" on the homepage to the new day.
