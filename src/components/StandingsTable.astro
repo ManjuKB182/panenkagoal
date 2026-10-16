@@ -70,7 +70,12 @@ const hasZones = Boolean(z.top || z.promotion || z.relegation);
 </div>
 
 <style>
-  .pos { width: 48px; font-weight: 600; color: var(--text-2); position: relative; padding-left: 16px !important; }
+  /* # and Club stay put while the numbers scroll sideways. Opaque backgrounds so scrolled cells slide underneath. */
+  .pos, thead th:nth-child(1) { position: sticky; left: 0; z-index: 2; width: 48px; min-width: 48px; max-width: 48px; }
+  .team, thead th:nth-child(2) { position: sticky; left: 48px; z-index: 2; box-shadow: 6px 0 8px -6px rgba(0, 0, 0, 0.18); }
+  .pos, .team { background: var(--surface); }
+  thead th:nth-child(1), thead th:nth-child(2) { background: var(--surface-2); }
+  .pos { font-weight: 600; color: var(--text-2); padding-left: 16px !important; }
   .pos::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 0 3px 3px 0; background: transparent; }
   tr.top .pos::before { background: var(--win); }
   tr.promo .pos::before { background: var(--accent); }
@@ -81,11 +86,13 @@ const hasZones = Boolean(z.top || z.promotion || z.relegation);
   .tm { display: flex; align-items: center; gap: 10px; }
   /* Phones: narrower club column and tighter cells so P, GD and Pts always fit. */
   @media (max-width: 560px) {
-    .team { min-width: 0; }
+    .team { min-width: 0; width: 124px; max-width: 124px; font-size: 14px; left: 34px; line-height: 1.3; }
+    thead th:nth-child(2) { left: 34px; width: 124px; min-width: 124px; max-width: 124px; }
+    .pos, thead th:nth-child(1) { width: 34px; min-width: 34px; max-width: 34px; }
     .tm { gap: 8px; }
     .tm img { width: 18px; height: 18px; }
     td, th { padding-inline: 7px !important; }
-    .pos { width: 34px; padding-left: 12px !important; }
+    .pos { padding-left: 12px !important; }
   }
   .team img { width: 22px; height: 22px; object-fit: contain; flex: none; border-radius: 4px; }
   .pts { font-weight: 700; color: var(--text); }
