@@ -65,6 +65,7 @@ export interface Match {
   status: MatchStatus;
   venue?: string;
   round?: string;
+  goals?: { player: string; team: string }[]; // scorers, when the source publishes them
 }
 
 export interface Scorer {

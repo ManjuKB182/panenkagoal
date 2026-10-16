@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   classifyNews, iflKickoff, isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffFixtures, parseAiffPointsTable, parseIflFixtures, parseIslFixtures,
   parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel,
+  parseAiffMatchDetail, parseAiffTournamentSchedule, sumScorers, teamNamesFromTable,
 } from '../scripts/ingest/parsers';
 
 const fx = (name: string) => readFileSync(join(import.meta.dirname, 'fixtures', name), 'utf8');
@@ -98,5 +99,33 @@ describe('news: Indian football only', () => {
     expect(raw).toHaveLength(3);
     const items = toNewsItems(raw.filter((r) => /\/football\//.test(r.url)), 'Deccan Herald', () => true);
     expect(items.map((i) => i.title)).toEqual(['Bengaluru FC beat SC Delhi in ISL opener']);
+  });
+});
+
+describe('AIFF state league (tournament id)', () => {
+  const table = { stages: [{ groups: [{ points_table: [{ team_id: 1, team_name: 'UNITED STARS FOOTBALL CLUB ' }, { team_id: 2, team_name: 'Roots Football Club' }] }] }] };
+  const names = teamNamesFromTable(table);
+  it('tidies club names and reads IST kickoffs, fixing the "04:00 AM" 4 pm quirk', () => {
+    const cal = { events: [
+      { id: 10, date: '2026-09-10', time: '04:00 AM', team1_id: 2, team2_id: 1, t1_name: 'x', t2_name: 'y', venue: ' Ground ', st_name: 'League ' },
+      { id: 11, date: '2026-09-10', time: '01:30 PM', team1_id: 1, team2_id: 2, t1_name: 'x', t2_name: 'y' },
+      { id: 12, date: '2026-09-10', time: '11:00 AM', team1_id: 1, team2_id: 2, t1_name: 'x', t2_name: 'y' },
+    ] };
+    const ms = parseAiffTournamentSchedule(cal, names);
+    expect(ms.map((m) => m.kickoff.slice(11, 16))).toEqual(['16:00', '13:30', '11:00']);
+    expect(ms[0]).toMatchObject({ id: 'aiff-10', home: 'Roots Football Club', away: 'United Stars Football Club', venue: 'Ground', status: 'scheduled' });
+  });
+  it('counts only normal goals, strips markers and sums scorers', () => {
+    const detail = parseAiffMatchDetail({
+      fixture: { ft: true }, team1_score: 2, team2_score: 0,
+      events: [
+        { type: 1, goal_type: 1, team_id: 2, player_name: 'Ribhav Sardesai (.)' },
+        { type: 1, goal_type: 1, team_id: 2, player_name: 'Ribhav Sardesai (.)' },
+        { type: 1, goal_type: 2, team_id: 1, player_name: 'Own Goal (loc)*' },
+        { type: 4, goal_type: 0, team_id: 1, player_name: 'Booked' },
+      ],
+    }, names);
+    expect(detail).toMatchObject({ homeScore: 2, awayScore: 0, finished: true });
+    expect(sumScorers(detail.goals)).toEqual([{ player: 'Ribhav Sardesai', team: 'Roots Football Club', goals: 2 }]);
   });
 });

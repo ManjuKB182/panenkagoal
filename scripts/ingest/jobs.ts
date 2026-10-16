@@ -3,9 +3,10 @@ import { join } from 'node:path';
 import { COMPETITIONS, type Competition } from '../../src/config/competitions';
 import { SITE } from '../../src/config/site';
 import type { LeagueSnapshot, Match, NewsItem, Video } from '../../src/lib/types';
-import { get, getJson, postForm } from './http';
+import { get, getJson, postForm, postJson } from './http';
 import {
   isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffFixtures, parseAiffPointsTable, parseAiffScorers, parseIflFixtures, parseIflScorers,
+  parseAiffMatchDetail, parseAiffTournamentSchedule, parseAiffTournamentStages, sumScorers, teamNamesFromTable,
   parseIslFixtures, parseIslScorers, parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel,
 } from './parsers';
 import { readDataset, writeDataset } from './store';
@@ -141,6 +142,43 @@ async function fetchLeague(c: Competition, prev: LeagueSnapshot | null): Promise
       stages: parseAiffPointsTable(table), fixtures: mergeById(keep, matches), scorers: parseAiffScorers(stats),
     };
   }
+  if (s.kind === 'aiff-tournament') {
+    const api = 'https://www.the-aiff.com/api';
+    const [table, cal] = await Promise.all([
+      getJson(`${api}/stats/points-table/${s.id}`),
+      postJson(`${api}/calendar/event/${s.id}`, { month: 0, season_id: 0, event_type: 0, public: 1, year: new Date().getUTCFullYear(), competition_id: s.id, view_all: 1 }),
+    ]);
+    const names = teamNamesFromTable(table);
+    const seasonLabel = String(cal?.tournament?.name ?? c.name).replace(/\s+/g, ' ').trim();
+    const season = seasonFromLabel(seasonLabel);
+    const before = prev && prev.season === season ? new Map(prev.fixtures.map((m) => [m.id, m])) : new Map<string, Match>();
+    const today = new Date(Date.now() + 5.5 * 3600_000).toISOString().slice(0, 10);
+    const fixtures: Match[] = [];
+    let throttled = false;
+    for (const m of parseAiffTournamentSchedule(cal, names)) {
+      const old = before.get(m.id);
+      // Finished matches on earlier days are kept as stored; today's and unseen past matches are fetched for score and scorers.
+      if (old?.status === 'ft' && old.goals && old.kickoff.slice(0, 10) < today) { fixtures.push(old); continue; }
+      if (m.kickoff.slice(0, 10) > today) { fixtures.push(m); continue; }
+      // Be gentle: one request at a time, and stop for this run if AIFF pushes back. The next run picks up where this one stopped.
+      let detail: ReturnType<typeof parseAiffMatchDetail> | undefined;
+      if (!throttled) {
+        try {
+          await new Promise((r) => setTimeout(r, 600));
+          detail = parseAiffMatchDetail(await getJson(`${api}/fixtures/cms/${m.id.slice(5)}`), names);
+        } catch (e) {
+          throttled = /429|5\d\d/.test((e as Error).message);
+          console.warn(`::warning::BDFA SD match ${m.id}: ${(e as Error).message}`);
+        }
+      }
+      if (!detail) { fixtures.push(old ?? m); continue; }
+      fixtures.push(detail.finished ? { ...m, status: 'ft', homeScore: detail.homeScore, awayScore: detail.awayScore, goals: detail.goals } : m);
+    }
+    return {
+      slug: c.slug, seasonLabel, season,
+      stages: parseAiffTournamentStages(table), fixtures, scorers: sumScorers(fixtures.flatMap((m) => m.goals ?? [])),
+    };
+  }
   if (s.kind === 'ifl') {
     const url = 'https://indianfootballleague.in/wp-admin/admin-ajax.php';
     const [table, fixtures, stats] = await Promise.all([
@@ -184,4 +222,5 @@ export async function leaguesJob(only?: (c: Competition) => boolean): Promise<bo
 
 export const islJob = () => leaguesJob((c) => c.source.kind === 'isl');
 export const aiffIflJob = () => leaguesJob((c) => c.source.kind === 'ifl' || (c.source.kind === 'aiff' && c.section !== 'youth'));
+export const stateLeagueJob = () => leaguesJob((c) => c.source.kind === 'aiff-tournament');
 export const youthJob = () => leaguesJob((c) => c.source.kind === 'aiff' && c.section === 'youth');

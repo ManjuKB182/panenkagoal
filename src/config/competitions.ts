@@ -4,6 +4,7 @@ import type { SectionKey } from './site';
 export type Source =
   | { kind: 'isl'; seriesId: number; tournament: string }
   | { kind: 'aiff'; type: number }
+  | { kind: 'aiff-tournament'; id: number } // AIFF state leagues, by tournament id (the AIFF app's competition id)
   | { kind: 'ifl'; slug: string }
   | { kind: 'manual'; file: string };
 
@@ -111,9 +112,9 @@ export const COMPETITIONS: Competition[] = [
     short: 'BDFA SD',
     section: 'karnataka',
     gender: 'men',
-    source: { kind: 'manual', file: 'data/manual/bdfa-sd.json' },
-    sourceLabel: 'Panenka Goal (entered from KSFA / club posts)',
-    sourceUrl: 'https://www.instagram.com/ksfaofficial',
+    source: { kind: 'aiff-tournament', id: 2148 },
+    sourceLabel: 'AIFF',
+    sourceUrl: 'https://www.the-aiff.com/calendar?competition_id=2148',
     zones: { top: 1 },
   },
 ];

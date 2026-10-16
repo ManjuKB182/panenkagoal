@@ -7,13 +7,14 @@ on:
     - cron: '23 */2 * * *'  # ISL, every 2 h
     - cron: '41 */6 * * *'  # IFL, IWL, IWL 2, I-League 2, every 6 h
     - cron: '5 1 * * *'     # AIFF youth leagues, 06:35 IST
+    - cron: '11 */2 * * *'  # Karnataka Super Division (AIFF), every 2 h
     - cron: '35 18 * * *'   # daily rebuild at 00:05 IST
   workflow_dispatch:
     inputs:
       job:
         description: Job to run
         type: choice
-        options: [all, videos, news, isl, aiff-ifl, youth]
+        options: [all, videos, news, isl, aiff-ifl, youth, karnataka]
         default: all
 concurrency:
   group: ingest

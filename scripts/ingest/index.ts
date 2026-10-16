@@ -3,7 +3,7 @@
 //   npm run ingest -- --job videos    # one job
 //   npm run ingest -- --schedule "23 */2 * * *"   # jobs mapped to a GitHub Actions cron line
 import { appendFile } from 'node:fs/promises';
-import { aiffIflJob, islJob, newsJob, videosJob, youthJob } from './jobs';
+import { aiffIflJob, islJob, newsJob, stateLeagueJob, videosJob, youthJob } from './jobs';
 import { recordRun } from './store';
 
 const JOBS: Record<string, () => Promise<boolean>> = {
@@ -12,6 +12,7 @@ const JOBS: Record<string, () => Promise<boolean>> = {
   isl: islJob,
   'aiff-ifl': aiffIflJob,
   youth: youthJob,
+  karnataka: stateLeagueJob,
 };
 
 // Must match the cron lines in .github/workflows/ingest.yml
@@ -20,6 +21,7 @@ const SCHEDULES: Record<string, string[]> = {
   '23 */2 * * *': ['isl'],
   '41 */6 * * *': ['aiff-ifl'],
   '5 1 * * *': ['youth'],
+  '11 */2 * * *': ['karnataka'],
   // 00:05 IST: no fetching, just a rebuild so "Today" and the ticker move to the new day.
   '35 18 * * *': [],
 };

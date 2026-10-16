@@ -249,3 +249,73 @@ export function parseIflScorers(json: any): Scorer[] {
 
 /** "IWL 2025-26" → "2025-26". Falls back to the label itself. */
 export const seasonFromLabel = (label: string) => /(\d{4}-\d{2})/.exec(label)?.[1] ?? label;
+
+// ---------- AIFF state leagues (tournament id), e.g. the Karnataka Men's Super Division ----------
+
+const properName = (n: string) => {
+  const t = n.trim().replace(/\s+/g, ' ');
+  return t === t.toUpperCase() ? t.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()) : t;
+};
+
+/** "04:00 PM" -> "16:00". The calendar prints some 4 pm kickoffs as "04:00 AM"; no match kicks off before 8 am. */
+function to24(t: string): string {
+  const m = /^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i.exec(t.trim());
+  if (!m) return '16:00';
+  let h = Number(m[1]);
+  const pm = /pm/i.test(m[3] ?? '') || (/am/i.test(m[3] ?? '') && h < 8);
+  if (pm && h < 12) h += 12;
+  return `${String(h).padStart(2, '0')}:${m[2]}`;
+}
+
+/** Table rows carry team_id, so fixtures can use the same spelling of each club. */
+export function teamNamesFromTable(table: any): Map<number, string> {
+  const map = new Map<number, string>();
+  for (const s of arr(table?.stages)) for (const g of arr(s.groups)) for (const r of arr(g.points_table)) map.set(r.team_id, properName(r.team_name));
+  return map;
+}
+
+export function parseAiffTournamentStages(json: any): Stage[] {
+  return arr(json?.stages).map((s: any) => ({
+    name: String(s.stage_name ?? '').trim(),
+    groups: arr(s.groups).map((g: any) => ({ name: String(g.group_name ?? '').trim(), rows: aiffRows(arr(g.points_table))
+        .map((r) => ({ ...r, team: properName(r.team), logo: r.logo?.replace(/^https?:\/\/(?:www\.)?the-aiff\.com\/(?=logos\/|uploads\/)/, 'https://aiff.b-cdn.net/') }))
+        // The feed's own "position" lags behind the points, so rank by points, goal difference, goals scored.
+        .sort((a, b) => b.points - a.points || b.gd - a.gd || b.gf - a.gf)
+        .map((r, i) => ({ ...r, pos: i + 1 })),
+    })),
+  }));
+}
+
+export function parseAiffTournamentSchedule(json: any, names: Map<number, string>): Match[] {
+  return arr(json?.events).map((e: any) => ({
+    id: `aiff-${e.id}`,
+    kickoff: `${e.date}T${to24(e.time)}:00+05:30`,
+    home: names.get(e.team1_id) ?? properName(e.t1_name),
+    away: names.get(e.team2_id) ?? properName(e.t2_name),
+    status: 'scheduled' as MatchStatus,
+    venue: String(e.venue ?? '').trim() || undefined,
+    round: String(e.st_name ?? '').trim() || undefined,
+  }));
+}
+
+/** Score and scorers from /api/fixtures/cms/<id>. Own goals (goal_type other than 1) are left out of the scorers. */
+export function parseAiffMatchDetail(json: any, names: Map<number, string>) {
+  const goals: { player: string; team: string }[] = [];
+  for (const ev of arr(json?.events)) {
+    if (ev.type !== 1 || ev.goal_type !== 1) continue;
+    goals.push({ player: String(ev.player_name ?? '').replace(/\s*\((?:\.|loc)\)\*?|\*/g, '').trim(), team: names.get(ev.team_id) ?? '' });
+  }
+  return {
+    homeScore: num(json?.team1_score), awayScore: num(json?.team2_score),
+    finished: !!json?.fixture?.ft, goals,
+  };
+}
+
+export function sumScorers(goals: { player: string; team: string }[]): Scorer[] {
+  const map = new Map<string, Scorer>();
+  for (const g of goals) {
+    const k = `${g.player}|${g.team}`;
+    map.set(k, { ...g, goals: (map.get(k)?.goals ?? 0) + 1 });
+  }
+  return [...map.values()].sort((a, b) => b.goals - a.goals);
+}

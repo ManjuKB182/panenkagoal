@@ -20,3 +20,6 @@ export const postForm = (url: string, form: Record<string, string>) =>
     body: new URLSearchParams(form),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   });
+
+export const postJson = (url: string, body: unknown) =>
+  getJson(url, { method: 'POST', body: JSON.stringify(body), headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
