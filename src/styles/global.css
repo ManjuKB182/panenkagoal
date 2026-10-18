@@ -18,6 +18,7 @@
   --brand-tint: #fdeef0;
   --accent: #f5c400;       /* arishina: badges, highlights */
   --accent-tint: #fff8d6;
+  --adda: #0b8f87; --adda-2: #2fd0b5; --adda-text: #077a73; --adda-glow: rgba(11, 143, 135, 0.45);  /* Adda Talks highlight */
   --on-accent: #14161a;
   --ink: #111316;          /* footer and the hero stage, in both themes */
 
@@ -42,6 +43,7 @@
   --bg: #0f1012; --surface: #17191c; --surface-2: #1e2125; --line: #2a2e33; --line-strong: #3a3f46;
   --text: #eef0f3; --text-2: #b4bac3; --text-3: #858c96; --header-bg: #121417; --strip-bg: #15171a;
   --brand: #e5484d; --brand-text: #ff7378; --brand-tint: #2a1517; --accent-tint: #2b2611;
+  --adda: #14a89d; --adda-2: #3fe0c5; --adda-text: #4fe0cc; --adda-glow: rgba(63, 224, 197, 0.4);
   --win: #46b97a; --shadow: none;
   color-scheme: dark;
 }
@@ -50,6 +52,7 @@
     --bg: #0f1012; --surface: #17191c; --surface-2: #1e2125; --line: #2a2e33; --line-strong: #3a3f46;
     --text: #eef0f3; --text-2: #b4bac3; --text-3: #858c96; --header-bg: #121417; --strip-bg: #15171a;
     --brand: #e5484d; --brand-text: #ff7378; --brand-tint: #2a1517; --accent-tint: #2b2611;
+    --adda: #14a89d; --adda-2: #3fe0c5; --adda-text: #4fe0cc; --adda-glow: rgba(63, 224, 197, 0.4);
     --win: #46b97a; --shadow: none;
     color-scheme: dark;
   }

@@ -56,7 +56,7 @@ export const NAV = [
   { href: '/youth', label: 'Youth', blurb: 'U18, U15 and U13 leagues' },
   { href: '/karnataka', label: 'Karnataka', blurb: 'Academies, players, legends and history' },
   { href: '/stats', label: 'Stats', blurb: 'League tables and top performers' },
-  { href: '/armchair-gaffers', label: 'Armchair Gaffers', blurb: 'Watch our shows. Write for us' },
+  { href: '/armchair-gaffers/write', match: '/armchair-gaffers', hot: true, label: 'Adda Talks', blurb: 'Write for us. Watch our shows' },
   { href: '/news', label: 'All news', blurb: 'Every headline in one place' },
   { href: '/merch', label: 'Merch', blurb: 'Panenka Goal gear' },
 ] as const;

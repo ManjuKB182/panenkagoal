@@ -1,5 +1,5 @@
 ---
-// Page head + Watch / Write tabs shared by every Armchair Gaffers page, plus the styles
+// Page head + Watch / Write tabs shared by every Adda Talks page, plus the styles
 // for the Write pages (global, prefixed wr-, because article HTML is injected at request time).
 interface Props { active: 'watch' | 'write' | 'mine' | 'none'; compact?: boolean }
 const { active, compact = false } = Astro.props;
@@ -8,13 +8,13 @@ const { active, compact = false } = Astro.props;
   {!compact && (
     <>
       <p class="eyebrow">Fans &amp; analysts</p>
-      <h1>Armchair Gaffers</h1>
+      <h1 class="adda-title">Adda Talks</h1>
       <p class="muted wr-lede">Fans and analysts break down the game. Watch the shows or read the takes.</p>
     </>
   )}
-  <nav class="chips wr-tabs" aria-label="Armchair Gaffers sections">
+  <nav class="chips wr-tabs" aria-label="Adda Talks sections">
+    <a class="chip" href="/armchair-gaffers/write" aria-selected={active === 'write' || active === 'mine' ? 'true' : 'false'}>Write</a>
     <a class="chip" href="/armchair-gaffers" aria-selected={active === 'watch' ? 'true' : 'false'}>Watch</a>
-    <a class="chip" href="/armchair-gaffers/write" aria-selected={active === 'write' ? 'true' : 'false'}>Write</a>
     {active === 'mine' && <a class="chip" href="/armchair-gaffers/write/mine" aria-selected="true">My pieces</a>}
   </nav>
 </header>
@@ -23,6 +23,17 @@ const { active, compact = false } = Astro.props;
   .wr-head { padding-block: 28px 8px; display: grid; gap: 6px; }
   .wr-lede { font-size: 15px; margin-bottom: 10px; }
   .wr-tabs { margin-top: 4px; }
+  .wr-tabs .chip[aria-selected='true'] { background: var(--adda); border-color: var(--adda); color: #fff; }
+  .adda-title { position: relative; width: fit-content; animation: adda-rise 0.5s ease-out both; }
+  .adda-title::after { content: ''; display: block; height: 3px; margin-top: 6px; border-radius: 2px; background: var(--adda); transform: scaleX(0); transform-origin: left; animation: adda-line 0.7s 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .wr-tabs .chip { transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s; }
+  .wr-tabs .chip:active { transform: scale(0.97); }
+  .wr-tile, .wr-grid > * { animation: adda-rise 0.45s ease-out both; }
+  .wr-grid > :nth-child(2) { animation-delay: 0.05s; } .wr-grid > :nth-child(3) { animation-delay: 0.1s; }
+  .wr-grid > :nth-child(4) { animation-delay: 0.15s; } .wr-grid > :nth-child(5) { animation-delay: 0.2s; } .wr-grid > :nth-child(n+6) { animation-delay: 0.25s; }
+  @keyframes adda-line { to { transform: scaleX(1); } }
+  .wr-head .eyebrow { color: var(--adda-text); }
+  @keyframes adda-rise { from { opacity: 0; transform: translateY(8px); } }
   .wr-tabs .chip { padding: 9px 18px; }
 
   .wr-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 18px; }

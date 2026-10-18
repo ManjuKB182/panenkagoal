@@ -6,6 +6,8 @@ import { kickoffTime, shortDate } from '../lib/format';
 
 const path = Astro.url.pathname;
 const active = (href: string) => path === href || path.startsWith(`${href}/`);
+// Adda Talks opens on its Write tab but stays highlighted on every /armchair-gaffers page.
+const isOn = (n: { href: string; match?: string }) => active(n.match ?? n.href);
 
 // Score strip: latest senior results, then the next fixtures.
 const senior = getAllMatches().filter((m) => m.comp.section !== 'youth');
@@ -30,7 +32,7 @@ const loop = moving.length >= 6;
       <span class="sub">Football in Kannada</span>
     </a>
     <nav class="main-nav" aria-label="Main">
-      {NAV.filter((n) => n.href !== '/news').map((n) => <a href={n.href} aria-current={active(n.href) ? 'page' : undefined}>{n.label}</a>)}
+      {NAV.filter((n) => n.href !== '/news').map((n) => <a href={n.href} class={'hot' in n ? 'hot' : undefined} aria-current={isOn(n) ? 'page' : undefined}>{n.label}</a>)}
     </nav>
     <button class="theme" type="button" id="theme-toggle" aria-label="Switch to dark mode" title="Light / dark">
       <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor" /></svg>
@@ -45,7 +47,7 @@ const loop = moving.length >= 6;
 <div class="menu" id="menu" hidden>
   <nav aria-label="All pages">
     <a href="/" aria-current={path === '/' ? 'page' : undefined}><b>Home</b><small>Latest episodes, scores and news</small></a>
-    {NAV.map((n) => <a href={n.href} aria-current={active(n.href) ? 'page' : undefined}><b>{n.label}</b><small>{n.blurb}</small></a>)}
+    {NAV.map((n) => <a href={n.href} class={'hot' in n ? 'hot' : undefined} aria-current={isOn(n) ? 'page' : undefined}><b>{n.label}</b><small>{n.blurb}</small></a>)}
   </nav>
 </div>
 
@@ -184,6 +186,16 @@ const loop = moving.length >= 6;
   }
   .main-nav a:hover { color: var(--text); }
   .main-nav a[aria-current='page'] { color: var(--text); box-shadow: inset 0 -2px 0 var(--brand); }
+  /* Adda Talks: a small teal dot that pulses slowly, nothing else. */
+  .main-nav a.hot { gap: 7px; }
+  .main-nav a.hot::before, .menu a.hot b::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--adda); flex: none; animation: adda-dot 2.8s ease-in-out infinite; }
+  .main-nav a.hot[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--adda); }
+  .main-nav a.hot { position: relative; }
+  .main-nav a.hot::after { content: ''; position: absolute; left: 13px; right: 13px; bottom: 0; height: 2px; background: var(--adda); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+  .main-nav a.hot:hover::after { transform: scaleX(1); }
+  .menu a.hot b { display: inline-flex; align-items: center; gap: 9px; }
+  .menu a.hot[aria-current='page'] b { color: var(--adda-text); }
+  @keyframes adda-dot { 50% { transform: scale(0.6); opacity: 0.5; } }
   .theme {
     flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%;
     border: 1px solid var(--line); background: var(--surface); color: var(--text-2); cursor: pointer; transition: color 0.15s, border-color 0.15s, transform 0.3s;
