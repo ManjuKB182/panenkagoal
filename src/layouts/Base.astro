@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
 import { SITE } from '../config/site';
 
 interface Props {
@@ -56,6 +57,7 @@ const ogImage = new URL(image, SITE.url).href;
       <slot />
     </main>
     <Footer />
+    <Analytics />
     <script>
       // Fade modules in as they scroll into view.
       const io = 'IntersectionObserver' in window

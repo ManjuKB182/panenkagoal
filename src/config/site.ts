@@ -16,6 +16,8 @@ export const SITE = {
     instagram: 'https://www.instagram.com/panenka_goal_',
     x: 'https://x.com/panenka_goal',
   },
+  // Google Analytics 4 Measurement ID (G-XXXXXXXXXX). Empty = analytics and consent banner stay off.
+  gaMeasurementId: 'G-4E6X31JHSS',
   youtubeChannelId: 'UCCRYLPSwKjeySyxKJgGKibA',
   islChannelId: 'UCJk-aQ7NZtqYtpcqKDt_vZg',
 } as const;

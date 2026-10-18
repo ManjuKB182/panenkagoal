@@ -1,0 +1,60 @@
+---
+import { SITE } from '../config/site';
+const id = SITE.gaMeasurementId;
+---
+{id && (
+  <div id="consent" class="consent" role="region" aria-label="Cookie consent" hidden>
+    <p>We use Google Analytics cookies to see which pages are read. Okay with that?</p>
+    <div class="btns">
+      <button type="button" data-consent="denied">No thanks</button>
+      <button type="button" data-consent="granted" class="yes">Accept</button>
+    </div>
+  </div>
+  <script is:inline define:vars={{ id }}>
+    // Production only (staging and local dev never send data), and only after the visitor accepts.
+    (function () {
+      if (location.hostname !== 'panenkagoal.com' && location.hostname !== 'www.panenkagoal.com') return;
+      var KEY = 'pg-consent';
+      var banner = document.getElementById('consent');
+      function load() {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', id);
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+        document.head.appendChild(s);
+      }
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      if (saved === 'granted') return load();
+      if (saved === 'denied') return;
+      banner.hidden = false;
+      banner.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-consent]');
+        if (!b) return;
+        var v = b.getAttribute('data-consent');
+        try { localStorage.setItem(KEY, v); } catch (err) {}
+        banner.hidden = true;
+        if (v === 'granted') load();
+      });
+    })();
+  </script>
+)}
+
+<style is:global>
+  .consent {
+    position: fixed; inset: auto 12px calc(12px + env(safe-area-inset-bottom)) 12px; z-index: 50; max-width: 520px; margin-inline: auto;
+    display: flex; gap: 12px 16px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    padding: 14px 16px; border-radius: 12px; background: var(--ink); color: #e9e4d9; font-size: 14px; line-height: 1.4;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  }
+  .consent[hidden] { display: none; }
+  .consent p { margin: 0; flex: 1 1 220px; }
+  .consent .btns { display: flex; gap: 8px; }
+  .consent button {
+    min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #3d3a34; background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer;
+  }
+  .consent button.yes { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+</style>
