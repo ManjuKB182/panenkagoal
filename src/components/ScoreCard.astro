@@ -12,6 +12,9 @@ const done = m.status === 'ft' || m.status === 'live';
     <span class="comp">{m.comp.short}</span>
     <span class={`state ${m.status}`} data-state>{m.status === 'ft' ? 'FT' : m.status === 'live' ? 'LIVE' : `${shortDate(m.kickoff)} · ${kickoffTime(m.kickoff)}`}</span>
   </span>
-  <span class="row"><span class="t">{short}</span><b data-side="home" class={m.status === 'ft' && m.homeScore! > m.awayScore! ? 'w' : ''}>{done ? m.homeScore : ''}</b></span>
-  <span class="row"><span class="t">{shortAway}</span><b data-side="away" class={m.status === 'ft' && m.awayScore! > m.homeScore! ? 'w' : ''}>{done ? m.awayScore : ''}</b></span>
+  <span class="row"><span class="t">{m.homeLogo && <img class="tl" src={m.homeLogo} alt="" width="16" height="16" loading="lazy" />}{short}</span><b data-side="home" class={m.status === 'ft' && m.homeScore! > m.awayScore! ? 'w' : ''}>{done ? m.homeScore : ''}</b></span>
+  <span class="row"><span class="t">{m.awayLogo && <img class="tl" src={m.awayLogo} alt="" width="16" height="16" loading="lazy" />}{shortAway}</span><b data-side="away" class={m.status === 'ft' && m.awayScore! > m.homeScore! ? 'w' : ''}>{done ? m.awayScore : ''}</b></span>
 </a>
+<style>
+  .tl { width: 16px; height: 16px; object-fit: contain; vertical-align: -3px; margin-right: 7px; }
+</style>

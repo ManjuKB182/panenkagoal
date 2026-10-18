@@ -126,6 +126,9 @@ export const parseKhelNowFeed = (body: string): NewsItem[] =>
 
 // ---------- ISL (indiansuperleague.com) ----------
 
+// Club crests are self-hosted (96px copies of indiansuperleague.com/static-assets/images/club/<id>.png) in public/logos/isl.
+const islLogo = (id: unknown) => (id ? `/logos/isl/${id}.png` : undefined);
+
 export function parseIslStandings(json: any): Stage[] {
   const groups = arr(json?.standings?.groups).map((g: any) => ({
     name: g.name ?? '',
@@ -135,6 +138,7 @@ export function parseIslStandings(json: any): Stage[] {
         prevPos: num(t.prev_position) || undefined,
         team: t.team_name,
         short: t.team_short_name,
+        logo: islLogo(t.team_id),
         played: num(t.played),
         won: num(t.wins),
         // The ISL feed repeats draws in both `draws` and `tied`; count them once.

@@ -22,7 +22,8 @@
               "ga": 0,
               "gd": 2,
               "points": 3,
-              "form": "W"
+              "form": "W",
+              "logo": "/logos/isl/498.png"
             },
             {
               "pos": 2,
@@ -37,7 +38,8 @@
               "ga": 2,
               "gd": 1,
               "points": 3,
-              "form": "W"
+              "form": "W",
+              "logo": "/logos/isl/656.png"
             },
             {
               "pos": 3,
@@ -52,7 +54,8 @@
               "ga": 1,
               "gd": 1,
               "points": 3,
-              "form": "W"
+              "form": "W",
+              "logo": "/logos/isl/1101.png"
             },
             {
               "pos": 4,
@@ -67,7 +70,8 @@
               "ga": 1,
               "gd": 1,
               "points": 3,
-              "form": "W"
+              "form": "W",
+              "logo": "/logos/isl/1252.png"
             },
             {
               "pos": 5,
@@ -82,7 +86,8 @@
               "ga": 0,
               "gd": 1,
               "points": 3,
-              "form": "W"
+              "form": "W",
+              "logo": "/logos/isl/504.png"
             },
             {
               "pos": 6,
@@ -97,7 +102,8 @@
               "ga": 1,
               "gd": 0,
               "points": 1,
-              "form": "D"
+              "form": "D",
+              "logo": "/logos/isl/505.png"
             },
             {
               "pos": 7,
@@ -112,7 +118,8 @@
               "ga": 1,
               "gd": 0,
               "points": 1,
-              "form": "D"
+              "form": "D",
+              "logo": "/logos/isl/496.png"
             },
             {
               "pos": 8,
@@ -127,7 +134,8 @@
               "ga": 0,
               "gd": 0,
               "points": 0,
-              "form": ""
+              "form": "",
+              "logo": "/logos/isl/1102.png"
             },
             {
               "pos": 9,
@@ -142,7 +150,8 @@
               "ga": 3,
               "gd": -1,
               "points": 0,
-              "form": "L"
+              "form": "L",
+              "logo": "/logos/isl/3234.png"
             },
             {
               "pos": 10,
@@ -157,7 +166,8 @@
               "ga": 2,
               "gd": -1,
               "points": 0,
-              "form": "L"
+              "form": "L",
+              "logo": "/logos/isl/506.png"
             },
             {
               "pos": 11,
@@ -172,7 +182,8 @@
               "ga": 2,
               "gd": -1,
               "points": 0,
-              "form": "L"
+              "form": "L",
+              "logo": "/logos/isl/1499.png"
             },
             {
               "pos": 12,
@@ -187,7 +198,8 @@
               "ga": 1,
               "gd": -1,
               "points": 0,
-              "form": "L"
+              "form": "L",
+              "logo": "/logos/isl/1874.png"
             },
             {
               "pos": 13,
@@ -202,7 +214,8 @@
               "ga": 2,
               "gd": -2,
               "points": 0,
-              "form": "L"
+              "form": "L",
+              "logo": "/logos/isl/2354.png"
             }
           ]
         }

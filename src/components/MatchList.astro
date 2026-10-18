@@ -11,7 +11,7 @@ const overdue = (m: Match) => m.status === 'scheduled' && Date.now() - new Date(
   {matches.map((m) => (
     <li data-mid={m.id} data-ko={m.kickoff}>
       <a class="row" href={`/match?id=${encodeURIComponent(m.id)}`} aria-label={`${m.home} v ${m.away}: match details`}>
-      <span class="h">{m.home}</span>
+      <span class="h">{m.home}{m.homeLogo && <img src={m.homeLogo} alt="" width="22" height="22" loading="lazy" />}</span>
       <span class={`st ${m.status}`}>
         {m.status === 'ft' || m.status === 'live' ? (
           <><b>{m.homeScore} – {m.awayScore}</b><small>{m.status === 'ft' ? 'FT' : 'LIVE'}</small></>
@@ -22,7 +22,7 @@ const overdue = (m: Match) => m.status === 'scheduled' && Date.now() - new Date(
         )}
         {(m.status === 'ft') && showDate && <small>{shortDate(m.kickoff)}</small>}
       </span>
-      <span class="a">{m.away}</span>
+      <span class="a">{m.awayLogo && <img src={m.awayLogo} alt="" width="22" height="22" loading="lazy" />}{m.away}</span>
       </a>
     </li>
   ))}
@@ -34,7 +34,9 @@ const overdue = (m: Match) => m.status === 'scheduled' && Date.now() - new Date(
   li:last-child { border-bottom: 0; }
   .row { display: grid; grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr); gap: 12px; align-items: center; padding: 12px 6px; margin-inline: -6px; border-radius: 8px; color: inherit; text-decoration: none; }
   .row:hover { background: var(--surface-2); }
-  .h { text-align: right; }
+  .h, .a { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .h { justify-content: flex-end; text-align: right; }
+  .h img, .a img { width: 22px; height: 22px; object-fit: contain; flex: none; }
   .st { display: grid; justify-items: center; line-height: 1.25; }
   .st :global(b) { font-weight: 700; font-size: 16px; padding: 3px 10px; border-radius: 6px; background: var(--surface-2); color: var(--text); }
   .st :global(small) { font-size: 11.5px; font-weight: 600; color: var(--text-3); margin-top: 3px; }

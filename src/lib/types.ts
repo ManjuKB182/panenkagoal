@@ -60,6 +60,8 @@ export interface Match {
   away: string;
   homeShort?: string;
   awayShort?: string;
+  homeLogo?: string; // filled from the league table when reading a snapshot
+  awayLogo?: string;
   homeScore?: number;
   awayScore?: number;
   status: MatchStatus;

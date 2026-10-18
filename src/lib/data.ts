@@ -72,9 +72,18 @@ function manualSnapshot(c: Competition, file: string): LeagueSnapshot {
 
 const lastDate = (results: Array<{ date: string }>) => results.map((r) => r.date).sort().at(-1);
 
+/** Fixture feeds rarely carry crests, but the league table does: look each side up there by team name. */
+function withLogos(snap: LeagueSnapshot | null): LeagueSnapshot | null {
+  if (!snap) return snap;
+  const logos = new Map<string, string>();
+  for (const st of snap.stages) for (const g of st.groups) for (const r of g.rows) if (r.logo) logos.set(r.team, r.logo);
+  if (!logos.size) return snap;
+  return { ...snap, fixtures: snap.fixtures.map((m) => ({ ...m, homeLogo: m.homeLogo ?? logos.get(m.home), awayLogo: m.awayLogo ?? logos.get(m.away) })) };
+}
+
 export function getLeague(c: Competition): LeagueSnapshot | null {
   if (c.source.kind === 'manual') return manualSnapshot(c, c.source.file);
-  return read<LeagueSnapshot | null>(`data/snapshots/leagues/${c.slug}.json`, null);
+  return withLogos(read<LeagueSnapshot | null>(`data/snapshots/leagues/${c.slug}.json`, null));
 }
 
 export function getArchivedSeasons(slug: string): string[] {
