@@ -9,7 +9,7 @@ export interface LiveMatch {
   scorers?: { side: 'home' | 'away'; name: string; minute: string }[];
 }
 
-const FEED = 'https://www.indiansuperleague.com/default.aspx?methodtype=3&client=8&sport=2&league=0&timezone=0530&language=en&tournament=india_sl_2026';
+export const FEED = 'https://www.indiansuperleague.com/default.aspx?methodtype=3&client=8&sport=2&league=0&timezone=0530&language=en&tournament=india_sl_2026';
 
 export function parseLive(json: any): LiveMatch[] {
   const today = new Date(Date.now() + 5.5 * 3600_000).toISOString().slice(0, 10);

@@ -1,0 +1,2 @@
+/watch /armchair-gaffers 301
+/watch/* /armchair-gaffers/:splat 301

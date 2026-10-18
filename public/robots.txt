@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /armchair-gaffers/review
+Disallow: /api/
 
 Sitemap: https://panenkagoal.com/sitemap-index.xml

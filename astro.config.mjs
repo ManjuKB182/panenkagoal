@@ -20,6 +20,6 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'file' },
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !/\/armchair-gaffers\/(review|article-shell)/.test(page) && !/\/match\/?$/.test(page) })],
   vite: { plugins: [devLiveApi] },
 });

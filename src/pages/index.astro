@@ -25,7 +25,7 @@ const slides = longForm.slice(0, 5);
 const cleanTitle = (t: string) => t.replace(/#\w+/g, '').split(/\s+\|\s*/)[0].trim();
 const highlights = isl.slice(0, 3);
 
-const news = getNews().slice(0, 10);
+const news = getNews().slice(0, 5);
 
 // "Coming up" card under ISL Highlights: next senior fixtures across leagues.
 const nowIso = new Date().toISOString();
@@ -34,9 +34,6 @@ const comingUp = getAllMatches()
   .sort((a, b) => a.kickoff.localeCompare(b.kickoff))
   .slice(0, 4);
 
-// "Top scorers" card under Tables.
-const islComp = getCompetition('isl')!;
-const islScorers = (getLeague(islComp)?.scorers ?? []).slice(0, 5);
 
 const tables = HOME_TABLES.map((slug) => getCompetition(slug)!)
   .map((comp) => ({ comp, data: getLeague(comp) }))
@@ -60,17 +57,6 @@ const groupByComp = (ms: typeof allMatches) => {
   return [...groups.values()];
 };
 
-const spot = (slug: string, section: 'wofo' | 'karnataka' | 'youth') => {
-  const comp = getCompetition(slug)!;
-  const data = getLeague(comp);
-  const rows = data?.stages[0]?.groups[0]?.rows ?? [];
-  return { comp, rows: rows.some((r) => r.played > 0) ? rows.slice(0, 3) : [], news: getNews(section).slice(0, 2) };
-};
-const spotlights = [
-  { title: "Women's", href: '/wofo', ...spot('iwl', 'wofo') },
-  { title: 'Karnataka', href: '/karnataka', ...spot('bdfa-sd', 'karnataka') },
-  { title: 'Youth', href: '/youth', ...spot('elite-u18', 'youth') },
-];
 const merchLive = getMerch().some((m) => m.status === 'live' || m.status === 'pre-order');
 
 const jsonLd = {
@@ -106,7 +92,7 @@ const jsonLd = {
                   <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
                   Watch episode
                 </a>
-                <a class="btn ghost" href="/watch" tabindex={i === 0 ? undefined : -1}>All shows</a>
+                <a class="btn ghost" href="/armchair-gaffers" tabindex={i === 0 ? undefined : -1}>All shows</a>
               </div>
             </div>
           ))}
@@ -127,7 +113,7 @@ const jsonLd = {
     <aside class="panel-card" aria-labelledby="isl-h">
       <div class="card-head red">
         <h2 id="isl-h">ISL Highlights</h2>
-        <a href="/watch#isl-highlights">All →</a>
+        <a href="/armchair-gaffers#isl-highlights">All →</a>
       </div>
       <div class="card-body hl">
         {highlights.length ? highlights.map((v) => <VideoCard video={v} size="row" />) : <p class="muted">Highlights appear here after each ISL match.</p>}
@@ -156,7 +142,7 @@ const jsonLd = {
   <section class="wrap module reveal" aria-labelledby="latest-h">
     <div class="mod-head">
       <h2 id="latest-h">Latest episodes</h2>
-      <a href="/watch">All shows →</a>
+      <a href="/armchair-gaffers">All shows →</a>
     </div>
     <div class="chips" role="tablist" aria-label="Filter by show" data-filter-for="latest-rail">
       <button class="chip" role="tab" aria-selected="true" data-show="">All</button>
@@ -175,7 +161,7 @@ const jsonLd = {
     <section class="wrap module reveal" aria-labelledby="shorts-h">
       <div class="mod-head">
         <h2 id="shorts-h">Shorts</h2>
-        <a href="/watch#shorts">All shorts →</a>
+        <a href="/armchair-gaffers#shorts">All shorts →</a>
       </div>
       <div class="rail shorts-rail">
         {shortsRail.map((v) => <VideoCard video={v} size="vertical" />)}
@@ -215,17 +201,6 @@ const jsonLd = {
           </div>
         ))}
       </div>
-      {islScorers.length > 0 && (
-        <div class="panel-card">
-          <div class="card-head red">
-            <h3>ISL top scorers</h3>
-            <a href="/stats/isl#scorers">More →</a>
-          </div>
-          <ol class="scorers card-body">
-            {islScorers.map((p) => <li><span class="who"><b>{p.player}</b><small>{p.team}</small></span><span class="g">{p.goals}</span></li>)}
-          </ol>
-        </div>
-      )}
     </div>
   </section>
 
@@ -253,25 +228,6 @@ const jsonLd = {
             </div>
           ))
         )}
-      </div>
-    ))}
-  </section>
-
-  <section class="wrap module spots reveal" aria-label="Spotlights">
-    {spotlights.map((s, i) => (
-      <div class={`panel-card spot s${i}`}>
-        <div class={`card-head ${['red', 'yellow', 'green'][i]}`}>
-          <h3><a href={s.href}>{s.title}</a></h3>
-          <a href={`/stats/${s.comp.slug}`}>{s.comp.short} table →</a>
-        </div>
-        <div class="card-body stack" style="gap:12px">
-          {s.rows.length ? (
-            <ol class="mini">
-              {s.rows.map((r) => <li><span>{r.team}</span><b>{r.points}</b></li>)}
-            </ol>
-          ) : <p class="muted">Table appears once results are in.</p>}
-          {s.news.map((n) => <a class="spot-news" href={n.url} rel="noopener" target="_blank">{n.title}</a>)}
-        </div>
       </div>
     ))}
   </section>
@@ -436,16 +392,6 @@ const jsonLd = {
   .comp-name { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--brand); text-decoration: none; }
   .comp-name:hover { text-decoration: underline; }
 
-  .spots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
-  .spot h3 a { color: inherit; text-decoration: none; }
-  .mini { list-style: none; margin: 0; padding: 0; counter-reset: m; }
-  .mini li { display: flex; justify-content: space-between; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--line); counter-increment: m; font-size: 15px; }
-  .mini li:first-child { padding-top: 0; }
-  .mini li span::before { content: counter(m); display: inline-block; width: 20px; color: var(--text-3); font-weight: 600; }
-  .mini b { font-weight: 700; }
-  .spot-news { color: var(--text-2); font-weight: 600; font-size: 14.5px; text-decoration: none; line-height: 1.4; }
-  .spot-news:hover { color: var(--brand); }
-
   .cta {
     display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding: 24px 28px; border-radius: var(--r);
     background: var(--ink); color: #fff; border-top: 3px solid; border-image: linear-gradient(90deg, var(--accent) 0 50%, var(--brand) 50% 100%) 1;
@@ -458,7 +404,7 @@ const jsonLd = {
   .cta .chip:hover { background: rgba(255, 255, 255, 0.1); }
   .cta .chip.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
   @media (max-width: 960px) {
-    .duo, .split, .spots { grid-template-columns: minmax(0, 1fr); }
+    .duo, .split { grid-template-columns: minmax(0, 1fr); }
     .day { padding-inline: 14px; }
   }
   @media (max-width: 640px) {

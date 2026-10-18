@@ -1,0 +1,194 @@
+---
+import Base from '../../../layouts/Base.astro';
+import WriteHead from '../../../components/WriteHead.astro';
+---
+<Base title="Submit your piece" description="Send Armchair Gaffers your match report, tactical breakdown or fan view. An editor reads everything before it goes live.">
+  <WriteHead active="write" compact />
+  <section class="wrap module" style="padding-top:12px" id="wr-root">
+    <p style="margin-bottom:10px"><a class="wr-back" href="/armchair-gaffers/write">← All pieces</a></p>
+    <p class="eyebrow">Write</p>
+    <h1>Submit your piece</h1>
+    <p class="muted" style="margin:6px 0 16px;max-width:60ch">Match report, tactical breakdown or a fan’s view. Add photos anywhere in the piece. An editor reads everything before it goes live.</p>
+
+    <div class="wr-cols" id="wr-form-wrap">
+      <div class="wr-card wr-form">
+        <label for="f-title">Title</label>
+        <input id="f-title" maxlength="140" placeholder="Why our press worked against Chennaiyin" />
+        <label>I am a</label>
+        <div class="chips" id="f-kind" role="radiogroup" aria-label="Kind of writer">
+          <button class="chip" type="button" role="radio" data-k="fan" aria-selected="true">Fan</button>
+          <button class="chip" type="button" role="radio" data-k="analyst" aria-selected="false">Analyst</button>
+        </div>
+        <label>Cover photo (optional)</label>
+        <div class="wr-fig" id="f-cover"></div>
+        <label>Your piece</label>
+        <div class="wr-form" id="f-blocks"></div>
+        <div class="chips">
+          <button class="chip" type="button" id="add-p">+ Paragraph</button>
+          <button class="chip" type="button" id="add-img">+ Photo</button>
+        </div>
+      </div>
+
+      <div class="wr-card wr-form" style="align-content:start">
+        <label for="f-name">Your name (shown on the piece)</label>
+        <input id="f-name" maxlength="80" autocomplete="name" />
+        <label for="f-email">Email (never shown, only to tell you when it is live)</label>
+        <input id="f-email" type="email" maxlength="200" autocomplete="email" />
+        <label>Photo rights</label>
+        <label class="chk"><input type="radio" name="own" value="mine" checked /> I took these photos or have permission to use them</label>
+        <label class="chk"><input type="radio" name="own" value="credit" /> The photos belong to someone else. Credit the owner</label>
+        <input id="f-credit" maxlength="200" hidden placeholder="Owner name, agency or link, e.g. Photo: Ravi Kumar / Instagram @ravik" aria-label="Photo owner" />
+        <p class="wr-note">Photos remain the property of their owner. The credit is printed under each photo.</p>
+        <label class="chk"><input type="checkbox" id="f-ok" /> <span id="f-ok-text">I confirm the photos are mine or I have permission</span></label>
+        <div class="hp" aria-hidden="true"><label>Leave this empty <input id="f-hp" tabindex="-1" autocomplete="off" /></label></div>
+        <div id="f-turnstile"></div>
+        <button class="btn" type="button" id="f-send" disabled>Send for review</button>
+        <p class="wr-msg" id="f-msg" role="status"></p>
+      </div>
+    </div>
+
+    <div class="wr-card wr-ok" id="wr-done" hidden>
+      <p class="eyebrow">Received</p>
+      <h2 style="font-size:30px" id="done-h"></h2>
+      <p style="color:var(--text-2)" id="done-p"></p>
+      <div class="wr-row"><button class="btn" type="button" id="again">Write another</button> <a class="btn ghost" href="/armchair-gaffers/write">Back to Armchair Gaffers</a></div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const MAX_EDGE = 1600, MAX_BYTES = 5 * 1024 * 1024, MAX_PHOTOS = 12;
+  type Photo = { blob: Blob; url: string };
+  type Blk = { t: 'p'; txt: string } | { t: 'img'; photo: Photo | null; cap: string };
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const state = { kind: 'fan', cover: null as Photo | null, blocks: [{ t: 'p', txt: '' }] as Blk[], own: 'mine', token: '' };
+  let siteKey: string | null = null;
+
+  /** Shrink in the browser before upload: longest side 1600px, WebP (or JPEG) at 0.85. */
+  async function resize(file: File): Promise<Photo> {
+    const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' } as ImageBitmapOptions);
+    const scale = Math.min(1, MAX_EDGE / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas');
+    c.width = Math.round(bmp.width * scale); c.height = Math.round(bmp.height * scale);
+    c.getContext('2d')!.drawImage(bmp, 0, 0, c.width, c.height);
+    bmp.close?.();
+    const toBlob = (type: string, q: number) => new Promise<Blob | null>((res) => c.toBlob(res, type, q));
+    for (const q of [0.85, 0.7, 0.55]) {
+      let b = await toBlob('image/webp', q);
+      if (!b || b.type !== 'image/webp') b = await toBlob('image/jpeg', q);
+      if (b && b.size <= MAX_BYTES) return { blob: b, url: URL.createObjectURL(b) };
+    }
+    throw new Error('too big');
+  }
+  const photoCount = () => (state.cover ? 1 : 0) + state.blocks.filter((b) => b.t === 'img' && b.photo).length;
+  const say = (m: string) => { $('f-msg').textContent = m; };
+
+  async function pick(input: HTMLInputElement, set: (p: Photo) => void) {
+    const f = input.files?.[0];
+    if (!f) return;
+    if (photoCount() >= MAX_PHOTOS) { say(`You can add up to ${MAX_PHOTOS} photos.`); return; }
+    try { say('Preparing photo…'); set(await resize(f)); say(''); }
+    catch { say('That photo could not be read. Please choose a JPG, PNG or WebP image.'); }
+    renderAll();
+  }
+  function fileButton(label: string, onPick: (i: HTMLInputElement) => void) {
+    const l = document.createElement('label'); l.className = 'wr-filebtn'; l.append(label);
+    const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*';
+    i.addEventListener('change', () => onPick(i)); l.append(i);
+    return l;
+  }
+  function figure(photo: Photo | null, placeholder: string) {
+    if (!photo) { const d = document.createElement('div'); d.className = 'wr-note'; d.textContent = placeholder; return d; }
+    const im = document.createElement('img'); im.src = photo.url; im.alt = ''; return im;
+  }
+
+  function renderCover() {
+    const box = $('f-cover'); box.replaceChildren(figure(state.cover, 'JPG, PNG or WebP. Resized on your device before it is sent.'));
+    box.append(fileButton(state.cover ? 'Change cover photo' : 'Choose cover photo', (i) => pick(i, (p) => (state.cover = p))));
+    if (state.cover) {
+      const rm = document.createElement('button'); rm.type = 'button'; rm.className = 'chip'; rm.textContent = 'Remove';
+      rm.onclick = () => { state.cover = null; renderAll(); }; box.append(rm);
+    }
+  }
+  function renderBlocks() {
+    const host = $('f-blocks'); host.replaceChildren();
+    state.blocks.forEach((b, i) => {
+      const w = document.createElement('div'); w.className = 'wr-blk';
+      if (b.t === 'p') {
+        const t = document.createElement('textarea'); t.rows = 5; t.placeholder = 'Write here, in Kannada or English'; t.value = b.txt;
+        t.maxLength = 8000; t.addEventListener('input', () => { b.txt = t.value; updateSend(); }); w.append(t);
+      } else {
+        const fig = document.createElement('div'); fig.className = 'wr-fig';
+        fig.append(figure(b.photo, `Photo ${i + 1}`));
+        fig.append(fileButton(b.photo ? 'Change photo' : 'Choose photo', (inp) => pick(inp, (p) => (b.photo = p))));
+        const c = document.createElement('input'); c.placeholder = 'Caption (who or what is in the photo)'; c.value = b.cap; c.maxLength = 300;
+        c.addEventListener('input', () => (b.cap = c.value)); fig.append(c); w.append(fig);
+      }
+      const x = document.createElement('button'); x.type = 'button'; x.className = 'x'; x.textContent = '✕'; x.setAttribute('aria-label', 'Remove');
+      x.onclick = () => { state.blocks.splice(i, 1); if (!state.blocks.length) state.blocks.push({ t: 'p', txt: '' }); renderAll(); };
+      w.append(x); host.append(w);
+    });
+  }
+  function renderAll() { renderCover(); renderBlocks(); updateSend(); }
+
+  function updateSend() {
+    const credit = ($('f-credit') as HTMLInputElement).value.trim();
+    const email = ($('f-email') as HTMLInputElement).value.trim();
+    const ready = ($('f-title') as HTMLInputElement).value.trim() && ($('f-name') as HTMLInputElement).value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
+      && ($('f-ok') as HTMLInputElement).checked && (state.own !== 'credit' || credit)
+      && state.blocks.some((b) => b.t === 'p' && b.txt.trim()) && (!siteKey || state.token)
+      && state.blocks.every((b) => b.t === 'p' || b.photo);
+    ($('f-send') as HTMLButtonElement).disabled = !ready;
+  }
+
+  async function send() {
+    const btn = $('f-send') as HTMLButtonElement; btn.disabled = true; say('Sending…');
+    const fd = new FormData();
+    const photos: Blob[] = [];
+    const add = (p: Photo) => photos.push(p.blob) - 1;
+    const payload = {
+      title: ($('f-title') as HTMLInputElement).value, kind: state.kind, name: ($('f-name') as HTMLInputElement).value,
+      email: ($('f-email') as HTMLInputElement).value, ownership: state.own, credit: ($('f-credit') as HTMLInputElement).value,
+      confirm: ($('f-ok') as HTMLInputElement).checked,
+      cover: state.cover ? add(state.cover) : null,
+      blocks: state.blocks.map((b) => (b.t === 'p' ? b : { t: 'img', file: add(b.photo!), cap: b.cap })),
+    };
+    fd.set('payload', JSON.stringify(payload));
+    photos.forEach((b, i) => fd.set(`photo${i}`, b, `photo${i}.${b.type === 'image/webp' ? 'webp' : 'jpg'}`));
+    fd.set('hp', ($('f-hp') as HTMLInputElement).value);
+    fd.set('cf-turnstile-response', state.token);
+    try {
+      const r = await fetch('/api/write/submit', { method: 'POST', body: fd });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) { say(d.error ?? 'We could not send your piece. Please try again.'); (window as any).turnstile?.reset(); state.token = ''; updateSend(); return; }
+      $('done-h').textContent = `Thanks, ${payload.name.trim() || 'friend'}. We have your piece.`;
+      $('done-p').textContent = `An editor will read it, fix typos if needed and publish it. You will get an email at ${payload.email.trim()} when it is live.`;
+      $('wr-form-wrap').hidden = true; $('wr-done').hidden = false; window.scrollTo({ top: 0 });
+    } catch { say('We could not send your piece. Check your connection and try again.'); updateSend(); }
+  }
+
+  // wiring
+  $('add-p').onclick = () => { state.blocks.push({ t: 'p', txt: '' }); renderAll(); };
+  $('add-img').onclick = () => { state.blocks.push({ t: 'img', photo: null, cap: '' }); renderAll(); };
+  document.querySelectorAll<HTMLButtonElement>('#f-kind .chip').forEach((c) => c.addEventListener('click', () => {
+    state.kind = c.dataset.k!; document.querySelectorAll('#f-kind .chip').forEach((x) => x.setAttribute('aria-selected', String(x === c)));
+  }));
+  document.querySelectorAll<HTMLInputElement>('input[name=own]').forEach((r) => r.addEventListener('change', () => {
+    state.own = r.value; ($('f-credit') as HTMLInputElement).hidden = r.value !== 'credit';
+    $('f-ok-text').textContent = r.value === 'credit' ? 'I have the owner’s permission to share these photos' : 'I confirm the photos are mine or I have permission';
+    updateSend();
+  }));
+  ['f-title', 'f-name', 'f-email', 'f-credit', 'f-ok'].forEach((id) => $(id).addEventListener('input', updateSend));
+  $('f-ok').addEventListener('change', updateSend);
+  $('f-send').addEventListener('click', send);
+  $('again').addEventListener('click', () => location.reload());
+  renderAll();
+
+  // Spam check: Cloudflare Turnstile, only when a site key is configured on the server.
+  fetch('/api/write/config').then((r) => r.json()).then((c) => {
+    siteKey = c.turnstileSiteKey; if (!siteKey) return;
+    const s = document.createElement('script'); s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; s.async = true;
+    s.onload = () => (window as any).turnstile.render('#f-turnstile', { sitekey: siteKey, callback: (t: string) => { state.token = t; updateSend(); }, 'expired-callback': () => { state.token = ''; updateSend(); } });
+    document.head.append(s); updateSend();
+  }).catch(() => {});
+</script>

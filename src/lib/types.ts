@@ -83,3 +83,71 @@ export interface LeagueSnapshot {
   fixtures: Match[];
   scorers: Scorer[];
 }
+
+// ---------- Match centre (one match, in detail) ----------
+// Built on demand by src/lib/match.ts from whatever the match's source publishes. Every part is optional:
+// the match page shows a tab only when its data exists, and never invents anything.
+
+export type Side = 'home' | 'away';
+
+export interface Player {
+  name: string;
+  number?: number;
+  position?: 'GK' | 'DEF' | 'MID' | 'FWD';
+  captain?: boolean;
+  /** Minute they were replaced, e.g. "58'" (starters) or came on (bench). */
+  off?: string;
+  on?: string;
+  yellow?: boolean;
+  red?: boolean;
+  goals?: number;
+}
+
+export interface Lineup {
+  formation?: string; // "4-3-3"
+  coach?: string;
+  starters: Player[]; // goalkeeper first, then defenders to forwards
+  bench: Player[];
+}
+
+export interface MatchEvent {
+  minute: string; // "23'", "45+2'", "HT"
+  order: number; // sort key (minutes * 100 + stoppage)
+  side: Side;
+  type: 'goal' | 'penalty' | 'own-goal' | 'yellow' | 'red' | 'sub';
+  player: string;
+  assist?: string;
+  playerOut?: string; // for substitutions, `player` is the one coming on
+  note?: string; // e.g. "Second yellow"
+}
+
+export interface TeamStat {
+  label: string;
+  home: number;
+  away: number;
+  percent?: boolean;
+}
+
+export interface MatchTeam {
+  name: string;
+  short?: string;
+  logo?: string;
+  score?: number;
+}
+
+export interface MatchDetail {
+  id: string;
+  competition: string; // display name, e.g. "Indian Super League"
+  status: MatchStatus;
+  clock?: string; // "61'", "HT" while live
+  kickoff: string;
+  venue?: string;
+  round?: string;
+  home: MatchTeam;
+  away: MatchTeam;
+  events: MatchEvent[];
+  lineups?: { home: Lineup; away: Lineup };
+  stats?: TeamStat[];
+  playerOfTheMatch?: string;
+  updatedAt: string;
+}

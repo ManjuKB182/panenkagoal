@@ -1,0 +1,52 @@
+import { describe, expect, it } from 'vitest';
+import { blocksFor, renderArticleHtml, sniffImage, slugify, validateEditedBlocks, validateSubmission, verifyAccess } from '../src/lib/write';
+
+const base = { title: 'Press', kind: 'fan', name: 'Asha', email: 'a@b.co', ownership: 'mine', credit: '', confirm: true, cover: null, blocks: [{ t: 'p', txt: 'Hello' }] };
+const jpg = { type: 'image/jpeg', size: 5000 };
+
+describe('validateSubmission', () => {
+  it('accepts a good piece', () => expect(validateSubmission(base, []).ok).toBe(true));
+  it('rejects bad email, missing confirm, empty body, credit without owner', () => {
+    expect(validateSubmission({ ...base, email: 'x' }, []).ok).toBe(false);
+    expect(validateSubmission({ ...base, confirm: false }, []).ok).toBe(false);
+    expect(validateSubmission({ ...base, blocks: [{ t: 'p', txt: '  ' }] }, []).ok).toBe(false);
+    expect(validateSubmission({ ...base, ownership: 'credit' }, []).ok).toBe(false);
+  });
+  it('limits photos by count, size and type', () => {
+    expect(validateSubmission(base, Array(13).fill(jpg)).ok).toBe(false);
+    expect(validateSubmission(base, [{ type: 'image/jpeg', size: 6 * 1024 * 1024 }]).ok).toBe(false);
+    expect(validateSubmission(base, [{ type: 'image/gif', size: 5000 }]).ok).toBe(false);
+    expect(validateSubmission({ ...base, blocks: [...base.blocks, { t: 'img', file: 1, cap: '' }] }, [jpg]).ok).toBe(false);
+    expect(validateSubmission({ ...base, blocks: [...base.blocks, { t: 'img', file: 0, cap: 'c' }] }, [jpg]).ok).toBe(true);
+  });
+});
+
+describe('helpers', () => {
+  it('builds blocks with credits', () => {
+    const v = validateSubmission({ ...base, ownership: 'credit', credit: 'Ravi', cover: 0, blocks: [{ t: 'img', file: 0, cap: 'x' }, { t: 'p', txt: 'y' }] }, [jpg]);
+    if (!v.ok) throw new Error('invalid');
+    const r = blocksFor(v.value, ['k1']);
+    expect(r.cover_key).toBe('k1');
+    expect(r.blocks[0]).toEqual({ t: 'img', key: 'k1', cap: 'x', credit: 'Ravi' });
+  });
+  it('edited blocks cannot reference foreign photo keys', () => {
+    const key = 'abcdefghij0123456789.jpg';
+    expect(validateEditedBlocks([{ t: 'p', txt: 'a' }, { t: 'img', key, cap: '', credit: '' }], new Set([key]))).not.toBeNull();
+    expect(validateEditedBlocks([{ t: 'p', txt: 'a' }, { t: 'img', key, cap: '', credit: '' }], new Set())).toBeNull();
+  });
+  it('sniffs image bytes and slugs', () => {
+    expect(sniffImage(new Uint8Array([0xff, 0xd8, 0xff, 0]))?.ext).toBe('jpg');
+    expect(sniffImage(new Uint8Array([1, 2, 3, 4]))).toBeNull();
+    expect(slugify('ಕನ್ನಡ!')).toMatch(/^post-[a-z0-9]{5}$/);
+  });
+  it('escapes HTML in articles', () => {
+    const h = renderArticleHtml({ title: '<b>x</b>', kind: 'fan', author_name: 'A', cover_key: null, body: [{ t: 'p', txt: '<script>' }], photo_credit: '', published_at: new Date().toISOString() });
+    expect(h).not.toContain('<script>');
+    expect(h).not.toContain('<b>x');
+  });
+  it('Access: denies without header, allows with header when unconfigured', async () => {
+    expect(await verifyAccess(new Request('https://x/'), {})).toBe(false);
+    expect(await verifyAccess(new Request('https://x/', { headers: { 'Cf-Access-Jwt-Assertion': 'a.b.c' } }), {})).toBe(true);
+    expect(await verifyAccess(new Request('https://x/', { headers: { 'Cf-Access-Jwt-Assertion': 'junk' } }), { CF_ACCESS_AUD: 'a', CF_ACCESS_TEAM_DOMAIN: 't.example' })).toBe(false);
+  });
+});

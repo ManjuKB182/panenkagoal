@@ -1,0 +1,34 @@
+---
+// News as uniform tiles. Shows at most `limit` items; the rest live under All news.
+import type { NewsItem } from '../lib/types';
+import { SECTIONS } from '../config/site';
+import { timeAgo } from '../lib/format';
+
+interface Props { items: NewsItem[]; limit?: number; moreHref?: string; all?: boolean }
+const { items, limit = 5, moreHref = '/news', all = false } = Astro.props;
+const shown = all ? items : items.slice(0, limit);
+---
+{shown.length === 0 ? (
+  <p class="muted">No headlines here right now. We check for new ones every 30 minutes.</p>
+) : (
+  <div class="tiles">
+    {shown.map((n) => (
+      <a class="tile" href={n.url} rel="noopener" target={n.source === 'Panenka' ? undefined : '_blank'}>
+        <div class="eyebrow">{n.source}{n.section ? ` · ${SECTIONS[n.section].title}` : ''}</div>
+        <h3>{n.title}</h3>
+        {n.summary && <p class="meta">{n.summary.length > 110 ? `${n.summary.slice(0, 110)}…` : n.summary}</p>}
+        <div class="foot"><span class="plain">{timeAgo(n.publishedAt)}</span><span>Read →</span></div>
+      </a>
+    ))}
+    {!all && <a class="tile more" href={moreHref}>
+      <div class="eyebrow">More</div>
+      <h3>All news</h3>
+      <p class="meta">{items.length > limit ? `${items.length - limit} more headlines` : 'Every headline in one place'}</p>
+      <div class="foot"><span class="plain"></span><span>All news →</span></div>
+    </a>}
+  </div>
+)}
+
+<style>
+  .more { background: var(--surface-2); }
+</style>

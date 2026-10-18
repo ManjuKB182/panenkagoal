@@ -1,0 +1,122 @@
+---
+// Editors only. /armchair-gaffers/review is gated by Cloudflare Access and by functions/armchair-gaffers/review.ts.
+import Base from '../../layouts/Base.astro';
+import WriteHead from '../../components/WriteHead.astro';
+---
+<Base title="Review queue" description="Editors only.">
+  <WriteHead active="none" compact />
+  <section class="wrap module" style="padding-top:12px">
+    <p class="eyebrow">Editors only</p>
+    <h1>Review queue</h1>
+    <p class="muted" style="margin:6px 0 14px">Approve a piece to publish it, or send it back with a note. Email the writer from the link on each piece.</p>
+    <div class="chips" id="rv-tabs" role="tablist" style="margin-bottom:14px">
+      <button class="chip" type="button" role="tab" data-s="pending" aria-selected="true">Pending <span id="n-pending"></span></button>
+      <button class="chip" type="button" role="tab" data-s="published" aria-selected="false">Published <span id="n-published"></span></button>
+      <button class="chip" type="button" role="tab" data-s="sent_back" aria-selected="false">Sent back <span id="n-sent_back"></span></button>
+    </div>
+    <div class="wr-rev" id="rv-list" aria-live="polite"></div>
+  </section>
+</Base>
+
+<script>
+  type B = { t: 'p'; txt: string } | { t: 'img'; key: string; cap: string; credit: string };
+  type Post = { id: number; slug: string; title: string; kind: 'fan' | 'analyst'; author_name: string; author_email: string; cover_key: string | null; body: B[]; photo_rights: string; photo_credit: string; status: string; editor_note: string | null; created_at: string };
+  const list = document.getElementById('rv-list')!;
+  let status = 'pending';
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls = '', text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  const btn = (label: string, fn: () => void, cls = 'chip') => {
+    const b = el('button', cls, label); b.type = 'button'; b.addEventListener('click', fn); return b;
+  };
+  async function act(id: number, body: object) {
+    const r = await fetch(`/api/write/review/${id}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) { alert(d.error ?? 'That did not work. Please try again.'); return false; }
+    return true;
+  }
+
+  function editor(p: Post, host: HTMLElement) {
+    host.replaceChildren();
+    const form = el('div', 'wr-form');
+    const title = el('input'); title.value = p.title;
+    const kind = el('select'); for (const k of ['fan', 'analyst']) { const o = el('option', '', k === 'fan' ? 'Fan' : 'Analyst'); o.value = k; kind.append(o); } kind.value = p.kind;
+    form.append(title, kind);
+    const fields = p.body.map((b) => {
+      const f = el(b.t === 'p' ? 'textarea' : 'input') as HTMLTextAreaElement | HTMLInputElement;
+      if (b.t === 'p') { (f as HTMLTextAreaElement).rows = 5; f.value = b.txt; } else { f.value = b.cap; f.placeholder = 'Caption'; const im = el('img'); im.src = `/api/write/photo/${b.key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain'; form.append(im); }
+      form.append(f);
+      return f;
+    });
+    const row = el('div', 'wr-row');
+    row.append(
+      btn('Save changes', async () => {
+        const body = p.body.map((b, i) => (b.t === 'p' ? { t: 'p', txt: fields[i].value } : { ...b, cap: fields[i].value }));
+        if (await act(p.id, { action: 'edit', title: title.value, kind: kind.value, body })) load();
+      }, 'btn'),
+      btn('Cancel', () => host.replaceChildren(), 'chip'),
+    );
+    form.append(row);
+    host.append(form);
+  }
+
+  function card(p: Post) {
+    const c = el('div', 'wr-item');
+    c.append(el('h3', '', p.title));
+    const photos = p.body.filter((b) => b.t === 'img').length + (p.cover_key ? 1 : 0);
+    const meta = el('div', 'muted');
+    meta.append(`${p.kind === 'analyst' ? 'Analyst' : 'Fan'} · ${p.author_name} · ${photos} photo${photos === 1 ? '' : 's'} · ${new Date(p.created_at).toLocaleString('en-IN')} · `);
+    const mail = el('a', '', p.author_email) as HTMLAnchorElement;
+    mail.href = `mailto:${p.author_email}?subject=${encodeURIComponent('Your piece on Panenka Goal')}`;
+    meta.append(mail);
+    c.append(meta);
+    c.append(el('div', 'muted', p.photo_rights === 'credit' ? `Photos belong to someone else. Credit: ${p.photo_credit}` : 'Writer says the photos are theirs or used with permission.'));
+    if (p.editor_note) c.append(el('div', 'muted', `Note sent: ${p.editor_note}`));
+
+    const read = el('details');
+    read.append(el('summary', '', 'Read the piece'));
+    const art = el('div', 'wr-art');
+    if (p.cover_key) { const im = el('img'); im.src = `/api/write/photo/${p.cover_key}`; im.alt = ''; art.append(im); }
+    for (const b of p.body) {
+      if (b.t === 'p') art.append(el('p', '', b.txt));
+      else { const fg = el('figure'); const im = el('img'); im.src = `/api/write/photo/${b.key}`; im.alt = b.cap; fg.append(im, el('figcaption', '', `${b.cap}${b.credit ? ' (' + b.credit + ')' : ''}`)); art.append(fg); }
+    }
+    read.append(art);
+    c.append(read);
+
+    const host = el('div');
+    const row = el('div', 'wr-row');
+    if (p.status !== 'published') row.append(btn('Approve', async () => { if (await act(p.id, { action: 'approve' })) load(); }, 'btn'));
+    else { const v = el('a', 'chip', 'View live') as HTMLAnchorElement; v.href = `/armchair-gaffers/write/${p.slug}`; row.append(v); }
+    row.append(
+      btn('Send back', async () => {
+        const note = prompt('Note for the writer (what to fix):');
+        if (note && (await act(p.id, { action: 'send_back', note }))) load();
+      }),
+      btn('Edit', () => editor(p, host)),
+    );
+    c.append(row, host);
+    return c;
+  }
+
+  async function load() {
+    list.replaceChildren(el('p', 'wr-empty', 'Loading…'));
+    const r = await fetch(`/api/write/review?status=${status}`);
+    if (!r.ok) { list.replaceChildren(el('p', 'wr-empty', r.status === 403 ? 'Sign in through Cloudflare Access to see this page.' : 'Could not load the queue.')); return; }
+    const d = await r.json();
+    for (const s of ['pending', 'published', 'sent_back']) document.getElementById(`n-${s}`)!.textContent = d.counts?.[s] ? `(${d.counts[s]})` : '';
+    list.replaceChildren();
+    if (!d.posts.length) list.append(el('p', 'wr-empty', 'Nothing here.'));
+    for (const p of d.posts as Post[]) list.append(card(p));
+  }
+  document.querySelectorAll<HTMLButtonElement>('#rv-tabs .chip').forEach((t) => t.addEventListener('click', () => {
+    status = t.dataset.s!;
+    document.querySelectorAll('#rv-tabs .chip').forEach((x) => x.setAttribute('aria-selected', String(x === t)));
+    load();
+  }));
+  load();
+</script>

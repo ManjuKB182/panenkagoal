@@ -1,0 +1,63 @@
+---
+import Base from '../../../layouts/Base.astro';
+import WriteHead from '../../../components/WriteHead.astro';
+---
+<Base title="Armchair Gaffers: Write" description="Match reports, tactical breakdowns and fan views on Indian football, written by fans and analysts.">
+  <WriteHead active="write" />
+  <section class="wrap module" style="padding-top:12px">
+    <div class="wr-bar">
+      <div class="chips" role="tablist" aria-label="Filter pieces" id="wr-filter">
+        <button class="chip" type="button" role="tab" data-f="all" aria-selected="true">All</button>
+        <button class="chip" type="button" role="tab" data-f="fan" aria-selected="false">Fans</button>
+        <button class="chip" type="button" role="tab" data-f="analyst" aria-selected="false">Analysts</button>
+      </div>
+      <a class="btn" href="/armchair-gaffers/write/submit">Submit your piece</a>
+    </div>
+    <div class="wr-grid" id="wr-grid" aria-live="polite"><p class="wr-empty">Loading pieces…</p></div>
+    <p class="wr-note" style="margin-top:14px">Every piece is read by an editor before it goes live. Photos remain the property of their owner.</p>
+  </section>
+</Base>
+
+<script>
+  // Published pieces load live from /api/write/posts, so a newly approved piece shows up without a site rebuild.
+  type P = { slug: string; title: string; kind: 'fan' | 'analyst'; author: string; publishedAt: string; minutes: number };
+  const grid = document.getElementById('wr-grid')!;
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('#wr-filter .chip')];
+  let posts: P[] = [];
+  let filter = 'all';
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function render() {
+    grid.replaceChildren();
+    const list = posts.filter((p) => filter === 'all' || p.kind === filter);
+    if (!list.length) {
+      grid.append(el('p', 'wr-empty', posts.length ? 'No pieces here yet.' : 'No pieces yet. Be the first to submit one.'));
+      return;
+    }
+    for (const p of list) {
+      const a = el('a', 'wr-tile') as HTMLAnchorElement;
+      a.href = `/armchair-gaffers/write/${p.slug}`;
+      a.append(el('span', 'wr-tag' + (p.kind === 'analyst' ? ' an' : ''), p.kind === 'analyst' ? 'Analyst' : 'Fan'));
+      a.append(el('h3', '', p.title));
+      const foot = el('div', 'wr-foot');
+      const date = new Date(p.publishedAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+      foot.append(el('span', '', `${p.author} · ${date} · ${p.minutes} min read`), el('b', '', '→'));
+      a.append(foot);
+      grid.append(a);
+    }
+  }
+  chips.forEach((c) => c.addEventListener('click', () => {
+    filter = c.dataset.f!;
+    chips.forEach((x) => x.setAttribute('aria-selected', String(x === c)));
+    render();
+  }));
+  fetch('/api/write/posts')
+    .then((r) => (r.ok ? r.json() : Promise.reject()))
+    .then((d) => { posts = d.posts ?? []; render(); })
+    .catch(() => { grid.replaceChildren(el('p', 'wr-empty', 'Pieces could not be loaded right now. Please try again in a moment.')); });
+</script>

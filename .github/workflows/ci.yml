@@ -97,6 +97,6 @@ jobs:
         if: env.HAS_CF == 'true'
         run: |
           sleep 20
-          for path in / /stats /stats/isl /watch; do
+          for path in / /stats /stats/isl /armchair-gaffers; do
             curl -fsS -o /dev/null "https://panenkagoal.com$path" && echo "ok $path"
           done

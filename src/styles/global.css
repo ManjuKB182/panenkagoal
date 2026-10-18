@@ -169,3 +169,38 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
   :root:not([data-theme='light']) .bg-photo::before { opacity: 0.32; }
   :root:not([data-theme='light']) .bg-photo.band::before { opacity: 0.22; }
 }
+
+/* Page tabs (underline style) used on Stats, section pages, Karnataka and Armchair Gaffers. */
+.tabs { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: none; border: 0; border-bottom: 3px solid transparent; margin-bottom: -1px; background: none; cursor: pointer;
+  padding: 11px 16px; font: 600 15px/1.2 var(--body); color: var(--text-2); text-decoration: none; white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+.tab:hover { color: var(--text); }
+.tab[aria-selected='true'] { color: var(--text); border-bottom-color: var(--brand); }
+.tab .n { margin-left: 6px; background: var(--accent); color: var(--on-accent); border-radius: 99px; font-size: 11px; padding: 1px 7px; font-weight: 700; }
+.tabpanel[hidden] { display: none; }
+
+/* Tiles: one shape everywhere (label, title, detail, footer) so every grid lines up. */
+.tiles { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.tile {
+  display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; min-height: 156px; min-width: 0; text-align: left;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow);
+  color: var(--text); text-decoration: none; font: inherit; transition: border-color 0.15s, transform 0.15s;
+}
+a.tile:hover, button.tile:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+a.tile:hover h3, button.tile:hover h3 { color: var(--brand-text); }
+button.tile { cursor: pointer; width: 100%; }
+.tile .eyebrow { font-size: 11.5px; }
+.tile h3 { font-size: 19px; line-height: 1.22; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.tile .meta { color: var(--text-2); font-size: 14px; line-height: 1.45; }
+.tile .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-top: 8px; font-size: 13px; font-weight: 700; color: var(--brand-text); }
+.tile .foot .plain { color: var(--text-3); font-weight: 500; }
+.tile .badge { width: fit-content; }
+
+.pagehead { display: grid; gap: 6px; padding-block: 36px 20px; }
+.pagehead p { color: var(--text-2); max-width: 62ch; }
+.pagehead .kn { color: var(--brand-text); font-weight: 700; font-size: 16px; }
+.tile[hidden] { display: none; }

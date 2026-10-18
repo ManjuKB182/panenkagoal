@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import GafferHead from '../../components/WriteHead.astro';
 import VideoCard from '../../components/VideoCard.astro';
 import { SITE } from '../../config/site';
 import { getShows, getVideos, isShort } from '../../lib/data';
@@ -32,28 +33,28 @@ const tabs = [
 ].map((t) => ({ ...t, n: items.filter((i) => i.cats.includes(t.key)).length }));
 const PAGE = 12;
 ---
-<Base title="Watch" description="Neeli Pade, MD Previews, interviews and Football Kathe: every Panenka Goal show in one place, plus official ISL highlights.">
-  <header class="wrap page-head">
+<Base title="Armchair Gaffers" description="Neeli Pade, MD Previews, interviews and Football Kathe: every Panenka Goal show in one place, plus official ISL highlights.">
+  <GafferHead active="watch" />
+  <section class="wrap page-head">
     <div>
-      <p class="eyebrow">Watch</p>
-      <h1>Shows &amp; episodes</h1>
+      <h2 class="ph-h">Shows &amp; episodes</h2>
       <p class="muted lede">Indian football talk in Kannada. {longForm.length} episodes and {shorts.length} shorts.</p>
     </div>
     <a class="sub" href={`${SITE.socials.youtube}?sub_confirmation=1`} rel="noopener">Subscribe on YouTube</a>
-  </header>
+  </section>
 
   {latest && (
     <section class="wrap">
       <div class="panel-card feature">
         <div class="fv"><VideoCard video={latest} size="hero" badge="Latest" /></div>
         <div class="fd">
-          {showOf(latest.show) && <a class="eyebrow" href={`/watch/${latest.show}`}>{showOf(latest.show)!.name}</a>}
+          {showOf(latest.show) && <a class="eyebrow" href={`/armchair-gaffers/${latest.show}`}>{showOf(latest.show)!.name}</a>}
           <h2>{latest.title.replace(/#\w+/g, '').trim()}</h2>
           <p class="muted">{shortDate(latest.publishedAt)}{latest.views ? ` · ${latest.views.toLocaleString('en-IN')} views` : ''}</p>
           {latest.description && <p class="desc">{latest.description.split('\n')[0].slice(0, 220)}</p>}
           <div class="actions">
             <a class="btn" href={ytWatch(latest.id)} rel="noopener">Watch on YouTube</a>
-            {latest.show && <a class="btn ghost" href={`/watch/${latest.show}`}>More episodes</a>}
+            {latest.show && <a class="btn ghost" href={`/armchair-gaffers/${latest.show}`}>More episodes</a>}
           </div>
         </div>
       </div>
@@ -64,7 +65,7 @@ const PAGE = 12;
     <div class="mod-head"><h2 id="shows-h">Our shows</h2></div>
     <div class="shows">
       {showCards.map(({ show, count, last, thumb }) => (
-        <a class="panel-card show" href={`/watch/${show.slug}`}>
+        <a class="panel-card show" href={`/armchair-gaffers/${show.slug}`}>
           {thumb ? <img src={thumb} alt="" width="480" height="360" loading="lazy" /> : <span class="ph"></span>}
           <span class="sb">
             <span class="sn">{show.name}</span>
@@ -123,14 +124,14 @@ const PAGE = 12;
   }
   tabs.forEach((t) => t.addEventListener('click', () => select(t.dataset.cat)));
   more.addEventListener('click', () => { shown += PAGE; render(); });
-  // Deep links such as /watch#isl or /watch#shorts open that tab.
+  // Deep links such as /armchair-gaffers#isl or /armchair-gaffers#shorts open that tab.
   const fromHash = location.hash.replace('#', '').replace('isl-highlights', 'isl');
   select(fromHash || 'all');
   if (fromHash) document.getElementById('browse').scrollIntoView();
 </script>
 
 <style>
-  .page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 28px 20px; }
+  .page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 20px; }
   .lede { margin-top: 6px; font-size: 15px; }
   .sub, .btn {
     display: inline-flex; align-items: center; gap: 8px; background: var(--brand); color: #fff; font-weight: 600; font-size: 14.5px;

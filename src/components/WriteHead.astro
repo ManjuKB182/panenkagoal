@@ -1,0 +1,80 @@
+---
+// Page head + Watch / Write tabs shared by every Armchair Gaffers page, plus the styles
+// for the Write pages (global, prefixed wr-, because article HTML is injected at request time).
+interface Props { active: 'watch' | 'write' | 'none'; compact?: boolean }
+const { active, compact = false } = Astro.props;
+---
+<header class="wrap wr-head">
+  {!compact && (
+    <>
+      <p class="eyebrow">Fans &amp; analysts</p>
+      <h1>Armchair Gaffers</h1>
+      <p class="muted wr-lede">Fans and analysts break down the game. Watch the shows or read the takes.</p>
+    </>
+  )}
+  <nav class="chips wr-tabs" aria-label="Armchair Gaffers sections">
+    <a class="chip" href="/armchair-gaffers" aria-selected={active === 'watch' ? 'true' : 'false'}>Watch</a>
+    <a class="chip" href="/armchair-gaffers/write" aria-selected={active === 'write' ? 'true' : 'false'}>Write</a>
+  </nav>
+</header>
+
+<style is:global>
+  .wr-head { padding-block: 28px 8px; display: grid; gap: 6px; }
+  .wr-lede { font-size: 15px; margin-bottom: 10px; }
+  .wr-tabs { margin-top: 4px; }
+  .wr-tabs .chip { padding: 9px 18px; }
+
+  .wr-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 18px; }
+  .wr-bar .btn { margin-left: auto; }
+  .wr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .wr-tile { display: flex; flex-direction: column; gap: 8px; padding: 16px; min-height: 170px; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); color: var(--text); text-decoration: none; transition: border-color 0.15s, transform 0.15s; }
+  .wr-tile:hover { border-color: var(--brand); transform: translateY(-2px); }
+  .wr-tile h3 { font-size: 19px; line-height: 1.2; overflow-wrap: anywhere; }
+  .wr-tile .wr-foot { margin-top: auto; display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--text-2); }
+  .wr-tile .wr-foot b { color: var(--brand-text); }
+  .wr-tag { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line-strong); width: fit-content; color: var(--text); }
+  .wr-tag.an { background: var(--accent-tint); border-color: var(--accent); }
+  .wr-empty { padding: 28px 18px; text-align: center; border: 1px dashed var(--line-strong); border-radius: var(--r); color: var(--text-2); grid-column: 1 / -1; }
+  .wr-note { font-size: 12.5px; color: var(--text-2); }
+
+  .wr-back { font-weight: 700; color: var(--brand-text); text-decoration: none; font-size: 14px; }
+  .wr-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 18px; }
+  .wr-cols { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  .wr-form { display: grid; gap: 10px; }
+  .wr-form label { font-weight: 700; font-size: 13px; color: var(--text-2); }
+  .wr-form label.chk { display: flex; gap: 8px; align-items: flex-start; font-weight: 500; color: var(--text); font-size: 14px; }
+  .wr-form input:not([type=file]):not([type=checkbox]):not([type=radio]), .wr-form textarea, .wr-form select {
+    width: 100%; font: inherit; color: var(--text); background: var(--surface-2); border: 1px solid var(--line-strong); border-radius: 8px; padding: 10px 12px;
+  }
+  .wr-form textarea { resize: vertical; line-height: 1.55; }
+  .wr-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .wr-blk { position: relative; }
+  .wr-blk .x { position: absolute; top: 6px; right: 6px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 50%; width: 26px; height: 26px; font-size: 11px; cursor: pointer; color: var(--text); }
+  .wr-fig { border: 1px dashed var(--line-strong); border-radius: 8px; padding: 8px; display: grid; gap: 8px; background: var(--surface-2); }
+  .wr-fig img { width: 100%; max-height: 320px; object-fit: contain; border-radius: 6px; background: var(--ink); }
+  .wr-filebtn { border: 1px solid var(--line-strong); background: var(--surface); border-radius: 8px; padding: 8px 12px; font-weight: 600; font-size: 13px; cursor: pointer; position: relative; overflow: hidden; width: fit-content; color: var(--text); }
+  .wr-filebtn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .wr-msg { font-size: 13.5px; color: var(--brand-text); font-weight: 600; min-height: 1.2em; }
+  .wr-form button.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .wr-ok { max-width: 560px; display: grid; gap: 10px; }
+
+  .wr-art { display: grid; gap: 14px; max-width: 70ch; }
+  .wr-art h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.1; overflow-wrap: anywhere; }
+  .wr-art p { font-size: 17px; line-height: 1.7; white-space: pre-line; overflow-wrap: anywhere; }
+  .wr-by { color: var(--text-2); font-size: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .wr-art figure { margin: 0; display: grid; gap: 6px; }
+  .wr-art img { width: 100%; height: auto; border-radius: 8px; display: block; }
+  .wr-art figcaption { font-size: 13px; color: var(--text-3); }
+  .wr-art figcaption i { font-style: normal; display: block; }
+
+  .wr-rev { display: grid; gap: 12px; }
+  .wr-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 8px; }
+  .wr-item h3 { font-size: 18px; }
+  .wr-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .wr-row .chip { font-size: 13px; }
+  .wr-thumbs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .wr-thumbs img { width: 72px; height: 54px; object-fit: cover; border-radius: 6px; }
+
+  @media (max-width: 900px) { .wr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .wr-cols { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 560px) { .wr-grid { grid-template-columns: minmax(0, 1fr); } .wr-bar .btn { margin-left: 0; } }
+</style>

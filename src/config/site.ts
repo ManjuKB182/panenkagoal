@@ -47,14 +47,16 @@ export const SECTIONS: Record<SectionKey, { title: string; heading?: string; tit
   },
 };
 
+// `blurb` is the one-line description shown in the phone menu.
 export const NAV = [
-  { href: '/mens', label: "Men's" },
-  { href: '/wofo', label: "Women's" },
-  { href: '/youth', label: 'Youth' },
-  { href: '/karnataka', label: 'Karnataka' },
-  { href: '/stats', label: 'Stats' },
-  { href: '/watch', label: 'Watch' },
-  { href: '/merch', label: 'Merch' },
+  { href: '/mens', label: "Men's", blurb: 'Fixtures, tables and news' },
+  { href: '/wofo', label: "Women's", blurb: 'IWL, IWL 2 and the national team' },
+  { href: '/youth', label: 'Youth', blurb: 'U18, U15 and U13 leagues' },
+  { href: '/karnataka', label: 'Karnataka', blurb: 'Academies, players, legends and history' },
+  { href: '/stats', label: 'Stats', blurb: 'League tables and top performers' },
+  { href: '/armchair-gaffers', label: 'Armchair Gaffers', blurb: 'Watch our shows. Write for us' },
+  { href: '/news', label: 'All news', blurb: 'Every headline in one place' },
+  { href: '/merch', label: 'Merch', blurb: 'Panenka Goal gear' },
 ] as const;
 
 // Files Panenka's own videos under a section when the TITLE mentions it (hashtags are ignored,

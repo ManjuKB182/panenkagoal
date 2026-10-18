@@ -1,0 +1,69 @@
+---
+// Day strip (three days either side of today, IST) with matches grouped by competition. Every match opens its match centre.
+import MatchList from './MatchList.astro';
+import type { getAllMatches } from '../lib/data';
+import { istDay } from '../lib/format';
+
+type Item = ReturnType<typeof getAllMatches>[number];
+interface Props { matches: Item[]; id: string }
+const { matches, id } = Astro.props;
+const today = istDay(new Date().toISOString());
+const days = [-3, -2, -1, 0, 1, 2, 3].map((offset) => {
+  const d = new Date(`${today}T12:00:00+05:30`);
+  d.setUTCDate(d.getUTCDate() + offset);
+  const label = offset === 0 ? 'Today' : offset === -1 ? 'Yesterday' : offset === 1 ? 'Tomorrow'
+    : d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', timeZone: 'Asia/Kolkata' });
+  return { key: istDay(d.toISOString()), label };
+});
+const byDay = new Map(days.map((d) => [d.key, matches.filter((m) => istDay(m.kickoff) === d.key)]));
+const groupByComp = (ms: Item[]) => {
+  const groups = new Map<string, Item[]>();
+  for (const m of [...ms].sort((a, b) => a.kickoff.localeCompare(b.kickoff))) groups.set(m.comp.slug, [...(groups.get(m.comp.slug) ?? []), m]);
+  return [...groups.values()];
+};
+// If nothing is on today, open on the nearest day that has matches.
+const open = byDay.get(today)!.length ? today : (days.find((d) => byDay.get(d.key)!.length)?.key ?? today);
+---
+<div class="fbd" data-fbd={id}>
+  <div class="chips days" role="tablist" aria-label="Day">
+    {days.map((d) => (
+      <button class="chip" type="button" role="tab" data-day={d.key} aria-selected={d.key === open ? 'true' : 'false'}>
+        {d.label}{byDay.get(d.key)!.length ? <span class="n">{byDay.get(d.key)!.length}</span> : null}
+      </button>
+    ))}
+  </div>
+  {days.map((d) => (
+    <div class="panel-card day" data-dayp={d.key} hidden={d.key !== open}>
+      {byDay.get(d.key)!.length === 0 ? (
+        <p class="muted empty">No matches on this day.</p>
+      ) : (
+        groupByComp(byDay.get(d.key)!).map((ms) => (
+          <div class="comp-group">
+            <a class="comp-name" href={`/stats/${ms[0].comp.slug}`}>{ms[0].comp.name}</a>
+            <MatchList matches={ms} />
+          </div>
+        ))
+      )}
+    </div>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-fbd]').forEach((root) => {
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('[data-day]')];
+    chips.forEach((c) => c.addEventListener('click', () => {
+      chips.forEach((x) => x.setAttribute('aria-selected', String(x === c)));
+      root.querySelectorAll<HTMLElement>('[data-dayp]').forEach((p) => { p.hidden = p.dataset.dayp !== c.dataset.day; });
+    }));
+  });
+</script>
+
+<style>
+  .days { margin-bottom: 14px; }
+  .days .n { margin-left: 6px; background: var(--accent); color: var(--on-accent); border-radius: 99px; font-size: 11px; padding: 1px 6px; font-weight: 700; }
+  .day[hidden] { display: none; }
+  .empty { padding: 20px; }
+  .comp-group { padding: 6px 18px 4px; border-bottom: 1px solid var(--line); }
+  .comp-group:last-child { border-bottom: 0; }
+  .comp-name { display: block; padding: 10px 0 2px; font: 700 13px var(--body); letter-spacing: 0.04em; text-transform: uppercase; color: var(--brand-text); text-decoration: none; }
+</style>

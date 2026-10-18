@@ -1,0 +1,1682 @@
+{
+ "Bengaluru FC": {
+  "tournaments": [
+   {
+    "league": "KSFA Super Division",
+    "slug": "bdfa-sd",
+    "season": "Karnataka Men's Super Division League 2026-27",
+    "stage": "League",
+    "group": "",
+    "pos": 3,
+    "played": 8,
+    "won": 5,
+    "drawn": 3,
+    "lost": 0,
+    "gf": 27,
+    "ga": 6,
+    "points": 18,
+    "grounds": [
+     "Bangalore Football Stadium"
+    ],
+    "coaches": [
+     "Potsangbam Renedy Singh"
+    ],
+    "sheets": 3,
+    "players": [
+     {
+      "name": "Aheibam Suraj Singh",
+      "position": "GK",
+      "number": 31
+     },
+     {
+      "name": "Vumlenlal Hangshing",
+      "position": "DEF",
+      "number": 2
+     },
+     {
+      "name": "Ashik Adhikari",
+      "position": "DEF",
+      "number": 14
+     },
+     {
+      "name": "Md Arbash",
+      "number": 10
+     },
+     {
+      "name": "Rakshit P Anil",
+      "position": "MID",
+      "number": 15
+     },
+     {
+      "name": "Surya Ragish",
+      "number": 29
+     },
+     {
+      "name": "Takhellambam Bobbish",
+      "position": "MID",
+      "number": 56
+     },
+     {
+      "name": "Ningthoukhongjam Rishi Singh",
+      "position": "FWD",
+      "number": 8
+     },
+     {
+      "name": "Ahongshangbam Samson",
+      "position": "FWD",
+      "number": 16
+     },
+     {
+      "name": "Cyrus Abhilash",
+      "position": "FWD",
+      "number": 17
+     },
+     {
+      "name": "Nee Hang Subba",
+      "position": "FWD",
+      "number": 25
+     },
+     {
+      "name": "Chaphamayum Rohen Singh",
+      "position": "FWD",
+      "number": 11
+     },
+     {
+      "name": "Lalrinfela Ralte",
+      "position": "MID",
+      "number": 22
+     },
+     {
+      "name": "Sohum Utreja",
+      "position": "DEF",
+      "number": 24
+     },
+     {
+      "name": "Rajdip Saha",
+      "position": "MID",
+      "number": 26
+     },
+     {
+      "name": "S Chinmay",
+      "position": "MID",
+      "number": 35
+     },
+     {
+      "name": "Asem Nerjit Singh",
+      "position": "MID",
+      "number": 40
+     },
+     {
+      "name": "Newton Ningthoujam",
+      "position": "MID",
+      "number": 50
+     },
+     {
+      "name": "Aarav Gharat",
+      "number": 58
+     },
+     {
+      "name": "Akinid Nr",
+      "position": "GK",
+      "number": 99
+     },
+     {
+      "name": "P Manav Gowda",
+      "position": "DEF",
+      "number": 34
+     },
+     {
+      "name": "Givenson Suting",
+      "position": "MID",
+      "number": 54
+     },
+     {
+      "name": "Uttam P",
+      "position": "DEF",
+      "number": 41
+     },
+     {
+      "name": "Ananda Asir A",
+      "position": "FWD",
+      "number": 62
+     }
+    ]
+   },
+   {
+    "league": "AIFF Junior League (U15)",
+    "slug": "junior-u15",
+    "season": "Kalinga Arrows Cup 2026",
+    "stage": "Group Stage",
+    "group": "Group A",
+    "pos": 1,
+    "played": 3,
+    "won": 3,
+    "drawn": 0,
+    "lost": 0,
+    "gf": 18,
+    "ga": 7,
+    "points": 9,
+    "grounds": [
+     "AIFF FIFA ODISHA TALENT ACADEMY"
+    ],
+    "coaches": [
+     "Mohammed Hason Khaleeli"
+    ],
+    "sheets": 2,
+    "players": [
+     {
+      "name": "Royal Limboo",
+      "position": "GK",
+      "number": 1
+     },
+     {
+      "name": "Ngayi Ronra Shimray",
+      "position": "DEF",
+      "number": 4
+     },
+     {
+      "name": "Ratul N",
+      "position": "DEF",
+      "number": 12
+     },
+     {
+      "name": "Advaith Sajithkumar Nair",
+      "position": "DEF",
+      "number": 20
+     },
+     {
+      "name": "Nongmaithem Kaiku Meetei",
+      "position": "DEF",
+      "number": 22
+     },
+     {
+      "name": "Mutum Biky Meitei",
+      "position": "MID",
+      "number": 8
+     },
+     {
+      "name": "Rengbek Sekho",
+      "position": "MID",
+      "number": 17
+     },
+     {
+      "name": "Md Musha",
+      "position": "FWD",
+      "number": 7
+     },
+     {
+      "name": "Ch. Sakip",
+      "position": "FWD",
+      "number": 9
+     },
+     {
+      "name": "Arvidrian Samwanki Lato",
+      "position": "FWD",
+      "number": 10
+     },
+     {
+      "name": "Akash Mondal",
+      "position": "FWD",
+      "number": 11
+     },
+     {
+      "name": "Shaureya Veer Verma",
+      "position": "DEF",
+      "number": 2
+     },
+     {
+      "name": "Manggoulen Tuboi",
+      "position": "DEF",
+      "number": 6
+     },
+     {
+      "name": "Deepak Kanaujiya",
+      "position": "MID",
+      "number": 14
+     },
+     {
+      "name": "Asif Khan Ms",
+      "position": "FWD",
+      "number": 16
+     },
+     {
+      "name": "Adith Issac Benny",
+      "position": "MID",
+      "number": 19
+     },
+     {
+      "name": "Mohammed Faheem Ibrahim Thonikara",
+      "position": "GK",
+      "number": 77
+     },
+     {
+      "name": "Daniel Lalawampuia",
+      "position": "FWD",
+      "number": 99
+     },
+     {
+      "name": "Jordan Mobin Paul",
+      "position": "MID",
+      "number": 27
+     },
+     {
+      "name": "Ved Krishnama",
+      "position": "DEF",
+      "number": 44
+     }
+    ]
+   },
+   {
+    "league": "AIFF Sub-Junior League (U13)",
+    "slug": "sub-junior-u13",
+    "season": "AIFF Sub Junior League 2025-26",
+    "stage": "Zonal Group Stage",
+    "group": "Group E",
+    "pos": 2,
+    "played": 14,
+    "won": 12,
+    "drawn": 1,
+    "lost": 1,
+    "gf": 90,
+    "ga": 13,
+    "points": 37,
+    "grounds": [
+     "FURRY FIELD, FC MADRAS",
+     "SCAMPER PARK, FC MADRAS"
+    ],
+    "coaches": [
+     "Avinash Urs Prakash"
+    ],
+    "sheets": 3,
+    "players": [
+     {
+      "name": "Karthik K",
+      "position": "GK",
+      "number": 41
+     },
+     {
+      "name": "Ratul N",
+      "position": "DEF",
+      "number": 4
+     },
+     {
+      "name": "Naorem Leishemba Singh",
+      "position": "DEF",
+      "number": 5
+     },
+     {
+      "name": "Rengbek Sekho",
+      "position": "DEF",
+      "number": 17
+     },
+     {
+      "name": "Nongmaithem Kaiku Meetei",
+      "position": "MID",
+      "number": 3
+     },
+     {
+      "name": "Pranav Basava",
+      "position": "MID",
+      "number": 12
+     },
+     {
+      "name": "Manggoulen Tuboi",
+      "position": "MID",
+      "number": 14
+     },
+     {
+      "name": "Shaurya Veer Verma",
+      "position": "FWD",
+      "number": 6
+     },
+     {
+      "name": "Neil Deepak",
+      "position": "FWD",
+      "number": 7
+     },
+     {
+      "name": "Jordan Paul Mobin",
+      "position": "FWD",
+      "number": 10
+     },
+     {
+      "name": "Asif Khan Ms",
+      "position": "FWD",
+      "number": 23
+     },
+     {
+      "name": "Kanav Kutty",
+      "position": "FWD",
+      "number": 2
+     },
+     {
+      "name": "Aarav Ajith",
+      "position": "MID",
+      "number": 8
+     },
+     {
+      "name": "Rudra Patel",
+      "position": "MID",
+      "number": 9
+     },
+     {
+      "name": "Nash Kenrick",
+      "position": "FWD",
+      "number": 15
+     },
+     {
+      "name": "Amom Messi Meetei",
+      "position": "FWD",
+      "number": 19
+     },
+     {
+      "name": "Kaustub Poojari",
+      "position": "DEF",
+      "number": 20
+     },
+     {
+      "name": "Shayaan Armaan",
+      "position": "GK",
+      "number": 22
+     },
+     {
+      "name": "Ved Krishnama",
+      "position": "FWD",
+      "number": 16
+     },
+     {
+      "name": "Anirudh Srikanth",
+      "position": "DEF",
+      "number": 11
+     },
+     {
+      "name": "Eklavya Anand Goenka",
+      "position": "MID",
+      "number": 13
+     },
+     {
+      "name": "Aaron Vihaan Joseph",
+      "position": "FWD",
+      "number": 18
+     }
+    ]
+   }
+  ],
+  "updatedAt": "2026-10-18T09:08:45.309Z"
+ },
+ "Alchemy International FA": {
+  "tournaments": [
+   {
+    "league": "AIFF Sub-Junior League (U13)",
+    "slug": "sub-junior-u13",
+    "season": "AIFF Sub Junior League 2025-26",
+    "stage": "Zonal Group Stage",
+    "group": "Group E",
+    "pos": 1,
+    "played": 14,
+    "won": 13,
+    "drawn": 1,
+    "lost": 0,
+    "gf": 57,
+    "ga": 4,
+    "points": 40,
+    "grounds": [],
+    "coaches": [
+     "Anup Damien"
+    ],
+    "sheets": 1,
+    "players": [
+     {
+      "name": "S Omeshvar",
+      "position": "GK",
+      "number": 70
+     },
+     {
+      "name": "V Ashwin Karthick",
+      "position": "DEF",
+      "number": 28
+     },
+     {
+      "name": "Md Rizwan",
+      "position": "DEF",
+      "number": 38
+     },
+     {
+      "name": "Achouba",
+      "position": "DEF",
+      "number": 43
+     },
+     {
+      "name": "Leisemba Moirangthem",
+      "position": "DEF",
+      "number": 91
+     },
+     {
+      "name": "Anish Mahendran",
+      "position": "MID",
+      "number": 3
+     },
+     {
+      "name": "Yaikhomba Oinam",
+      "position": "MID",
+      "number": 78
+     },
+     {
+      "name": "Sukham Nelson Singh",
+      "position": "FWD",
+      "number": 37
+     },
+     {
+      "name": "Md Musha",
+      "position": "FWD",
+      "number": 41
+     },
+     {
+      "name": "H Lalrinpuia",
+      "position": "FWD",
+      "number": 62
+     },
+     {
+      "name": "Punshiba Ningombam",
+      "position": "FWD",
+      "number": 71
+     },
+     {
+      "name": "Arjuunraj Saxena",
+      "position": "FWD",
+      "number": 8
+     },
+     {
+      "name": "Jeffrey Kharpomtiah",
+      "position": "FWD",
+      "number": 9
+     },
+     {
+      "name": "Hebbale Chandrashekara Aditya",
+      "position": "GK",
+      "number": 15
+     },
+     {
+      "name": "Renaud Moorchilot Menon",
+      "position": "FWD",
+      "number": 19
+     },
+     {
+      "name": "Vihaan Aditya Baliga",
+      "position": "MID",
+      "number": 20
+     },
+     {
+      "name": "M. Abishak",
+      "position": "MID",
+      "number": 23
+     },
+     {
+      "name": "Abhyukt Choudhury",
+      "position": "MID",
+      "number": 46
+     }
+    ]
+   }
+  ],
+  "updatedAt": "2026-10-18T09:08:46.139Z"
+ },
+ "Football Club Mangalore": {
+  "tournaments": [
+   {
+    "league": "AIFF Elite Youth League (U18)",
+    "slug": "elite-u18",
+    "season": "AIFF Elite Youth League 2026-27",
+    "stage": "Preliminary round",
+    "group": "Group D1",
+    "pos": 1,
+    "played": 2,
+    "won": 2,
+    "drawn": 0,
+    "lost": 0,
+    "gf": 9,
+    "ga": 2,
+    "points": 6,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   },
+   {
+    "league": "AIFF Sub-Junior League (U13)",
+    "slug": "sub-junior-u13",
+    "season": "AIFF Sub Junior League 2025-26",
+    "stage": "Zonal Group Stage",
+    "group": "Group D",
+    "pos": 1,
+    "played": 14,
+    "won": 12,
+    "drawn": 2,
+    "lost": 0,
+    "gf": 64,
+    "ga": 18,
+    "points": 38,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   }
+  ],
+  "updatedAt": "2026-10-18T09:08:46.140Z"
+ },
+ "South United FC": {
+  "tournaments": [
+   {
+    "league": "KSFA Super Division",
+    "slug": "bdfa-sd",
+    "season": "Karnataka Men's Super Division League 2026-27",
+    "stage": "League",
+    "group": "",
+    "pos": 2,
+    "played": 9,
+    "won": 6,
+    "drawn": 2,
+    "lost": 1,
+    "gf": 25,
+    "ga": 4,
+    "points": 20,
+    "grounds": [
+     "Bangalore Football Stadium"
+    ],
+    "coaches": [
+     "Kaja Mohideen Bhadussa"
+    ],
+    "sheets": 3,
+    "players": [
+     {
+      "name": "Nishanth N",
+      "position": "GK",
+      "number": 1
+     },
+     {
+      "name": "Rowan James",
+      "position": "DEF",
+      "number": 15
+     },
+     {
+      "name": "Noel S",
+      "position": "DEF",
+      "number": 22
+     },
+     {
+      "name": "Rishik Shetty",
+      "position": "MID",
+      "number": 2
+     },
+     {
+      "name": "Rithish R",
+      "position": "MID",
+      "number": 18
+     },
+     {
+      "name": "B Abhiram",
+      "position": "MID",
+      "number": 24
+     },
+     {
+      "name": "Ringsangmi Lw",
+      "position": "MID",
+      "number": 44
+     },
+     {
+      "name": "Md Altab Hussain",
+      "position": "FWD",
+      "number": 7
+     },
+     {
+      "name": "Makakmayum Daniyal",
+      "position": "FWD",
+      "number": 9
+     },
+     {
+      "name": "Thingnam Radhakanta Singh",
+      "position": "FWD",
+      "number": 27
+     },
+     {
+      "name": "Nirupam Gowda H",
+      "position": "FWD",
+      "number": 29
+     },
+     {
+      "name": "Nygil Mathew",
+      "position": "DEF",
+      "number": 3
+     },
+     {
+      "name": "Francis Xavier A",
+      "position": "DEF",
+      "number": 6
+     },
+     {
+      "name": "Sunil Singh",
+      "position": "GK",
+      "number": 14
+     },
+     {
+      "name": "Prajwal V Gowda",
+      "position": "MID",
+      "number": 17
+     },
+     {
+      "name": "Satminlun Khongsai",
+      "position": "MID",
+      "number": 21
+     },
+     {
+      "name": "Euhan K Kuruvilla",
+      "position": "DEF",
+      "number": 25
+     },
+     {
+      "name": "Ashish Chetry",
+      "position": "FWD",
+      "number": 35
+     },
+     {
+      "name": "Nagaraj S",
+      "position": "FWD",
+      "number": 39
+     },
+     {
+      "name": "Birsha Tudu",
+      "position": "FWD",
+      "number": 45
+     },
+     {
+      "name": "Rinshid V",
+      "position": "DEF",
+      "number": 8
+     },
+     {
+      "name": "Mustafa Shaikh",
+      "position": "FWD",
+      "number": 10
+     },
+     {
+      "name": "Shogouhou",
+      "position": "FWD",
+      "number": 20
+     }
+    ]
+   },
+   {
+    "league": "AIFF Elite Youth League (U18)",
+    "slug": "elite-u18",
+    "season": "AIFF Elite Youth League 2026-27",
+    "stage": "Preliminary round",
+    "group": "Group E2",
+    "pos": 1,
+    "played": 2,
+    "won": 2,
+    "drawn": 0,
+    "lost": 0,
+    "gf": 6,
+    "ga": 1,
+    "points": 6,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   },
+   {
+    "league": "AIFF Sub-Junior League (U13)",
+    "slug": "sub-junior-u13",
+    "season": "AIFF Sub Junior League 2025-26",
+    "stage": "Pre-Qualifier Round (Karnataka Zone)",
+    "group": "GROUP QF Q",
+    "pos": 1,
+    "played": 2,
+    "won": 2,
+    "drawn": 0,
+    "lost": 0,
+    "gf": 11,
+    "ga": 0,
+    "points": 6,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   }
+  ],
+  "updatedAt": "2026-10-18T09:08:48.657Z"
+ },
+ "Roots Football Club": {
+  "tournaments": [
+   {
+    "league": "KSFA Super Division",
+    "slug": "bdfa-sd",
+    "season": "Karnataka Men's Super Division League 2026-27",
+    "stage": "League",
+    "group": "",
+    "pos": 12,
+    "played": 9,
+    "won": 2,
+    "drawn": 2,
+    "lost": 5,
+    "gf": 11,
+    "ga": 16,
+    "points": 8,
+    "grounds": [
+     "Bangalore Football Stadium"
+    ],
+    "coaches": [
+     "Sunil Kumar Kurup"
+    ],
+    "sheets": 3,
+    "players": [
+     {
+      "name": "Vansh Kaushal",
+      "position": "GK",
+      "number": 33
+     },
+     {
+      "name": "Khaleel Ur Rahman",
+      "position": "DEF",
+      "number": 4
+     },
+     {
+      "name": "Muhammed Jaseem Ap",
+      "position": "DEF",
+      "number": 18
+     },
+     {
+      "name": "Abhinand A",
+      "position": "DEF",
+      "number": 20
+     },
+     {
+      "name": "Shaan Abraham Lobo",
+      "position": "MID",
+      "number": 28
+     },
+     {
+      "name": "Muhammad Vadhi B S",
+      "position": "MID",
+      "number": 30
+     },
+     {
+      "name": "Ningthoujam Rozer Singh",
+      "position": "FWD",
+      "number": 8
+     },
+     {
+      "name": "Mushub Bin Yakoob",
+      "position": "FWD",
+      "number": 10
+     },
+     {
+      "name": "Heiwanbha Dkhar",
+      "position": "FWD",
+      "number": 11
+     },
+     {
+      "name": "G Suresh",
+      "position": "FWD",
+      "number": 24
+     },
+     {
+      "name": "Ahan Gupta",
+      "position": "FWD",
+      "number": 27
+     },
+     {
+      "name": "Kabir T",
+      "position": "GK",
+      "number": 1
+     },
+     {
+      "name": "Muhammed Nihal Vp",
+      "position": "DEF",
+      "number": 6
+     },
+     {
+      "name": "Nitish K",
+      "position": "MID",
+      "number": 7
+     },
+     {
+      "name": "Karthi S",
+      "position": "FWD",
+      "number": 9
+     },
+     {
+      "name": "Rajendran A",
+      "position": "FWD",
+      "number": 15
+     },
+     {
+      "name": "Madhialagan",
+      "position": "FWD",
+      "number": 16
+     },
+     {
+      "name": "Jeff Melson Fernando",
+      "position": "MID",
+      "number": 17
+     },
+     {
+      "name": "Shelton Nickson",
+      "position": "FWD",
+      "number": 21
+     },
+     {
+      "name": "Rahul M",
+      "position": "MID",
+      "number": 26
+     },
+     {
+      "name": "Darshan V",
+      "position": "FWD",
+      "number": 14
+     },
+     {
+      "name": "Umesh Bahadur",
+      "position": "FWD",
+      "number": 3
+     },
+     {
+      "name": "Sikandar M",
+      "position": "MID",
+      "number": 5
+     },
+     {
+      "name": "K Madan Kumar",
+      "position": "MID",
+      "number": 13
+     },
+     {
+      "name": "Suhas Varma Rudharaju",
+      "position": "GK",
+      "number": 22
+     }
+    ]
+   },
+   {
+    "league": "AIFF Elite Youth League (U18)",
+    "slug": "elite-u18",
+    "season": "AIFF Elite Youth League 2026-27",
+    "stage": "Preliminary round",
+    "group": "Group E3",
+    "pos": 2,
+    "played": 3,
+    "won": 2,
+    "drawn": 0,
+    "lost": 1,
+    "gf": 12,
+    "ga": 7,
+    "points": 6,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   },
+   {
+    "league": "Indian Women's League 2",
+    "slug": "iwl-2",
+    "season": "IWL 2 2025-26",
+    "stage": "Group Stage",
+    "group": "GROUP A",
+    "pos": 3,
+    "played": 4,
+    "won": 1,
+    "drawn": 1,
+    "lost": 2,
+    "gf": 5,
+    "ga": 6,
+    "points": 4,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   },
+   {
+    "league": "AIFF Sub-Junior League (U13)",
+    "slug": "sub-junior-u13",
+    "season": "AIFF Sub Junior League 2025-26",
+    "stage": "Qualifier Round",
+    "group": "GROUP QF J",
+    "pos": 3,
+    "played": 2,
+    "won": 0,
+    "drawn": 0,
+    "lost": 2,
+    "gf": 0,
+    "ga": 10,
+    "points": 0,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   }
+  ],
+  "updatedAt": "2026-10-18T09:08:51.197Z"
+ },
+ "Kickstart FC Karnataka": {
+  "tournaments": [
+   {
+    "league": "KSFA Super Division",
+    "slug": "bdfa-sd",
+    "season": "Karnataka Men's Super Division League 2026-27",
+    "stage": "League",
+    "group": "",
+    "pos": 6,
+    "played": 9,
+    "won": 5,
+    "drawn": 2,
+    "lost": 2,
+    "gf": 12,
+    "ga": 9,
+    "points": 17,
+    "grounds": [
+     "Bangalore Football Stadium"
+    ],
+    "coaches": [
+     "Raghu Kumar Muniswamy"
+    ],
+    "sheets": 3,
+    "players": [
+     {
+      "name": "Sujay S",
+      "position": "GK",
+      "number": 1
+     },
+     {
+      "name": "Johnson A",
+      "position": "DEF",
+      "number": 12
+     },
+     {
+      "name": "Leynold Carol Mark",
+      "position": "DEF",
+      "number": 26
+     },
+     {
+      "name": "Paotinmang Tuboi",
+      "position": "DEF",
+      "number": 35
+     },
+     {
+      "name": "Subrahmanian",
+      "position": "DEF",
+      "number": 99
+     },
+     {
+      "name": "Saivin Ericson E",
+      "position": "MID",
+      "number": 11
+     },
+     {
+      "name": "Premish T",
+      "position": "MID",
+      "number": 16
+     },
+     {
+      "name": "Vijay T",
+      "position": "MID",
+      "number": 23
+     },
+     {
+      "name": "Nikhil Raj Murugesh Kumar",
+      "position": "FWD",
+      "number": 10
+     },
+     {
+      "name": "Vishnu T M",
+      "position": "FWD",
+      "number": 18
+     },
+     {
+      "name": "Ngairangbam Rakesh Singh",
+      "position": "FWD",
+      "number": 30
+     },
+     {
+      "name": "G John Peter",
+      "position": "DEF",
+      "number": 4
+     },
+     {
+      "name": "Sridarth Nongmeikapam",
+      "position": "FWD",
+      "number": 7
+     },
+     {
+      "name": "Prabhu S",
+      "position": "DEF",
+      "number": 20
+     },
+     {
+      "name": "Anoj Antony",
+      "position": "GK",
+      "number": 21
+     },
+     {
+      "name": "Arvind Babu G",
+      "position": "DEF",
+      "number": 24
+     },
+     {
+      "name": "Mohak Muttalmani",
+      "position": "MID",
+      "number": 27
+     },
+     {
+      "name": "Sinam Maichael Singh",
+      "position": "MID",
+      "number": 29
+     },
+     {
+      "name": "Karthik Govind Swamy",
+      "position": "MID",
+      "number": 43
+     },
+     {
+      "name": "Abilash M L",
+      "position": "FWD",
+      "number": 79
+     },
+     {
+      "name": "Hendry Antonay",
+      "position": "DEF",
+      "number": 22
+     },
+     {
+      "name": "Bishwas Budha Chhetri",
+      "position": "MID",
+      "number": 17
+     },
+     {
+      "name": "Monish G",
+      "position": "FWD",
+      "number": 14
+     },
+     {
+      "name": "D Dhanush",
+      "position": "MID",
+      "number": 6
+     }
+    ]
+   },
+   {
+    "league": "AIFF Elite Youth League (U18)",
+    "slug": "elite-u18",
+    "season": "AIFF Elite Youth League 2026-27",
+    "stage": "Preliminary round",
+    "group": "Group E1",
+    "pos": 1,
+    "played": 2,
+    "won": 2,
+    "drawn": 0,
+    "lost": 0,
+    "gf": 11,
+    "ga": 1,
+    "points": 6,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   },
+   {
+    "league": "Indian Women's League",
+    "slug": "iwl",
+    "season": "IWL 2025-26",
+    "stage": "League",
+    "group": "",
+    "pos": 3,
+    "played": 14,
+    "won": 6,
+    "drawn": 3,
+    "lost": 5,
+    "gf": 17,
+    "ga": 21,
+    "points": 21,
+    "grounds": [
+     "National Centre of Excellence"
+    ],
+    "coaches": [],
+    "sheets": 3,
+    "players": [
+     {
+      "name": "Maibam Linthoingambi Devi",
+      "position": "GK",
+      "number": 1
+     },
+     {
+      "name": "Wangkhem Linthoingambi Devi",
+      "position": "DEF",
+      "number": 2
+     },
+     {
+      "name": "Nimita Gurung",
+      "position": "DEF",
+      "number": 4
+     },
+     {
+      "name": "Sorokhaibam Ranjana Chanu",
+      "position": "DEF",
+      "number": 14
+     },
+     {
+      "name": "Aruna Bag",
+      "position": "DEF",
+      "number": 17
+     },
+     {
+      "name": "Saru Limbu",
+      "position": "MID",
+      "number": 8
+     },
+     {
+      "name": "Th Babysana Devi",
+      "position": "MID",
+      "number": 11
+     },
+     {
+      "name": "Kiran Pisda",
+      "position": "MID",
+      "number": 16
+     },
+     {
+      "name": "Renuka Nagarkote",
+      "position": "MID",
+      "number": 28
+     },
+     {
+      "name": "Mariyammal Balamurugan",
+      "position": "MID",
+      "number": 34
+     },
+     {
+      "name": "Emem Peace Essien",
+      "position": "FWD",
+      "number": 10
+     },
+     {
+      "name": "Ipham Romina Begum",
+      "position": "MID",
+      "number": 6
+     },
+     {
+      "name": "Lhingneilam Kipgen",
+      "position": "DEF",
+      "number": 9
+     },
+     {
+      "name": "Shanglakpam Banti Sharma",
+      "position": "DEF",
+      "number": 15
+     },
+     {
+      "name": "Ningthoujam Roni Devi",
+      "position": "FWD",
+      "number": 20
+     },
+     {
+      "name": "Haripriya Deka",
+      "position": "GK",
+      "number": 21
+     },
+     {
+      "name": "Aarushi Santhosh",
+      "position": "FWD",
+      "number": 22
+     },
+     {
+      "name": "Aiswarya A",
+      "position": "GK",
+      "number": 24
+     },
+     {
+      "name": "Yangoijam Kiranbala Chanu",
+      "position": "FWD",
+      "number": 26
+     },
+     {
+      "name": "Maharabam Thahenbi Devi",
+      "position": "MID",
+      "number": 27
+     },
+     {
+      "name": "Laishram Naotombi Devi",
+      "position": "FWD",
+      "number": 35
+     }
+    ]
+   },
+   {
+    "league": "AIFF Sub-Junior League (U13)",
+    "slug": "sub-junior-u13",
+    "season": "AIFF Sub Junior League 2025-26",
+    "stage": "Qualifier Round",
+    "group": "GROUP QF J",
+    "pos": 2,
+    "played": 2,
+    "won": 1,
+    "drawn": 0,
+    "lost": 1,
+    "gf": 5,
+    "ga": 4,
+    "points": 3,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   }
+  ],
+  "updatedAt": "2026-10-18T09:08:59.580Z"
+ },
+ "Snipers Football Club": {
+  "tournaments": [
+   {
+    "league": "AIFF Elite Youth League (U18)",
+    "slug": "elite-u18",
+    "season": "AIFF Elite Youth League 2026-27",
+    "stage": "Preliminary round",
+    "group": "Group E1",
+    "pos": 3,
+    "played": 2,
+    "won": 0,
+    "drawn": 0,
+    "lost": 2,
+    "gf": 1,
+    "ga": 3,
+    "points": 0,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   },
+   {
+    "league": "AIFF Sub-Junior League (U13)",
+    "slug": "sub-junior-u13",
+    "season": "AIFF Sub Junior League 2025-26",
+    "stage": "Pre-Qualifier Round (Karnataka Zone)",
+    "group": "GROUP QF Q",
+    "pos": 3,
+    "played": 2,
+    "won": 0,
+    "drawn": 0,
+    "lost": 2,
+    "gf": 0,
+    "ga": 11,
+    "points": 0,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   }
+  ],
+  "updatedAt": "2026-10-18T09:08:59.580Z"
+ },
+ "Conscient Football Bangalore": {
+  "tournaments": [
+   {
+    "league": "AIFF Sub-Junior League (U13)",
+    "slug": "sub-junior-u13",
+    "season": "AIFF Sub Junior League 2025-26",
+    "stage": "Qualifier Round",
+    "group": "GROUP QF L",
+    "pos": 3,
+    "played": 0,
+    "won": 0,
+    "drawn": 0,
+    "lost": 0,
+    "gf": 0,
+    "ga": 0,
+    "points": 0,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   }
+  ],
+  "updatedAt": "2026-10-18T09:08:59.580Z"
+ },
+ "Bangalore City FC": {
+  "tournaments": [
+   {
+    "league": "KSFA Super Division",
+    "slug": "bdfa-sd",
+    "season": "Karnataka Men's Super Division League 2026-27",
+    "stage": "League",
+    "group": "",
+    "pos": 8,
+    "played": 9,
+    "won": 3,
+    "drawn": 3,
+    "lost": 3,
+    "gf": 10,
+    "ga": 9,
+    "points": 12,
+    "grounds": [
+     "Bangalore Football Stadium"
+    ],
+    "coaches": [
+     "Vijay Kumar M",
+     "Amruth Kiranji Krishnaji"
+    ],
+    "sheets": 3,
+    "players": [
+     {
+      "name": "Karthik Sankarapu",
+      "position": "GK",
+      "number": 1
+     },
+     {
+      "name": "Ameer Cs",
+      "position": "DEF",
+      "number": 2
+     },
+     {
+      "name": "Sanasam Martin Singh",
+      "position": "DEF",
+      "number": 5
+     },
+     {
+      "name": "Abhishek Baxla",
+      "position": "DEF",
+      "number": 25
+     },
+     {
+      "name": "Sahil Chauhan",
+      "position": "DEF",
+      "number": 27
+     },
+     {
+      "name": "Arunkumar N",
+      "position": "MID",
+      "number": 6
+     },
+     {
+      "name": "Boss Thongbam Meitei",
+      "position": "MID",
+      "number": 23
+     },
+     {
+      "name": "Leiphrakpam Kheljit Meitei",
+      "position": "FWD",
+      "number": 7
+     },
+     {
+      "name": "Chandan S A",
+      "position": "FWD",
+      "number": 9
+     },
+     {
+      "name": "Sahil Suresh Lamani",
+      "position": "FWD",
+      "number": 12
+     },
+     {
+      "name": "Ashwin Chakravarthy",
+      "position": "FWD",
+      "number": 13
+     },
+     {
+      "name": "Elroy Jacob Elvis",
+      "position": "MID",
+      "number": 8
+     },
+     {
+      "name": "Aryan Kamdar",
+      "position": "MID",
+      "number": 11
+     },
+     {
+      "name": "Nibo Zhimomi",
+      "position": "FWD",
+      "number": 16
+     },
+     {
+      "name": "Aamayr Singh",
+      "position": "GK",
+      "number": 19
+     },
+     {
+      "name": "Sachith Harish",
+      "position": "MID",
+      "number": 20
+     },
+     {
+      "name": "Maneyeesh Rk",
+      "position": "DEF",
+      "number": 21
+     },
+     {
+      "name": "Muhammed Shahzin",
+      "position": "DEF",
+      "number": 24
+     },
+     {
+      "name": "Yash Raj U",
+      "position": "DEF",
+      "number": 29
+     },
+     {
+      "name": "Kunwar Paris Singh",
+      "position": "DEF",
+      "number": 30
+     },
+     {
+      "name": "Ishaan Jagota Mittal",
+      "position": "DEF",
+      "number": 3
+     },
+     {
+      "name": "Sachin R",
+      "position": "FWD",
+      "number": 17
+     }
+    ]
+   },
+   {
+    "league": "AIFF Elite Youth League (U18)",
+    "slug": "elite-u18",
+    "season": "AIFF Elite Youth League 2026-27",
+    "stage": "Preliminary round",
+    "group": "Group E3",
+    "pos": 3,
+    "played": 3,
+    "won": 1,
+    "drawn": 0,
+    "lost": 2,
+    "gf": 5,
+    "ga": 7,
+    "points": 3,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   },
+   {
+    "league": "AIFF Sub-Junior League (U13)",
+    "slug": "sub-junior-u13",
+    "season": "AIFF Sub Junior League 2025-26",
+    "stage": "Qualifier Round",
+    "group": "GROUP QF K",
+    "pos": 2,
+    "played": 2,
+    "won": 1,
+    "drawn": 0,
+    "lost": 1,
+    "gf": 5,
+    "ga": 4,
+    "points": 3,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   }
+  ],
+  "updatedAt": "2026-10-18T09:09:02.088Z"
+ },
+ "Kodagu FC": {
+  "tournaments": [
+   {
+    "league": "KSFA Super Division",
+    "slug": "bdfa-sd",
+    "season": "Karnataka Men's Super Division League 2026-27",
+    "stage": "League",
+    "group": "",
+    "pos": 4,
+    "played": 8,
+    "won": 5,
+    "drawn": 2,
+    "lost": 1,
+    "gf": 17,
+    "ga": 11,
+    "points": 17,
+    "grounds": [
+     "Bangalore Football Stadium"
+    ],
+    "coaches": [
+     "Samuel Sylvester"
+    ],
+    "sheets": 3,
+    "players": [
+     {
+      "name": "Abhijeet Subba",
+      "position": "GK",
+      "number": 16
+     },
+     {
+      "name": "Kariappa Ck",
+      "position": "DEF",
+      "number": 3
+     },
+     {
+      "name": "Jack Lianlalmawi Neihsial",
+      "position": "DEF",
+      "number": 14
+     },
+     {
+      "name": "Maximinus Dangmei",
+      "position": "DEF",
+      "number": 19
+     },
+     {
+      "name": "Rualtinkhuma",
+      "position": "DEF",
+      "number": 43
+     },
+     {
+      "name": "Udit G",
+      "position": "MID",
+      "number": 5
+     },
+     {
+      "name": "Tharun Kumar",
+      "position": "MID",
+      "number": 11
+     },
+     {
+      "name": "Dhanush R",
+      "position": "MID",
+      "number": 15
+     },
+     {
+      "name": "Samphrangshai Rani",
+      "position": "FWD",
+      "number": 7
+     },
+     {
+      "name": "Lalkrawsmawia",
+      "position": "FWD",
+      "number": 9
+     },
+     {
+      "name": "Jithu",
+      "position": "FWD",
+      "number": 23
+     },
+     {
+      "name": "Marvan Hussain",
+      "position": "DEF",
+      "number": 2
+     },
+     {
+      "name": "Rinreithan Shaiza",
+      "position": "MID",
+      "number": 10
+     },
+     {
+      "name": "Elvis Nongtdu",
+      "position": "DEF",
+      "number": 12
+     },
+     {
+      "name": "Vedant Kharkrwal",
+      "position": "MID",
+      "number": 25
+     },
+     {
+      "name": "Niketh N",
+      "position": "DEF",
+      "number": 28
+     },
+     {
+      "name": "Mohamed Safwaan",
+      "position": "FWD",
+      "number": 30
+     },
+     {
+      "name": "Mocha Irom",
+      "position": "FWD",
+      "number": 32
+     },
+     {
+      "name": "Muhammed Unais M",
+      "position": "FWD",
+      "number": 33
+     },
+     {
+      "name": "Passang Narbu Sherpa",
+      "position": "GK",
+      "number": 99
+     },
+     {
+      "name": "Khraw Kupar Jana",
+      "position": "FWD",
+      "number": 18
+     },
+     {
+      "name": "Mr Pausonthang",
+      "position": "MID",
+      "number": 27
+     }
+    ]
+   }
+  ],
+  "updatedAt": "2026-10-18T09:09:04.702Z"
+ },
+ "Minerva Academy FC Bengaluru": {
+  "tournaments": [
+   {
+    "league": "AIFF Elite Youth League (U18)",
+    "slug": "elite-u18",
+    "season": "AIFF Elite Youth League 2026-27",
+    "stage": "Preliminary round",
+    "group": "Group E2",
+    "pos": 3,
+    "played": 2,
+    "won": 0,
+    "drawn": 0,
+    "lost": 2,
+    "gf": 0,
+    "ga": 6,
+    "points": 0,
+    "grounds": [],
+    "coaches": [],
+    "sheets": 0,
+    "players": []
+   }
+  ],
+  "updatedAt": "2026-10-18T09:09:04.703Z"
+ }
+}

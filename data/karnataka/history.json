@@ -1,0 +1,24 @@
+{
+  "intro": [
+    "Mysore was one of the leading state teams in Indian football. After winning the Santosh Trophy in 1967-68 and 1968-69, the team earned the chance to represent India at the 1969 Asian Champion Club Tournament in Bangkok, the predecessor of today’s continental club competitions.",
+    "Mysore State finished fourth in Asia. That is arguably the most distinctive starting point in Karnataka football: a state side competing at continental level more than four decades before Bengaluru FC was founded."
+  ],
+  "campaign": [
+    { "score": "0–5", "opponent": "Yangzee FC", "note": "A difficult opening against the South Korean side." },
+    { "score": "1–1", "opponent": "Bangkok Bank", "note": "A draw kept their qualification hopes alive." },
+    { "score": "2–1", "opponent": "Vietnam Police", "note": "A crucial victory in the group stage." },
+    { "score": "2–1", "opponent": "Manila Lions", "note": "Another win secured a place in the semi-finals." },
+    { "score": "1–6", "opponent": "Maccabi Tel Aviv", "note": "Semi-final. Mysore’s run ended here." },
+    { "score": "0–2", "opponent": "Toyo Kogyo", "note": "Third-place match against the Japanese side." }
+  ],
+  "timelineIntro": "The state kept competing in the Santosh Trophy, India’s senior national championship, after the Mysore team became known as Karnataka.",
+  "timeline": [
+    { "year": "1946-47", "text": "Mysore win their first Santosh Trophy." },
+    { "year": "1952-53", "text": "Mysore win a second title." },
+    { "year": "1967-68 and 1968-69", "text": "Back-to-back championships make Mysore a major force." },
+    { "year": "1969", "text": "Mysore State finish fourth at the Asian Champion Club Tournament in Bangkok." },
+    { "year": "2013", "text": "Bengaluru FC founded." },
+    { "year": "2016", "text": "Bengaluru FC become the first Indian club to reach the AFC Cup final, losing 1–0 to Iraq’s Al-Quwa Al-Jawiya in Doha." },
+    { "year": "2022-23", "text": "Karnataka win the Santosh Trophy after a 54-year wait, beating Meghalaya 3–2 in the final in Riyadh." }
+  ]
+}

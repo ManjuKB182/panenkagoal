@@ -35,7 +35,7 @@ const shows = getShows();
     <h2>Our shows</h2>
     <div class="shows">
       {shows.map((s) => (
-        <a class="show" href={`/watch/${s.slug}`}>
+        <a class="show" href={`/armchair-gaffers/${s.slug}`}>
           <b>{s.name}</b>
           {s.nameKn && <span class="kn" lang="kn">{s.nameKn}</span>}
           <span class="muted">{s.blurb}</span>

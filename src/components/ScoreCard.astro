@@ -7,7 +7,7 @@ interface Props { m: Item; copy: number; short: string; shortAway: string }
 const { m, copy, short, shortAway } = Astro.props;
 const done = m.status === 'ft' || m.status === 'live';
 ---
-<a class="sc" href={`/stats/${m.comp.slug}`} data-card={m.id} data-mid={copy === 0 ? m.id : undefined} data-ko={m.kickoff} tabindex={copy === 1 ? -1 : undefined}>
+<a class="sc" href={`/match?id=${encodeURIComponent(m.id)}`} data-card={m.id} data-mid={copy === 0 ? m.id : undefined} data-ko={m.kickoff} tabindex={copy === 1 ? -1 : undefined}>
   <span class="sc-top">
     <span class="comp">{m.comp.short}</span>
     <span class={`state ${m.status}`} data-state>{m.status === 'ft' ? 'FT' : m.status === 'live' ? 'LIVE' : `${shortDate(m.kickoff)} · ${kickoffTime(m.kickoff)}`}</span>
