@@ -2,13 +2,17 @@
 import Base from '../../layouts/Base.astro';
 import TabBar from '../../components/TabBar.astro';
 import KarnatakaPlayers from '../../components/KarnatakaPlayers.astro';
+import LeaguePanel from '../../components/LeaguePanel.astro';
 import academies from '../../../data/karnataka/academies.json';
 import legends from '../../../data/karnataka/legends.json';
 import history from '../../../data/karnataka/history.json';
 import profiles from '../../../data/karnataka/academy-profiles.json';
 import { SECTIONS } from '../../config/site';
+import { getCompetition } from '../../config/competitions';
+import { getLeague } from '../../lib/data';
 
 const meta = SECTIONS.karnataka;
+const ksfa = getCompetition('bdfa-sd')!;
 const tabs = [
   { id: 'academies', label: 'Academies' },
   { id: 'players', label: 'Karnataka-born players' },
@@ -32,6 +36,8 @@ const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
   </header>
 
   <div class="wrap body">
+    <section class="ksfa"><LeaguePanel comp={ksfa} data={getLeague(ksfa)} /></section>
+
     <TabBar group="kar" tabs={tabs} />
 
     <section class="tabpanel" data-group="kar" data-panel="academies">
@@ -160,6 +166,7 @@ const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
   .sec-hero { padding-block: 12px 0; }
   .sec-hero .pagehead { padding-block: 36px 24px; }
   .body { padding-bottom: 48px; }
+  .ksfa { padding-block: 24px 32px; }
   .filter { margin-bottom: 16px; }
   .tile.acad { min-height: 212px; }
   .acad .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }

@@ -208,7 +208,11 @@ const loop = moving.length >= 6;
   .track { display: flex; width: max-content; }
   .track:not(.loop) { width: auto; overflow-x: auto; scrollbar-width: none; padding-inline: var(--gutter); }
   .track.loop { animation: ticker 60s linear infinite; }
-  .ticker:hover .track.loop, .scores:focus-within .track.loop { animation-play-state: paused; }
+  /* Phones keep scrolling even with "reduce motion" on (the global rule would freeze it); a slow marquee is the point of the strip. */
+  @media (max-width: 960px) { .track.loop { animation: ticker 60s linear infinite !important; } }
+  /* Pause on hover only where hover exists; on touch a tap would otherwise leave the strip stuck. */
+  @media (hover: hover) { .ticker:hover .track.loop { animation-play-state: paused; } }
+  .scores:focus-within .track.loop { animation-play-state: paused; }
   @keyframes ticker { to { transform: translateX(-50%); } }
   .set { display: flex; }
   .scores :global(.sc) { flex: none; width: 176px; display: grid; gap: 3px; padding: 9px 14px; color: var(--text); text-decoration: none; border-right: 1px solid var(--line); transition: background-color 0.15s; }

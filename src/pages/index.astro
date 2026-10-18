@@ -6,7 +6,7 @@ import StandingsTable from '../components/StandingsTable.astro';
 import MatchList from '../components/MatchList.astro';
 import { SITE } from '../config/site';
 import { HOME_TABLES, getCompetition } from '../config/competitions';
-import { getAllMatches, getLeague, getMerch, getNews, getShows, getVideos, isShort } from '../lib/data';
+import { getAllMatches, getLeague, getNews, getShows, getVideos, isShort } from '../lib/data';
 import { istDay, kickoffTime, shortDate, ytWatch } from '../lib/format';
 
 const shows = getShows();
@@ -57,7 +57,6 @@ const groupByComp = (ms: typeof allMatches) => {
   return [...groups.values()];
 };
 
-const merchLive = getMerch().some((m) => m.status === 'live' || m.status === 'pre-order');
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -175,10 +174,20 @@ const jsonLd = {
   <section class="wrap module split reveal">
     <div class="col" aria-labelledby="news-h">
       <div class="mod-head">
-        <h2 id="news-h">News wire</h2>
-        <a href="/news">All news →</a>
+        <h2 id="news-h" class="sr-only">News and blogs</h2>
+        <div class="chips nb-tabs" role="tablist" aria-label="News or blogs">
+          <button class="chip" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="true">News</button>
+          <button class="chip" role="tab" id="tab-blogs" aria-controls="panel-blogs" aria-selected="false">Blogs</button>
+        </div>
       </div>
-      <NewsList items={news} />
+      <div class="nb-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
+        <NewsList items={news} />
+        <a class="full" href="/news">All news →</a>
+      </div>
+      <div class="nb-panel" id="panel-blogs" role="tabpanel" aria-labelledby="tab-blogs" hidden>
+        <ul class="news bl" id="blog-list" aria-live="polite"><li class="bl-empty">Loading blogs…</li></ul>
+        <a class="full" href="/armchair-gaffers/write">All blogs →</a>
+      </div>
     </div>
     <div class="col" aria-labelledby="tables-h">
       <div class="mod-head">
@@ -232,21 +241,6 @@ const jsonLd = {
     ))}
   </section>
 
-  <section class="wrap module">
-    <div class="cta">
-      <img src="/logo-192.png" alt="" width="72" height="72" loading="lazy" />
-      <div class="cta-text">
-        <p class="cta-title">{merchLive ? 'New drop is live' : 'Subscribe on YouTube'}</p>
-        <p class="kn" lang="kn">{SITE.taglineKn}</p>
-      </div>
-      <div class="chips">
-        {merchLive && <a class="chip on" href="/merch">Shop merch</a>}
-        <a class="chip on" href={SITE.socials.youtube} rel="noopener">YouTube</a>
-        <a class="chip" href={SITE.socials.instagram} rel="noopener">Instagram</a>
-        <a class="chip" href={SITE.socials.x} rel="noopener">X</a>
-      </div>
-    </div>
-  </section>
   </div>
 </Base>
 
@@ -300,6 +294,30 @@ const jsonLd = {
       }),
     );
   });
+  // Blogs tab: published Armchair Gaffers pieces load live, so a newly approved piece shows without a rebuild.
+  const blogList = document.getElementById('blog-list');
+  if (blogList) {
+    const note = (text: string) => { const li = document.createElement('li'); li.className = 'bl-empty'; li.textContent = text; blogList.replaceChildren(li); };
+    fetch('/api/write/posts')
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d: { posts?: { slug: string; title: string; author: string; publishedAt: string; minutes: number }[] }) => {
+        const posts = (d.posts ?? []).slice(0, 5);
+        if (!posts.length) return note('No blogs yet. Be the first to write one.');
+        blogList.replaceChildren(...posts.map((p) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = `/armchair-gaffers/write/${p.slug}`;
+          a.textContent = p.title;
+          const meta = document.createElement('p');
+          meta.className = 'bl-meta';
+          const date = new Date(p.publishedAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+          meta.textContent = `${p.author} · ${date} · ${p.minutes} min read`;
+          li.append(a, meta);
+          return li;
+        }));
+      })
+      .catch(() => note('Blogs could not be loaded right now.'));
+  }
   // Centre "Today" in the date strip without scrolling the page.
   const strip = document.querySelector<HTMLElement>('.days');
   const today = strip?.querySelector<HTMLElement>('[aria-selected="true"]');
@@ -364,6 +382,19 @@ const jsonLd = {
   .split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; }
   .col { display: grid; gap: 16px; align-content: start; }
   .col > .mod-head { margin-bottom: 0; }
+  .nb-tabs { margin: 0; }
+  .nb-panel { display: grid; gap: 4px; align-content: start; }
+  .nb-panel[hidden] { display: none; }
+  .bl { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
+  .bl :global(li) { display: grid; gap: 4px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .bl :global(li:last-child) { border-bottom: 0; }
+  .bl :global(a) { color: var(--text); font-weight: 600; text-decoration: none; line-height: 1.4; font-size: 16.5px; }
+  .bl :global(a:hover) { color: var(--brand); }
+  .bl :global(.bl-meta), .bl :global(.bl-empty) { font-size: 13px; color: var(--text-3); }
+  /* Phones show three headlines; the rest live under All news / All blogs. */
+  @media (max-width: 640px) {
+    .nb-panel :global(.news > li:nth-child(n + 4)) { display: none; }
+  }
   .tabs-head { padding: 12px 16px; }
   .tabs-head .chip { padding: 7px 12px; font-size: 13.5px; }
   .panel { padding: 14px 16px 16px; }
@@ -391,18 +422,6 @@ const jsonLd = {
   .comp-group + .comp-group { border-top: 1px solid var(--line); margin-top: 6px; }
   .comp-name { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--brand); text-decoration: none; }
   .comp-name:hover { text-decoration: underline; }
-
-  .cta {
-    display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding: 24px 28px; border-radius: var(--r);
-    background: var(--ink); color: #fff; border-top: 3px solid; border-image: linear-gradient(90deg, var(--accent) 0 50%, var(--brand) 50% 100%) 1;
-  }
-  .cta img { width: 64px; height: 64px; flex: none; }
-  .cta-text { flex: 1; min-width: 200px; }
-  .cta-title { font: 700 26px/1.1 var(--display); text-transform: uppercase; color: #fff; }
-  .cta .kn { color: rgba(255, 255, 255, 0.75); }
-  .cta .chip { background: transparent; border-color: rgba(255, 255, 255, 0.35); color: #fff; }
-  .cta .chip:hover { background: rgba(255, 255, 255, 0.1); }
-  .cta .chip.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
   @media (max-width: 960px) {
     .duo, .split { grid-template-columns: minmax(0, 1fr); }
     .day { padding-inline: 14px; }

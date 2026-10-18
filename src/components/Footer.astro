@@ -1,44 +1,93 @@
 ---
-import { NAV, SITE } from '../config/site';
+import { SITE } from '../config/site';
+const EMAIL = 'panenka995@gmail.com';
 ---
 <footer>
   <div class="wrap grid">
-    <div class="stack" style="gap:8px">
-      <div class="brand"><img src="/logo-192.png" alt="" width="64" height="64" loading="lazy" /><p class="name">Panenka <b>Goal</b></p></div>
-      <p class="kn" lang="kn">{SITE.taglineKn}</p>
-      <p class="small">Made by fans, for fans. Not affiliated with the AIFF, ISL or any club.</p>
+    <div class="about">
+      <a class="logo" href="/" aria-label="Panenka Goal home"><img src="/logo-192.png" alt="" width="64" height="64" loading="lazy" /></a>
+      <div class="text">
+        <a class="name" href="/">Panenka <b>Goal</b></a>
+        <p class="kn" lang="kn">{SITE.taglineKn}</p>
+      </div>
     </div>
-    <nav aria-label="Footer">
-      {NAV.map((n) => <a href={n.href}>{n.label}</a>)}
-      <a href="/about">About</a>
-    </nav>
-    <div class="social">
-      <a href={SITE.socials.youtube} rel="me">YouTube</a>
-      <a href={SITE.socials.instagram} rel="me">Instagram</a>
-      <a href={SITE.socials.x} rel="me">X</a>
+
+    <div class="cols">
+      <section aria-labelledby="ft-about">
+        <h2 id="ft-about">About Us</h2>
+        <a class="link" href="/about" lang="kn">ನಮ್ಮ ಕಥೆ</a>
+      </section>
+
+      <section aria-labelledby="ft-contact">
+        <h2 id="ft-contact">Contact Us</h2>
+        <div class="icons">
+          <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`} target="_blank" rel="noopener" aria-label="Email Panenka Goal on Gmail" title="Email us on Gmail">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="#EA4335" d="M2 6.6v10.9c0 .8.7 1.5 1.5 1.5H6.2v-8.3L12 15l5.8-4.3V19h2.7c.8 0 1.5-.7 1.5-1.5V6.6c0-1.8-2-2.8-3.4-1.8L12 9.6 5.4 4.8C4 3.8 2 4.8 2 6.6Z"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="follow" aria-labelledby="ft-follow">
+        <h2 id="ft-follow">Follow Us</h2>
+        <div class="icons">
+          <a href={SITE.socials.youtube} rel="me noopener" aria-label="Panenka Goal on YouTube" title="YouTube">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg>
+          </a>
+          <a href={SITE.socials.instagram} rel="me noopener" aria-label="Panenka Goal on Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href={SITE.socials.x} rel="me noopener" aria-label="Panenka Goal on X" title="X">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </section>
     </div>
-  </div>
-  <div class="wrap small credits">
-    Tables and fixtures: Indian Super League, AIFF and Indian Football League websites, credited on each page.
-    News headlines link to their publishers.
   </div>
 </footer>
 
 <style>
   footer {
-    margin-top: 48px; background: var(--ink); color: #cfc8bb; padding-block: 40px 28px; font-size: 15px;
+    margin-top: 48px; background: var(--ink); color: #cfc8bb; padding-block: 44px; font-size: 15px;
     border-top: 3px solid; border-image: linear-gradient(90deg, var(--accent) 0 50%, var(--brand) 50% 100%) 1;
   }
-  .grid { display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 32px; }
-  .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
-  .brand img { width: 64px; height: 64px; }
-  .name { font: 700 24px/1 var(--display); text-transform: uppercase; color: #fff; }
+  .grid { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; flex-wrap: wrap; }
+
+  .about { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: center; }
+  .logo img { display: block; width: 64px; height: 64px; }
+  .text { display: grid; gap: 6px; }
+  .name { font: 700 28px/1 var(--display); text-transform: uppercase; color: #fff; letter-spacing: 0.01em; text-decoration: none; }
   .name b { color: var(--accent); }
-  .social { display: grid; gap: 8px; align-content: start; }
-  nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; align-content: start; }
-  a { color: #ece8df; text-decoration: none; }
-  a:hover { color: #fff; text-decoration: underline; }
-  .small { font-size: 13.5px; color: #9d968a; }
-  .credits { margin-top: 28px; padding-top: 18px; border-top: 1px solid #34312c; }
-  @media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+  .kn { color: #bfb8aa; font-size: 15px; line-height: 1.5; }
+
+  .cols { display: flex; gap: 56px; flex-wrap: wrap; }
+  section { display: grid; gap: 14px; align-content: start; justify-items: start; }
+  h2 { font: 600 12px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: #8d8679; margin: 0 0 4px; }
+  .link { color: #e9e4d9; text-decoration: none; transition: color 0.15s; }
+  .link:hover { color: var(--accent); }
+  .link { line-height: 46px; }
+
+  .icons { display: flex; gap: 12px; }
+  .icons a {
+    display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid #3d3a34; color: #e9e4d9;
+    transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s;
+  }
+  .icons a:hover { border-color: var(--accent); background: var(--accent); color: var(--on-accent); transform: translateY(-1px); }
+
+  /* Phones: compact brand row, then one labelled row per item. */
+  @media (max-width: 760px) {
+    footer { margin-top: 32px; padding-block: 28px 24px; font-size: 14px; }
+    .grid { flex-direction: column; gap: 22px; }
+    .about { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; }
+    .logo img { width: 44px; height: 44px; }
+    .name { font-size: 22px; }
+    .kn { font-size: 13px; line-height: 1.4; }
+    .cols { display: grid; width: 100%; gap: 0; }
+    section { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; border-top: 1px solid #2b2925; }
+    h2 { margin: 0; font-size: 11px; }
+    .link { line-height: 1.2; }
+    .icons { gap: 10px; }
+    .icons a { width: 38px; height: 38px; }
+    .icons svg { width: 18px; height: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .icons a { transition: none; } .icons a:hover { transform: none; } }
 </style>

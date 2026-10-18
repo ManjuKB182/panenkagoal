@@ -9,7 +9,6 @@ const comp = (slug: string) => getCompetition(slug)!;
 // Tab order is fixed: the big leagues first, youth last.
 const main = [
   { id: 'isl', label: 'ISL', slug: 'isl' },
-  { id: 'ksfa', label: 'KSFA Super Div', slug: 'bdfa-sd' },
   { id: 'ifl', label: 'IFL', slug: 'ifl' },
   { id: 'iwl', label: 'IWL', slug: 'iwl' },
   { id: 'iwl-2', label: 'IWL 2', slug: 'iwl-2' },
@@ -21,7 +20,7 @@ const youth = [
 ];
 const tabs = [...main.map(({ id, label }) => ({ id, label })), { id: 'youth', label: 'Youth League' }];
 ---
-<Base title="Stats" description="Points tables, top scorers and numbers for ISL, KSFA Super Division, IFL, IWL, IWL 2 and the AIFF youth leagues.">
+<Base title="Stats" description="Points tables, top scorers and numbers for ISL, IFL, IWL, IWL 2 and the AIFF youth leagues.">
   <div class="wrap">
     <div class="pagehead">
       <p class="eyebrow">Stats</p>
