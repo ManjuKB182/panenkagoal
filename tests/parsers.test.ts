@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
-  classifyNews, iflKickoff, isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffFixtures, parseAiffPointsTable, parseIflFixtures, parseIslFixtures,
+  classifyNews, iflKickoff, isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffArticles, parseAiffFixtures, parseAiffPointsTable, parseIflFixtures, parseIslFixtures,
   parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel,
   parseAiffMatchDetail, parseAiffTournamentSchedule, sumScorers, teamNamesFromTable,
 } from '../scripts/ingest/parsers';
@@ -33,6 +33,23 @@ describe('KhelNow', () => {
     expect(items).toHaveLength(1);
     expect(items[0]).toMatchObject({ source: 'KhelNow', category: 'ISL- Indian Super League', section: 'mens' });
     expect(items[0].url).toMatch(/^https:\/\/khelnow\.com\//);
+  });
+});
+
+describe('AIFF news', () => {
+  const items = parseAiffArticles(fx('aiff-articles.html'));
+  it('parses article cards with full titles and dates', () => {
+    expect(items.length).toBeGreaterThan(10);
+    for (const n of items) {
+      expect(n.source).toBe('AIFF');
+      expect(n.url).toMatch(/^https:\/\/www\.the-aiff\.com\/article\//);
+      expect(n.title).not.toMatch(/\.\.\.$/);
+      expect(Number.isNaN(Date.parse(n.publishedAt))).toBe(false);
+    }
+  });
+  it('files women\'s team stories under wofo', () => {
+    const n = items.find((i) => i.url.endsWith('new-look-india-go-down-to-russia-in-kolkata-friendly'));
+    expect(n).toMatchObject({ title: 'New-look India go down to Russia in Kolkata friendly', section: 'wofo', publishedAt: '2026-10-07T18:30:00.000Z' });
   });
 });
 

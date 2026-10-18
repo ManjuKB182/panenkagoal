@@ -5,7 +5,7 @@ import { SITE } from '../../src/config/site';
 import type { LeagueSnapshot, Match, NewsItem, Video } from '../../src/lib/types';
 import { get, getJson, postForm, postJson } from './http';
 import {
-  isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffFixtures, parseAiffPointsTable, parseAiffScorers, parseIflFixtures, parseIflScorers,
+  isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffArticles, parseAiffFixtures, parseAiffPointsTable, parseAiffScorers, parseIflFixtures, parseIflScorers,
   parseAiffMatchDetail, parseAiffTournamentSchedule, parseAiffTournamentStages, sumScorers, teamNamesFromTable,
   parseIslFixtures, parseIslScorers, parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel,
 } from './parsers';
@@ -69,6 +69,7 @@ const FOOTBALL_URL = (r: { url: string }) => /\/(sports?\/)?football\//.test(r.u
 
 // Every outlet goes through the same Indian-football filter (parsers.classifyNews).
 const NEWS_SOURCES: Array<{ source: NewsItem['source']; fetch: () => Promise<NewsItem[]> }> = [
+  { source: 'AIFF', fetch: async () => parseAiffArticles(await get('https://www.the-aiff.com/articles')) },
   { source: 'KhelNow', fetch: async () => parseKhelNowFeed(await get('https://khelnow.com/feed')) },
   {
     source: 'The Hindu',

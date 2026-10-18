@@ -97,6 +97,24 @@ export function toNewsItems(raw: RawNews[], source: NewsItem['source'], football
   });
 }
 
+/** AIFF (the-aiff.com) has no feed: scrape the article cards on /articles. Dates carry no time, so use midnight IST. */
+const decodeEntities = (s: string) =>
+  s.replace(/&#0?39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ');
+
+export function parseAiffArticles(html: string): NewsItem[] {
+  const raw: RawNews[] = html.split('<div class="article vert">').slice(1).flatMap((card) => {
+    const url = card.match(/href="(https:\/\/www\.the-aiff\.com\/article\/[^"]+)"/)?.[1];
+    // The visible title is truncated with "...", the image alt has the whole headline.
+    const title = card.match(/<img[^>]*\balt="([^"]*)"/)?.[1];
+    const date = card.match(/class="date">\s*(\d{1,2} \w{3} \d{4})/)?.[1];
+    const category = card.match(/class="category">\s*([^<]*?)\s*</)?.[1];
+    if (!url || !title || !date) return [];
+    // Everything on the federation's site is Indian football; the "AIFF" tag lets it through the shared filter.
+    return [{ title: decodeEntities(title).trim(), url, publishedAt: new Date(`${date} 00:00:00 +0530`).toISOString(), categories: [...(category ? [decodeEntities(category)] : []), 'AIFF'] }];
+  });
+  return toNewsItems(raw, 'AIFF', () => true);
+}
+
 /** KhelNow tags every item, so its categories decide what is Indian football. */
 const KHELNOW_INDIAN = /^(ISL|Indian Football|Indian Football League|Indian Football Team|I-League|IWL|Indian Women|Santosh Trophy|Super Cup|Durand Cup|AFC Challenge|AFC Champions League Two)/i;
 export const parseKhelNowFeed = (body: string): NewsItem[] =>
