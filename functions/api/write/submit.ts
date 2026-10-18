@@ -1,12 +1,15 @@
 import {
-  blocksFor, getSql, ipHash, json, LIMITS, photoKey, sniffImage, slugify, validateSubmission, verifyTurnstile, type Env,
+  blocksFor, getSql, ipHash, json, LIMITS, photoKey, sniffImage, signInNeeded, slugify, validateSubmission, verifyTurnstile, writerIdentity, type Env,
 } from '../../../src/lib/write';
 
-// POST /api/write/submit (multipart/form-data)
+// POST /api/write/submit (multipart/form-data). Writers only: signed in through the writers' Access app;
+// the piece is tied to the verified Access email, whatever the form says.
 //   payload: JSON string (title, kind, name, email, ownership, credit, confirm, cover, blocks)
 //   photo0..photoN: the resized images, referenced from payload by index
 //   hp: honeypot (must be empty), cf-turnstile-response: spam check token
 export const onRequestPost = async ({ request, env }: { request: Request; env: Env }) => {
+  const who = await writerIdentity(request, env);
+  if (!who) return signInNeeded();
   const sql = getSql(env);
   if (!sql || !env.POSTS_BUCKET) return json({ error: 'Submissions are not open yet. Please try again later.' }, 503);
 
@@ -23,6 +26,7 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
 
   let payload: any;
   try { payload = JSON.parse(String(form.get('payload') ?? '')); } catch { return json({ error: 'Something went wrong. Please try again.' }, 400); }
+  payload = { ...payload, email: who.email };
   const files: File[] = [];
   for (let i = 0; i < LIMITS.photos + 1; i++) {
     const f = form.get(`photo${i}`);

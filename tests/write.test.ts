@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { blocksFor, renderArticleHtml, sniffImage, slugify, validateEditedBlocks, validateSubmission, verifyAccess } from '../src/lib/write';
+import { blocksFor, renderArticleHtml, sniffImage, slugify, validateEditedBlocks, validateSubmission, verifyAccess, writerIdentity, RESERVED_SLUGS } from '../src/lib/write';
 
 const base = { title: 'Press', kind: 'fan', name: 'Asha', email: 'a@b.co', ownership: 'mine', credit: '', confirm: true, cover: null, blocks: [{ t: 'p', txt: 'Hello' }] };
 const jpg = { type: 'image/jpeg', size: 5000 };
@@ -44,9 +44,17 @@ describe('helpers', () => {
     expect(h).not.toContain('<script>');
     expect(h).not.toContain('<b>x');
   });
-  it('Access: denies without header, allows with header when unconfigured', async () => {
+  it('Access: fails closed when not configured or the token is junk', async () => {
+    const withJwt = (jwt: string) => new Request('https://x/', { headers: { 'Cf-Access-Jwt-Assertion': jwt } });
     expect(await verifyAccess(new Request('https://x/'), {})).toBe(false);
-    expect(await verifyAccess(new Request('https://x/', { headers: { 'Cf-Access-Jwt-Assertion': 'a.b.c' } }), {})).toBe(true);
-    expect(await verifyAccess(new Request('https://x/', { headers: { 'Cf-Access-Jwt-Assertion': 'junk' } }), { CF_ACCESS_AUD: 'a', CF_ACCESS_TEAM_DOMAIN: 't.example' })).toBe(false);
+    expect(await verifyAccess(withJwt('a.b.c'), {})).toBe(false); // header alone is never enough
+    expect(await verifyAccess(withJwt('junk'), { CF_ACCESS_AUD: 'a', CF_ACCESS_TEAM_DOMAIN: 't.example' })).toBe(false);
   });
+  it('Writer login: no identity without a valid writers-app token', async () => {
+    const env = { CF_ACCESS_WRITER_AUD: 'w', CF_ACCESS_TEAM_DOMAIN: 't.example' };
+    expect(await writerIdentity(new Request('https://x/'), env)).toBeNull();
+    expect(await writerIdentity(new Request('https://x/', { headers: { 'Cf-Access-Jwt-Assertion': 'a.b.c' } }), {})).toBeNull();
+    expect(await writerIdentity(new Request('https://x/', { headers: { 'Cf-Access-Jwt-Assertion': 'junk' } }), env)).toBeNull();
+  });
+  it('mine is not a post slug', () => expect(RESERVED_SLUGS).toContain('mine'));
 });

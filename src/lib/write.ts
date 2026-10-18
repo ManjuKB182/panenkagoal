@@ -22,6 +22,7 @@ export interface Env {
   PUBLIC_TURNSTILE_SITE_KEY?: string;
   CF_ACCESS_AUD?: string;
   CF_ACCESS_TEAM_DOMAIN?: string;
+  CF_ACCESS_WRITER_AUD?: string; // audience of the second Access app (any email) that signs writers in
   IP_SALT?: string;
 }
 
@@ -29,7 +30,7 @@ export const LIMITS = {
   title: 140, name: 80, email: 200, credit: 200, cap: 300, para: 8000,
   blocks: 60, photos: 12, photoBytes: 5 * 1024 * 1024, perHour: 5, note: 1000,
 };
-export const RESERVED_SLUGS = ['submit', 'new', 'review'];
+export const RESERVED_SLUGS = ['submit', 'new', 'review', 'mine'];
 const IMG_TYPES = ['image/jpeg', 'image/webp', 'image/png'];
 
 export const json = (data: unknown, status = 200, headers: Record<string, string> = {}) =>
@@ -190,31 +191,44 @@ const b64u = (s: string) => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_
 let certCache: { at: number; keys: any[] } | null = null;
 
 /**
- * True when the request came through Cloudflare Access. Access puts a signed JWT in Cf-Access-Jwt-Assertion.
- * With CF_ACCESS_AUD and CF_ACCESS_TEAM_DOMAIN set we verify its signature, audience, issuer and expiry;
- * without them we only require the header (fine for a quick start, but set both in production).
+ * Verifies the Cloudflare Access JWT in Cf-Access-Jwt-Assertion (signature, issuer, audience, expiry) and returns
+ * its payload, or null. Fails closed: without the audience and team domain nothing is accepted, because writers
+ * can sign in with any email, so a bare "header exists" check would let any writer into the editor tools.
  */
-export async function verifyAccess(request: Request, env: Env): Promise<boolean> {
+async function verifyJwt(request: Request, env: Env, expectedAud: string | undefined): Promise<any | null> {
   const jwt = request.headers.get('Cf-Access-Jwt-Assertion');
-  if (!jwt) return false;
-  if (!env.CF_ACCESS_AUD || !env.CF_ACCESS_TEAM_DOMAIN) return true;
+  if (!jwt || !expectedAud || !env.CF_ACCESS_TEAM_DOMAIN) return null;
   try {
     const [h, p, s] = jwt.split('.');
     const header = JSON.parse(new TextDecoder().decode(b64u(h)));
     const payload = JSON.parse(new TextDecoder().decode(b64u(p)));
     const team = env.CF_ACCESS_TEAM_DOMAIN.replace(/^https?:\/\//, '').replace(/\/$/, '');
-    if (payload.iss !== `https://${team}`) return false;
+    if (payload.iss !== `https://${team}`) return null;
     const aud = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
-    if (!aud.includes(env.CF_ACCESS_AUD)) return false;
-    if (typeof payload.exp !== 'number' || payload.exp * 1000 < Date.now()) return false;
+    if (!aud.includes(expectedAud)) return null;
+    if (typeof payload.exp !== 'number' || payload.exp * 1000 < Date.now()) return null;
     if (!certCache || Date.now() - certCache.at > 3600_000) {
       const r = await fetch(`https://${team}/cdn-cgi/access/certs`);
       certCache = { at: Date.now(), keys: ((await r.json()) as any).keys ?? [] };
     }
     const jwk = certCache.keys.find((k) => k.kid === header.kid);
-    if (!jwk || header.alg !== 'RS256') return false;
+    if (!jwk || header.alg !== 'RS256') return null;
     const key = await crypto.subtle.importKey('jwk', jwk, { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']);
-    return await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, b64u(s), new TextEncoder().encode(`${h}.${p}`));
-  } catch { return false; }
+    const ok = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, b64u(s), new TextEncoder().encode(`${h}.${p}`));
+    return ok ? payload : null;
+  } catch { return null; }
 }
+
+/** True when the request came through the editors' Access app (CF_ACCESS_AUD). */
+export async function verifyAccess(request: Request, env: Env): Promise<boolean> {
+  return (await verifyJwt(request, env, env.CF_ACCESS_AUD)) !== null;
+}
+
+/** The signed-in writer (verified email from the writers' Access app, CF_ACCESS_WRITER_AUD), or null. */
+export async function writerIdentity(request: Request, env: Env): Promise<{ email: string } | null> {
+  const payload = await verifyJwt(request, env, env.CF_ACCESS_WRITER_AUD);
+  const email = typeof payload?.email === 'string' ? payload.email.trim().toLowerCase() : '';
+  return EMAIL_RE.test(email) ? { email } : null;
+}
+export const signInNeeded = () => json({ error: 'Please sign in to continue.' }, 401);
 export const denied = () => new Response('Editors only. Sign in through Cloudflare Access.', { status: 403, headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex' } });

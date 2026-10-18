@@ -1,7 +1,7 @@
 ---
 // Page head + Watch / Write tabs shared by every Armchair Gaffers page, plus the styles
 // for the Write pages (global, prefixed wr-, because article HTML is injected at request time).
-interface Props { active: 'watch' | 'write' | 'none'; compact?: boolean }
+interface Props { active: 'watch' | 'write' | 'mine' | 'none'; compact?: boolean }
 const { active, compact = false } = Astro.props;
 ---
 <header class="wrap wr-head">
@@ -15,6 +15,7 @@ const { active, compact = false } = Astro.props;
   <nav class="chips wr-tabs" aria-label="Armchair Gaffers sections">
     <a class="chip" href="/armchair-gaffers" aria-selected={active === 'watch' ? 'true' : 'false'}>Watch</a>
     <a class="chip" href="/armchair-gaffers/write" aria-selected={active === 'write' ? 'true' : 'false'}>Write</a>
+    <a class="chip" href="/armchair-gaffers/write/mine" aria-selected={active === 'mine' ? 'true' : 'false'}>My pieces</a>
   </nav>
 </header>
 

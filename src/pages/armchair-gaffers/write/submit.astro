@@ -32,8 +32,9 @@ import WriteHead from '../../../components/WriteHead.astro';
       <div class="wr-card wr-form" style="align-content:start">
         <label for="f-name">Your name (shown on the piece)</label>
         <input id="f-name" maxlength="80" autocomplete="name" />
-        <label for="f-email">Email (never shown, only to tell you when it is live)</label>
-        <input id="f-email" type="email" maxlength="200" autocomplete="email" />
+        <label>Signed in as</label>
+        <p id="f-email" class="wr-note" style="font-size:14px;color:var(--text)">…</p>
+        <p class="wr-note">Your email is never shown on the piece. An editor uses it to tell you when the piece is live or what to fix. <a href="/armchair-gaffers/write/mine">See your pieces</a></p>
         <label>Photo rights</label>
         <label class="chk"><input type="radio" name="own" value="mine" checked /> I took these photos or have permission to use them</label>
         <label class="chk"><input type="radio" name="own" value="credit" /> The photos belong to someone else. Credit the owner</label>
@@ -51,7 +52,7 @@ import WriteHead from '../../../components/WriteHead.astro';
       <p class="eyebrow">Received</p>
       <h2 style="font-size:30px" id="done-h"></h2>
       <p style="color:var(--text-2)" id="done-p"></p>
-      <div class="wr-row"><button class="btn" type="button" id="again">Write another</button> <a class="btn ghost" href="/armchair-gaffers/write">Back to Armchair Gaffers</a></div>
+      <div class="wr-row"><button class="btn" type="button" id="again">Write another</button> <a class="btn ghost" href="/armchair-gaffers/write/mine">My pieces</a> <a class="btn ghost" href="/armchair-gaffers/write">Back to Armchair Gaffers</a></div>
     </div>
   </section>
 </Base>
@@ -61,7 +62,7 @@ import WriteHead from '../../../components/WriteHead.astro';
   type Photo = { blob: Blob; url: string };
   type Blk = { t: 'p'; txt: string } | { t: 'img'; photo: Photo | null; cap: string };
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
-  const state = { kind: 'fan', cover: null as Photo | null, blocks: [{ t: 'p', txt: '' }] as Blk[], own: 'mine', token: '' };
+  const state = { email: '', kind: 'fan', cover: null as Photo | null, blocks: [{ t: 'p', txt: '' }] as Blk[], own: 'mine', token: '' };
   let siteKey: string | null = null;
 
   /** Shrink in the browser before upload: longest side 1600px, WebP (or JPEG) at 0.85. */
@@ -133,8 +134,7 @@ import WriteHead from '../../../components/WriteHead.astro';
 
   function updateSend() {
     const credit = ($('f-credit') as HTMLInputElement).value.trim();
-    const email = ($('f-email') as HTMLInputElement).value.trim();
-    const ready = ($('f-title') as HTMLInputElement).value.trim() && ($('f-name') as HTMLInputElement).value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
+    const ready = ($('f-title') as HTMLInputElement).value.trim() && ($('f-name') as HTMLInputElement).value.trim() && state.email
       && ($('f-ok') as HTMLInputElement).checked && (state.own !== 'credit' || credit)
       && state.blocks.some((b) => b.t === 'p' && b.txt.trim()) && (!siteKey || state.token)
       && state.blocks.every((b) => b.t === 'p' || b.photo);
@@ -148,7 +148,7 @@ import WriteHead from '../../../components/WriteHead.astro';
     const add = (p: Photo) => photos.push(p.blob) - 1;
     const payload = {
       title: ($('f-title') as HTMLInputElement).value, kind: state.kind, name: ($('f-name') as HTMLInputElement).value,
-      email: ($('f-email') as HTMLInputElement).value, ownership: state.own, credit: ($('f-credit') as HTMLInputElement).value,
+      email: state.email, ownership: state.own, credit: ($('f-credit') as HTMLInputElement).value,
       confirm: ($('f-ok') as HTMLInputElement).checked,
       cover: state.cover ? add(state.cover) : null,
       blocks: state.blocks.map((b) => (b.t === 'p' ? b : { t: 'img', file: add(b.photo!), cap: b.cap })),
@@ -162,7 +162,7 @@ import WriteHead from '../../../components/WriteHead.astro';
       const d = await r.json().catch(() => ({}));
       if (!r.ok) { say(d.error ?? 'We could not send your piece. Please try again.'); (window as any).turnstile?.reset(); state.token = ''; updateSend(); return; }
       $('done-h').textContent = `Thanks, ${payload.name.trim() || 'friend'}. We have your piece.`;
-      $('done-p').textContent = `An editor will read it, fix typos if needed and publish it. You will get an email at ${payload.email.trim()} when it is live.`;
+      $('done-p').textContent = `An editor will read it, fix typos if needed and publish it. You will get an email at ${state.email} when it is live. Track it under My pieces.`;
       $('wr-form-wrap').hidden = true; $('wr-done').hidden = false; window.scrollTo({ top: 0 });
     } catch { say('We could not send your piece. Check your connection and try again.'); updateSend(); }
   }
@@ -178,11 +178,20 @@ import WriteHead from '../../../components/WriteHead.astro';
     $('f-ok-text').textContent = r.value === 'credit' ? 'I have the owner’s permission to share these photos' : 'I confirm the photos are mine or I have permission';
     updateSend();
   }));
-  ['f-title', 'f-name', 'f-email', 'f-credit', 'f-ok'].forEach((id) => $(id).addEventListener('input', updateSend));
+  ['f-title', 'f-name', 'f-credit', 'f-ok'].forEach((id) => $(id).addEventListener('input', updateSend));
   $('f-ok').addEventListener('change', updateSend);
   $('f-send').addEventListener('click', send);
   $('again').addEventListener('click', () => location.reload());
   renderAll();
+
+  // Who is signed in (Cloudflare Access, one-time PIN). Name is prefilled from their last piece.
+  fetch('/api/write/mine?me=1').then(async (r) => {
+    if (!r.ok) throw new Error('signin');
+    const me = await r.json();
+    state.email = me.email; $('f-email').textContent = me.email;
+    const n = $('f-name') as HTMLInputElement; if (!n.value && me.name) n.value = me.name;
+    updateSend();
+  }).catch(() => { $('f-email').textContent = 'Not signed in. Reload this page to sign in with your email.'; say('Please reload the page and sign in with your email.'); });
 
   // Spam check: Cloudflare Turnstile, only when a site key is configured on the server.
   fetch('/api/write/config').then((r) => r.json()).then((c) => {

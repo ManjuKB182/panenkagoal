@@ -1,0 +1,91 @@
+---
+// Writers only. Gated by the writers' Cloudflare Access app (any email, one-time PIN); the API checks the Access token too.
+import Base from '../../../layouts/Base.astro';
+import WriteHead from '../../../components/WriteHead.astro';
+---
+<Base title="My pieces" description="Your pieces on Armchair Gaffers.">
+  <WriteHead active="mine" compact />
+  <section class="wrap module" style="padding-top:12px">
+    <p class="eyebrow">Write</p>
+    <h1>My pieces</h1>
+    <p class="muted" style="margin:6px 0 14px" id="mine-who">Signing you in…</p>
+    <div class="wr-row" style="margin-bottom:14px"><a class="btn" href="/armchair-gaffers/write/submit">Submit a new piece</a></div>
+    <div class="wr-rev" id="mine-list" aria-live="polite"></div>
+  </section>
+</Base>
+
+<script>
+  type B = { t: 'p'; txt: string } | { t: 'img'; key: string; cap: string; credit: string };
+  type Post = { id: number; slug: string; title: string; kind: 'fan' | 'analyst'; cover_key: string | null; body: B[]; status: 'pending' | 'published' | 'sent_back'; editor_note: string | null; created_at: string };
+  const list = document.getElementById('mine-list')!;
+  const LABEL = { pending: 'Waiting for an editor', published: 'Published', sent_back: 'Sent back: needs your changes' };
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls = '', text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  const btn = (label: string, fn: () => void, cls = 'chip') => {
+    const b = el('button', cls, label); b.type = 'button'; b.addEventListener('click', fn); return b;
+  };
+
+  function editor(p: Post, host: HTMLElement) {
+    host.replaceChildren();
+    const form = el('div', 'wr-form');
+    const title = el('input'); title.value = p.title; title.maxLength = 140;
+    const kind = el('select'); for (const k of ['fan', 'analyst']) { const o = el('option', '', k === 'fan' ? 'Fan' : 'Analyst'); o.value = k; kind.append(o); } kind.value = p.kind;
+    form.append(title, kind);
+    const fields = p.body.map((b) => {
+      const f = el(b.t === 'p' ? 'textarea' : 'input') as HTMLTextAreaElement | HTMLInputElement;
+      if (b.t === 'p') { (f as HTMLTextAreaElement).rows = 6; f.value = b.txt; } else {
+        f.value = b.cap; f.placeholder = 'Caption';
+        const im = el('img'); im.src = `/api/write/photo/${b.key}`; im.alt = ''; im.style.maxHeight = '160px'; im.style.objectFit = 'contain'; form.append(im);
+      }
+      form.append(f);
+      return f;
+    });
+    const msg = el('p', 'wr-msg');
+    const row = el('div', 'wr-row');
+    row.append(
+      btn('Send for review again', async () => {
+        const body = p.body.map((b, i) => (b.t === 'p' ? { t: 'p', txt: fields[i].value } : { ...b, cap: fields[i].value }));
+        msg.textContent = 'Sending…';
+        const r = await fetch(`/api/write/mine/${p.id}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ title: title.value, kind: kind.value, body }) });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok) { msg.textContent = d.error ?? 'That did not work. Please try again.'; return; }
+        load();
+      }, 'btn'),
+      btn('Cancel', () => host.replaceChildren()),
+    );
+    form.append(row, msg);
+    host.append(form);
+  }
+
+  function card(p: Post) {
+    const c = el('div', 'wr-item');
+    c.append(el('h3', '', p.title));
+    c.append(el('div', 'muted', `${LABEL[p.status]} · sent ${new Date(p.created_at).toLocaleDateString('en-IN')}`));
+    if (p.status === 'sent_back' && p.editor_note) {
+      const n = el('div', 'wr-card'); n.append(el('b', '', 'Editor’s note'), el('p', '', p.editor_note)); c.append(n);
+    }
+    const host = el('div');
+    const row = el('div', 'wr-row');
+    if (p.status === 'published') { const v = el('a', 'btn', 'View live') as HTMLAnchorElement; v.href = `/armchair-gaffers/write/${p.slug}`; row.append(v); }
+    else row.append(btn(p.status === 'sent_back' ? 'Fix and resubmit' : 'Edit', () => editor(p, host), p.status === 'sent_back' ? 'btn' : 'chip'));
+    c.append(row, host);
+    return c;
+  }
+
+  async function load() {
+    list.replaceChildren(el('p', 'wr-empty', 'Loading…'));
+    const r = await fetch('/api/write/mine');
+    if (!r.ok) { list.replaceChildren(el('p', 'wr-empty', 'Please reload this page and sign in with your email.')); return; }
+    const d = await r.json();
+    document.getElementById('mine-who')!.textContent = `Signed in as ${d.email}`;
+    list.replaceChildren();
+    if (!d.posts.length) list.append(el('p', 'wr-empty', 'You have not sent a piece yet.'));
+    for (const p of d.posts as Post[]) list.append(card(p));
+  }
+  load();
+</script>
