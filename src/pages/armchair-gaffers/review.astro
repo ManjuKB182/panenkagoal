@@ -8,7 +8,7 @@ import WriteHead from '../../components/WriteHead.astro';
   <section class="wrap module" style="padding-top:12px">
     <p class="eyebrow">Editors only</p>
     <h1>Review queue</h1>
-    <p class="muted" style="margin:6px 0 14px">Approve a piece to publish it, or send it back with a note. Email the writer from the link on each piece.</p>
+    <p class="muted" style="margin:6px 0 14px">Approve a piece to publish it, or send it back with a note. Delete removes a piece and its photos for good, even after it is published. Email the writer from the link on each piece.</p>
     <div class="chips" id="rv-tabs" role="tablist" style="margin-bottom:14px">
       <button class="chip" type="button" role="tab" data-s="pending" aria-selected="true">Pending <span id="n-pending"></span></button>
       <button class="chip" type="button" role="tab" data-s="published" aria-selected="false">Published <span id="n-published"></span></button>
@@ -98,6 +98,10 @@ import WriteHead from '../../components/WriteHead.astro';
         if (note && (await act(p.id, { action: 'send_back', note }))) load();
       }),
       btn('Edit', () => editor(p, host)),
+      btn('Delete', async () => {
+        const live = p.status === 'published' ? ' It is live now and will disappear from the site.' : '';
+        if (confirm(`Delete "${p.title}" and its photos for good?${live} This cannot be undone.`) && (await act(p.id, { action: 'delete' }))) load();
+      }, 'chip wr-del'),
     );
     c.append(row, host);
     return c;
@@ -120,3 +124,7 @@ import WriteHead from '../../components/WriteHead.astro';
   }));
   load();
 </script>
+
+<style is:global>
+  .wr-del { color: var(--brand-text); border-color: var(--brand); }
+</style>
