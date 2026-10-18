@@ -44,4 +44,12 @@ const overdue = (m: Match) => m.status === 'scheduled' && Date.now() - new Date(
   .st.live :global(small) { color: var(--brand); font-weight: 700; }
   .st.live :global(small)::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); margin-right: 5px; vertical-align: 1px; animation: pulse 1.4s ease-in-out infinite; }
   @keyframes pulse { 50% { opacity: 0.25; } }
+  @media (max-width: 520px) {
+    li { font-size: 13px; line-height: 1.25; }
+    .row { grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr); gap: 6px; padding: 10px 4px; margin-inline: -4px; }
+    .h, .a { gap: 6px; overflow-wrap: anywhere; hyphens: auto; }
+    .h img, .a img { width: 18px; height: 18px; }
+    .st :global(b) { font-size: 13.5px; padding: 3px 6px; }
+    .st :global(small) { font-size: 10.5px; }
+  }
 </style>
