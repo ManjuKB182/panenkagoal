@@ -36,7 +36,8 @@ create table if not exists posts (
   published_at timestamptz
 );
 create index if not exists posts_status_published on posts (status, published_at desc);
-create index if not exists posts_author_email on posts (lower(author_email));  -- 'My pieces' for signed-in writers
+-- 'My pieces' for signed-in writers. (No trailing comment: db-migrate splits on a line-ending semicolon.)
+create index if not exists posts_author_email on posts (lower(author_email));
 
 -- Per-IP submission log for the rate limit (IP is stored hashed).
 create table if not exists write_submissions (
