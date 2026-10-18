@@ -15,7 +15,7 @@ const { active, compact = false } = Astro.props;
   <nav class="chips wr-tabs" aria-label="Armchair Gaffers sections">
     <a class="chip" href="/armchair-gaffers" aria-selected={active === 'watch' ? 'true' : 'false'}>Watch</a>
     <a class="chip" href="/armchair-gaffers/write" aria-selected={active === 'write' ? 'true' : 'false'}>Write</a>
-    <a class="chip" href="/armchair-gaffers/write/mine" aria-selected={active === 'mine' ? 'true' : 'false'}>My pieces</a>
+    {active === 'mine' && <a class="chip" href="/armchair-gaffers/write/mine" aria-selected="true">My pieces</a>}
   </nav>
 </header>
 

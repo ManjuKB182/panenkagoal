@@ -22,7 +22,7 @@ export interface Env {
   PUBLIC_TURNSTILE_SITE_KEY?: string;
   CF_ACCESS_AUD?: string;
   CF_ACCESS_TEAM_DOMAIN?: string;
-  CF_ACCESS_WRITER_AUD?: string; // audience of the second Access app (any email) that signs writers in
+  CF_ACCESS_WRITER_AUD?: string; // audience of the second Access app that signs writers in
   IP_SALT?: string;
 }
 
@@ -224,7 +224,7 @@ export async function verifyAccess(request: Request, env: Env): Promise<boolean>
   return (await verifyJwt(request, env, env.CF_ACCESS_AUD)) !== null;
 }
 
-/** The signed-in writer (verified email from the writers' Access app, CF_ACCESS_WRITER_AUD), or null. */
+/** The signed-in writer (verified email from the writers' Access app, CF_ACCESS_WRITER_AUD) or null. Who may sign in is set by the Access policy's Include > Emails list. */
 export async function writerIdentity(request: Request, env: Env): Promise<{ email: string } | null> {
   const payload = await verifyJwt(request, env, env.CF_ACCESS_WRITER_AUD);
   const email = typeof payload?.email === 'string' ? payload.email.trim().toLowerCase() : '';

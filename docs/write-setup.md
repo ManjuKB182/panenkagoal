@@ -16,10 +16,10 @@ Published pieces load live from Neon through Cloudflare Pages Functions, so appr
    3. Policy: Action `Allow`, Include > Emails > the editors' addresses. Login method: One-time PIN (email code), no password or identity provider needed.
    4. Open the application's overview and copy the **Application Audience (AUD) tag**. Your team domain is `<team>.cloudflareaccess.com` (Zero Trust > Settings > Custom pages).
    5. Set `CF_ACCESS_AUD` and `CF_ACCESS_TEAM_DOMAIN` (e.g. `myteam.cloudflareaccess.com`) as Pages variables. With these set, the Functions verify the Access token's signature, audience and expiry. Without them they only check that the header exists, which is not safe on its own, so set them before launch.
-6. **Writer login (second Access app, any email).** Writers sign in with a one-time PIN sent to their email, so the site knows who wrote what. Only a signed-in writer can submit, and each writer sees their own pieces at `/armchair-gaffers/write/mine`, with the editor's note on sent-back pieces and a button to fix and resubmit.
+6. **Writer login (second Access app, approved emails only).** Writers sign in with a one-time PIN sent to their email, so the site knows who wrote what. Only a signed-in writer can submit, and each writer sees their own pieces at `/armchair-gaffers/write/mine`, with the editor's note on sent-back pieces and a button to fix and resubmit.
    1. Zero Trust > Access controls > Applications > Add an application > Self-hosted. Name it `Panenka writers`.
    2. Public hostnames, on `panenkagoal.com`, `panenkagoal.pages.dev` and `staging.panenkagoal.pages.dev`: paths `armchair-gaffers/write/submit`, `armchair-gaffers/write/mine`, `api/write/submit` and `api/write/mine*`.
-   3. Policy: Action `Allow`, Include > **Everyone**. Login method: One-time PIN. (Anyone with an inbox can sign in; spam is still held back by Turnstile, the honeypot and the 5 per hour limit, and nothing is public until an editor approves it.)
+   3. Policy: Action `Allow`, Include > Emails > the approved writers' addresses. Login method: One-time PIN. To add or remove a writer, edit that email list; no redeploy needed.
    4. Copy this app's **AUD tag** and set it as `CF_ACCESS_WRITER_AUD` (Pages variable, Production and Preview). It must differ from `CF_ACCESS_AUD`: that difference is what keeps writers out of the editor tools.
 7. Redeploy once so the variables and binding take effect.
 
