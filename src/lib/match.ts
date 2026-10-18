@@ -135,7 +135,8 @@ export function parseIslGame(game: any, listing?: any): MatchDetail {
   const [dd, mm, yy] = String(md.matchdate_ist ?? md.date ?? '').split('/');
   const kickoff = listing?.start_date ?? (yy ? `${yy}-${mm}-${dd}T${md.matchtime_ist ?? md.start_time ?? '00:00'}:00+05:30` : '');
   const played = status === 'ft' || status === 'live';
-  const team = (t: any) => ({ name: t.name, short: t.short_name || undefined, score: played ? num(t.score) : undefined });
+  // Crests are self-hosted in public/logos/isl, keyed by the ISL club id.
+  const team = (t: any) => ({ name: t.name, short: t.short_name || undefined, logo: t.id ? `/logos/isl/${t.id}.png` : undefined, score: played ? num(t.score) : undefined });
   return {
     id: `isl-${md.match_id}`,
     competition: String(md.series?.name ?? 'Indian Super League').replace(/,\s*\d{4}-\d{2,4}$/, ''),
