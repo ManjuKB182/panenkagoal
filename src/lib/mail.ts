@@ -12,6 +12,13 @@ export function reviewerList(env: MailEnv): string[] {
   return (env.REVIEWER_EMAILS ?? '').split(/[,;\s]+/).map((e) => e.trim()).filter((e) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e));
 }
 
+/** "Writer Name via Outfield Talks <addr>" built from MAIL_FROM, so editors see who sent it. */
+export function fromWriter(mailFrom: string, writerName: string): string {
+  const addr = mailFrom.match(/<([^>]+)>/)?.[1] ?? mailFrom.trim();
+  const name = writerName.replace(/[<>"\r\n]/g, '').trim() || 'A writer';
+  return `${name} via Outfield Talks <${addr}>`;
+}
+
 export function submissionEmail(p: { title: string; kind: string; writerName: string; writerEmail: string; reviewUrl: string }) {
   const kind = p.kind === 'analyst' ? 'analyst piece' : 'fan piece';
   const subject = `New piece to review: ${p.title}`;
@@ -23,18 +30,18 @@ export function submissionEmail(p: { title: string; kind: string; writerName: st
 <p style="margin:0 0 24px"><b>Type:</b> ${esc(kind)}</p>
 <a href="${esc(p.reviewUrl)}" style="display:inline-block;background:#0b8f87;color:#fff;text-decoration:none;font-weight:700;padding:12px 24px;border-radius:8px">Review</a>
 <p style="font-size:12px;color:#666;margin-top:24px">Button not working? Open ${esc(p.reviewUrl)}</p></div>`;
-  return { subject, text, html };
+  return { subject, text, html, writerName: p.writerName, writerEmail: p.writerEmail };
 }
 
 /** Best effort: never throws, so a mail problem can't fail a submission. Returns true when Resend accepted it. */
-export async function notifyReviewers(env: MailEnv, msg: { subject: string; text: string; html: string }): Promise<boolean> {
+export async function notifyReviewers(env: MailEnv, msg: { subject: string; text: string; html: string; writerName: string; writerEmail: string }): Promise<boolean> {
   const to = reviewerList(env);
   if (!env.RESEND_API_KEY || !env.MAIL_FROM || !to.length) return false;
   try {
     const r = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: env.MAIL_FROM, to, subject: msg.subject, text: msg.text, html: msg.html }),
+      body: JSON.stringify({ from: fromWriter(env.MAIL_FROM, msg.writerName), reply_to: msg.writerEmail, to, subject: msg.subject, text: msg.text, html: msg.html }),
     });
     return r.ok;
   } catch { return false; }
