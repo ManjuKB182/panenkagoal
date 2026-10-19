@@ -196,6 +196,7 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
 a.tile:hover, button.tile:hover { border-color: var(--line-strong); transform: translateY(-1px); }
 a.tile:hover h3, button.tile:hover h3 { color: var(--brand-text); }
 button.tile { cursor: pointer; width: 100%; }
+.tile .lphoto { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border-radius: calc(var(--r) - 4px); margin-bottom: 6px; }
 .tile .eyebrow { font-size: 11.5px; }
 .tile h3 { font-size: 19px; line-height: 1.22; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .tile .meta { color: var(--text-2); font-size: 14px; line-height: 1.45; }

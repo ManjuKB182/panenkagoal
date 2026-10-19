@@ -113,6 +113,7 @@ const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
       <div class="tiles">
         {legends.map((l) => (
           <div class="tile">
+            {l.photo && <img class="lphoto" src={l.photo} alt={l.name} width="682" height="1024" loading="lazy" />}
             <div class="eyebrow">{l.era}</div>
             <h3>{l.name}</h3>
             <div class="meta">{l.line}</div>
