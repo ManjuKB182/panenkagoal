@@ -167,7 +167,7 @@ export function renderArticleHtml(p: { title: string; kind: string; author_name:
     (p.cover_key ? fig(p.cover_key, '', p.photo_credit) : '') +
     p.body.map((b) => (b.t === 'p' ? `<p>${esc(b.txt)}</p>` : fig(b.key, b.cap, b.credit))).join('') +
     `<p class="wr-note">Photos remain the property of their owner.</p>` +
-    `<div class="wr-card" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span><b>Write for Adda Talks</b><br><span class="wr-note">Send your own breakdown. Photos welcome.</span></span><a class="btn" href="/armchair-gaffers/write/submit">Submit your piece</a></div></article>`;
+    `<div class="wr-card" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span><b>Write for Outfield Talks</b><br><span class="wr-note">Send your own breakdown. Photos welcome.</span></span><a class="btn" href="/armchair-gaffers/write/submit">Submit your piece</a></div></article>`;
 }
 
 // ---------- spam checks ----------

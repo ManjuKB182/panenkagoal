@@ -294,7 +294,7 @@ const jsonLd = {
       }),
     );
   });
-  // Blogs tab: published Armchair Gaffers pieces load live, so a newly approved piece shows without a rebuild.
+  // Blogs tab: published Outfield Talks pieces load live, so a newly approved piece shows without a rebuild.
   const blogList = document.getElementById('blog-list');
   if (blogList) {
     const note = (text: string) => { const li = document.createElement('li'); li.className = 'bl-empty'; li.textContent = text; blogList.replaceChildren(li); };

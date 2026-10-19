@@ -1,4 +1,4 @@
-# Write tab setup (Armchair Gaffers → Write)
+# Write tab setup (Outfield Talks → Write)
 
 Fans and analysts submit pieces with photos at `/armchair-gaffers/write/submit`. Nothing is public until an editor approves it at `/armchair-gaffers/review`.
 Published pieces load live from Neon through Cloudflare Pages Functions, so approving a piece needs no site rebuild.
@@ -32,3 +32,12 @@ Open `/armchair-gaffers/review`, sign in with your email code, then for each pen
 - Up to 12 photos per piece (cover included), 5 MB each, JPG/PNG/WebP, checked from the file bytes. The browser also shrinks photos to 1600 px on the longest side before upload.
 - Photos are stored with random names and served from `/api/write/photo/<key>` with a one-year cache.
 - Photos stay the property of their owner. The credit (the writer's name, or the owner named on the form) prints under each photo.
+
+## Reviewer email notifications
+
+When a writer submits, the editors get an email with who sent it, the title and a **Review** button that opens `/armchair-gaffers/review`. It uses [Resend](https://resend.com).
+
+1. Create a Resend account, verify a sending domain (e.g. `panenkagoal.com`) and create an API key.
+2. Pages project > Settings > Variables and Secrets (Production and Preview): `RESEND_API_KEY` (secret), `MAIL_FROM` (e.g. `Panenka Goal <notify@panenkagoal.com>`) and `REVIEWER_EMAILS` (comma-separated editor addresses).
+
+Without these the submission still saves; no email is sent. The email is sent in the background, so a mail problem never delays or fails the writer's submit.

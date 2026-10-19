@@ -2,7 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import WriteHead from '../../../components/WriteHead.astro';
 ---
-<Base title="Submit your piece" description="Send Adda Talks your match report, tactical breakdown or fan view. An editor reads everything before it goes live.">
+<Base title="Submit your piece" description="Send Outfield Talks your match report, tactical breakdown or fan view. An editor reads everything before it goes live.">
   <WriteHead active="write" compact />
   <section class="wrap module" style="padding-top:12px" id="wr-root">
     <p style="margin-bottom:10px"><a class="wr-back" href="/armchair-gaffers/write">← All pieces</a></p>
@@ -52,7 +52,7 @@ import WriteHead from '../../../components/WriteHead.astro';
       <p class="eyebrow">Received</p>
       <h2 style="font-size:30px" id="done-h"></h2>
       <p style="color:var(--text-2)" id="done-p"></p>
-      <div class="wr-row"><button class="btn" type="button" id="again">Write another</button> <a class="btn ghost" href="/armchair-gaffers/write/mine">My pieces</a> <a class="btn ghost" href="/armchair-gaffers/write">Back to Armchair Gaffers</a></div>
+      <div class="wr-row"><button class="btn" type="button" id="again">Write another</button> <a class="btn ghost" href="/armchair-gaffers/write/mine">My pieces</a> <a class="btn ghost" href="/armchair-gaffers/write">Back to Outfield Talks</a></div>
     </div>
   </section>
 </Base>
@@ -157,13 +157,16 @@ import WriteHead from '../../../components/WriteHead.astro';
     photos.forEach((b, i) => fd.set(`photo${i}`, b, `photo${i}.${b.type === 'image/webp' ? 'webp' : 'jpg'}`));
     fd.set('hp', ($('f-hp') as HTMLInputElement).value);
     fd.set('cf-turnstile-response', state.token);
+    const showDone = () => {
+      $('done-h').textContent = `Thanks, ${payload.name.trim() || 'friend'}. We have your piece.`;
+      $('done-p').textContent = `An editor will read it, fix typos if needed and publish it. You will get an email at ${state.email} when it is live. Track it under My pieces.`;
+      $('wr-form-wrap').hidden = true; $('wr-done').hidden = false; say(''); window.scrollTo({ top: 0 });
+    };
     try {
       const r = await fetch('/api/write/submit', { method: 'POST', body: fd });
       const d = await r.json().catch(() => ({}));
       if (!r.ok) { say(d.error ?? 'We could not send your piece. Please try again.'); (window as any).turnstile?.reset(); state.token = ''; updateSend(); return; }
-      $('done-h').textContent = `Thanks, ${payload.name.trim() || 'friend'}. We have your piece.`;
-      $('done-p').textContent = `An editor will read it, fix typos if needed and publish it. You will get an email at ${state.email} when it is live. Track it under My pieces.`;
-      $('wr-form-wrap').hidden = true; $('wr-done').hidden = false; window.scrollTo({ top: 0 });
+      showDone();
     } catch { say('We could not send your piece. Check your connection and try again.'); updateSend(); }
   }
 

@@ -1,5 +1,5 @@
 ---
-// Page head + Watch / Write tabs shared by every Adda Talks page, plus the styles
+// Page head + Watch / Write tabs shared by every Outfield Talks page, plus the styles
 // for the Write pages (global, prefixed wr-, because article HTML is injected at request time).
 interface Props { active: 'watch' | 'write' | 'mine' | 'none'; compact?: boolean }
 const { active, compact = false } = Astro.props;
@@ -8,11 +8,11 @@ const { active, compact = false } = Astro.props;
   {!compact && (
     <>
       <p class="eyebrow">Fans &amp; analysts</p>
-      <h1 class="adda-title">Adda Talks</h1>
+      <h1 class="adda-title">Outfield Talks</h1>
       <p class="muted wr-lede">Fans and analysts break down the game. Watch the shows or read the takes.</p>
     </>
   )}
-  <nav class="chips wr-tabs" aria-label="Adda Talks sections">
+  <nav class="chips wr-tabs" aria-label="Outfield Talks sections">
     <a class="chip" href="/armchair-gaffers/write" aria-selected={active === 'write' || active === 'mine' ? 'true' : 'false'}>Write</a>
     <a class="chip" href="/armchair-gaffers" aria-selected={active === 'watch' ? 'true' : 'false'}>Watch</a>
     {active === 'mine' && <a class="chip" href="/armchair-gaffers/write/mine" aria-selected="true">My pieces</a>}
@@ -69,6 +69,8 @@ const { active, compact = false } = Astro.props;
   .wr-msg { font-size: 13.5px; color: var(--brand-text); font-weight: 600; min-height: 1.2em; }
   .wr-form button.btn:disabled { opacity: 0.45; cursor: not-allowed; }
   .wr-ok { max-width: 560px; display: grid; gap: 10px; }
+  /* display on .wr-cols / .wr-ok would otherwise beat the hidden attribute, leaving the form on screen after sending */
+  .wr-cols[hidden], .wr-ok[hidden] { display: none; }
 
   .wr-art { display: grid; gap: 14px; max-width: 70ch; }
   .wr-art h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.1; overflow-wrap: anywhere; }

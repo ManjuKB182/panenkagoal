@@ -1,13 +1,14 @@
 import {
   blocksFor, getSql, ipHash, json, LIMITS, photoKey, sniffImage, signInNeeded, slugify, validateSubmission, verifyTurnstile, writerIdentity, type Env,
 } from '../../../src/lib/write';
+import { notifyReviewers, submissionEmail, type MailEnv } from '../../../src/lib/mail';
 
 // POST /api/write/submit (multipart/form-data). Writers only: signed in through the writers' Access app;
 // the piece is tied to the verified Access email, whatever the form says.
 //   payload: JSON string (title, kind, name, email, ownership, credit, confirm, cover, blocks)
 //   photo0..photoN: the resized images, referenced from payload by index
 //   hp: honeypot (must be empty), cf-turnstile-response: spam check token
-export const onRequestPost = async ({ request, env }: { request: Request; env: Env }) => {
+export const onRequestPost = async ({ request, env, waitUntil }: { request: Request; env: Env & MailEnv; waitUntil?: (p: Promise<unknown>) => void }) => {
   const who = await writerIdentity(request, env);
   if (!who) return signInNeeded();
   const sql = getSql(env);
@@ -57,7 +58,7 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
   const { blocks, cover_key, credit } = blocksFor(sub, keys);
 
   try {
-    for (const b of bytes) await env.POSTS_BUCKET.put(b.key, b.data, { httpMetadata: { contentType: b.type } });
+    await Promise.all(bytes.map((b) => env.POSTS_BUCKET.put(b.key, b.data, { httpMetadata: { contentType: b.type } })));
     await sql(
       `insert into posts (slug, title, kind, author_name, author_email, cover_key, body, photo_rights, photo_credit) values ($1,$2,$3,$4,$5,$6,$7::jsonb,$8,$9)`,
       [slugify(sub.title), sub.title, sub.kind, sub.name, sub.email, cover_key, JSON.stringify(blocks), sub.ownership, credit],
@@ -67,5 +68,11 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
     await Promise.allSettled(keys.map((k) => env.POSTS_BUCKET.delete(k)));
     return json({ error: 'We could not save your piece. Please try again.' }, 500);
   }
+  // Tell the editors in the background so the writer sees success the moment the piece is saved.
+  const mail = notifyReviewers(env, submissionEmail({
+    title: sub.title, kind: sub.kind, writerName: sub.name, writerEmail: sub.email,
+    reviewUrl: `${new URL(request.url).origin}/armchair-gaffers/review`,
+  }));
+  if (waitUntil) waitUntil(mail);
   return json({ ok: true });
 };

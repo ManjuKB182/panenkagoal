@@ -6,7 +6,7 @@ import { kickoffTime, shortDate } from '../lib/format';
 
 const path = Astro.url.pathname;
 const active = (href: string) => path === href || path.startsWith(`${href}/`);
-// Adda Talks opens on its Write tab but stays highlighted on every /armchair-gaffers page.
+// Outfield Talks opens on its Write tab but stays highlighted on every /armchair-gaffers page.
 const isOn = (n: { href: string; match?: string }) => active(n.match ?? n.href);
 
 // Score strip: latest senior results, then the next fixtures.
@@ -186,7 +186,7 @@ const loop = moving.length >= 6;
   }
   .main-nav a:hover { color: var(--text); }
   .main-nav a[aria-current='page'] { color: var(--text); box-shadow: inset 0 -2px 0 var(--brand); }
-  /* Adda Talks: a small teal dot that pulses slowly, nothing else. */
+  /* Outfield Talks: a small teal dot that pulses slowly, nothing else. */
   .main-nav a.hot { gap: 7px; }
   .main-nav a.hot::before, .menu a.hot b::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--adda); flex: none; animation: adda-dot 2.8s ease-in-out infinite; }
   .main-nav a.hot[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--adda); }
