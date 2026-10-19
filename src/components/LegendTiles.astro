@@ -1,0 +1,125 @@
+---
+import legends from '../../data/karnataka/legends.json';
+
+// A legend with a "bio" gets a clickable tile that opens a full profile. Others stay plain tiles.
+interface Legend {
+  name: string; era: string; line: string; photo?: string; fullName?: string; position?: string; bio?: string;
+  dob?: string | null; birthplace?: string | null;
+  career?: { club: string; years: string; note?: string | null }[]; stats?: { label: string; value: string }[];
+  honours?: string[]; intl?: string | null; sources?: string[];
+}
+const list = legends as Legend[];
+const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const age = (dob: string) => Math.floor((Date.now() - new Date(dob).getTime()) / 31_557_600_000);
+const facts = (p: Legend) => ([
+  ['Born', p.dob ? `${new Date(p.dob).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} (${age(p.dob)})` : null], ['From', p.birthplace],
+] as [string, string | null | undefined][]).filter((f): f is [string, string] => !!f[1]);
+---
+<div class="tiles">
+  {list.map((l) => {
+    const inner = (
+      <>
+        {l.photo && <img class="lphoto" src={l.photo} alt={l.name} width="682" height="1024" loading="lazy" />}
+        <div class="eyebrow">{l.era}</div>
+        <h3>{l.name}</h3>
+        <div class="meta">{l.line}</div>
+        <div class="foot"><span class="plain">Legends of Karnataka</span>{l.bio && <span>View profile →</span>}</div>
+      </>
+    );
+    return l.bio
+      ? <button class="tile" type="button" data-open={slug(l.name)} aria-haspopup="dialog">{inner}</button>
+      : <div class="tile">{inner}</div>;
+  })}
+</div>
+
+{list.filter((l) => l.bio).map((p) => (
+  <dialog class="profile" id={`l-${slug(p.name)}`} aria-labelledby={`lh-${slug(p.name)}`}>
+    <form method="dialog"><button class="x" aria-label="Close profile">×</button></form>
+    <div class="pbody">
+      <div class="side">
+        <div class="ph big">
+          {p.photo ? <img src={p.photo} alt={p.name} width="682" height="1024" /> : null}
+        </div>
+        {facts(p).length > 0 && (
+          <dl class="facts">
+            {facts(p).map(([k, v]) => <><dt>{k}</dt><dd>{v}</dd></>)}
+          </dl>
+        )}
+      </div>
+      <div class="main">
+        <p class="eyebrow">{p.era}</p>
+        <h2 id={`lh-${slug(p.name)}`}>{p.name}</h2>
+        {(p.fullName || p.position) && <p class="muted pos">{[p.position, p.fullName].filter(Boolean).join(' · ')}</p>}
+        <p class="bio">{p.bio}</p>
+        {p.career?.length ? (
+          <section><h3>Career</h3>
+            <ol class="career">{p.career.map((c) => <li><b>{c.club}</b><span>{c.years}</span>{c.note && <small>{c.note}</small>}</li>)}</ol>
+          </section>
+        ) : null}
+        {p.stats?.length ? (
+          <section><h3>Numbers</h3>
+            <div class="stats">{p.stats.map((s) => <div><b>{s.value}</b><span>{s.label}</span></div>)}</div>
+          </section>
+        ) : null}
+        {p.honours?.length ? <section><h3>Honours</h3><ul class="hon">{p.honours.map((h) => <li>{h}</li>)}</ul></section> : null}
+        {p.intl && <section><h3>National team</h3><p>{p.intl}</p></section>}
+        {p.sources?.length ? <p class="muted src">Source: {p.sources.map((s, i) => <>{i > 0 && ', '}<a href={s} rel="noopener noreferrer" target="_blank">{new URL(s).hostname.replace(/^en\./, '')}</a></>)}</p> : null}
+      </div>
+    </div>
+  </dialog>
+))}
+
+<script>
+  const open = (id: string) => {
+    const d = document.getElementById(`l-${id}`) as HTMLDialogElement | null;
+    if (!d || d.open) return;
+    d.showModal();
+    history.replaceState(null, '', `#legend-${id}`);
+  };
+  document.querySelectorAll<HTMLDialogElement>('dialog.profile[id^="l-"]').forEach((d) => {
+    d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
+    d.addEventListener('close', () => history.replaceState(null, '', location.pathname));
+  });
+  document.querySelectorAll<HTMLElement>('.tile[data-open]').forEach((b) => b.addEventListener('click', () => open(b.dataset.open!)));
+  if (location.hash.startsWith('#legend-')) open(location.hash.slice(8));
+</script>
+
+<style>
+  .ph { position: relative; display: grid; aspect-ratio: 4 / 5; background: linear-gradient(160deg, var(--accent-tint), var(--brand-tint)); place-items: center; }
+  .main .src { font-size: 13px; }
+  .profile { border: 1px solid var(--line); border-radius: 14px; padding: 0; width: min(920px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); background: var(--surface); color: var(--text); overflow: auto; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35); }
+  .profile::backdrop { background: rgba(10, 12, 15, 0.62); backdrop-filter: blur(3px); }
+  .profile[open] { animation: pop 0.22s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  @keyframes pop { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
+  .x { position: sticky; top: 10px; float: right; margin: 10px 10px 0 0; z-index: 2; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 22px; line-height: 1; cursor: pointer; }
+  .x:hover { background: var(--surface-2); }
+  .pbody { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 28px; padding: 24px; }
+  .side { display: grid; gap: 16px; align-content: start; }
+  .ph.big { aspect-ratio: 4 / 5; border-radius: var(--r); overflow: hidden; background: linear-gradient(160deg, var(--accent-tint), var(--brand-tint)); place-items: center; }
+  .ph.big img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .facts { display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; margin: 0; font-size: 14px; padding: 14px 16px; background: var(--surface-2); border-radius: var(--r); }
+  .facts dt { color: var(--text-3); font-weight: 600; }
+  .facts dd { margin: 0; font-weight: 600; }
+  .main { display: grid; gap: 10px; align-content: start; padding-right: 36px; }
+  .main h2 { font-size: clamp(28px, 4vw, 38px); }
+  .pos { margin-top: -4px; }
+  .main .bio { font-size: 16px; color: var(--text-2); }
+  .main section { display: grid; gap: 8px; margin-top: 8px; }
+  .main h3 { font-size: 13px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-3); padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  .career { list-style: none; margin: 0; padding: 0 0 0 16px; border-left: 2px solid var(--line); display: grid; gap: 12px; }
+  .career li { display: grid; grid-template-columns: 1fr auto; gap: 0 12px; position: relative; font-size: 15px; }
+  .career li::before { content: ''; position: absolute; left: -22px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 3px var(--surface); }
+  .career span { color: var(--text-3); font-size: 13.5px; }
+  .career small { grid-column: 1 / -1; color: var(--text-2); font-size: 13.5px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 10px; }
+  .stats div { background: var(--surface-2); border-radius: var(--r-sm); padding: 10px 12px; display: grid; }
+  .stats b { font: 700 24px/1.1 var(--display); }
+  .stats span { font-size: 12px; color: var(--text-3); font-weight: 600; }
+  .hon { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 15px; }
+  @media (max-width: 720px) {
+    .pbody { grid-template-columns: minmax(0, 1fr); padding: 16px; gap: 16px; }
+    .side { grid-template-columns: 120px minmax(0, 1fr); align-items: start; }
+    .main { padding-right: 0; }
+    .profile { width: calc(100vw - 16px); }
+  }
+</style>

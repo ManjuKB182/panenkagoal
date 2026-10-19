@@ -1,7 +1,86 @@
 [
-  { "name": "Ilyas Pasha", "era": "India international", "line": "Karnataka-born defender who played for India." },
-  { "name": "Babu Mani", "era": "India international", "line": "Karnataka-born forward who played for India." },
-  { "name": "Carlton Chapman", "era": "India international", "line": "Karnataka-born midfielder who played for India." },
-  { "name": "Shanmugam Venkatesh", "era": "India international", "line": "Karnataka-born forward who played for India." },
-  { "name": "N. S. Manju", "photo": "/legends/ns-manju.jpeg", "era": "India international", "line": "Mysore-born defender who won 25 India caps and the 2005 SAFF Championship, and later played for Bengaluru FC." }
+  {
+    "name": "Ilyas Pasha",
+    "era": "India international",
+    "line": "Karnataka-born defender who played for India."
+  },
+  {
+    "name": "Babu Mani",
+    "era": "India international",
+    "line": "Karnataka-born forward who played for India."
+  },
+  {
+    "name": "Carlton Chapman",
+    "era": "India international",
+    "line": "Karnataka-born midfielder who played for India."
+  },
+  {
+    "name": "Shanmugam Venkatesh",
+    "era": "India international",
+    "line": "Karnataka-born forward who played for India."
+  },
+  {
+    "name": "N. S. Manju",
+    "photo": "/legends/ns-manju.jpeg",
+    "era": "India international",
+    "line": "Mysore-born defender who won 25 India caps and the 2005 SAFF Championship, and later played for Bengaluru FC.",
+    "fullName": "Nanjangud Shivananju Manju",
+    "position": "Defender",
+    "dob": "1984-05-09",
+    "birthplace": "Mysore, Karnataka",
+    "bio": "A Mysore-born defender who came through DYS in Karnataka and played for HAL, Mahindra United and Mohun Bagan before a spell with United Sikkim, a loan at Pune FC and a move to Bengaluru FC in 2013. He captained India's Under-23 side, won 25 senior caps and scored twice, and was part of the squad at the 2011 AFC Asian Cup. Since retiring he has worked as a Kannada football commentator for Star Sports during the Indian Super League.",
+    "career": [
+      {
+        "club": "DYS, Karnataka",
+        "years": "youth",
+        "note": "Youth club"
+      },
+      {
+        "club": "Hindustan Aeronautics (HAL)",
+        "years": "2003-2004"
+      },
+      {
+        "club": "Mahindra United",
+        "years": "2004-2007"
+      },
+      {
+        "club": "Mohun Bagan",
+        "years": "2007-2010"
+      },
+      {
+        "club": "United Sikkim",
+        "years": "2011-2012",
+        "note": "I-League 2nd Division"
+      },
+      {
+        "club": "Pune FC",
+        "years": "2012",
+        "note": "Loan for the rest of 2011-12"
+      },
+      {
+        "club": "Bengaluru FC",
+        "years": "2013-2016",
+        "note": "I-League. Debut 2 Nov 2013 v Mumbai FC (2-2), full match. 3 apps, 0 goals as of 22 Dec 2013"
+      }
+    ],
+    "stats": [
+      {
+        "label": "India caps",
+        "value": "25"
+      },
+      {
+        "label": "India goals",
+        "value": "2"
+      }
+    ],
+    "honours": [
+      "SAFF Championship 2005 (winner) and 2008 (runner-up)",
+      "Nehru Cup 2007 and 2009 (squad member; injured in the 2009 opener)",
+      "Nominated for Best Indian Player, inaugural FPAI Awards Night, 2009"
+    ],
+    "intl": "India U20 (2004), India U23 captain (2006-08) and India senior (2005-11): 25 caps, 2 goals. Scored v Maldives at the 2005 SAFF Gold Cup (14 Dec 2005, 1-0) and v Saudi Arabia in 2007 AFC Asian Cup qualifying (6 Sep 2006, 1-7 loss). Wore no. 3 in the 2011 AFC Asian Cup squad. An injury in the 2009 Nehru Cup opener v Lebanon ruled him out of that tournament, the IFA Shield, the Durand Cup and the Federation Cup.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/N._S._Manju"
+    ]
+  }
 ]

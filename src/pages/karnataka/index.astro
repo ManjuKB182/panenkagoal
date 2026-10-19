@@ -4,7 +4,7 @@ import TabBar from '../../components/TabBar.astro';
 import KarnatakaPlayers from '../../components/KarnatakaPlayers.astro';
 import LeaguePanel from '../../components/LeaguePanel.astro';
 import academies from '../../../data/karnataka/academies.json';
-import legends from '../../../data/karnataka/legends.json';
+import LegendTiles from '../../components/LegendTiles.astro';
 import history from '../../../data/karnataka/history.json';
 import profiles from '../../../data/karnataka/academy-profiles.json';
 import { SECTIONS } from '../../config/site';
@@ -110,17 +110,7 @@ const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
     </section>
 
     <section class="tabpanel" data-group="kar" data-panel="legends" hidden>
-      <div class="tiles">
-        {legends.map((l) => (
-          <div class="tile">
-            {l.photo && <img class="lphoto" src={l.photo} alt={l.name} width="682" height="1024" loading="lazy" />}
-            <div class="eyebrow">{l.era}</div>
-            <h3>{l.name}</h3>
-            <div class="meta">{l.line}</div>
-            <div class="foot"><span class="plain">Legends of Karnataka</span></div>
-          </div>
-        ))}
-      </div>
+      <LegendTiles />
     </section>
 
     <section class="tabpanel" data-group="kar" data-panel="history" hidden>
