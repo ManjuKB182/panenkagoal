@@ -13,7 +13,7 @@
   {
     "name": "Alchemy International FA",
     "city": "Bengaluru",
-    "accreditation": "4-star",
+    "accreditation": "5-star",
     "ageGroups": null,
     "pathway": null,
     "website": null,
@@ -23,7 +23,7 @@
   {
     "name": "Football Club Mangalore",
     "city": "Mangaluru",
-    "accreditation": "3-star",
+    "accreditation": "4-star",
     "ageGroups": null,
     "pathway": null,
     "website": null,
@@ -33,7 +33,7 @@
   {
     "name": "South United FC",
     "city": "Bengaluru",
-    "accreditation": "3-star",
+    "accreditation": "4-star",
     "ageGroups": null,
     "pathway": null,
     "website": null,
@@ -53,7 +53,7 @@
   {
     "name": "Kickstart FC Karnataka",
     "city": "Bengaluru",
-    "accreditation": "2-star",
+    "accreditation": "4-star",
     "ageGroups": null,
     "pathway": null,
     "website": null,
@@ -93,17 +93,17 @@
   {
     "name": "Kodagu FC",
     "city": "Kodagu",
-    "accreditation": "1-star",
+    "accreditation": "2-star",
     "ageGroups": null,
     "pathway": null,
     "website": null,
     "about": "Listed by the AIFF among accredited academies for 2026-27. Rating shown is the AIFF 2025-26 accreditation.",
-    "logo": "https://aiff.b-cdn.net/uploads/sm_KODAGUFCLOGO2021_1634318445.jpg"
-  },
+    "logo": "https://aiff.b-cdn.net/uploads/sm_KODAGUFCLOGO2021_1634318445.
+    
   {
     "name": "Minerva Academy FC Bengaluru",
     "city": "Bengaluru",
-    "accreditation": null,
+    "accreditation": "2-star",
     "ageGroups": null,
     "pathway": null,
     "website": null,
