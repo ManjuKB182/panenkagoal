@@ -7,7 +7,7 @@ import { get, getJson, postForm, postJson } from './http';
 import {
   isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffArticles, parseAiffFixtures, parseAiffPointsTable, parseAiffScorers, parseIflFixtures, parseIflScorers,
   parseAiffMatchDetail, parseAiffTournamentSchedule, parseAiffTournamentStages, sumScorers, teamNamesFromTable,
-  parseIslFixtures, parseIslScorers, parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel, currentSeason, zeroStages,
+  parseIslFixtures, parseIslScorers, parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel, currentSeason, zeroStages, parseTransfermarktTable,
 } from './parsers';
 import { readDataset, writeDataset } from './store';
 
@@ -197,6 +197,22 @@ async function fetchLeague(c: Competition, prev: LeagueSnapshot | null): Promise
   return null; // manual leagues are computed at build time from data/manual
 }
 
+// Transfermarkt rejects bot-style user agents (empty 202), so this one source is fetched with a browser one. Only runs at season start.
+async function transfermarktStages(code: string, season: string) {
+  try {
+    const year = season.slice(0, 4);
+    const html = await get(`https://www.transfermarkt.co.in/x/tabelle/wettbewerb/${code}?saison_id=${year}`, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36', 'Accept-Language': 'en' },
+    });
+    const t = parseTransfermarktTable(html);
+    if (t.season !== season || !t.stages.length) { console.warn(`::notice::Transfermarkt ${code}: no ${season} table yet (page says ${t.season || 'unknown'})`); return null; }
+    return t.stages;
+  } catch (e) {
+    console.warn(`::warning::Transfermarkt ${code}: ${(e as Error).message}`);
+    return null;
+  }
+}
+
 export async function leaguesJob(only?: (c: Competition) => boolean): Promise<boolean> {
   let changed = false;
   const errors: string[] = [];
@@ -210,7 +226,9 @@ export async function leaguesJob(only?: (c: Competition) => boolean): Promise<bo
       // same teams and every number at zero, and no fixtures. Last season is archived, never shown.
       const cur = currentSeason();
       if (/^\d{4}-\d{2}$/.test(snap.season) && snap.season < cur) {
-        snap = { ...snap, season: cur, seasonLabel: `${c.name} ${cur}`, stages: zeroStages(snap.stages), fixtures: [], scorers: [] };
+        // Transfermarkt often has the new season's clubs before AIFF does. Use it only if its own page says it is this season.
+        const tm = c.fallback ? await transfermarktStages(c.fallback.code, cur) : null;
+        snap = { ...snap, season: cur, seasonLabel: `${c.name} ${cur}`, stages: tm ?? zeroStages(snap.stages), fixtures: [], scorers: [] };
       }
       if (prev && prev.season && snap.season && prev.season !== snap.season) {
         // New season detected: archive the old one before overwriting.

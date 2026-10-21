@@ -295,6 +295,39 @@ export function zeroStages(stages: Stage[]): Stage[] {
   }];
 }
 
+// ---------- Transfermarkt (fallback when AIFF still publishes last season) ----------
+
+/** Table page -> { season, stages }. Transfermarkt serves the latest season it has when the requested one is missing,
+ * so the season is read from the page's own season picker, never trusted from the URL. */
+export function parseTransfermarktTable(html: string): { season: string; stages: Stage[] } {
+  const y = html.match(/<option\s+selected="selected"\s*value="(\d{4})"/)?.[1];
+  const season = y ? `${y}-${String((Number(y) + 1) % 100).padStart(2, '0')}` : '';
+  const attr = (s: string) => s.replace(/&amp;/g, '&').replace(/&#039;|&#39;/g, "'").replace(/\s+/g, ' ').trim();
+  const tables = html.split('<table class="items">').slice(1).map((t) => t.split('</table>')[0]);
+  const names = [...html.matchAll(/content-box-headline[^>]*>\s*Table (Group [^<]+?)\s*</g)].map((m) => m[1]);
+  const groups = tables.map((t, i) => {
+    const name = names[i] ?? '';
+    const rows: StandingRow[] = [];
+    for (const tr of t.split('<tr>').slice(1)) {
+      const tds = [...tr.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((m) => m[1]);
+      if (tds.length < 10) continue;
+      const team = attr(tds[1].match(/title="([^"]+)"/)?.[1] ?? '');
+      const short = attr(tds[2].replace(/<[^>]+>/g, ''));
+      const logo = tds[1].match(/<img src="([^"]+)"/)?.[1];
+      const [gf, ga] = (tds[tds.length - 3] ?? '').replace(/<[^>]+>/g, '').split(':').map((n) => num(n.trim()));
+      const n = (i: number) => num(tds[tds.length - i].replace(/<[^>]+>/g, '').trim());
+      if (!team) continue;
+      rows.push({
+        pos: rows.length + 1, team, short: short && short !== team ? short : undefined,
+        logo: logo && !/default\.png/.test(logo) ? logo : undefined,
+        played: n(7), won: n(6), drawn: n(5), lost: n(4), gf, ga, gd: n(2), points: n(1),
+      });
+    }
+    return { name: tables.length > 1 ? name : '', rows };
+  });
+  return { season, stages: groups.some((g) => g.rows.length) ? [{ name: 'League', groups }] : [] };
+}
+
 // ---------- AIFF state leagues (tournament id), e.g. the Karnataka Men's Super Division ----------
 
 const properName = (n: string) => {

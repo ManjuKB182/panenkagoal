@@ -11,8 +11,9 @@
           "rows": [
             {
               "pos": 1,
-              "team": "Chanmari FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8220-logo_small-1662528887.jpg",
+              "team": "Mohammedan SC (Kolkata)",
+              "short": "Mohammedan",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/37893.png?lm=1789461404",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -24,8 +25,9 @@
             },
             {
               "pos": 2,
-              "team": "Dempo Sports Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20200107at134209_1578384848.jpeg",
+              "team": "Shillong Lajong FC",
+              "short": "Shillong Lajong",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/29572.png?lm=1789460806",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -37,8 +39,9 @@
             },
             {
               "pos": 3,
-              "team": "FC Bengaluru United",
-              "logo": "https://aiff.b-cdn.net/logos/sm_12681-logo_small-1602235138.png",
+              "team": "Sreenidi Deccan FC",
+              "short": "Sreenidi",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/83894.png?lm=1789464771",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -50,8 +53,9 @@
             },
             {
               "pos": 4,
-              "team": "Gokulam Kerala FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11821-logo_small-1704290734.png",
+              "team": "Rajasthan United",
+              "short": "Rajasthan Utd.",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/84412.png?lm=1789464808",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -63,8 +67,8 @@
             },
             {
               "pos": 5,
-              "team": "Mohammedan Sporting Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8020-logo_small-1645793900.png",
+              "team": "Dempo SC",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/14088.png?lm=1789459869",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -76,8 +80,8 @@
             },
             {
               "pos": 6,
-              "team": "Nagaland United Sports Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_NUSClogo_1790675639.png",
+              "team": "Chanmari FC",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/65839.png?lm=1789463454",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -89,8 +93,9 @@
             },
             {
               "pos": 7,
-              "team": "Rajasthan United Football Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1617780510.png",
+              "team": "Real Kashmir FC",
+              "short": "Real Kashmir",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/67176.png?lm=1789463554",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -102,8 +107,9 @@
             },
             {
               "pos": 8,
-              "team": "Real Kashmir FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11497-logo_small-1645793815.png",
+              "team": "Nagaland United Sports Club",
+              "short": "Nagaland United",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/129212.png?lm=1792563209",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -115,8 +121,9 @@
             },
             {
               "pos": 9,
-              "team": "Samaleswari SC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_SMBFAcademyLogo_1682238667.jpeg",
+              "team": "Gokulam Kerala FC",
+              "short": "Gokulam FC",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/63432.png?lm=1789470476",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -128,8 +135,8 @@
             },
             {
               "pos": 10,
-              "team": "Shillong Lajong FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1660315168.png",
+              "team": "Samaleswari SC",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/70511.png?lm=1789463799",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -141,8 +148,9 @@
             },
             {
               "pos": 11,
-              "team": "Sreenidi Deccan Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_SreenidhiDeccanFootballClubLogo_1637303730.png",
+              "team": "FC Bengaluru United",
+              "short": "Bengaluru U.",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/77643.png?lm=1789464319",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -157,128 +165,7 @@
       ]
     }
   ],
-  "fixtures": [
-    {
-      "id": "aiff-75309",
-      "kickoff": "2026-10-30T13:00:00.000Z",
-      "home": "Real Kashmir FC",
-      "away": "Nagaland United Sports Club",
-      "status": "scheduled",
-      "venue": "TRC Stadium"
-    },
-    {
-      "id": "aiff-75310",
-      "kickoff": "2026-10-31T10:30:00.000Z",
-      "home": "Mohammedan Sporting Club",
-      "away": "Shillong Lajong FC",
-      "status": "scheduled",
-      "venue": "Naihati Football Stadium"
-    },
-    {
-      "id": "aiff-75311",
-      "kickoff": "2026-10-31T13:00:00.000Z",
-      "home": "Gokulam Kerala FC",
-      "away": "Samaleswari SC",
-      "status": "scheduled",
-      "venue": "EMS Corporation Stadium"
-    },
-    {
-      "id": "aiff-75312",
-      "kickoff": "2026-11-01T10:30:00.000Z",
-      "home": "Rajasthan United Football Club",
-      "away": "Sreenidi Deccan Football Club",
-      "status": "scheduled",
-      "venue": "Vidyadhar Nagar Stadium"
-    },
-    {
-      "id": "aiff-75313",
-      "kickoff": "2026-11-01T13:00:00.000Z",
-      "home": "Dempo Sports Club",
-      "away": "FC Bengaluru United",
-      "status": "scheduled",
-      "venue": "PJN Stadium"
-    },
-    {
-      "id": "aiff-75314",
-      "kickoff": "2026-11-05T13:00:00.000Z",
-      "home": "Samaleswari SC",
-      "away": "Dempo Sports Club",
-      "status": "scheduled",
-      "venue": "Birsa Munda Athletics Stadium"
-    },
-    {
-      "id": "aiff-75315",
-      "kickoff": "2026-11-06T10:30:00.000Z",
-      "home": "FC Bengaluru United",
-      "away": "Mohammedan Sporting Club",
-      "status": "scheduled",
-      "venue": "Bangalore Football Stadium"
-    },
-    {
-      "id": "aiff-75316",
-      "kickoff": "2026-11-06T13:00:00.000Z",
-      "home": "Shillong Lajong FC",
-      "away": "Chanmari FC",
-      "status": "scheduled",
-      "venue": "SSA Stadium"
-    },
-    {
-      "id": "aiff-75317",
-      "kickoff": "2026-11-07T10:30:00.000Z",
-      "home": "Rajasthan United Football Club",
-      "away": "Gokulam Kerala FC",
-      "status": "scheduled",
-      "venue": "Vidyadhar Nagar Stadium"
-    },
-    {
-      "id": "aiff-75318",
-      "kickoff": "2026-11-07T13:00:00.000Z",
-      "home": "Real Kashmir FC",
-      "away": "Sreenidi Deccan Football Club",
-      "status": "scheduled",
-      "venue": "TRC Stadium"
-    },
-    {
-      "id": "aiff-75319",
-      "kickoff": "2026-11-13T13:00:00.000Z",
-      "home": "Shillong Lajong FC",
-      "away": "Sreenidi Deccan Football Club",
-      "status": "scheduled",
-      "venue": "SSA Stadium"
-    },
-    {
-      "id": "aiff-75320",
-      "kickoff": "2026-11-14T10:30:00.000Z",
-      "home": "FC Bengaluru United",
-      "away": "Real Kashmir FC",
-      "status": "scheduled",
-      "venue": "Bangalore Football Stadium"
-    },
-    {
-      "id": "aiff-75321",
-      "kickoff": "2026-11-14T13:00:00.000Z",
-      "home": "Nagaland United Sports Club",
-      "away": "Gokulam Kerala FC",
-      "status": "scheduled",
-      "venue": "Chümoukedima Football Stadium"
-    },
-    {
-      "id": "aiff-75322",
-      "kickoff": "2026-11-15T10:30:00.000Z",
-      "home": "Dempo Sports Club",
-      "away": "Chanmari FC",
-      "status": "scheduled",
-      "venue": "PJN Stadium"
-    },
-    {
-      "id": "aiff-75323",
-      "kickoff": "2026-11-15T13:00:00.000Z",
-      "home": "Samaleswari SC",
-      "away": "Rajasthan United Football Club",
-      "status": "scheduled",
-      "venue": "Birsa Munda Athletics Stadium"
-    }
-  ],
+  "fixtures": [],
   "scorers": [],
   "updatedAt": "2026-10-21T15:34:58.166Z"
 }

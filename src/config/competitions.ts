@@ -17,6 +17,8 @@ export interface Competition {
   source: Source;
   sourceLabel: string;
   sourceUrl: string;
+  // Used only while the main source still publishes last season (AIFF lags at season start). Never overrides a current-season source.
+  fallback?: { kind: 'transfermarkt'; code: string };
   // Rows coloured by zone on the table. Positions are 1-based and inclusive.
   zones?: { top?: number; promotion?: number; relegation?: number };
 }
@@ -42,6 +44,7 @@ export const COMPETITIONS: Competition[] = [
     source: { kind: 'aiff', type: 1 }, // the AIFF feed already carries the 2026-27 table; indianfootballleague.in is still on 2025-26
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/i-league',
+    fallback: { kind: 'transfermarkt', code: 'INIL' },
     zones: { promotion: 1 },
   },
   {
@@ -53,6 +56,7 @@ export const COMPETITIONS: Competition[] = [
     source: { kind: 'aiff', type: 6 },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/2nd-division-league',
+    fallback: { kind: 'transfermarkt', code: 'IND2' },
     zones: { promotion: 2 },
   },
   {
@@ -64,6 +68,7 @@ export const COMPETITIONS: Competition[] = [
     source: { kind: 'aiff', type: 67 },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/i-league-3',
+    fallback: { kind: 'transfermarkt', code: 'IN4L' },
   },
   {
     slug: 'iwl',
