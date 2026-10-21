@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { neon } from '@neondatabase/serverless';
+import { currentSeason } from './parsers';
 
 const ROOT = join(import.meta.dirname, '../../data/snapshots');
 const sql = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : null;
@@ -54,9 +55,15 @@ export async function recordRun(job: string, startedAt: Date, status: 'ok' | 'er
 export async function pullAll(): Promise<number> {
   if (!sql) throw new Error('DATABASE_URL is not set');
   const rows = (await sql`select key, data from datasets`) as Array<{ key: string; data: unknown }>;
+  const cur = currentSeason();
+  let n = 0;
   for (const row of rows) {
+    // A stale writer (an older deploy's ingest) can leave last season's league table in Neon; keep the repo's current one.
+    const season = (row.data as { season?: string } | null)?.season;
+    if (row.key.startsWith('leagues/') && season && /^\d{4}-\d{2}$/.test(season) && season < cur) continue;
+    n++;
     await mkdir(dirname(fileFor(row.key)), { recursive: true });
     await writeFile(fileFor(row.key), JSON.stringify(row.data, null, 2) + '\n');
   }
-  return rows.length;
+  return n;
 }

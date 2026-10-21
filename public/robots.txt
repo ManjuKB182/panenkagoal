@@ -3,5 +3,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /armchair-gaffers/review
 Disallow: /api/
+# Twitterbot and others read robots.txt before fetching og:image; blog photos live under /api/.
+Allow: /api/write/photo/
 
 Sitemap: https://panenkagoal.com/sitemap-index.xml

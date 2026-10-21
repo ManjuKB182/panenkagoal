@@ -20,7 +20,7 @@ export const onRequestGet = async (ctx: { request: Request; env: Env; params: { 
   }
   const p = rows[0];
   const title = `${p.title} · Panenka Goal`;
-  const firstPara = (p.body.find((b: any) => b.t === 'p')?.txt ?? '').slice(0, 160);
+  const firstPara = (p.body.find((b: any) => b.t === 'p')?.txt ?? '').replace(/\s+/g, ' ').trim().slice(0, 200);
   const imgKey = p.cover_key ?? p.body.find((b: any) => b.t === 'img')?.key ?? null; // cover, else first inline photo
   const img = imgKey ? new URL(`/api/write/photo/${imgKey}`, request.url).href : null;
   const tw = (name: string, content: string) => `<meta name="${name}" content="${esc(content)}">`;
