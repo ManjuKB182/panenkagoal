@@ -41,6 +41,7 @@ const { active, compact = false } = Astro.props;
   .wr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
   .wr-tile { display: flex; flex-direction: column; gap: 8px; padding: 16px; min-height: 170px; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); color: var(--text); text-decoration: none; transition: border-color 0.15s, transform 0.15s; }
   .wr-tile:hover { border-color: var(--brand); transform: translateY(-2px); }
+  .wr-tile .wr-cover { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; display: block; }
   .wr-tile h3 { font-size: 19px; line-height: 1.2; overflow-wrap: anywhere; }
   .wr-tile .wr-foot { margin-top: auto; display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--text-2); }
   .wr-tile .wr-foot b { color: var(--brand-text); }
@@ -72,7 +73,7 @@ const { active, compact = false } = Astro.props;
   /* display on .wr-cols / .wr-ok would otherwise beat the hidden attribute, leaving the form on screen after sending */
   .wr-cols[hidden], .wr-ok[hidden] { display: none; }
 
-  .wr-art { display: grid; gap: 14px; max-width: 70ch; }
+  .wr-art { display: grid; gap: 14px; max-width: 70ch; margin-inline: auto; }
   .wr-art h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.1; overflow-wrap: anywhere; }
   .wr-art p { font-size: 17px; line-height: 1.7; white-space: pre-line; overflow-wrap: anywhere; }
   .wr-by { color: var(--text-2); font-size: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }

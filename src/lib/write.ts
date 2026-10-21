@@ -159,12 +159,12 @@ export const KIND_LABEL: Record<string, string> = { fan: 'Fan', analyst: 'Analys
 const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' });
 
 export function renderArticleHtml(p: { title: string; kind: string; author_name: string; cover_key: string | null; body: Block[]; photo_credit: string; published_at: string }): string {
-  const fig = (key: string, cap: string, credit: string) =>
-    `<figure><img src="/api/write/photo/${esc(key)}" alt="${esc(cap)}" loading="lazy">` +
+  const fig = (key: string, cap: string, credit: string, eager = false) =>
+    `<figure><img src="/api/write/photo/${esc(key)}" alt="${esc(cap)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">` +
     (cap || credit ? `<figcaption>${cap ? esc(cap) : ''}${credit ? `<i>${esc(credit)}</i>` : ''}</figcaption>` : '') + '</figure>';
   return `<article class="wr-art"><p class="eyebrow">${esc(KIND_LABEL[p.kind] ?? 'Fan')} analysis</p><h1>${esc(p.title)}</h1>` +
     `<div class="wr-by"><span class="wr-tag${p.kind === 'analyst' ? ' an' : ''}">${esc(KIND_LABEL[p.kind] ?? 'Fan')}</span> ${esc(p.author_name)} · ${readMinutes(p.body)} min read · ${fmtDate(p.published_at)}</div>` +
-    (p.cover_key ? fig(p.cover_key, '', p.photo_credit) : '') +
+    (p.cover_key ? fig(p.cover_key, '', p.photo_credit, true) : '') +
     p.body.map((b) => (b.t === 'p' ? `<p>${esc(b.txt)}</p>` : fig(b.key, b.cap, b.credit))).join('') +
     `<p class="wr-note">Photos remain the property of their owner.</p>` +
     `<div class="wr-card" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span><b>Write for Outfield Talks</b><br><span class="wr-note">Send your own breakdown. Photos welcome.</span></span><a class="btn" href="/armchair-gaffers/write/submit">Submit your piece</a></div></article>`;

@@ -2,8 +2,9 @@
 //   npm run ingest                    # every job
 //   npm run ingest -- --job videos    # one job
 //   npm run ingest -- --schedule "23 */2 * * *"   # jobs mapped to a GitHub Actions cron line
+//   npm run ingest -- --leagues isl,iwl           # only those leagues (the match-day gate passes the ones in play)
 import { appendFile } from 'node:fs/promises';
-import { aiffIflJob, islJob, newsJob, stateLeagueJob, videosJob, youthJob } from './jobs';
+import { aiffIflJob, islJob, leaguesJob, newsJob, stateLeagueJob, videosJob, youthJob } from './jobs';
 import { recordRun } from './store';
 
 const JOBS: Record<string, () => Promise<boolean>> = {
@@ -16,14 +17,14 @@ const JOBS: Record<string, () => Promise<boolean>> = {
 };
 
 // Must match the cron lines in .github/workflows/ingest.yml
+// League jobs no longer run on a blind timer: the match-day gate (scripts/ingest/gate.mjs) passes --leagues only while a match is in play.
 const SCHEDULES: Record<string, string[]> = {
   '17,47 * * * *': ['videos', 'news'],
-  '23 */2 * * *': ['isl'],
-  '41 */6 * * *': ['aiff-ifl'],
   '5 1 * * *': ['youth'],
-  '11 */2 * * *': ['karnataka'],
-  // 00:05 IST: no fetching, just a rebuild so "Today" and the ticker move to the new day.
-  '35 18 * * *': [],
+  // 00:05 IST: refresh every fixture list (so the gate knows today's kickoffs) and rebuild so "Today" and the ticker move to the new day.
+  '35 18 * * *': ['isl', 'aiff-ifl', 'karnataka'],
+  // Every 5 min: the gate decides; this line only exists so the schedule is recognised.
+  '*/5 * * * *': [],
 };
 const DAILY_REBUILD = '35 18 * * *';
 
@@ -34,12 +35,15 @@ function pickJobs(argv: string[]): string[] {
   };
   const job = arg('job');
   const schedule = arg('schedule');
+  if (arg('leagues') !== undefined) return arg('leagues') ? ['leagues'] : [];
   if (job && job !== 'auto' && job !== 'all') return [job];
   if (schedule && SCHEDULES[schedule]) return SCHEDULES[schedule];
   return Object.keys(JOBS);
 }
 
 const argv = process.argv.slice(2);
+const leagueArg = argv.indexOf('--leagues') >= 0 ? (argv[argv.indexOf('--leagues') + 1] ?? '').split(',').filter(Boolean) : [];
+JOBS.leagues = () => leaguesJob((c) => leagueArg.includes(c.slug));
 const names = pickJobs(argv);
 let anyChanged = argv.includes(DAILY_REBUILD) || argv.includes('--force');
 let failed = false;

@@ -964,15 +964,15 @@
           "rows": [
             {
               "pos": 1,
-              "team": "SKM SPORTS FOUNDATION (KALNA)",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_SKMSFlogo_1720508654.jpeg",
+              "team": "Manbazar Vivekananda Sports Academy",
+              "logo": "https://aiff.b-cdn.net/logos/sm_20987-logo_small-1750697135.png",
               "played": 2,
               "won": 1,
               "drawn": 0,
               "lost": 1,
-              "gf": 3,
+              "gf": 5,
               "ga": 4,
-              "gd": -1,
+              "gd": 1,
               "points": 3
             },
             {
@@ -989,15 +989,15 @@
             },
             {
               "pos": 3,
-              "team": "Manbazar Vivekananda Sports Academy",
-              "logo": "https://aiff.b-cdn.net/logos/sm_20987-logo_small-1750697135.png",
+              "team": "SKM SPORTS FOUNDATION (KALNA)",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SKMSFlogo_1720508654.jpeg",
               "played": 2,
               "won": 1,
               "drawn": 0,
               "lost": 1,
-              "gf": 5,
+              "gf": 3,
               "ga": 4,
-              "gd": 1,
+              "gd": -1,
               "points": 3
             }
           ]
@@ -1097,32 +1097,32 @@
               "pos": 1,
               "team": "Lushai Corner FA",
               "logo": "https://aiff.b-cdn.net/uploads/sm_LOGOFINAL4x_1782132019.png",
-              "played": 0,
-              "won": 0,
+              "played": 1,
+              "won": 1,
               "drawn": 0,
               "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
+              "gf": 2,
+              "ga": 1,
+              "gd": 1,
+              "points": 3
             },
             {
               "pos": 2,
-              "team": "MUVANLAI ATHLETICS",
-              "logo": "https://aiff.b-cdn.net/logos/11492-Slogo-1576385742.jpg",
-              "played": 0,
+              "team": "PEHLUM LAMHIL LAWM",
+              "logo": "https://aiff.b-cdn.net/logos/13510-Slogo-1576385903.jpg",
+              "played": 1,
               "won": 0,
               "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
+              "lost": 1,
+              "gf": 1,
+              "ga": 2,
+              "gd": -1,
               "points": 0
             },
             {
               "pos": 3,
-              "team": "PEHLUM LAMHIL LAWM",
-              "logo": "https://aiff.b-cdn.net/logos/13510-Slogo-1576385903.jpg",
+              "team": "MUVANLAI ATHLETICS",
+              "logo": "https://aiff.b-cdn.net/logos/11492-Slogo-1576385742.jpg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -1139,42 +1139,42 @@
           "rows": [
             {
               "pos": 1,
-              "team": "HIYAI FOOTBALL ACADEMY",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_20210112163146_1612344921.jpg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
+              "team": "TLT SPORTS ACADEMY",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Logo_1749804598.jpg",
+              "played": 2,
+              "won": 1,
+              "drawn": 1,
               "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
+              "gf": 5,
+              "ga": 4,
+              "gd": 1,
+              "points": 4
             },
             {
               "pos": 2,
               "team": "SADAR HILLS FA",
               "logo": "https://aiff.b-cdn.net/uploads/sm_sfamainlogo_1749720796.png",
-              "played": 0,
-              "won": 0,
+              "played": 2,
+              "won": 1,
               "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
+              "lost": 1,
+              "gf": 7,
+              "ga": 5,
+              "gd": 2,
+              "points": 3
             },
             {
               "pos": 3,
-              "team": "TLT SPORTS ACADEMY",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_Logo_1749804598.jpg",
-              "played": 0,
+              "team": "HIYAI FOOTBALL ACADEMY",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_20210112163146_1612344921.jpg",
+              "played": 2,
               "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
+              "drawn": 1,
+              "lost": 1,
+              "gf": 4,
+              "ga": 7,
+              "gd": -3,
+              "points": 1
             }
           ]
         }
@@ -1247,32 +1247,40 @@
       "kickoff": "2026-10-16T03:30:00.000Z",
       "home": "TLT SPORTS ACADEMY",
       "away": "HIYAI FOOTBALL ACADEMY",
-      "status": "scheduled",
-      "venue": "TLT SA GROUND, IMPHAL"
+      "status": "ft",
+      "venue": "TLT SA GROUND, IMPHAL",
+      "homeScore": 2,
+      "awayScore": 2
     },
     {
       "id": "aiff-75082",
       "kickoff": "2026-10-19T07:30:00.000Z",
       "home": "SADAR HILLS FA",
       "away": "TLT SPORTS ACADEMY",
-      "status": "scheduled",
-      "venue": "KARARA MINI STADIUM, ALEGJAR, ASSAM."
+      "status": "ft",
+      "venue": "KARARA MINI STADIUM, ALEGJAR, ASSAM.",
+      "homeScore": 2,
+      "awayScore": 3
     },
     {
       "id": "aiff-75039",
       "kickoff": "2026-10-21T07:30:00.000Z",
       "home": "PEHLUM LAMHIL LAWM",
       "away": "Lushai Corner FA",
-      "status": "scheduled",
-      "venue": "Durtlang Football Stadium, Aizawl "
+      "status": "ft",
+      "venue": "Durtlang Football Stadium, Aizawl ",
+      "homeScore": 1,
+      "awayScore": 2
     },
     {
       "id": "aiff-75083",
       "kickoff": "2026-10-21T07:30:00.000Z",
       "home": "HIYAI FOOTBALL ACADEMY",
       "away": "SADAR HILLS FA",
-      "status": "scheduled",
-      "venue": "KARARA MINI STADIUM, ALEGJAR, ASSAM."
+      "status": "ft",
+      "venue": "KARARA MINI STADIUM, ALEGJAR, ASSAM.",
+      "homeScore": 2,
+      "awayScore": 5
     },
     {
       "id": "aiff-75040",
@@ -1318,5 +1326,5 @@
       "goals": 5
     }
   ],
-  "updatedAt": "2026-10-15T14:51:01.863Z"
+  "updatedAt": "2026-10-21T15:34:59.427Z"
 }

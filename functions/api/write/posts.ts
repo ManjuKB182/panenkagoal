@@ -7,7 +7,7 @@ export const onRequestGet = async ({ env }: { env: Env }) => {
   try {
     const rows = await sql(`select slug, title, kind, author_name, cover_key, body, published_at from posts where status = 'published' order by published_at desc limit 200`);
     const posts = rows.map((r) => ({
-      slug: r.slug, title: r.title, kind: r.kind, author: r.author_name, cover: r.cover_key,
+      slug: r.slug, title: r.title, kind: r.kind, author: r.author_name, cover: r.cover_key ?? r.body.find((b: any) => b.t === 'img')?.key ?? null,
       publishedAt: r.published_at, minutes: readMinutes(r.body),
     }));
     return json({ posts }, 200, { 'cache-control': 'public, max-age=30, stale-while-revalidate=120' });

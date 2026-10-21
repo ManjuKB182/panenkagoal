@@ -7,7 +7,7 @@ import { get, getJson, postForm, postJson } from './http';
 import {
   isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffArticles, parseAiffFixtures, parseAiffPointsTable, parseAiffScorers, parseIflFixtures, parseIflScorers,
   parseAiffMatchDetail, parseAiffTournamentSchedule, parseAiffTournamentStages, sumScorers, teamNamesFromTable,
-  parseIslFixtures, parseIslScorers, parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel,
+  parseIslFixtures, parseIslScorers, parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel, currentSeason, zeroStages,
 } from './parsers';
 import { readDataset, writeDataset } from './store';
 
@@ -204,8 +204,14 @@ export async function leaguesJob(only?: (c: Competition) => boolean): Promise<bo
     try {
       const key = `leagues/${c.slug}`;
       const prev = await readDataset<LeagueSnapshot>(key);
-      const snap = await fetchLeague(c, prev);
+      let snap = await fetchLeague(c, prev);
       if (!snap) continue;
+      // The source still publishes last season (e.g. AIFF before a new season starts): show this season's table with the
+      // same teams and every number at zero, and no fixtures. Last season is archived, never shown.
+      const cur = currentSeason();
+      if (/^\d{4}-\d{2}$/.test(snap.season) && snap.season < cur) {
+        snap = { ...snap, season: cur, seasonLabel: `${c.name} ${cur}`, stages: zeroStages(snap.stages), fixtures: [], scorers: [] };
+      }
       if (prev && prev.season && snap.season && prev.season !== snap.season) {
         // New season detected: archive the old one before overwriting.
         await writeDataset(`leagues/archive/${c.slug}-${prev.season}`, prev);

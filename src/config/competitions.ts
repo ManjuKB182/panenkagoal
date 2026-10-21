@@ -39,9 +39,9 @@ export const COMPETITIONS: Competition[] = [
     short: 'IFL',
     section: 'mens',
     gender: 'men',
-    source: { kind: 'ifl', slug: 'i-league' },
-    sourceLabel: 'Indian Football League',
-    sourceUrl: 'https://indianfootballleague.in/',
+    source: { kind: 'aiff', type: 1 }, // the AIFF feed already carries the 2026-27 table; indianfootballleague.in is still on 2025-26
+    sourceLabel: 'AIFF',
+    sourceUrl: 'https://www.the-aiff.com/competitions/i-league',
     zones: { promotion: 1 },
   },
   {
@@ -56,12 +56,24 @@ export const COMPETITIONS: Competition[] = [
     zones: { promotion: 2 },
   },
   {
+    slug: 'i-league-3',
+    name: 'I-League 3',
+    short: 'IL3',
+    section: 'mens',
+    gender: 'men',
+    source: { kind: 'aiff', type: 67 },
+    sourceLabel: 'AIFF',
+    sourceUrl: 'https://www.the-aiff.com/competitions/i-league-3',
+  },
+  {
     slug: 'iwl',
     name: "Indian Women's League",
     short: 'IWL',
     section: 'wofo',
     gender: 'women',
-    source: { kind: 'aiff', type: 11 },
+    // AIFF's IWL feed (type 11) now carries IWL 2 2026-27, so the top division has no 2026-27 source yet:
+    // teams listed by hand with zero results. Switch to an 'aiff' source once AIFF publishes it.
+    source: { kind: 'manual', file: 'data/manual/iwl.json' },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/iwl',
     zones: { top: 1 },
@@ -72,7 +84,7 @@ export const COMPETITIONS: Competition[] = [
     short: 'IWL 2',
     section: 'wofo',
     gender: 'women',
-    source: { kind: 'aiff', type: 69 },
+    source: { kind: 'aiff', type: 11 }, // type 69 is the finished 2025-26 IWL 2
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/iwl-2',
   },
@@ -119,7 +131,7 @@ export const COMPETITIONS: Competition[] = [
   },
 ];
 
-// The six leagues shown first in the homepage table switcher.
-export const HOME_TABLES = ['isl', 'ifl', 'iwl', 'iwl-2', 'i-league-2', 'bdfa-sd'];
+// The leagues shown first in the homepage table switcher.
+export const HOME_TABLES = ['isl', 'ifl', 'iwl', 'iwl-2', 'i-league-2', 'i-league-3', 'bdfa-sd'];
 
 export const getCompetition = (slug: string) => COMPETITIONS.find((c) => c.slug === slug);

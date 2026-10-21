@@ -215,9 +215,13 @@ export function parseAiffPointsTable(json: any): Stage[] {
 }
 
 export function parseAiffFixtures(json: any): { seasonLabel: string; matches: Match[] } {
-  const list = arr(json?.fixtures);
+  // AIFF can mix two seasons in one feed (e.g. I-League 3 2025-26 results next to 2026-27 fixtures): keep the newest season only.
+  const all = arr(json?.fixtures);
+  const labels = [...new Set(all.map((f: any) => String(f.tournament_name ?? '')))];
+  const seasonLabel = labels.sort((a, b) => seasonFromLabel(b).localeCompare(seasonFromLabel(a)))[0] ?? '';
+  const list = all.filter((f: any) => String(f.tournament_name ?? '') === seasonLabel);
   return {
-    seasonLabel: list[0]?.tournament_name ?? '',
+    seasonLabel,
     matches: list.map((f: any) => ({
       id: `aiff-${f.match_id}`,
       kickoff: f.timestamp ? new Date(f.timestamp * 1000).toISOString() : `${f.match_date}T${f.time || '00:00'}:00+05:30`,
@@ -271,6 +275,25 @@ export function parseIflScorers(json: any): Scorer[] {
 
 /** "IWL 2025-26" → "2025-26". Falls back to the label itself. */
 export const seasonFromLabel = (label: string) => /(\d{4}-\d{2})/.exec(label)?.[1] ?? label;
+
+/** Football season for a date, rolling over in July: Oct 2026 -> "2026-27". */
+export function currentSeason(d = new Date()): string {
+  const start = d.getUTCMonth() >= 6 ? d.getUTCFullYear() : d.getUTCFullYear() - 1;
+  return `${start}-${String((start + 1) % 100).padStart(2, '0')}`;
+}
+
+/** A league still publishing last season: keep its team list (first stage only) with every number at zero. */
+export function zeroStages(stages: Stage[]): Stage[] {
+  const first = stages[0];
+  if (!first) return [];
+  return [{
+    name: first.name,
+    groups: first.groups.map((g) => ({
+      name: g.name,
+      rows: g.rows.map((r, i) => ({ pos: i + 1, team: r.team, short: r.short, logo: r.logo, played: 0, won: 0, drawn: 0, lost: 0, gf: 0, ga: 0, gd: 0, points: 0 })),
+    })),
+  }];
+}
 
 // ---------- AIFF state leagues (tournament id), e.g. the Karnataka Men's Super Division ----------
 
