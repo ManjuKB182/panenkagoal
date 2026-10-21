@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   classifyNews, iflKickoff, isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffArticles, parseAiffFixtures, parseAiffPointsTable, parseIflFixtures, parseIslFixtures,
   parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel,
-  parseAiffMatchDetail, parseAiffTournamentSchedule, sumScorers, teamNamesFromTable, parseTransfermarktTable,
+  parseAiffMatchDetail, parseAiffTournamentSchedule, sumScorers, teamNamesFromTable, parseTransfermarktTable, latestSeasonMatches,
 } from '../scripts/ingest/parsers';
 
 const fx = (name: string) => readFileSync(join(import.meta.dirname, 'fixtures', name), 'utf8');
@@ -164,4 +164,14 @@ describe('parseTransfermarktTable', () => {
     const r = parseTransfermarktTable(page(2025, row(1, 'TRAU FC', 'TRAU FC', '4 3 1 0 7:3 4 10'))).stages[0].groups[0].rows[0];
     expect([r.played, r.won, r.drawn, r.lost, r.gf, r.ga, r.gd, r.points]).toEqual([4, 3, 1, 0, 7, 3, 4, 10]);
   });
+});
+
+describe('latestSeasonMatches', () => {
+  const m = (id: string, kickoff: string) => ({ id, kickoff, home: 'A', away: 'B', status: 'scheduled' as const });
+  it('keeps only the newest season', () => {
+    const r = latestSeasonMatches([m('1', '2026-04-10T16:00:00+05:30'), m('2', '2026-10-12T16:00:00+05:30'), m('3', '2026-11-01T16:00:00+05:30')]);
+    expect(r.season).toBe('2026-27');
+    expect(r.matches.map((x) => x.id)).toEqual(['2', '3']);
+  });
+  it('is empty with no fixtures', () => expect(latestSeasonMatches([]).season).toBe(''));
 });

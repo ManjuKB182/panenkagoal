@@ -273,6 +273,13 @@ export function parseIflScorers(json: any): Scorer[] {
   return arr(json?.stats?.goals_player).map((p: any) => ({ player: p.player_name, team: p.team_name, goals: num(p.total_goals ?? p.value) }));
 }
 
+/** Newest season present in a fixture list, and only the matches of that season (feeds can mix last season's results in). */
+export function latestSeasonMatches(matches: Match[]): { season: string; matches: Match[] } {
+  const of = (m: Match) => { const d = new Date(m.kickoff); const y = d.getUTCMonth() >= 6 ? d.getUTCFullYear() : d.getUTCFullYear() - 1; return `${y}-${String((y + 1) % 100).padStart(2, '0')}`; };
+  const season = matches.map(of).sort().at(-1) ?? '';
+  return { season, matches: matches.filter((m) => of(m) === season) };
+}
+
 /** "IWL 2025-26" → "2025-26". Falls back to the label itself. */
 export const seasonFromLabel = (label: string) => /(\d{4}-\d{2})/.exec(label)?.[1] ?? label;
 

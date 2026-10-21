@@ -8,6 +8,8 @@ export type Source =
   | { kind: 'ifl'; slug: string }
   | { kind: 'manual'; file: string };
 
+export type Fallback = { kind: 'ifl'; slug: string } | { kind: 'transfermarkt'; code: string };
+
 export interface Competition {
   slug: string;
   name: string;
@@ -17,8 +19,9 @@ export interface Competition {
   source: Source;
   sourceLabel: string;
   sourceUrl: string;
-  // Used only while the main source still publishes last season (AIFF lags at season start). Never overrides a current-season source.
-  fallback?: { kind: 'transfermarkt'; code: string };
+  // Tried in order, and only while the main source still publishes last season (AIFF lags at season start).
+  // A fallback is accepted only if its own data is for the current season. Never overrides a current-season source.
+  fallbacks?: Fallback[];
   // Rows coloured by zone on the table. Positions are 1-based and inclusive.
   zones?: { top?: number; promotion?: number; relegation?: number };
 }
@@ -44,7 +47,7 @@ export const COMPETITIONS: Competition[] = [
     source: { kind: 'aiff', type: 1 }, // the AIFF feed already carries the 2026-27 table; indianfootballleague.in is still on 2025-26
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/i-league',
-    fallback: { kind: 'transfermarkt', code: 'INIL' },
+    fallbacks: [{ kind: 'ifl', slug: 'i-league' }, { kind: 'transfermarkt', code: 'INIL' }],
     zones: { promotion: 1 },
   },
   {
@@ -56,7 +59,7 @@ export const COMPETITIONS: Competition[] = [
     source: { kind: 'aiff', type: 6 },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/2nd-division-league',
-    fallback: { kind: 'transfermarkt', code: 'IND2' },
+    fallbacks: [{ kind: 'ifl', slug: 'ileague-2' }, { kind: 'transfermarkt', code: 'IND2' }],
     zones: { promotion: 2 },
   },
   {
@@ -68,7 +71,7 @@ export const COMPETITIONS: Competition[] = [
     source: { kind: 'aiff', type: 67 },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/i-league-3',
-    fallback: { kind: 'transfermarkt', code: 'IN4L' },
+    fallbacks: [{ kind: 'ifl', slug: '3rd-division-league' }, { kind: 'transfermarkt', code: 'IN4L' }],
   },
   {
     slug: 'iwl',
@@ -81,6 +84,7 @@ export const COMPETITIONS: Competition[] = [
     source: { kind: 'manual', file: 'data/manual/iwl.json' },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/iwl',
+    fallbacks: [{ kind: 'ifl', slug: 'iwl' }],
     zones: { top: 1 },
   },
   {
@@ -92,6 +96,7 @@ export const COMPETITIONS: Competition[] = [
     source: { kind: 'aiff', type: 11 }, // type 69 is the finished 2025-26 IWL 2
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/iwl-2',
+    fallbacks: [{ kind: 'ifl', slug: 'iwl-2' }],
   },
   {
     slug: 'elite-u18',

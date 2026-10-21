@@ -81,8 +81,18 @@ function withLogos(snap: LeagueSnapshot | null): LeagueSnapshot | null {
   return { ...snap, fixtures: snap.fixtures.map((m) => ({ ...m, homeLogo: m.homeLogo ?? logos.get(m.home), awayLogo: m.awayLogo ?? logos.get(m.away) })) };
 }
 
+const seasonNow = (d = new Date()) => {
+  const y = d.getUTCMonth() >= 6 ? d.getUTCFullYear() : d.getUTCFullYear() - 1;
+  return `${y}-${String((y + 1) % 100).padStart(2, '0')}`;
+};
+
 export function getLeague(c: Competition): LeagueSnapshot | null {
-  if (c.source.kind === 'manual') return manualSnapshot(c, c.source.file);
+  if (c.source.kind === 'manual') {
+    // A hand-kept list stands in until a fallback feed has real data for the current season; then the feed wins.
+    const live = read<LeagueSnapshot | null>(`data/snapshots/leagues/${c.slug}.json`, null);
+    if (live && live.season === seasonNow()) return withLogos(live);
+    return manualSnapshot(c, c.source.file);
+  }
   return withLogos(read<LeagueSnapshot | null>(`data/snapshots/leagues/${c.slug}.json`, null));
 }
 
