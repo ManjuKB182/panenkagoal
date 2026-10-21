@@ -21,7 +21,7 @@ const tabs = [
 ];
 const levels = [...new Set((academies as { accreditation: string | null }[]).map((a) => a.accreditation).filter((x): x is string => !!x))].sort().reverse();
 type Tournament = { league: string; season: string; stage?: string; group?: string; pos?: number; played?: number; won?: number; drawn?: number; lost?: number; gf?: number; ga?: number; points?: number; grounds: string[]; coaches: string[]; sheets: number; players: { name: string; position?: string; number?: number }[] };
-const profile = (name: string) => ((profiles as Record<string, { tournaments: Tournament[] }>)[name]?.tournaments ?? []).filter((t) => t.pos || t.players.length);
+const profile = (name: string) => ((profiles as Record<string, { tournaments: Tournament[] }>)[name]?.tournaments ?? []).filter((t) => !/2025-26/.test(t.season) && (t.pos || t.players.length)); // last season's tables are not shown
 const tidy = (v?: string) => (v ?? '').toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 const POS: Record<string, number> = { GK: 0, DEF: 1, MID: 2, FWD: 3 };
 const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -62,7 +62,7 @@ const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
           </button>
         ))}
       </div>
-      <p class="note-src">AIFF-accredited academies in Karnataka. Star ratings are from the 2025-26 accreditation round; every academy here is on the AIFF’s accredited list for 2026-27.</p>
+      <p class="note-src">AIFF-accredited academies in Karnataka. Star ratings are the AIFF 2026-27 accreditation.</p>
       {academies.map((a) => (
         <dialog class="profile" id={`acad-${slug(a.name)}`} aria-labelledby={`h-${slug(a.name)}`}>
           <form method="dialog"><button class="x" aria-label="Close profile">×</button></form>

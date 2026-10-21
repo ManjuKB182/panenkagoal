@@ -20,8 +20,10 @@ export const onRequestGet = async (ctx: { request: Request; env: Env; params: { 
   }
   const p = rows[0];
   const title = `${p.title} · Panenka Goal`;
-  const firstPara = (p.body.find((b: any) => b.t === 'p')?.txt ?? '').slice(0, 160);
-  const img = p.cover_key ? new URL(`/api/write/photo/${p.cover_key}`, request.url).href : null;
+  const firstPara = (p.body.find((b: any) => b.t === 'p')?.txt ?? '').replace(/\s+/g, ' ').trim().slice(0, 200);
+  const imgKey = p.cover_key ?? p.body.find((b: any) => b.t === 'img')?.key ?? null; // cover, else first inline photo
+  const img = imgKey ? new URL(`/api/write/photo/${imgKey}`, request.url).href : null;
+  const tw = (name: string, content: string) => `<meta name="${name}" content="${esc(content)}">`;
   const canonical = new URL(`/armchair-gaffers/write/${slug}`, request.url).href;
   const res = new HTMLRewriter()
     .on('title', { element(e: any) { e.setInnerContent(esc(title), { html: true }); } })
@@ -31,7 +33,9 @@ export const onRequestGet = async (ctx: { request: Request; env: Env; params: { 
     .on('meta[property="og:title"]', { element(e: any) { e.setAttribute('content', title); } })
     .on('meta[property="og:description"]', { element(e: any) { e.setAttribute('content', firstPara); } })
     .on('meta[property="og:url"]', { element(e: any) { e.setAttribute('content', canonical); } })
+    .on('meta[property="og:type"]', { element(e: any) { e.setAttribute('content', 'article'); } })
     .on('meta[property="og:image"]', { element(e: any) { if (img) e.setAttribute('content', img); } })
+    .on('meta[name="twitter:card"]', { element(e: any) { e.after(tw('twitter:title', title) + tw('twitter:description', firstPara) + (img ? tw('twitter:image', img) : ''), { html: true }); } })
     .on('#post-root', { element(e: any) { e.setInnerContent(renderArticleHtml(p), { html: true }); } })
     .transform(new Response(shell.body, { status: 200, headers }));
   res.headers.set('cache-control', 'public, max-age=60, stale-while-revalidate=300');

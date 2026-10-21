@@ -1,7 +1,7 @@
 {
   "slug": "i-league-2",
-  "seasonLabel": "I-League 2 2025-26",
-  "season": "2025-26",
+  "seasonLabel": "I-League 2 2026-27",
+  "season": "2026-27",
   "stages": [
     {
       "name": "League",
@@ -11,254 +11,119 @@
           "rows": [
             {
               "pos": 1,
-              "team": "Delhi Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_DELHIFCLOGOPNGW11_1616388430.png",
-              "played": 8,
-              "won": 5,
-              "drawn": 2,
-              "lost": 1,
-              "gf": 20,
-              "ga": 10,
-              "gd": 10,
-              "points": 17
+              "team": "United SC",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/27737.png?lm=1789467877",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
             },
             {
               "pos": 2,
-              "team": "FC Bengaluru United",
-              "logo": "https://aiff.b-cdn.net/logos/sm_12681-logo_small-1602235138.png",
-              "played": 8,
-              "won": 4,
-              "drawn": 3,
-              "lost": 1,
-              "gf": 12,
-              "ga": 6,
-              "gd": 6,
-              "points": 15
+              "team": "SC Bengaluru",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/101950.png?lm=1789466067",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
             },
             {
               "pos": 3,
-              "team": "United Sports Club",
-              "logo": "https://aiff.b-cdn.net/logos/8076-logo-1481010216.png",
-              "played": 8,
-              "won": 4,
-              "drawn": 3,
-              "lost": 1,
-              "gf": 7,
-              "ga": 5,
-              "gd": 2,
-              "points": 15
+              "team": "Sporting Club de Goa",
+              "short": "SC de Goa",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/18044.png?lm=1789460025",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
             },
             {
               "pos": 4,
-              "team": "Sporting Club Bengaluru",
-              "logo": "https://aiff.b-cdn.net/logos/sm_16032-logo_small-1726592615.png",
-              "played": 8,
-              "won": 3,
-              "drawn": 2,
-              "lost": 3,
-              "gf": 13,
-              "ga": 15,
-              "gd": -2,
-              "points": 11
+              "team": "Karbi Anglong Morning Star FC",
+              "short": "Morning Star",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/114519.png?lm=1789467001",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
             },
             {
               "pos": 5,
-              "team": "Karbi Anglong Morning Star FC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_MorningstarFC_1611076155.png",
-              "played": 8,
-              "won": 2,
-              "drawn": 4,
-              "lost": 2,
-              "gf": 10,
-              "ga": 7,
-              "gd": 3,
-              "points": 10
+              "team": "Sudeva Delhi FC",
+              "short": "Sudeva Delhi",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/70452.png?lm=1789463792",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
             },
             {
               "pos": 6,
-              "team": "Sudeva Delhi FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11400-logo_small-1635259548.png",
-              "played": 8,
-              "won": 3,
-              "drawn": 1,
-              "lost": 4,
-              "gf": 6,
-              "ga": 7,
-              "gd": -1,
-              "points": 10
+              "team": "Goalorious Mothers SC",
+              "short": "Goalorious",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/88609.png?lm=1789465107",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
             },
             {
               "pos": 7,
-              "team": "Sporting Clube de Goa ",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8011_logo_1576179854.png",
-              "played": 8,
-              "won": 3,
-              "drawn": 1,
-              "lost": 4,
-              "gf": 8,
-              "ga": 11,
-              "gd": -3,
-              "points": 10
+              "team": "FC BANARAS BAGHPAT",
+              "short": "BANARAS BAGHPAT",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/141323.png?lm=1789468998",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
             },
             {
               "pos": 8,
-              "team": "GMSC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_Logo_1722846324.png",
-              "played": 8,
-              "won": 1,
-              "drawn": 2,
-              "lost": 5,
-              "gf": 8,
-              "ga": 19,
-              "gd": -11,
-              "points": 5
-            },
-            {
-              "pos": 9,
-              "team": "NEROCA FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8728-logo_small-1645794060.png",
-              "played": 8,
-              "won": 1,
-              "drawn": 2,
-              "lost": 5,
-              "gf": 11,
-              "ga": 15,
-              "gd": -4,
-              "points": 5
+              "team": "FC Raengdai",
+              "logo": "https://img.a.transfermarkt.technology/wappen/small/107959.png?lm=1789466511",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
             }
           ]
         }
       ]
     }
   ],
-  "fixtures": [
-    {
-      "id": "aiff-65465",
-      "kickoff": "2026-05-03T10:30:00.000Z",
-      "home": "FC Bengaluru United",
-      "away": "Delhi Football Club",
-      "homeScore": 3,
-      "awayScore": 1,
-      "status": "ft",
-      "venue": "CSE Arena 1"
-    },
-    {
-      "id": "aiff-65466",
-      "kickoff": "2026-05-03T10:30:00.000Z",
-      "home": "Sudeva Delhi FC",
-      "away": "Sporting Club Bengaluru",
-      "homeScore": 0,
-      "awayScore": 2,
-      "status": "ft",
-      "venue": "Sudeva Residential Academy"
-    },
-    {
-      "id": "aiff-65467",
-      "kickoff": "2026-05-08T09:30:00.000Z",
-      "home": "NEROCA FC",
-      "away": "Karbi Anglong Morning Star FC",
-      "homeScore": 2,
-      "awayScore": 2,
-      "status": "ft",
-      "venue": "Khuman Lampak Stadium"
-    },
-    {
-      "id": "aiff-65468",
-      "kickoff": "2026-05-08T10:30:00.000Z",
-      "home": "FC Bengaluru United",
-      "away": "Sporting Clube de Goa ",
-      "homeScore": 4,
-      "awayScore": 1,
-      "status": "ft",
-      "venue": "CSE Arena 1"
-    },
-    {
-      "id": "aiff-65469",
-      "kickoff": "2026-05-09T09:30:00.000Z",
-      "home": "United Sports Club",
-      "away": "Sudeva Delhi FC",
-      "homeScore": 1,
-      "awayScore": 0,
-      "status": "ft",
-      "venue": "Kalyani Stadium"
-    },
-    {
-      "id": "aiff-65470",
-      "kickoff": "2026-05-09T10:30:00.000Z",
-      "home": "Delhi Football Club",
-      "away": "Sporting Club Bengaluru",
-      "homeScore": 5,
-      "awayScore": 1,
-      "status": "ft",
-      "venue": "Minerva Academy Ground"
-    },
-    {
-      "id": "aiff-65472",
-      "kickoff": "2026-05-14T09:30:00.000Z",
-      "home": "NEROCA FC",
-      "away": "Sudeva Delhi FC",
-      "homeScore": 1,
-      "awayScore": 3,
-      "status": "ft",
-      "venue": "Khuman Lampak Stadium"
-    },
-    {
-      "id": "aiff-65471",
-      "kickoff": "2026-05-15T10:00:00.000Z",
-      "home": "GMSC",
-      "away": "FC Bengaluru United",
-      "homeScore": 1,
-      "awayScore": 1,
-      "status": "ft",
-      "venue": "Neville D'souza Ground"
-    },
-    {
-      "id": "aiff-65474",
-      "kickoff": "2026-05-15T10:00:00.000Z",
-      "home": "United Sports Club",
-      "away": "Delhi Football Club",
-      "homeScore": 1,
-      "awayScore": 1,
-      "status": "ft",
-      "venue": "Kalyani Stadium"
-    },
-    {
-      "id": "aiff-65473",
-      "kickoff": "2026-05-15T11:00:00.000Z",
-      "home": "Sporting Clube de Goa ",
-      "away": "Sporting Club Bengaluru",
-      "homeScore": 1,
-      "awayScore": 2,
-      "status": "ft",
-      "venue": "Bambolim Stadium"
-    }
-  ],
-  "scorers": [
-    {
-      "player": "Himanshu Jangra",
-      "team": "Delhi Football Club",
-      "goals": 13
-    },
-    {
-      "player": "PHIJAM SANATHOI MEETEI",
-      "team": "NEROCA FC",
-      "goals": 6
-    },
-    {
-      "player": "Devadath S",
-      "team": "Sporting Club Bengaluru",
-      "goals": 4
-    },
-    {
-      "player": "Akshunna  Tyagi ",
-      "team": "FC Bengaluru United",
-      "goals": 4
-    },
-    {
-      "player": "Rahul Kumar Paswan",
-      "team": "Karbi Anglong Morning Star FC",
-      "goals": 3
-    }
-  ],
-  "updatedAt": "2026-10-15T16:33:35.582Z"
+  "fixtures": [],
+  "scorers": [],
+  "updatedAt": "2026-10-21T15:34:58.462Z"
 }

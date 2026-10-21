@@ -1,13 +1,13 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { COMPETITIONS, type Competition } from '../../src/config/competitions';
+import { COMPETITIONS, type Competition, type Fallback } from '../../src/config/competitions';
 import { SITE } from '../../src/config/site';
 import type { LeagueSnapshot, Match, NewsItem, Video } from '../../src/lib/types';
 import { get, getJson, postForm, postJson } from './http';
 import {
   isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffArticles, parseAiffFixtures, parseAiffPointsTable, parseAiffScorers, parseIflFixtures, parseIflScorers,
   parseAiffMatchDetail, parseAiffTournamentSchedule, parseAiffTournamentStages, sumScorers, teamNamesFromTable,
-  parseIslFixtures, parseIslScorers, parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel,
+  parseIslFixtures, parseIslScorers, parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel, currentSeason, zeroStages, parseTransfermarktTable, latestSeasonMatches,
 } from './parsers';
 import { readDataset, writeDataset } from './store';
 
@@ -112,6 +112,22 @@ function seasonFromMatches(matches: Match[]): string {
   return `${start}-${String((start + 1) % 100).padStart(2, '0')}`;
 }
 
+// indianfootballleague.in serves the same JSON shape as AIFF. Its season is read from the newest fixtures; with no fixtures
+// the season is unknown, and an unknown season is never accepted as current.
+async function fetchIflSite(c: Competition, slug: string): Promise<Omit<LeagueSnapshot, 'updatedAt'>> {
+  const url = 'https://indianfootballleague.in/wp-admin/admin-ajax.php';
+  const [table, fixtures, stats] = await Promise.all([
+    postForm(url, { action: 'points_table', league_slug: slug }),
+    postForm(url, { action: 'fixtures', league_slug: slug }),
+    postForm(url, { action: 'stats', league_slug: slug }),
+  ]);
+  const { season, matches } = latestSeasonMatches(parseIflFixtures(fixtures));
+  return {
+    slug: c.slug, seasonLabel: `${c.name} ${season}`, season,
+    stages: parseAiffPointsTable(table), fixtures: matches, scorers: parseIflScorers(stats),
+  };
+}
+
 async function fetchLeague(c: Competition, prev: LeagueSnapshot | null): Promise<Omit<LeagueSnapshot, 'updatedAt'> | null> {
   const s = c.source;
   if (s.kind === 'isl') {
@@ -180,21 +196,40 @@ async function fetchLeague(c: Competition, prev: LeagueSnapshot | null): Promise
       stages: parseAiffTournamentStages(table), fixtures, scorers: sumScorers(fixtures.flatMap((m) => m.goals ?? [])),
     };
   }
-  if (s.kind === 'ifl') {
-    const url = 'https://indianfootballleague.in/wp-admin/admin-ajax.php';
-    const [table, fixtures, stats] = await Promise.all([
-      postForm(url, { action: 'points_table', league_slug: s.slug }),
-      postForm(url, { action: 'fixtures', league_slug: s.slug }),
-      postForm(url, { action: 'stats', league_slug: s.slug }),
-    ]);
-    const matches = parseIflFixtures(fixtures);
-    const season = seasonFromMatches(matches);
-    return {
-      slug: c.slug, seasonLabel: `${c.name} ${season}`, season,
-      stages: parseAiffPointsTable(table), fixtures: matches, scorers: parseIflScorers(stats),
-    };
-  }
+  if (s.kind === 'ifl') return fetchIflSite(c, s.slug);
   return null; // manual leagues are computed at build time from data/manual
+}
+
+// Transfermarkt rejects bot-style user agents (empty 202), so this one source is fetched with a browser one. Only runs at season start.
+async function transfermarktStages(code: string, season: string) {
+  try {
+    const year = season.slice(0, 4);
+    const html = await get(`https://www.transfermarkt.co.in/x/tabelle/wettbewerb/${code}?saison_id=${year}`, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36', 'Accept-Language': 'en' },
+    });
+    const t = parseTransfermarktTable(html);
+    if (t.season !== season || !t.stages.length) { console.warn(`::notice::Transfermarkt ${code}: no ${season} table yet (page says ${t.season || 'unknown'})`); return null; }
+    return t.stages;
+  } catch (e) {
+    console.warn(`::warning::Transfermarkt ${code}: ${(e as Error).message}`);
+    return null;
+  }
+}
+
+async function fromFallback(c: Competition, fb: Fallback, season: string): Promise<Omit<LeagueSnapshot, 'updatedAt'> | null> {
+  try {
+    if (fb.kind === 'ifl') {
+      const r = await fetchIflSite(c, fb.slug);
+      if (r.season === season && r.stages.length) return r;
+      console.warn(`::notice::${c.short}: indianfootballleague.in has no ${season} data yet (${r.season || 'no fixtures'})`);
+      return null;
+    }
+    const stages = await transfermarktStages(fb.code, season);
+    return stages ? { slug: c.slug, seasonLabel: `${c.name} ${season}`, season, stages, fixtures: [], scorers: [] } : null;
+  } catch (e) {
+    console.warn(`::warning::${c.short} fallback ${fb.kind}: ${(e as Error).message}`);
+    return null;
+  }
 }
 
 export async function leaguesJob(only?: (c: Competition) => boolean): Promise<boolean> {
@@ -204,7 +239,21 @@ export async function leaguesJob(only?: (c: Competition) => boolean): Promise<bo
     try {
       const key = `leagues/${c.slug}`;
       const prev = await readDataset<LeagueSnapshot>(key);
-      const snap = await fetchLeague(c, prev);
+      let snap = await fetchLeague(c, prev);
+      const cur = currentSeason();
+      const stale = (x: { season: string } | null) => !x || (/^\d{4}-\d{2}$/.test(x.season) && x.season < cur);
+      // The main source still publishes last season (e.g. AIFF before a new season starts): try each fallback in order and take
+      // the first one that is really on this season. Otherwise show this season's table with the same teams at zero and no
+      // fixtures. Last season is archived, never shown.
+      if (stale(snap)) {
+        let found: Omit<LeagueSnapshot, 'updatedAt'> | null = null;
+        for (const fb of c.fallbacks ?? []) {
+          found = await fromFallback(c, fb, cur);
+          if (found) break;
+        }
+        if (found) snap = found;
+        else if (snap) snap = { ...snap, season: cur, seasonLabel: `${c.name} ${cur}`, stages: zeroStages(snap.stages), fixtures: [], scorers: [] };
+      }
       if (!snap) continue;
       if (prev && prev.season && snap.season && prev.season !== snap.season) {
         // New season detected: archive the old one before overwriting.

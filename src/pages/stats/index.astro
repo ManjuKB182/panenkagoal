@@ -12,6 +12,8 @@ const main = [
   { id: 'ifl', label: 'IFL', slug: 'ifl' },
   { id: 'iwl', label: 'IWL', slug: 'iwl' },
   { id: 'iwl-2', label: 'IWL 2', slug: 'iwl-2' },
+  { id: 'i-league-2', label: 'I-League 2', slug: 'i-league-2' },
+  { id: 'i-league-3', label: 'I-League 3', slug: 'i-league-3' },
 ];
 const youth = [
   { id: 'u18', label: 'U18 Elite', slug: 'elite-u18' },
@@ -20,7 +22,7 @@ const youth = [
 ];
 const tabs = [...main.map(({ id, label }) => ({ id, label })), { id: 'youth', label: 'Youth League' }];
 ---
-<Base title="Stats" description="Points tables, top scorers and numbers for ISL, IFL, IWL, IWL 2 and the AIFF youth leagues.">
+<Base title="Stats" description="Points tables, top scorers and numbers for ISL, IFL, IWL, IWL 2, I-League 2, I-League 3 and the AIFF youth leagues.">
   <div class="wrap">
     <div class="pagehead">
       <p class="eyebrow">Stats</p>
@@ -42,7 +44,6 @@ const tabs = [...main.map(({ id, label }) => ({ id, label })), { id: 'youth', la
         </div>
       ))}
     </section>
-    <p class="more muted">Also tracked: <a href="/stats/i-league-2">I-League 2</a></p>
   </div>
 </Base>
 

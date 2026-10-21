@@ -65,18 +65,19 @@ import WriteHead from '../../../components/WriteHead.astro';
   const state = { email: '', kind: 'fan', cover: null as Photo | null, blocks: [{ t: 'p', txt: '' }] as Blk[], own: 'mine', token: '' };
   let siteKey: string | null = null;
 
-  /** Shrink in the browser before upload: longest side 1600px, WebP (or JPEG) at 0.85. */
+  /** Shrink in the browser before upload: longest side 1600px, JPEG at 0.85 (JPEG, not WebP: X's card crawler does not reliably show WebP). */
   async function resize(file: File): Promise<Photo> {
     const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' } as ImageBitmapOptions);
     const scale = Math.min(1, MAX_EDGE / Math.max(bmp.width, bmp.height));
     const c = document.createElement('canvas');
     c.width = Math.round(bmp.width * scale); c.height = Math.round(bmp.height * scale);
-    c.getContext('2d')!.drawImage(bmp, 0, 0, c.width, c.height);
+    const ctx = c.getContext('2d')!;
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height); // JPEG has no transparency
+    ctx.drawImage(bmp, 0, 0, c.width, c.height);
     bmp.close?.();
     const toBlob = (type: string, q: number) => new Promise<Blob | null>((res) => c.toBlob(res, type, q));
     for (const q of [0.85, 0.7, 0.55]) {
-      let b = await toBlob('image/webp', q);
-      if (!b || b.type !== 'image/webp') b = await toBlob('image/jpeg', q);
+      const b = await toBlob('image/jpeg', q);
       if (b && b.size <= MAX_BYTES) return { blob: b, url: URL.createObjectURL(b) };
     }
     throw new Error('too big');

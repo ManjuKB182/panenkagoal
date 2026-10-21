@@ -20,7 +20,7 @@ import WriteHead from '../../../components/WriteHead.astro';
 
 <script>
   // Published pieces load live from /api/write/posts, so a newly approved piece shows up without a site rebuild.
-  type P = { slug: string; title: string; kind: 'fan' | 'analyst'; author: string; publishedAt: string; minutes: number };
+  type P = { slug: string; title: string; kind: 'fan' | 'analyst'; author: string; publishedAt: string; minutes: number; cover: string | null };
   const grid = document.getElementById('wr-grid')!;
   const chips = [...document.querySelectorAll<HTMLButtonElement>('#wr-filter .chip')];
   let posts: P[] = [];
@@ -42,6 +42,13 @@ import WriteHead from '../../../components/WriteHead.astro';
     for (const p of list) {
       const a = el('a', 'wr-tile') as HTMLAnchorElement;
       a.href = `/armchair-gaffers/write/${p.slug}`;
+      if (p.cover) {
+        const img = el('img', 'wr-cover') as HTMLImageElement;
+        img.src = `/api/write/photo/${p.cover}`;
+        img.alt = '';
+        img.loading = 'lazy';
+        a.append(img);
+      }
       a.append(el('span', 'wr-tag' + (p.kind === 'analyst' ? ' an' : ''), p.kind === 'analyst' ? 'Analyst' : 'Fan'));
       a.append(el('h3', '', p.title));
       const foot = el('div', 'wr-foot');

@@ -1,0 +1,427 @@
+{
+  "slug": "iwl-2",
+  "seasonLabel": "IWL 2 2025-26",
+  "season": "2025-26",
+  "stages": [
+    {
+      "name": "Group Stage",
+      "groups": [
+        {
+          "name": "GROUP A",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Juba Sangha FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG0350_1660244694.jpg",
+              "played": 4,
+              "won": 3,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 8,
+              "ga": 4,
+              "gd": 4,
+              "points": 10
+            },
+            {
+              "pos": 2,
+              "team": "Mumbai Knights FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_15788-logo_small-1754239625.png",
+              "played": 4,
+              "won": 2,
+              "drawn": 2,
+              "lost": 0,
+              "gf": 9,
+              "ga": 4,
+              "gd": 5,
+              "points": 8
+            },
+            {
+              "pos": 3,
+              "team": "Roots Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_rootsfootballpng200x200_1659611505.png",
+              "played": 4,
+              "won": 1,
+              "drawn": 1,
+              "lost": 2,
+              "gf": 5,
+              "ga": 6,
+              "gd": -1,
+              "points": 4
+            },
+            {
+              "pos": 4,
+              "team": "District Football Association, Raisen",
+              "logo": "https://aiff.b-cdn.net/logos/sm_18737-logo_small-1767468624.png",
+              "played": 4,
+              "won": 1,
+              "drawn": 1,
+              "lost": 2,
+              "gf": 4,
+              "ga": 7,
+              "gd": -3,
+              "points": 4
+            },
+            {
+              "pos": 5,
+              "team": "Odisha FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_OFCLogoopen_1579008396.png",
+              "played": 4,
+              "won": 0,
+              "drawn": 1,
+              "lost": 3,
+              "gf": 1,
+              "ga": 6,
+              "gd": -5,
+              "points": 1
+            }
+          ]
+        },
+        {
+          "name": "GROUP B",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "HOPS Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_0001_1616604252.jpg",
+              "played": 4,
+              "won": 4,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 6,
+              "ga": 1,
+              "gd": 5,
+              "points": 12
+            },
+            {
+              "pos": 2,
+              "team": "Krida Prabodini Pune ",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13798-logo_small-1689603467.png",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 14,
+              "ga": 2,
+              "gd": 12,
+              "points": 9
+            },
+            {
+              "pos": 3,
+              "team": "Karbi Anglong Sports Association Girls Football Club ",
+              "logo": "https://aiff.b-cdn.net/logos/sm_18040-logo_small-1771491848.png",
+              "played": 4,
+              "won": 2,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 12,
+              "ga": 6,
+              "gd": 6,
+              "points": 6
+            },
+            {
+              "pos": 4,
+              "team": "DKR Football Academy",
+              "logo": "https://aiff.b-cdn.net/logos/sm_18584-logo_small-1774354850.jpg",
+              "played": 4,
+              "won": 0,
+              "drawn": 1,
+              "lost": 3,
+              "gf": 1,
+              "ga": 12,
+              "gd": -11,
+              "points": 1
+            },
+            {
+              "pos": 5,
+              "team": "Kerala United FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_14309-logo_small-1768407135.png",
+              "played": 4,
+              "won": 0,
+              "drawn": 1,
+              "lost": 3,
+              "gf": 1,
+              "ga": 13,
+              "gd": -12,
+              "points": 1
+            }
+          ]
+        },
+        {
+          "name": "GROUP C",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Kemp Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_KempFinalColorPNG_1660214685.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 9,
+              "ga": 1,
+              "gd": 8,
+              "points": 7
+            },
+            {
+              "pos": 2,
+              "team": "New Alipore Suruchi Sangha",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13047-logo_small-1774354864.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 13,
+              "ga": 1,
+              "gd": 12,
+              "points": 6
+            },
+            {
+              "pos": 3,
+              "team": "FC Imphal",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20220922at162840_1665491741.jpeg",
+              "played": 3,
+              "won": 1,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 10,
+              "ga": 3,
+              "gd": 7,
+              "points": 4
+            },
+            {
+              "pos": 4,
+              "team": "MGM Ambush Club ( Girls )",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_NewdocMMM_1615012002.jpg",
+              "played": 3,
+              "won": 0,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 1,
+              "ga": 28,
+              "gd": -27,
+              "points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final Round",
+      "groups": [
+        {
+          "name": "",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "HOPS Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_0001_1616604252.jpg",
+              "played": 5,
+              "won": 5,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 8,
+              "ga": 0,
+              "gd": 8,
+              "points": 15
+            },
+            {
+              "pos": 2,
+              "team": "Juba Sangha FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG0350_1660244694.jpg",
+              "played": 5,
+              "won": 4,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 15,
+              "ga": 5,
+              "gd": 10,
+              "points": 12
+            },
+            {
+              "pos": 3,
+              "team": "Kemp Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_KempFinalColorPNG_1660214685.png",
+              "played": 5,
+              "won": 3,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 9,
+              "ga": 6,
+              "gd": 3,
+              "points": 9
+            },
+            {
+              "pos": 4,
+              "team": "Krida Prabodini Pune ",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13798-logo_small-1689603467.png",
+              "played": 5,
+              "won": 2,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 9,
+              "ga": 12,
+              "gd": -3,
+              "points": 6
+            },
+            {
+              "pos": 5,
+              "team": "Mumbai Knights FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_15788-logo_small-1754239625.png",
+              "played": 5,
+              "won": 1,
+              "drawn": 0,
+              "lost": 4,
+              "gf": 3,
+              "ga": 9,
+              "gd": -6,
+              "points": 3
+            },
+            {
+              "pos": 6,
+              "team": "New Alipore Suruchi Sangha",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13047-logo_small-1774354864.png",
+              "played": 5,
+              "won": 0,
+              "drawn": 0,
+              "lost": 5,
+              "gf": 3,
+              "ga": 15,
+              "gd": -12,
+              "points": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "aiff-67447",
+      "kickoff": "2026-05-04T14:30:00.000Z",
+      "home": "Kemp Football Club",
+      "away": "New Alipore Suruchi Sangha",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    },
+    {
+      "id": "aiff-67448",
+      "kickoff": "2026-05-06T03:30:00.000Z",
+      "home": "Krida Prabodini Pune ",
+      "away": "Kemp Football Club",
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    },
+    {
+      "id": "aiff-67449",
+      "kickoff": "2026-05-06T10:30:00.000Z",
+      "home": "New Alipore Suruchi Sangha",
+      "away": "HOPS Football Club",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    },
+    {
+      "id": "aiff-67450",
+      "kickoff": "2026-05-06T14:30:00.000Z",
+      "home": "Juba Sangha FC",
+      "away": "Mumbai Knights FC",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    },
+    {
+      "id": "aiff-67451",
+      "kickoff": "2026-05-08T03:30:00.000Z",
+      "home": "New Alipore Suruchi Sangha",
+      "away": "Juba Sangha FC",
+      "homeScore": 1,
+      "awayScore": 6,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    },
+    {
+      "id": "aiff-67452",
+      "kickoff": "2026-05-08T10:30:00.000Z",
+      "home": "Mumbai Knights FC",
+      "away": "Krida Prabodini Pune ",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    },
+    {
+      "id": "aiff-67453",
+      "kickoff": "2026-05-08T14:30:00.000Z",
+      "home": "HOPS Football Club",
+      "away": "Kemp Football Club",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    },
+    {
+      "id": "aiff-67454",
+      "kickoff": "2026-05-10T03:30:00.000Z",
+      "home": "Krida Prabodini Pune ",
+      "away": "New Alipore Suruchi Sangha",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    },
+    {
+      "id": "aiff-67455",
+      "kickoff": "2026-05-10T10:30:00.000Z",
+      "home": "Kemp Football Club",
+      "away": "Mumbai Knights FC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    },
+    {
+      "id": "aiff-67456",
+      "kickoff": "2026-05-10T14:30:00.000Z",
+      "home": "Juba Sangha FC",
+      "away": "HOPS Football Club",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "Centre of Sports Excellence"
+    }
+  ],
+  "scorers": [
+    {
+      "player": "Simran Gurung",
+      "team": "Pune Krida Prabhodhini Academy",
+      "goals": 9
+    },
+    {
+      "player": "ROSHNI TIGGA",
+      "team": "New Alipore Suruchi Sangha",
+      "goals": 7
+    },
+    {
+      "player": "Vipanshi",
+      "team": "Juba Sangha FC",
+      "goals": 7
+    },
+    {
+      "player": "Sumaiyya Mohammad Aarif Shaikh",
+      "team": "Pune Krida Prabhodhini Academy",
+      "goals": 7
+    },
+    {
+      "player": "NIDHI",
+      "team": "Juba Sangha FC",
+      "goals": 6
+    }
+  ],
+  "updatedAt": "2026-10-15T14:51:01.727Z"
+}

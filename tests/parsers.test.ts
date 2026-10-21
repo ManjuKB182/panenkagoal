@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   classifyNews, iflKickoff, isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffArticles, parseAiffFixtures, parseAiffPointsTable, parseIflFixtures, parseIslFixtures,
   parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel,
-  parseAiffMatchDetail, parseAiffTournamentSchedule, sumScorers, teamNamesFromTable,
+  parseAiffMatchDetail, parseAiffTournamentSchedule, sumScorers, teamNamesFromTable, parseTransfermarktTable, latestSeasonMatches,
 } from '../scripts/ingest/parsers';
 
 const fx = (name: string) => readFileSync(join(import.meta.dirname, 'fixtures', name), 'utf8');
@@ -145,4 +145,33 @@ describe('AIFF state league (tournament id)', () => {
     expect(detail).toMatchObject({ homeScore: 2, awayScore: 0, finished: true });
     expect(sumScorers(detail.goals)).toEqual([{ player: 'Ribhav Sardesai', team: 'Roots Football Club', goals: 2 }]);
   });
+});
+
+describe('parseTransfermarktTable', () => {
+  const row = (pos: number, team: string, short: string, rec: string) =>
+    `<tr> <td class="rechts hauptlink">${pos} </td><td class="zentriert no-border-rechts"><a title="${team}"><img src="https://img/wappen/small/${pos}.png" title="${team}"/></a></td> <td class="no-border-links hauptlink"> <a title="${team}">${short}</a> </td>` +
+    rec.split(' ').map((v) => `<td class="zentriert">${v}</td>`).join('') + '</tr>';
+  const page = (year: number, body: string) =>
+    `<select><option  selected="selected"value="${year}">x</option></select><div class="content-box-headline ">Table Group A</div><table class="items"><tbody>${body}</tbody></table>`;
+
+  it('reads the season from the page and zeroed rows', () => {
+    const t = parseTransfermarktTable(page(2026, row(1, 'United SC', 'United SC', '0 0 0 0 0:0 0 0') + row(1, 'SC de Goa', 'SC Goa', '0 0 0 0 0:0 0 0')));
+    expect(t.season).toBe('2026-27');
+    expect(t.stages[0].groups[0].rows.map((r) => r.team)).toEqual(['United SC', 'SC de Goa']);
+    expect(t.stages[0].groups[0].rows[1].short).toBe('SC Goa');
+  });
+  it('reads results', () => {
+    const r = parseTransfermarktTable(page(2025, row(1, 'TRAU FC', 'TRAU FC', '4 3 1 0 7:3 4 10'))).stages[0].groups[0].rows[0];
+    expect([r.played, r.won, r.drawn, r.lost, r.gf, r.ga, r.gd, r.points]).toEqual([4, 3, 1, 0, 7, 3, 4, 10]);
+  });
+});
+
+describe('latestSeasonMatches', () => {
+  const m = (id: string, kickoff: string) => ({ id, kickoff, home: 'A', away: 'B', status: 'scheduled' as const });
+  it('keeps only the newest season', () => {
+    const r = latestSeasonMatches([m('1', '2026-04-10T16:00:00+05:30'), m('2', '2026-10-12T16:00:00+05:30'), m('3', '2026-11-01T16:00:00+05:30')]);
+    expect(r.season).toBe('2026-27');
+    expect(r.matches.map((x) => x.id)).toEqual(['2', '3']);
+  });
+  it('is empty with no fixtures', () => expect(latestSeasonMatches([]).season).toBe(''));
 });

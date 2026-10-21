@@ -215,9 +215,13 @@ export function parseAiffPointsTable(json: any): Stage[] {
 }
 
 export function parseAiffFixtures(json: any): { seasonLabel: string; matches: Match[] } {
-  const list = arr(json?.fixtures);
+  // AIFF can mix two seasons in one feed (e.g. I-League 3 2025-26 results next to 2026-27 fixtures): keep the newest season only.
+  const all = arr(json?.fixtures);
+  const labels = [...new Set(all.map((f: any) => String(f.tournament_name ?? '')))];
+  const seasonLabel = labels.sort((a, b) => seasonFromLabel(b).localeCompare(seasonFromLabel(a)))[0] ?? '';
+  const list = all.filter((f: any) => String(f.tournament_name ?? '') === seasonLabel);
   return {
-    seasonLabel: list[0]?.tournament_name ?? '',
+    seasonLabel,
     matches: list.map((f: any) => ({
       id: `aiff-${f.match_id}`,
       kickoff: f.timestamp ? new Date(f.timestamp * 1000).toISOString() : `${f.match_date}T${f.time || '00:00'}:00+05:30`,
@@ -269,8 +273,67 @@ export function parseIflScorers(json: any): Scorer[] {
   return arr(json?.stats?.goals_player).map((p: any) => ({ player: p.player_name, team: p.team_name, goals: num(p.total_goals ?? p.value) }));
 }
 
+/** Newest season present in a fixture list, and only the matches of that season (feeds can mix last season's results in). */
+export function latestSeasonMatches(matches: Match[]): { season: string; matches: Match[] } {
+  const of = (m: Match) => { const d = new Date(m.kickoff); const y = d.getUTCMonth() >= 6 ? d.getUTCFullYear() : d.getUTCFullYear() - 1; return `${y}-${String((y + 1) % 100).padStart(2, '0')}`; };
+  const season = matches.map(of).sort().at(-1) ?? '';
+  return { season, matches: matches.filter((m) => of(m) === season) };
+}
+
 /** "IWL 2025-26" → "2025-26". Falls back to the label itself. */
 export const seasonFromLabel = (label: string) => /(\d{4}-\d{2})/.exec(label)?.[1] ?? label;
+
+/** Football season for a date, rolling over in July: Oct 2026 -> "2026-27". */
+export function currentSeason(d = new Date()): string {
+  const start = d.getUTCMonth() >= 6 ? d.getUTCFullYear() : d.getUTCFullYear() - 1;
+  return `${start}-${String((start + 1) % 100).padStart(2, '0')}`;
+}
+
+/** A league still publishing last season: keep its team list (first stage only) with every number at zero. */
+export function zeroStages(stages: Stage[]): Stage[] {
+  const first = stages[0];
+  if (!first) return [];
+  return [{
+    name: first.name,
+    groups: first.groups.map((g) => ({
+      name: g.name,
+      rows: g.rows.map((r, i) => ({ pos: i + 1, team: r.team, short: r.short, logo: r.logo, played: 0, won: 0, drawn: 0, lost: 0, gf: 0, ga: 0, gd: 0, points: 0 })),
+    })),
+  }];
+}
+
+// ---------- Transfermarkt (fallback when AIFF still publishes last season) ----------
+
+/** Table page -> { season, stages }. Transfermarkt serves the latest season it has when the requested one is missing,
+ * so the season is read from the page's own season picker, never trusted from the URL. */
+export function parseTransfermarktTable(html: string): { season: string; stages: Stage[] } {
+  const y = html.match(/<option\s+selected="selected"\s*value="(\d{4})"/)?.[1];
+  const season = y ? `${y}-${String((Number(y) + 1) % 100).padStart(2, '0')}` : '';
+  const attr = (s: string) => s.replace(/&amp;/g, '&').replace(/&#039;|&#39;/g, "'").replace(/\s+/g, ' ').trim();
+  const tables = html.split('<table class="items">').slice(1).map((t) => t.split('</table>')[0]);
+  const names = [...html.matchAll(/content-box-headline[^>]*>\s*Table (Group [^<]+?)\s*</g)].map((m) => m[1]);
+  const groups = tables.map((t, i) => {
+    const name = names[i] ?? '';
+    const rows: StandingRow[] = [];
+    for (const tr of t.split('<tr>').slice(1)) {
+      const tds = [...tr.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((m) => m[1]);
+      if (tds.length < 10) continue;
+      const team = attr(tds[1].match(/title="([^"]+)"/)?.[1] ?? '');
+      const short = attr(tds[2].replace(/<[^>]+>/g, ''));
+      const logo = tds[1].match(/<img src="([^"]+)"/)?.[1];
+      const [gf, ga] = (tds[tds.length - 3] ?? '').replace(/<[^>]+>/g, '').split(':').map((n) => num(n.trim()));
+      const n = (i: number) => num(tds[tds.length - i].replace(/<[^>]+>/g, '').trim());
+      if (!team) continue;
+      rows.push({
+        pos: rows.length + 1, team, short: short && short !== team ? short : undefined,
+        logo: logo && !/default\.png/.test(logo) ? logo : undefined,
+        played: n(7), won: n(6), drawn: n(5), lost: n(4), gf, ga, gd: n(2), points: n(1),
+      });
+    }
+    return { name: tables.length > 1 ? name : '', rows };
+  });
+  return { season, stages: groups.some((g) => g.rows.length) ? [{ name: 'League', groups }] : [] };
+}
 
 // ---------- AIFF state leagues (tournament id), e.g. the Karnataka Men's Super Division ----------
 

@@ -10,7 +10,7 @@ const leagues = readdirSync('data/snapshots/leagues').filter((f) => f.endsWith('
 const same = (a: string, b: string) => a.trim().toLowerCase() === b.trim().toLowerCase();
 const LEAGUE_NAMES: Record<string, string> = {
   'elite-u18': 'AIFF Elite Youth League (U18)', 'junior-u15': 'AIFF Junior League (U15)', 'sub-junior-u13': 'AIFF Sub-Junior League (U13)',
-  iwl: "Indian Women's League", 'iwl-2': "Indian Women's League 2", 'bdfa-sd': 'KSFA Super Division', ifl: 'Indian Football League', isl: 'Indian Super League', 'i-league-2': 'I-League 2',
+  iwl: "Indian Women's League", 'iwl-2': "Indian Women's League 2", 'bdfa-sd': 'KSFA Super Division', ifl: 'Indian Football League', isl: 'Indian Super League', 'i-league-2': 'I-League 2', 'i-league-3': 'I-League 3',
 };
 
 const out: Record<string, unknown> = {};
