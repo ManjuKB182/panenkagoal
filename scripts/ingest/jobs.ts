@@ -252,6 +252,8 @@ export async function leaguesJob(only?: (c: Competition) => boolean): Promise<bo
           if (found) break;
         }
         if (found) snap = found;
+        // Nothing on this season yet: keep the table we already have for it (e.g. the Transfermarkt one), never relabel last season's teams.
+        else if (prev && prev.season === cur) snap = prev;
         else if (snap) snap = { ...snap, season: cur, seasonLabel: `${c.name} ${cur}`, stages: zeroStages(snap.stages), fixtures: [], scorers: [] };
       }
       if (!snap) continue;
