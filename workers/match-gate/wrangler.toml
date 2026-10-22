@@ -1,0 +1,11 @@
+# Match-day trigger for the ingest workflow. Deploy: cd workers/match-gate && npx wrangler deploy
+# Secrets (never commit): npx wrangler secret put DATABASE_URL ; npx wrangler secret put GITHUB_TOKEN
+name = "panenka-match-gate"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+[vars]
+GITHUB_REPO = "ManjuKB182/panenkagoal"

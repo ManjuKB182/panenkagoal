@@ -23,8 +23,6 @@ const SCHEDULES: Record<string, string[]> = {
   '5 1 * * *': ['youth'],
   // 00:05 IST: refresh every fixture list (so the gate knows today's kickoffs) and rebuild so "Today" and the ticker move to the new day.
   '35 18 * * *': ['isl', 'aiff-ifl', 'karnataka'],
-  // Every 5 min: the gate decides; this line only exists so the schedule is recognised.
-  '*/5 * * * *': [],
 };
 const DAILY_REBUILD = '35 18 * * *';
 

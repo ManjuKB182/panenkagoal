@@ -437,6 +437,85 @@
       "https://www.indiansuperleague.com/clubs/3234-sporting-club-delhi-profile/squad",
       "https://africa.espn.com/football/player/bio/_/id/418944/yohann-britto",
       "https://us.soccerway.com/player/victor-britto-yohann/Ei4TJQL8/transfers"
-    ]
+    ],
+    "photo": "/players/yohan-victor-britto.jpeg"
+  },
+  {
+    "name": "Som Kumar",
+    "club": "ND Slovan",
+    "league": "ISL",
+    "position": "Goalkeeper",
+    "dob": "2005-02-27",
+    "birthplace": "Bangalore, Karnataka",
+    "bio": "A Bangalore-born goalkeeper who left India as a teenager to join NK Bravo's academy in Slovenia, and came through the NK Krka and Olimpija Ljubljana youth system. He was named best goalkeeper at the 2022 SAFF U-20 Championship with India. He signed for Kerala Blasters from Olimpija in June 2024 and made four ISL appearances in 2024-25. He has since played in Slovenia's second tier for Radomlje and Slovan.",
+    "career": [
+      {
+        "club": "NK Bravo / NK Krka / Olimpija Ljubljana",
+        "years": "youth",
+        "note": "Youth career in Slovenia"
+      },
+      {
+        "club": "Kerala Blasters",
+        "years": "2024-2025",
+        "note": "4 ISL apps"
+      },
+      {
+        "club": "NK Radomlje",
+        "years": "2025-2026",
+        "note": "Free agent signing, later loan to Slovan"
+      },
+      {
+        "club": "ND Slovan",
+        "years": "2025-present",
+        "note": "Loan, then permanent from Feb 2026"
+      }
+    ],
+    "intl": "India U17 and U20 international",
+    "sources": [
+      "https://www.indiansuperleague.com/players/goalkeeper-191632-som-kumar-profile",
+      "https://africa.espn.com/football/player/bio/_/id/385953/som-kumar",
+      "https://en.wikipedia.org/wiki/Som_Kumar",
+      "https://us.soccerway.com/player/kumar-som/CQ6VfsLO/",
+      "https://onmanorama.com/sports/football/2024/06/12/kerala-blasters-sign-goalkeeper-som-kumar.html"
+    ],
+    "photo": "/players/som-kumar.jpeg"
+  },
+  {
+    "name": "Rivka Ramji",
+    "club": "Sethu FC",
+    "league": "IWL",
+    "position": "Midfielder",
+    "dob": "2006-10-29",
+    "bio": "A Karnataka midfielder in the Indian Women's League with Sethu FC. She started out at Misaka United and Kemp FC, returned to Sethu, and was twice named Best Midfielder by the Karnataka State Football Association. In November 2025 she became the first woman footballer from Karnataka to join a foreign club, Singapore's Lion City Sailors. She has represented India at youth level. Injuries, including an ankle injury and a fibula fracture, interrupted her 2024-25 season.",
+    "career": [
+      {
+        "club": "Misaka United FC",
+        "years": "early career",
+        "note": "Karnataka club football"
+      },
+      {
+        "club": "Kemp FC",
+        "years": "early career",
+        "note": "Karnataka club football"
+      },
+      {
+        "club": "Sethu FC",
+        "years": "2023-2025, 2026-present",
+        "note": "Indian Women's League"
+      },
+      {
+        "club": "Lion City Sailors",
+        "years": "2025",
+        "note": "First Karnataka woman to join a foreign club"
+      }
+    ],
+    "intl": "India youth international; India U20 squad since 2024",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Rivka_Ramji",
+      "https://ie.soccerway.com/player/ramji-rivka/lrhLZeb6",
+      "https://technosports.co.in/rivka-ramji-lion-city-sailors-fc-move-singapore/",
+      "https://khelnow.com/football/indian-football-female-playing-overseas"
+    ],
+    "photo": "/players/rivka-ramji.jpeg"
   }
 ]

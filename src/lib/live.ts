@@ -1,6 +1,7 @@
 // Live scores for ISL, the AIFF leagues (IFL, I-League 2/3, IWL, IWL 2) and the KSFA Super Division.
 // The sources block browser (CORS) requests, so the page asks our own /api/live, which fetches them server-side and keeps the answer for a few seconds.
 import { COMPETITIONS } from '../config/competitions';
+import { to24 } from './kickoff';
 
 export interface LiveMatch {
   id: string; // matches Match.id, e.g. "isl-194640"
@@ -73,7 +74,7 @@ async function fetchKsfaLive(id: number): Promise<LiveMatch[]> {
     const r = await fetch(`https://www.the-aiff.com/api/fixtures/cms/${e.id}`, { headers: HEADERS });
     if (!r.ok) return null;
     const j: any = await r.json();
-    const ko = Date.parse(`${e.date}T${String(e.time ?? '00:00').slice(0, 5)}:00+05:30`);
+    const ko = Date.parse(`${e.date}T${to24(String(e.time ?? ''))}:00+05:30`);
     const ft = !!j?.fixture?.ft;
     const state = ft ? 'ft' : now >= ko && now - ko < LIVE_MS && j?.team1_score != null ? 'live' : 'scheduled';
     return { id: `aiff-${e.id}`, state, homeScore: state === 'scheduled' ? undefined : Number(j.team1_score ?? 0), awayScore: state === 'scheduled' ? undefined : Number(j.team2_score ?? 0), clock: state === 'live' ? 'LIVE' : undefined };

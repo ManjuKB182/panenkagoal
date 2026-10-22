@@ -6,7 +6,7 @@ on:
     - cron: '17,47 * * * *' # videos + news, every 30 min
     - cron: '5 1 * * *'     # AIFF youth leagues, 06:35 IST
     - cron: '35 18 * * *'   # 00:05 IST: refresh every fixture list + rebuild
-    - cron: '*/5 * * * *'   # match-day gate: league data is fetched only while a match is in play
+    # Match-day runs are dispatched by the Cloudflare Worker in workers/match-gate (every 5 min, only while a match is in play).
   workflow_dispatch:
     inputs:
       job:
@@ -14,32 +14,16 @@ on:
         type: choice
         options: [all, videos, news, isl, aiff-ifl, youth, karnataka]
         default: all
+      leagues:
+        description: Comma-separated league slugs to fetch live (set by the match-gate Worker)
+        type: string
+        default: ''
 concurrency:
   group: ingest
   cancel-in-progress: false
 
 jobs:
-  # Cheap check (no npm install): which leagues have a match between 15 min before kickoff and 2 h 30 after it?
-  gate:
-    if: github.event.schedule == '*/5 * * * *'
-    runs-on: ubuntu-latest
-    timeout-minutes: 3
-    outputs:
-      leagues: ${{ steps.gate.outputs.leagues }}
-    steps:
-      - uses: actions/checkout@v7
-        with: { sparse-checkout: scripts/ingest/gate.mjs, sparse-checkout-cone-mode: false }
-      - uses: actions/setup-node@v7
-        with: { node-version: 22 }
-      - id: gate
-        run: node scripts/ingest/gate.mjs
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-
   run:
-    needs: gate
-    # Gate ticks only continue when a league is in play; every other schedule (and manual runs) skips the gate and runs as before.
-    if: ${{ !cancelled() && (needs.gate.result == 'skipped' || needs.gate.outputs.leagues != '') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency: { group: deploy-production, cancel-in-progress: false }
@@ -57,7 +41,8 @@ jobs:
       - run: npm run db:migrate
       - run: npm run snapshots:pull
       - id: ingest
-        run: npm run ingest -- --schedule "${{ github.event.schedule }}" --job "${{ inputs.job || 'auto' }}" ${{ needs.gate.outputs.leagues != '' && format('--leagues "{0}"', needs.gate.outputs.leagues) || '' }}
+        # A non-empty leagues input (from the Worker) takes precedence over the job choice: only those leagues are fetched.
+        run: npm run ingest -- --schedule "${{ github.event.schedule }}" --job "${{ inputs.job || 'auto' }}" ${{ inputs.leagues != '' && format('--leagues "{0}"', inputs.leagues) || '' }}
         continue-on-error: true # a failed source still lets the others deploy; the run is marked below
       - if: steps.ingest.outputs.changed == 'true'
         run: npm run build
