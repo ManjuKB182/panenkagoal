@@ -2,6 +2,7 @@
 import { XMLParser } from 'fast-xml-parser';
 import type { Match, MatchStatus, NewsItem, Scorer, Stage, StandingRow, Video } from '../../src/lib/types';
 import type { SectionKey } from '../../src/config/site';
+import { to24 } from '../../src/lib/kickoff';
 
 const xml = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@', textNodeName: '#text' });
 const arr = <T>(x: T | T[] | undefined): T[] => (x === undefined ? [] : Array.isArray(x) ? x : [x]);
@@ -342,16 +343,6 @@ const properName = (n: string) => {
   return t === t.toUpperCase() ? t.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()) : t;
 };
 
-/** "04:00 PM" -> "16:00". The calendar prints some 4 pm kickoffs as "04:00 AM"; no match kicks off before 8 am. */
-function to24(t: string): string {
-  const m = /^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i.exec(t.trim());
-  if (!m) return '16:00';
-  let h = Number(m[1]);
-  const pm = /pm/i.test(m[3] ?? '') || (/am/i.test(m[3] ?? '') && h < 8);
-  if (pm && h < 12) h += 12;
-  return `${String(h).padStart(2, '0')}:${m[2]}`;
-}
-
 /** Table rows carry team_id, so fixtures can use the same spelling of each club. */
 export function teamNamesFromTable(table: any): Map<number, string> {
   const map = new Map<number, string>();
@@ -372,7 +363,8 @@ export function parseAiffTournamentStages(json: any): Stage[] {
 }
 
 export function parseAiffTournamentSchedule(json: any, names: Map<number, string>): Match[] {
-  return arr(json?.events).map((e: any) => ({
+  // Some calendar events arrive without a date; skip them rather than write "nullT16:00" kickoffs the gate can't read.
+  return arr(json?.events).filter((e: any) => /^\d{4}-\d{2}-\d{2}$/.test(String(e.date ?? ''))).map((e: any) => ({
     id: `aiff-${e.id}`,
     kickoff: `${e.date}T${to24(e.time)}:00+05:30`,
     home: names.get(e.team1_id) ?? properName(e.t1_name),

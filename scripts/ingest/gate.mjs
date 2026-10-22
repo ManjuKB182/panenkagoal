@@ -1,10 +1,10 @@
 // Match-day gate. Prints "leagues=<slug,slug>" (to GITHUB_OUTPUT too): the leagues with a match in play right now.
-// Window per match: 15 min before kickoff until 2 h 30 min after it, so the run that follows full time is always inside.
+// Window per match: 15 min before kickoff until 4 h after it, so late AIFF results (seen 2 h+ after kickoff) are still picked up.
 // Reads only kickoff times from Neon over its HTTP endpoint, so this job needs no npm install and costs seconds.
 import { appendFile } from 'node:fs/promises';
 
 const BEFORE = 15 * 60_000;
-const AFTER = 150 * 60_000;
+const AFTER = 240 * 60_000;
 
 export function activeLeagues(rows, now = Date.now()) {
   return rows

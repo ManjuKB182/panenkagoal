@@ -12,15 +12,15 @@ const rows = [
 
 describe('match-day gate', () => {
   it('is quiet on a day with no match in play', () => {
-    expect(activeLeagues(rows, at('2026-10-17T12:00:00+05:30'))).toEqual([]);
+    expect(activeLeagues(rows, at('2026-10-17T14:00:00+05:30'))).toEqual([]);
   });
   it('opens 15 min before kickoff', () => {
     expect(activeLeagues(rows, at('2026-10-17T16:45:00+05:30'))).toEqual(['isl']);
     expect(activeLeagues(rows, at('2026-10-17T16:44:00+05:30'))).toEqual([]);
   });
-  it('stays open until 2 h 30 after the last kickoff, then closes', () => {
-    expect(activeLeagues(rows, at('2026-10-17T22:00:00+05:30'))).toEqual(['isl']);
-    expect(activeLeagues(rows, at('2026-10-17T22:01:00+05:30'))).toEqual([]);
+  it('stays open until 4 h after the last kickoff, then closes', () => {
+    expect(activeLeagues(rows, at('2026-10-17T23:30:00+05:30'))).toEqual(['isl']);
+    expect(activeLeagues(rows, at('2026-10-17T23:31:00+05:30'))).toEqual([]);
   });
 });
 
