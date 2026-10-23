@@ -27,7 +27,7 @@ const jsonLd = {
 };
 ---
 <Base title={`${comp.name} table`} description={`${comp.name} ${data?.season ?? ''} points table, fixtures, results and top scorers.`} jsonLd={jsonLd}>
-  <header class="bg-photo head-bg" style="--img:url(/bg/crowd.jpg)"><div class="wrap module head">
+  <header class="bg-photo head-bg" style="--img:url(/bg/crowd.webp)"><div class="wrap module head">
     <a class="eyebrow" href={`/${comp.section}`}>{SECTIONS[comp.section].title}</a>
     <h1>{comp.name}</h1>
     <p class="muted">{data?.seasonLabel ?? 'Season not started yet'}</p>

@@ -14,7 +14,7 @@ export function getStaticPaths() {
   return ['mens', 'wofo', 'youth'].map((section) => ({ params: { section } }));
 }
 
-const HERO_BG: Record<string, string> = { mens: '/bg/banner.jpg', wofo: '/bg/crowd.jpg', youth: '/bg/here.jpg' };
+const HERO_BG: Record<string, string> = { mens: '/bg/banner.webp', wofo: '/bg/crowd.webp', youth: '/bg/here.webp' };
 const section = Astro.params.section as SectionKey;
 const meta = SECTIONS[section];
 const comps = COMPETITIONS.filter((c) => c.section === section).map((comp) => ({ comp, data: getLeague(comp) }));

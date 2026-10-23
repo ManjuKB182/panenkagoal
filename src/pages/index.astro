@@ -74,6 +74,7 @@ const jsonLd = {
       {slides.map((v, i) => (
         <div class={`slide ${i === 0 ? 'active' : ''}`} data-i={i} aria-hidden={i === 0 ? undefined : 'true'}>
           <img class="bg" src={`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`} alt="" width="1280" height="720"
+            srcset={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg 1280w`} sizes="100vw"
             loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'}
             onerror={`this.onerror=null;this.src='${v.thumbnail}'`} />
         </div>
@@ -137,7 +138,7 @@ const jsonLd = {
     )}
   </section>
 
-  <div class="band bg-photo" style="--img:url(/bg/banner.jpg)">
+  <div class="band bg-photo" style="--img:url(/bg/banner.webp)">
   <section class="wrap module reveal" aria-labelledby="latest-h">
     <div class="mod-head">
       <h2 id="latest-h">Latest episodes</h2>
@@ -170,7 +171,7 @@ const jsonLd = {
 
   </div>
 
-  <div class="band bg-photo" style="--img:url(/bg/trophies.jpg)">
+  <div class="band bg-photo" style="--img:url(/bg/trophies.webp)">
   <section class="wrap module split reveal">
     <div class="col" aria-labelledby="news-h">
       <div class="mod-head">
