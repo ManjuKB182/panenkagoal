@@ -88,7 +88,7 @@ const jsonLd = {
               <p class="show">{showName(v.show) ?? 'Panenka Goal'} · {shortDate(v.publishedAt)}</p>
               <h1>{cleanTitle(v.title)}</h1>
               <div class="cta-row">
-                <a class="btn" href={ytWatch(v.id)} rel="noopener" tabindex={i === 0 ? undefined : -1}>
+                <a class="btn" href={ytWatch(v.id)} data-yt={v.id} data-title={v.title} rel="noopener" tabindex={i === 0 ? undefined : -1}>
                   <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
                   Watch episode
                 </a>
@@ -138,36 +138,64 @@ const jsonLd = {
     )}
   </section>
 
+  <section class="wrap module reveal" aria-labelledby="fx-h">
+    <div class="mod-head">
+      <h2 id="fx-h">Fixtures &amp; results</h2>
+      <a href="/stats">By league →</a>
+    </div>
+    <div class="chips days" role="tablist" aria-label="Day">
+      {days.map((d) => (
+        <button class="chip" role="tab" aria-controls={`day-${d.key}`} aria-selected={d.key === today ? 'true' : 'false'}>
+          {d.label}{byDay.get(d.key)!.length ? <span class="n">{byDay.get(d.key)!.length}</span> : null}
+        </button>
+      ))}
+    </div>
+    {days.map((d) => (
+      <div class="panel-card day" id={`day-${d.key}`} role="tabpanel" hidden={d.key !== today}>
+        {byDay.get(d.key)!.length === 0 ? (
+          <p class="muted empty">No matches in our leagues on this day.</p>
+        ) : (
+          groupByComp(byDay.get(d.key)!).map((ms) => (
+            <div class="comp-group">
+              <a class="comp-name" href={`/stats/${ms[0].comp.slug}`}>{ms[0].comp.name}</a>
+              <MatchList matches={ms} />
+            </div>
+          ))
+        )}
+      </div>
+    ))}
+  </section>
+
   <div class="band bg-photo" style="--img:url(/bg/banner.webp)">
   <section class="wrap module reveal" aria-labelledby="latest-h">
     <div class="mod-head">
-      <h2 id="latest-h">Latest episodes</h2>
+      <div class="chips" role="tablist" aria-label="Latest videos">
+        <button class="chip" role="tab" id="tab-episodes" aria-controls="panel-episodes" aria-selected="true"><span id="latest-h">Latest episodes</span></button>
+        {shortsRail.length > 0 && <button class="chip" role="tab" id="tab-shorts" aria-controls="panel-shorts" aria-selected="false">Shorts</button>}
+      </div>
       <a href="/armchair-gaffers">All shows →</a>
     </div>
-    <div class="chips" role="tablist" aria-label="Filter by show" data-filter-for="latest-rail">
-      <button class="chip" role="tab" aria-selected="true" data-show="">All</button>
-      {shows.map((s) => <button class="chip" role="tab" aria-selected="false" data-show={s.slug}>{s.name}</button>)}
+    <div id="panel-episodes" role="tabpanel" aria-labelledby="tab-episodes">
+      <div class="chips" role="tablist" aria-label="Filter by show" data-filter-for="latest-rail">
+        <button class="chip" role="tab" aria-selected="true" data-show="">All</button>
+        {shows.map((s) => <button class="chip" role="tab" aria-selected="false" data-show={s.slug}>{s.name}</button>)}
+      </div>
+      <div class="rail" id="latest-rail">
+        {episodes.map((v) => (
+          <div data-show={v.show ?? ''} data-all={allIds.has(v.id) ? '1' : '0'} hidden={!allIds.has(v.id)}>
+            <VideoCard video={v} badge={showName(v.show)} />
+          </div>
+        ))}
+      </div>
     </div>
-    <div class="rail" id="latest-rail">
-      {episodes.map((v) => (
-        <div data-show={v.show ?? ''} data-all={allIds.has(v.id) ? '1' : '0'} hidden={!allIds.has(v.id)}>
-          <VideoCard video={v} badge={showName(v.show)} />
+    {shortsRail.length > 0 && (
+      <div id="panel-shorts" role="tabpanel" aria-labelledby="tab-shorts" hidden>
+        <div class="rail shorts-rail">
+          {shortsRail.map((v) => <VideoCard video={v} size="vertical" />)}
         </div>
-      ))}
-    </div>
+      </div>
+    )}
   </section>
-
-  {shortsRail.length > 0 && (
-    <section class="wrap module reveal" aria-labelledby="shorts-h">
-      <div class="mod-head">
-        <h2 id="shorts-h">Shorts</h2>
-        <a href="/armchair-gaffers#shorts">All shorts →</a>
-      </div>
-      <div class="rail shorts-rail">
-        {shortsRail.map((v) => <VideoCard video={v} size="vertical" />)}
-      </div>
-    </section>
-  )}
 
   </div>
 
@@ -212,34 +240,6 @@ const jsonLd = {
         ))}
       </div>
     </div>
-  </section>
-
-  <section class="wrap module reveal" aria-labelledby="fx-h">
-    <div class="mod-head">
-      <h2 id="fx-h">Fixtures &amp; results</h2>
-      <a href="/stats">By league →</a>
-    </div>
-    <div class="chips days" role="tablist" aria-label="Day">
-      {days.map((d) => (
-        <button class="chip" role="tab" aria-controls={`day-${d.key}`} aria-selected={d.key === today ? 'true' : 'false'}>
-          {d.label}{byDay.get(d.key)!.length ? <span class="n">{byDay.get(d.key)!.length}</span> : null}
-        </button>
-      ))}
-    </div>
-    {days.map((d) => (
-      <div class="panel-card day" id={`day-${d.key}`} role="tabpanel" hidden={d.key !== today}>
-        {byDay.get(d.key)!.length === 0 ? (
-          <p class="muted empty">No matches in our leagues on this day.</p>
-        ) : (
-          groupByComp(byDay.get(d.key)!).map((ms) => (
-            <div class="comp-group">
-              <a class="comp-name" href={`/stats/${ms[0].comp.slug}`}>{ms[0].comp.name}</a>
-              <MatchList matches={ms} />
-            </div>
-          ))
-        )}
-      </div>
-    ))}
   </section>
 
   </div>

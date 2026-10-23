@@ -4,24 +4,26 @@ import { timeAgo, ytWatch } from '../lib/format';
 
 interface Props { video: Video; badge?: string; size?: 'hero' | 'tile' | 'row' | 'vertical'; play?: boolean }
 const { video, badge, size = 'tile', play = size === 'hero' } = Astro.props;
+// Every card opens the on-site player (see the dialog in Base.astro). The YouTube link stays as the no-JS fallback.
+const playAttrs = { 'data-yt': video.id, 'data-title': video.title, 'data-short': video.short === true ? '1' : undefined };
 ---
 <article class={`vc ${size}`}>
   {play ? (
-    <a class="thumb" href={ytWatch(video.id)} data-yt={video.id} data-title={video.title}>
+    <a class="thumb" href={ytWatch(video.id)} {...playAttrs}>
       <img src={video.thumbnail} alt="" loading={size === 'hero' ? 'eager' : 'lazy'} fetchpriority={size === 'hero' ? 'high' : 'auto'} width="480" height="360" />
       {badge && <span class="badge">{badge}</span>}
       <span class="play" aria-hidden="true"></span>
       <span class="sr-only">Play {video.title}</span>
     </a>
   ) : (
-    <a class="thumb" href={ytWatch(video.id)} rel="noopener">
+    <a class="thumb" href={ytWatch(video.id)} rel="noopener" {...playAttrs}>
       <img src={video.thumbnail} alt="" loading="lazy" width="480" height="360" />
       {badge && <span class={`badge ${video.channel === 'isl' ? 'red' : ''}`}>{badge}</span>}
       <span class="play small" aria-hidden="true"></span>
     </a>
   )}
   <div class="meta">
-    <h3 class="t"><a href={ytWatch(video.id)} rel="noopener">{video.title}</a></h3>
+    <h3 class="t"><a href={ytWatch(video.id)} rel="noopener" {...playAttrs}>{video.title}</a></h3>
     <p class="muted">{timeAgo(video.publishedAt)}{video.views ? ` · ${video.views.toLocaleString('en-IN')} views` : ''}</p>
   </div>
 </article>
