@@ -88,7 +88,7 @@ const jsonLd = {
               <p class="show">{showName(v.show) ?? 'Panenka Goal'} · {shortDate(v.publishedAt)}</p>
               <h1>{cleanTitle(v.title)}</h1>
               <div class="cta-row">
-                <a class="btn" href={ytWatch(v.id)} rel="noopener" tabindex={i === 0 ? undefined : -1}>
+                <a class="btn" href={ytWatch(v.id)} data-yt={v.id} data-title={v.title} rel="noopener" tabindex={i === 0 ? undefined : -1}>
                   <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
                   Watch episode
                 </a>
@@ -138,82 +138,6 @@ const jsonLd = {
     )}
   </section>
 
-  <div class="band bg-photo" style="--img:url(/bg/banner.webp)">
-  <section class="wrap module reveal" aria-labelledby="latest-h">
-    <div class="mod-head">
-      <h2 id="latest-h">Latest episodes</h2>
-      <a href="/armchair-gaffers">All shows →</a>
-    </div>
-    <div class="chips" role="tablist" aria-label="Filter by show" data-filter-for="latest-rail">
-      <button class="chip" role="tab" aria-selected="true" data-show="">All</button>
-      {shows.map((s) => <button class="chip" role="tab" aria-selected="false" data-show={s.slug}>{s.name}</button>)}
-    </div>
-    <div class="rail" id="latest-rail">
-      {episodes.map((v) => (
-        <div data-show={v.show ?? ''} data-all={allIds.has(v.id) ? '1' : '0'} hidden={!allIds.has(v.id)}>
-          <VideoCard video={v} badge={showName(v.show)} />
-        </div>
-      ))}
-    </div>
-  </section>
-
-  {shortsRail.length > 0 && (
-    <section class="wrap module reveal" aria-labelledby="shorts-h">
-      <div class="mod-head">
-        <h2 id="shorts-h">Shorts</h2>
-        <a href="/armchair-gaffers#shorts">All shorts →</a>
-      </div>
-      <div class="rail shorts-rail">
-        {shortsRail.map((v) => <VideoCard video={v} size="vertical" />)}
-      </div>
-    </section>
-  )}
-
-  </div>
-
-  <div class="band bg-photo" style="--img:url(/bg/trophies.webp)">
-  <section class="wrap module split reveal">
-    <div class="col" aria-labelledby="news-h">
-      <div class="mod-head">
-        <h2 id="news-h" class="sr-only">News and blogs</h2>
-        <div class="chips nb-tabs" role="tablist" aria-label="News or blogs">
-          <button class="chip" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="true">News</button>
-          <button class="chip" role="tab" id="tab-blogs" aria-controls="panel-blogs" aria-selected="false">Blogs</button>
-        </div>
-      </div>
-      <div class="nb-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
-        <NewsList items={news} />
-        <a class="full" href="/news">All news →</a>
-      </div>
-      <div class="nb-panel" id="panel-blogs" role="tabpanel" aria-labelledby="tab-blogs" hidden>
-        <ul class="news bl" id="blog-list" aria-live="polite"><li class="bl-empty">Loading blogs…</li></ul>
-        <a class="full" href="/armchair-gaffers/write">All blogs →</a>
-      </div>
-    </div>
-    <div class="col" aria-labelledby="tables-h">
-      <div class="mod-head">
-        <h2 id="tables-h">Tables</h2>
-        <a href="/stats">All stats →</a>
-      </div>
-      <div class="panel-card">
-        <div class="card-head yellow tabs-head">
-          <div class="chips" role="tablist" aria-label="Competition">
-            {tables.map((t, i) => (
-              <button class="chip" role="tab" id={`tab-${t.comp.slug}`} aria-controls={`panel-${t.comp.slug}`} aria-selected={i === 0 ? 'true' : 'false'}>{t.comp.short}</button>
-            ))}
-          </div>
-        </div>
-        {tables.map((t, i) => (
-          <div class="panel" id={`panel-${t.comp.slug}`} role="tabpanel" aria-labelledby={`tab-${t.comp.slug}`} hidden={i !== 0}>
-            <p class="muted season">{t.data!.seasonLabel}</p>
-            <div class="flat"><StandingsTable rows={t.data!.stages[0].groups[0].rows} comp={t.comp} compact limit={6} caption={`${t.comp.name} table`} /></div>
-            <a class="full" href={`/stats/${t.comp.slug}`}>Full {t.comp.short} table →</a>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="wrap module reveal" aria-labelledby="fx-h">
     <div class="mod-head">
       <h2 id="fx-h">Fixtures &amp; results</h2>
@@ -240,6 +164,82 @@ const jsonLd = {
         )}
       </div>
     ))}
+  </section>
+
+  <div class="band bg-photo" style="--img:url(/bg/banner.webp)">
+  <section class="wrap module reveal" aria-labelledby="latest-h">
+    <div class="mod-head">
+      <div class="chips" role="tablist" aria-label="Latest videos">
+        <button class="chip" role="tab" id="tab-episodes" aria-controls="panel-episodes" aria-selected="true"><span id="latest-h">Latest episodes</span></button>
+        {shortsRail.length > 0 && <button class="chip" role="tab" id="tab-shorts" aria-controls="panel-shorts" aria-selected="false">Shorts</button>}
+      </div>
+      <a href="/armchair-gaffers">All shows →</a>
+    </div>
+    <div id="panel-episodes" role="tabpanel" aria-labelledby="tab-episodes">
+      <div class="chips" role="tablist" aria-label="Filter by show" data-filter-for="latest-rail">
+        <button class="chip" role="tab" aria-selected="true" data-show="">All</button>
+        {shows.map((s) => <button class="chip" role="tab" aria-selected="false" data-show={s.slug}>{s.name}</button>)}
+      </div>
+      <div class="rail" id="latest-rail">
+        {episodes.map((v) => (
+          <div data-show={v.show ?? ''} data-all={allIds.has(v.id) ? '1' : '0'} hidden={!allIds.has(v.id)}>
+            <VideoCard video={v} badge={showName(v.show)} />
+          </div>
+        ))}
+      </div>
+    </div>
+    {shortsRail.length > 0 && (
+      <div id="panel-shorts" role="tabpanel" aria-labelledby="tab-shorts" hidden>
+        <div class="rail shorts-rail">
+          {shortsRail.map((v) => <VideoCard video={v} size="vertical" />)}
+        </div>
+      </div>
+    )}
+  </section>
+
+  </div>
+
+  <div class="band bg-photo" style="--img:url(/bg/trophies.webp)">
+  <section class="wrap module split reveal">
+    <div class="col" aria-labelledby="news-h">
+      <div class="mod-head">
+        <h2 id="news-h" class="sr-only">News and blogs</h2>
+        <div class="chips nb-tabs" role="tablist" aria-label="News or blogs">
+          <button class="chip" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="true">News</button>
+          <button class="chip" role="tab" id="tab-blogs" aria-controls="panel-blogs" aria-selected="false">Blogs</button>
+        </div>
+        <a id="link-news" href="/news">All news →</a>
+        <a id="link-blogs" href="/armchair-gaffers/write" hidden>All blogs →</a>
+      </div>
+      <div class="nb-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
+        <NewsList items={news} />
+      </div>
+      <div class="nb-panel" id="panel-blogs" role="tabpanel" aria-labelledby="tab-blogs" hidden>
+        <ul class="news bl" id="blog-list" aria-live="polite"><li class="bl-empty">Loading blogs…</li></ul>
+      </div>
+    </div>
+    <div class="col" aria-labelledby="tables-h">
+      <div class="mod-head">
+        <h2 id="tables-h">Tables</h2>
+        <a href="/stats">All stats →</a>
+      </div>
+      <div class="panel-card">
+        <div class="card-head yellow tabs-head">
+          <div class="chips" role="tablist" aria-label="Competition">
+            {tables.map((t, i) => (
+              <button class="chip" role="tab" id={`tab-${t.comp.slug}`} aria-controls={`panel-${t.comp.slug}`} aria-selected={i === 0 ? 'true' : 'false'}>{t.comp.short}</button>
+            ))}
+          </div>
+        </div>
+        {tables.map((t, i) => (
+          <div class="panel" id={`panel-${t.comp.slug}`} role="tabpanel" aria-labelledby={`tab-${t.comp.slug}`} hidden={i !== 0}>
+            <p class="muted season">{t.data!.seasonLabel}</p>
+            <div class="flat"><StandingsTable rows={t.data!.stages[0].groups[0].rows} comp={t.comp} compact limit={6} caption={`${t.comp.name} table`} /></div>
+            <a class="full" href={`/stats/${t.comp.slug}`}>Full {t.comp.short} table →</a>
+          </div>
+        ))}
+      </div>
+    </div>
   </section>
 
   </div>
@@ -295,6 +295,10 @@ const jsonLd = {
       }),
     );
   });
+  // The header link follows the News / Blogs tab.
+  const linkNews = document.getElementById('link-news'), linkBlogs = document.getElementById('link-blogs');
+  document.getElementById('tab-news')?.addEventListener('click', () => { linkNews!.hidden = false; linkBlogs!.hidden = true; });
+  document.getElementById('tab-blogs')?.addEventListener('click', () => { linkNews!.hidden = true; linkBlogs!.hidden = false; });
   // Blogs tab: published Outfield Talks pieces load live, so a newly approved piece shows without a rebuild.
   const blogList = document.getElementById('blog-list');
   if (blogList) {
@@ -380,12 +384,18 @@ const jsonLd = {
   @media (max-width: 900px) { .shorts-rail { grid-auto-columns: 30%; } }
   @media (max-width: 560px) { .shorts-rail { grid-auto-columns: 44%; } }
 
-  .split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; }
-  .col { display: grid; gap: 16px; align-content: start; }
+  /* Both columns stretch to the taller one, so their bottoms line up. */
+  .split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: stretch; }
+  .col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
   .col > .mod-head { margin-bottom: 0; }
+  .col > .panel-card { flex: 1; }
   .nb-tabs { margin: 0; }
-  .nb-panel { display: grid; gap: 4px; align-content: start; }
+  .nb-panel { display: flex; flex-direction: column; flex: 1; gap: 4px; }
   .nb-panel[hidden] { display: none; }
+  .nb-panel :global(.news) { flex: 1; }
+  #link-news[hidden], #link-blogs[hidden] { display: none; }
+  .col > .mod-head a { font-weight: 600; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .col > .mod-head a:hover { text-decoration: underline; }
   .bl { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
   .bl :global(li) { display: grid; gap: 4px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
   .bl :global(li:last-child) { border-bottom: 0; }
