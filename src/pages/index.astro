@@ -208,14 +208,14 @@ const jsonLd = {
           <button class="chip" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="true">News</button>
           <button class="chip" role="tab" id="tab-blogs" aria-controls="panel-blogs" aria-selected="false">Blogs</button>
         </div>
+        <a id="link-news" href="/news">All news →</a>
+        <a id="link-blogs" href="/armchair-gaffers/write" hidden>All blogs →</a>
       </div>
       <div class="nb-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
         <NewsList items={news} />
-        <a class="full" href="/news">All news →</a>
       </div>
       <div class="nb-panel" id="panel-blogs" role="tabpanel" aria-labelledby="tab-blogs" hidden>
         <ul class="news bl" id="blog-list" aria-live="polite"><li class="bl-empty">Loading blogs…</li></ul>
-        <a class="full" href="/armchair-gaffers/write">All blogs →</a>
       </div>
     </div>
     <div class="col" aria-labelledby="tables-h">
@@ -295,6 +295,10 @@ const jsonLd = {
       }),
     );
   });
+  // The header link follows the News / Blogs tab.
+  const linkNews = document.getElementById('link-news'), linkBlogs = document.getElementById('link-blogs');
+  document.getElementById('tab-news')?.addEventListener('click', () => { linkNews!.hidden = false; linkBlogs!.hidden = true; });
+  document.getElementById('tab-blogs')?.addEventListener('click', () => { linkNews!.hidden = true; linkBlogs!.hidden = false; });
   // Blogs tab: published Outfield Talks pieces load live, so a newly approved piece shows without a rebuild.
   const blogList = document.getElementById('blog-list');
   if (blogList) {
@@ -380,12 +384,18 @@ const jsonLd = {
   @media (max-width: 900px) { .shorts-rail { grid-auto-columns: 30%; } }
   @media (max-width: 560px) { .shorts-rail { grid-auto-columns: 44%; } }
 
-  .split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; }
-  .col { display: grid; gap: 16px; align-content: start; }
+  /* Both columns stretch to the taller one, so their bottoms line up. */
+  .split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: stretch; }
+  .col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
   .col > .mod-head { margin-bottom: 0; }
+  .col > .panel-card { flex: 1; }
   .nb-tabs { margin: 0; }
-  .nb-panel { display: grid; gap: 4px; align-content: start; }
+  .nb-panel { display: flex; flex-direction: column; flex: 1; gap: 4px; }
   .nb-panel[hidden] { display: none; }
+  .nb-panel :global(.news) { flex: 1; }
+  #link-news[hidden], #link-blogs[hidden] { display: none; }
+  .col > .mod-head a { font-weight: 600; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .col > .mod-head a:hover { text-decoration: underline; }
   .bl { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
   .bl :global(li) { display: grid; gap: 4px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
   .bl :global(li:last-child) { border-bottom: 0; }
