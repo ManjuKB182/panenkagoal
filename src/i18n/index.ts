@@ -69,5 +69,5 @@ export function digits(locale: Locale, value: string | number): string {
 }
 
 /** Team names: Kannada when known (see teams.ts), English otherwise. */
-export { groupName, seasonText, teamName } from './teams';
+export { groupName, leagueName, seasonText, teamName } from './teams';
 export { personName } from './people';

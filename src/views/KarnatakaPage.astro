@@ -11,7 +11,7 @@ import profiles from '../../data/karnataka/academy-profiles.json';
 import { SECTIONS } from '../config/site';
 import { getCompetition } from '../config/competitions';
 import { getLeague } from '../lib/data';
-import { digits, getLocale, groupName, personName, t, teamName } from '../i18n';
+import { digits, getLocale, groupName, leagueName, personName, t, teamName } from '../i18n';
 
 const locale = getLocale(Astro.url);
 const n =(v: number | string) => digits(locale, v);
@@ -82,7 +82,7 @@ const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').re
       {academies.map((a) => (
         <dialog class="profile" id={`acad-${slug(a.name)}`} aria-labelledby={`h-${slug(a.name)}`}>
           <form method="dialog"><button class="x" aria-label={t(locale, 'karnataka.closeProfile')}>×</button></form>
-          <div class="pf-head">{(a as any).logo && <span class="crest big"><img src={(a as any).logo} alt="" width="72" height="72" /></span>}<div><div class="eyebrow">{t(locale, 'karnataka.academyProfile')}</div><h2 id={`h-${slug(a.name)}`}>{a.name}</h2></div></div>
+          <div class="pf-head">{(a as any).logo && <span class="crest big"><img src={(a as any).logo} alt="" width="72" height="72" /></span>}<div><div class="eyebrow">{t(locale, 'karnataka.academyProfile')}</div><h2 id={`h-${slug(a.name)}`}>{teamName(locale, a.name)}</h2></div></div>
           <dl class="kv">
             <dt>{t(locale, 'karnataka.city')}</dt><dd>{a.city}</dd>
             {a.ageGroups && <><dt>{t(locale, 'karnataka.ageGroups')}</dt><dd>{a.ageGroups}</dd></>}
@@ -96,7 +96,7 @@ const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').re
               <h3>{t(locale, 'karnataka.takingPart', { n: n(profile(a.name).length), s: sPlural(profile(a.name).length) })}</h3>
               {profile(a.name).map((tour) => (
                 <section class="tour">
-                  <div class="tour-head"><b>{tour.league}</b><span>{n(tour.season)}</span></div>
+                  <div class="tour-head"><b>{leagueName(locale, tour.league)}</b><span>{n(tour.season)}</span></div>
                   {tour.stage && <p class="tour-sub">{groupName(locale, tour.stage)}{tour.group ? ` · ${locale === 'kn' ? groupName(locale, tour.group) : tidy(tour.group)}` : ''}{tour.pos ? ` · ${t(locale, 'karnataka.position', { n: n(tour.pos) })}` : ''}</p>}
                   {tour.played ? <p class="rec"><b>{n(tour.played)}</b> {t(locale, 'karnataka.statPlayed')} · <b>{n(tour.won ?? 0)}</b> {t(locale, 'karnataka.statWon')} · <b>{n(tour.drawn ?? 0)}</b> {t(locale, 'karnataka.statDrawn')} · <b>{n(tour.lost ?? 0)}</b> {t(locale, 'karnataka.statLost')} · {n(tour.gf ?? 0)}–{n(tour.ga ?? 0)} {t(locale, 'karnataka.statGoals')} · <b>{n(tour.points ?? 0)}</b> {t(locale, 'karnataka.statPts')}</p> : null}
                   <dl class="kv">

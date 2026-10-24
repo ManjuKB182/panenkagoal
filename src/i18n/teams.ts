@@ -185,6 +185,21 @@ export function teamName(locale: Locale, name: string): string {
   return locale === 'kn' ? (TEAM_NAMES_KN[name.trim()] ?? name) : name;
 }
 
+// Competition names from the academy profiles, in Kannada.
+const LEAGUE_NAMES_KN: Record<string, string> = {
+  'KSFA Super Division': 'ಕೆಎಸ್‌ಎಫ್‌ಎ ಸೂಪರ್ ಡಿವಿಷನ್',
+  'AIFF Junior League (U15)': 'AIFF ಜೂನಿಯರ್ ಲೀಗ್ (U15)',
+  'AIFF Sub-Junior League (U13)': 'AIFF ಸಬ್-ಜೂನಿಯರ್ ಲೀಗ್ (U13)',
+  'AIFF Elite Youth League (U18)': 'AIFF ಎಲೈಟ್ ಯೂತ್ ಲೀಗ್ (U18)',
+  "Indian Women's League 2": 'ಭಾರತೀಯ ಮಹಿಳಾ ಲೀಗ್ 2',
+  "Indian Women's League": 'ಭಾರತೀಯ ಮಹಿಳಾ ಲೀಗ್',
+};
+
+/** Competition name in the page language. */
+export function leagueName(locale: Locale, name: string): string {
+  return locale === 'kn' ? (LEAGUE_NAMES_KN[name.trim()] ?? name) : name;
+}
+
 // Stage and group labels from the league data ("Group A", "Group Stage", ...).
 const STAGE_KN: Record<string, string> = {
   'Group Stage': 'ಗುಂಪು ಹಂತ',
