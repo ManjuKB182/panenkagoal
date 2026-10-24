@@ -1,0 +1,192 @@
+---
+import Base from '../layouts/Base.astro';
+import GafferHead from '../components/WriteHead.astro';
+import VideoCard from '../components/VideoCard.astro';
+import { SITE } from '../config/site';
+import { getShows, getVideos, isShort } from '../lib/data';
+import { shortDate, ytWatch } from '../lib/format';
+import { digits, getLocale, localePath, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const href = (p: string) => localePath(locale, p);
+const shows = getShows();
+const { panenka, isl } = getVideos();
+const longForm = panenka.filter((v) => !isShort(v));
+const shorts = panenka.filter(isShort);
+const latest = longForm[0];
+const showOf = (slug?: string) => shows.find((s) => s.slug === slug);
+const showName = (s: { name: string; nameKn?: string }) => (locale === 'kn' ? (s.nameKn ?? s.name) : s.name);
+
+const showCards = shows.map((s) => {
+  // Some shows (Football Kathe) are filmed vertically, so count shorts that belong to the show too.
+  const eps = panenka.filter((v) => v.show === s.slug);
+  return { show: s, count: eps.length, last: eps[0], thumb: eps[0]?.thumbnail };
+});
+
+// One grid, filtered by tab. Each item carries the tabs it belongs to.
+const items = [
+  ...longForm.filter((v) => v.id !== latest?.id).map((v) => ({ v, cats: ['all', v.show ?? 'other'], badge: showOf(v.show) ? showName(showOf(v.show)!) : undefined, vertical: false })),
+  ...isl.map((v) => ({ v, cats: ['isl'], badge: 'ISL', vertical: false })),
+  ...shorts.map((v) => ({ v, cats: v.show ? ['shorts', v.show] : ['shorts'], badge: undefined, vertical: true })),
+];
+const tabs = [
+  { key: 'all', label: t(locale, 'outfield.allEpisodes') },
+  ...shows.map((s) => ({ key: s.slug, label: showName(s) })),
+  ...(isl.length ? [{ key: 'isl', label: t(locale, 'home.islHighlights') }] : []),
+  ...(shorts.length ? [{ key: 'shorts', label: t(locale, 'home.shorts') }] : []),
+].map((tab) => ({ ...tab, n: items.filter((i) => i.cats.includes(tab.key)).length }));
+const PAGE = 12;
+---
+<Base title={t(locale, 'outfield.title')} description={t(locale, 'outfield.description')}>
+  <GafferHead active="watch" />
+  <section class="wrap page-head">
+    <div>
+      <h2 class="ph-h">{t(locale, 'outfield.showsEpisodes')}</h2>
+      <p class="muted lede">{t(locale, 'outfield.ledeBefore')} {t(locale, 'outfield.ledeCount', { episodes: digits(locale, longForm.length), shorts: digits(locale, shorts.length) })}</p>
+    </div>
+    <a class="sub" href={`${SITE.socials.youtube}?sub_confirmation=1`} rel="noopener">{t(locale, 'outfield.subscribe')}</a>
+  </section>
+
+  {latest && (
+    <section class="wrap">
+      <div class="panel-card feature">
+        <div class="fv"><VideoCard video={latest} size="hero" badge={t(locale, 'outfield.latest')} /></div>
+        <div class="fd">
+          {showOf(latest.show) && <a class="eyebrow" href={href(`/armchair-gaffers/${latest.show}`)}>{showName(showOf(latest.show)!)}</a>}
+          <h2>{latest.title.replace(/#\w+/g, '').trim()}</h2>
+          <p class="muted">{shortDate(latest.publishedAt, locale)}{latest.views ? ` · ${t(locale, 'video.views', { n: digits(locale, latest.views.toLocaleString('en-IN')) })}` : ''}</p>
+          {latest.description && <p class="desc">{latest.description.split('\n')[0].slice(0, 220)}</p>}
+          <div class="actions">
+            <a class="btn" href={ytWatch(latest.id)} rel="noopener">{t(locale, 'outfield.watchOnYoutube')}</a>
+            {latest.show && <a class="btn ghost" href={href(`/armchair-gaffers/${latest.show}`)}>{t(locale, 'outfield.moreEpisodes')}</a>}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="wrap module" aria-labelledby="shows-h">
+    <div class="mod-head"><h2 id="shows-h">{t(locale, 'outfield.ourShows')}</h2></div>
+    <div class="shows">
+      {showCards.map(({ show, count, last, thumb }) => (
+        <a class="panel-card show" href={href(`/armchair-gaffers/${show.slug}`)}>
+          {thumb ? <img src={thumb} alt="" width="480" height="360" loading="lazy" /> : <span class="ph"></span>}
+          <span class="sb">
+            <span class="sn">{showName(show)}</span>
+            {locale === 'en' && show.nameKn && <span class="kn" lang="kn">{show.nameKn}</span>}
+            <span class="muted">
+              {t(locale, count === 1 ? 'outfield.episodeOne' : 'outfield.episodeMany', { n: digits(locale, count) })}
+              {last ? ` · ${t(locale, 'outfield.latestDate', { date: shortDate(last.publishedAt, locale) })}` : ''}
+            </span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap module" aria-labelledby="all-h" id="browse">
+    <div class="mod-head"><h2 id="all-h">{t(locale, 'outfield.browse')}</h2></div>
+    <div class="chips" role="tablist" aria-label={t(locale, 'outfield.filterVideos')}>
+      {tabs.map((tab, i) => (
+        <button class="chip" role="tab" id={`tab-${tab.key}`} data-cat={tab.key} aria-selected={i === 0 ? 'true' : 'false'}>
+          {tab.label} <span class="n">{digits(locale, tab.n)}</span>
+        </button>
+      ))}
+    </div>
+    <div class="grid" id="video-grid">
+      {items.map((it) => (
+        <div class="gi" data-cats={it.cats.join(' ')}>
+          <VideoCard video={it.v} badge={it.badge} size={it.vertical ? 'vertical' : 'tile'} />
+        </div>
+      ))}
+    </div>
+    <div class="more-row">
+      <button class="chip" id="more" type="button">{t(locale, 'outfield.showMore')}</button>
+    </div>
+  </section>
+</Base>
+
+<script define:vars={{ PAGE }}>
+  const grid = document.getElementById('video-grid');
+  const more = document.getElementById('more');
+  const tabs = [...document.querySelectorAll('[data-cat][role="tab"]')];
+  let cat = 'all';
+  let shown = PAGE;
+
+  function render() {
+    const all = [...grid.children];
+    const matching = all.filter((el) => el.dataset.cats.split(' ').includes(cat));
+    all.forEach((el) => (el.hidden = true));
+    matching.forEach((el, i) => (el.hidden = i >= shown));
+    const vertical = matching.filter((el) => el.querySelector('.vertical')).length;
+    grid.classList.toggle('shorts', matching.length > 0 && vertical / matching.length > 0.5);
+    more.hidden = matching.length <= shown;
+  }
+  function select(key) {
+    if (!tabs.some((t) => t.dataset.cat === key)) key = 'all';
+    cat = key;
+    shown = PAGE;
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.cat === key)));
+    render();
+  }
+  tabs.forEach((t) => t.addEventListener('click', () => select(t.dataset.cat)));
+  more.addEventListener('click', () => { shown += PAGE; render(); });
+  // Deep links such as /armchair-gaffers#isl or /armchair-gaffers#shorts open that tab.
+  const fromHash = location.hash.replace('#', '').replace('isl-highlights', 'isl');
+  select(fromHash || 'all');
+  if (fromHash) document.getElementById('browse').scrollIntoView();
+</script>
+
+<style>
+  .page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 20px; }
+  .lede { margin-top: 6px; font-size: 15px; }
+  .sub, .btn {
+    display: inline-flex; align-items: center; gap: 8px; background: var(--brand); color: #fff; font-weight: 600; font-size: 14.5px;
+    padding: 10px 18px; border-radius: 99px; text-decoration: none; transition: background-color 0.15s;
+  }
+  .sub:hover, .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: var(--surface); color: var(--text); border: 1px solid var(--line-strong); }
+  .btn.ghost:hover { background: var(--surface-2); }
+
+  .feature { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); box-shadow: inset 0 3px 0 var(--brand), var(--shadow); }
+  .fv :global(.thumb) { border-radius: 0; }
+  .fv :global(.meta) { display: none; }
+  .fd { padding: 24px 26px; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+  .fd h2 { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.15; }
+  .desc { color: var(--text-2); font-size: 15px; line-height: 1.55; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+
+  .shows { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .show { display: grid; grid-template-rows: auto 1fr; color: var(--text); text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+  .show:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(18, 20, 23, 0.1); }
+  .show img, .ph { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--surface-2); }
+  .sb { display: grid; gap: 2px; align-content: start; padding: 12px 14px 14px; border-top: 3px solid var(--accent); }
+  .sn { font: 700 18px/1.2 var(--display); }
+  .sb .kn { font-size: 13.5px; color: var(--text-2); line-height: 1.5; }
+  .sb .muted { font-size: 13px; margin-top: 2px; }
+
+  #browse { scroll-margin-top: 72px; }
+  .n { font-size: 11.5px; opacity: 0.7; margin-left: 2px; }
+  .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 18px; margin-top: 18px; }
+  .grid.shorts { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .more-row { display: flex; justify-content: center; margin-top: 24px; }
+  .more-row .chip { padding: 10px 22px; }
+
+  @media (max-width: 1000px) {
+    .shows { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.shorts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .feature { grid-template-columns: minmax(0, 1fr); }
+    .fd { padding: 18px; }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
+    .grid.shorts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 480px) {
+    .shows { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+    .sn { font-size: 16px; }
+    .grid { grid-template-columns: minmax(0, 1fr); }
+    .grid.shorts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

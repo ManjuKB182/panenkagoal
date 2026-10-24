@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import MerchTile from '../components/MerchTile.astro';
+import { getMerch } from '../lib/data';
+import { getLocale, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const items = getMerch();
+const anyLive = items.some((m) => m.status === 'live' || m.status === 'pre-order');
+---
+<Base title={t(locale, 'merch.title')} description={t(locale, 'merch.description')}>
+  <section class="wrap module">
+    <p class="eyebrow">{t(locale, 'merch.eyebrow')}</p>
+    <h1>{t(locale, 'merch.h1')}</h1>
+    <p style="max-width:60ch;margin-top:8px">
+      {t(locale, 'merch.ledeBefore')} <b>{t(locale, 'merch.order')}</b>{t(locale, 'merch.ledeAfter')}
+    </p>
+    {!anyLive && <p class="note" style="margin-top:14px">{t(locale, 'merch.soon')}</p>}
+  </section>
+  <section class="wrap grid">
+    {items.map((m) => <MerchTile item={m} />)}
+  </section>
+</Base>
+
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 18px; }
+</style>

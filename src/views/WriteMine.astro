@@ -1,0 +1,128 @@
+---
+// Writer's "My pieces" page. Writers only (Cloudflare Access). Rendered by the English and the /kn/ page files.
+import Base from '../layouts/Base.astro';
+import WriteHead from '../components/WriteHead.astro';
+import { localePath, t, type Locale } from '../i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const href = (p: string) => localePath(locale, p);
+const ui = {
+  base: locale === 'kn' ? '/kn' : '',
+  intl: locale === 'kn' ? 'kn-IN' : 'en-IN',
+  status: {
+    pending: t(locale, 'write.status.pending'),
+    published: t(locale, 'write.status.published'),
+    sent_back: t(locale, 'write.status.sentBack'),
+  },
+  kindFan: t(locale, 'write.kind.fan'),
+  kindAnalyst: t(locale, 'write.kind.analyst'),
+  remove: t(locale, 'write.common.remove'),
+  cancel: t(locale, 'write.common.cancel'),
+  sending: t(locale, 'write.common.sending'),
+  genericError: t(locale, 'write.common.genericError'),
+  caption: t(locale, 'write.common.caption'),
+  sentOn: t(locale, 'write.mine.sentOn'),
+  editorNote: t(locale, 'write.mine.editorNote'),
+  viewLive: t(locale, 'write.mine.viewLive'),
+  fixResubmit: t(locale, 'write.mine.fixResubmit'),
+  edit: t(locale, 'write.mine.edit'),
+  sendAgain: t(locale, 'write.mine.sendAgain'),
+  loading: t(locale, 'write.mine.loading'),
+  reloadSignIn: t(locale, 'write.mine.reloadSignIn'),
+  none: t(locale, 'write.mine.none'),
+  signedInAs: t(locale, 'write.mine.signedInAs'),
+};
+---
+<Base title={t(locale, 'write.mine.title')} description={t(locale, 'write.mine.desc')}>
+  <WriteHead locale={locale} active="mine" compact />
+  <section class="wrap module" style="padding-top:12px">
+    <p class="eyebrow">{t(locale, 'write.eyebrow')}</p>
+    <h1>{t(locale, 'write.mine.title')}</h1>
+    <p class="muted" style="margin:6px 0 14px" id="mine-who">{t(locale, 'write.mine.signingIn')}</p>
+    <div class="wr-row" style="margin-bottom:14px"><a class="btn" href={href('/armchair-gaffers/write/submit')}>{t(locale, 'write.mine.submitNew')}</a></div>
+    <div class="wr-rev" id="mine-list" aria-live="polite"></div>
+  </section>
+</Base>
+<script type="application/json" id="wr-i18n" set:html={JSON.stringify(ui)} />
+
+<script>
+  type B = { t: 'p'; txt: string } | { t: 'img'; key: string; cap: string; credit: string };
+  type Post = { id: number; slug: string; title: string; kind: 'fan' | 'analyst'; cover_key: string | null; body: B[]; status: 'pending' | 'published' | 'sent_back'; editor_note: string | null; created_at: string };
+  const ui = JSON.parse(document.getElementById('wr-i18n')!.textContent!) as {
+    base: string; intl: string; status: Record<string, string>; kindFan: string; kindAnalyst: string; remove: string; cancel: string;
+    sending: string; genericError: string; caption: string; sentOn: string; editorNote: string; viewLive: string; fixResubmit: string;
+    edit: string; sendAgain: string; loading: string; reloadSignIn: string; none: string; signedInAs: string;
+  };
+  const list = document.getElementById('mine-list')!;
+  const fill = (tpl: string, vars: Record<string, string>) => Object.entries(vars).reduce((s, [k, v]) => s.replaceAll(`{${k}}`, v), tpl);
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls = '', text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  const btn = (label: string, fn: () => void, cls = 'chip') => {
+    const b = el('button', cls, label); b.type = 'button'; b.addEventListener('click', fn); return b;
+  };
+
+  function editor(p: Post, host: HTMLElement) {
+    host.replaceChildren();
+    const form = el('div', 'wr-form');
+    const title = el('input'); title.value = p.title; title.maxLength = 140;
+    const kind = el('select'); for (const k of ['fan', 'analyst']) { const o = el('option', '', k === 'fan' ? ui.kindFan : ui.kindAnalyst); o.value = k; kind.append(o); } kind.value = p.kind;
+    form.append(title, kind);
+    const fields = p.body.map((b) => {
+      const f = el(b.t === 'p' ? 'textarea' : 'input') as HTMLTextAreaElement | HTMLInputElement;
+      if (b.t === 'p') { (f as HTMLTextAreaElement).rows = 6; f.value = b.txt; } else {
+        f.value = b.cap; f.placeholder = ui.caption;
+        const im = el('img'); im.src = `/api/write/photo/${b.key}`; im.alt = ''; im.style.maxHeight = '160px'; im.style.objectFit = 'contain'; form.append(im);
+      }
+      form.append(f);
+      return f;
+    });
+    const msg = el('p', 'wr-msg');
+    const row = el('div', 'wr-row');
+    row.append(
+      btn(ui.sendAgain, async () => {
+        const body = p.body.map((b, i) => (b.t === 'p' ? { t: 'p', txt: fields[i].value } : { ...b, cap: fields[i].value }));
+        msg.textContent = ui.sending;
+        const r = await fetch(`/api/write/mine/${p.id}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ title: title.value, kind: kind.value, body }) });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok) { msg.textContent = d.error ?? ui.genericError; return; }
+        load();
+      }, 'btn'),
+      btn(ui.cancel, () => host.replaceChildren()),
+    );
+    form.append(row, msg);
+    host.append(form);
+  }
+
+  function card(p: Post) {
+    const c = el('div', 'wr-item');
+    c.append(el('h3', '', p.title));
+    c.append(el('div', 'muted', fill(ui.sentOn, { status: ui.status[p.status], date: new Date(p.created_at).toLocaleDateString(ui.intl) })));
+    if (p.status === 'sent_back' && p.editor_note) {
+      const n = el('div', 'wr-card'); n.append(el('b', '', ui.editorNote), el('p', '', p.editor_note)); c.append(n);
+    }
+    const host = el('div');
+    const row = el('div', 'wr-row');
+    if (p.status === 'published') { const v = el('a', 'btn', ui.viewLive) as HTMLAnchorElement; v.href = `${ui.base}/armchair-gaffers/write/${p.slug}`; row.append(v); }
+    else row.append(btn(p.status === 'sent_back' ? ui.fixResubmit : ui.edit, () => editor(p, host), p.status === 'sent_back' ? 'btn' : 'chip'));
+    c.append(row, host);
+    return c;
+  }
+
+  async function load() {
+    list.replaceChildren(el('p', 'wr-empty', ui.loading));
+    const r = await fetch('/api/write/mine');
+    if (!r.ok) { list.replaceChildren(el('p', 'wr-empty', ui.reloadSignIn)); return; }
+    const d = await r.json();
+    document.getElementById('mine-who')!.textContent = fill(ui.signedInAs, { email: d.email });
+    list.replaceChildren();
+    if (!d.posts.length) list.append(el('p', 'wr-empty', ui.none));
+    for (const p of d.posts as Post[]) list.append(card(p));
+  }
+  load();
+</script>

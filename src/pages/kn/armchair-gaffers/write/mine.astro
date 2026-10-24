@@ -1,0 +1,8 @@
+---
+// Writers only. Gated by the writers' Cloudflare Access app (any email, one-time PIN); the API checks the Access token too.
+import { getLocale } from '../../../../i18n';
+import WriteMine from '../../../../views/WriteMine.astro';
+
+const locale = getLocale(Astro.url);
+---
+<WriteMine locale={locale} />

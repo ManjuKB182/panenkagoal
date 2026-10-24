@@ -1,0 +1,33 @@
+---
+// All-news body, shared by /news and /kn/news.
+import Base from '../layouts/Base.astro';
+import TabBar from '../components/TabBar.astro';
+import NewsTiles from '../components/NewsTiles.astro';
+import { SECTIONS, type SectionKey } from '../config/site';
+import { getNews } from '../lib/data';
+import { getLocale, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const all = getNews().slice(0, 120);
+const keys = Object.keys(SECTIONS) as SectionKey[];
+const sectionName = (k: SectionKey) => (locale === 'kn' ? SECTIONS[k].titleKn : SECTIONS[k].title);
+const tabs = [{ id: 'all', label: t(locale, 'home.all') }, ...keys.map((k) => ({ id: k, label: sectionName(k) }))];
+---
+<Base title={t(locale, 'news.allNews')} description={t(locale, 'news.pageDescription')}>
+  <div class="wrap body">
+    <div class="pagehead">
+      <p class="eyebrow">{t(locale, 'news.pageEyebrow')}</p>
+      <h1>{t(locale, 'news.allNews')}</h1>
+      <p>{t(locale, 'news.pageIntro')}</p>
+    </div>
+    <TabBar group="news" tabs={tabs} />
+    <section class="tabpanel" data-group="news" data-panel="all"><NewsTiles items={all} all /></section>
+    {keys.map((k) => (
+      <section class="tabpanel" data-group="news" data-panel={k} hidden><NewsTiles items={all.filter((n) => n.section === k)} all /></section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .body { padding-bottom: 48px; }
+</style>

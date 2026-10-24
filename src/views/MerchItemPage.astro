@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import MerchTile from '../components/MerchTile.astro';
+import type { MerchItem } from '../lib/data';
+import { SITE } from '../config/site';
+import { getLocale, localePath, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const href = (p: string) => localePath(locale, p);
+const { item } = Astro.props as { item: MerchItem };
+const blurb = locale === 'kn' ? ((item as MerchItem & { blurbKn?: string }).blurbKn ?? item.blurb) : item.blurb;
+const jsonLd = item.price
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: item.name,
+      description: blurb,
+      brand: { '@type': 'Brand', name: SITE.name },
+      offers: {
+        '@type': 'Offer', priceCurrency: 'INR', price: item.price,
+        availability: item.status === 'sold-out' ? 'https://schema.org/SoldOut' : item.status === 'pre-order' ? 'https://schema.org/PreOrder' : 'https://schema.org/InStock',
+      },
+    }
+  : undefined;
+---
+<Base title={item.name} description={blurb} jsonLd={jsonLd}>
+  <section class="wrap module">
+    <a class="eyebrow" href={href('/merch')} style="text-decoration:none">{t(locale, 'merch.allMerch')}</a>
+    <div style="max-width:520px;margin-top:12px"><MerchTile item={item} full /></div>
+  </section>
+</Base>

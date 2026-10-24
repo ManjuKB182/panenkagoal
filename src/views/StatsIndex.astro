@@ -1,0 +1,56 @@
+---
+// Stats index body, shared by /stats and /kn/stats.
+import Base from '../layouts/Base.astro';
+import TabBar from '../components/TabBar.astro';
+import LeaguePanel from '../components/LeaguePanel.astro';
+import { getCompetition } from '../config/competitions';
+import { getLeague } from '../lib/data';
+import { getLocale, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const comp = (slug: string) => getCompetition(slug)!;
+// Tab order is fixed: the big leagues first, youth last.
+const main = [
+  { id: 'isl', label: 'ISL', slug: 'isl' },
+  { id: 'ifl', label: 'IFL', slug: 'ifl' },
+  { id: 'iwl', label: 'IWL', slug: 'iwl' },
+  { id: 'iwl-2', label: 'IWL 2', slug: 'iwl-2' },
+  { id: 'i-league-2', label: 'I-League 2', slug: 'i-league-2' },
+  { id: 'i-league-3', label: 'I-League 3', slug: 'i-league-3' },
+];
+const youth = [
+  { id: 'u18', label: 'U18 Elite', slug: 'elite-u18' },
+  { id: 'u15', label: 'U15 Junior', slug: 'junior-u15' },
+  { id: 'u13', label: 'U13 Sub-Junior', slug: 'sub-junior-u13' },
+];
+const tabs = [...main.map(({ id, label }) => ({ id, label })), { id: 'youth', label: t(locale, 'stats.youthLeague') }];
+---
+<Base title={t(locale, 'stats.pageTitle')} description={t(locale, 'stats.pageDescription')}>
+  <div class="wrap">
+    <div class="pagehead">
+      <p class="eyebrow">{t(locale, 'stats.eyebrow')}</p>
+      <h1>{t(locale, 'stats.title')}</h1>
+      <p>{t(locale, 'stats.intro')}</p>
+    </div>
+    <TabBar group="stats" tabs={tabs} />
+
+    {main.map((lg) => (
+      <section class="tabpanel module-tight" data-group="stats" data-panel={lg.id} hidden={lg.id !== 'isl'}>
+        <LeaguePanel comp={comp(lg.slug)} data={getLeague(comp(lg.slug))} />
+      </section>
+    ))}
+    <section class="tabpanel module-tight" data-group="stats" data-panel="youth" hidden>
+      <TabBar group="youth" tabs={youth} />
+      {youth.map((lg) => (
+        <div class="tabpanel" data-group="youth" data-panel={lg.id} hidden={lg.id !== 'u18'}>
+          <LeaguePanel comp={comp(lg.slug)} data={getLeague(comp(lg.slug))} />
+        </div>
+      ))}
+    </section>
+  </div>
+</Base>
+
+<style>
+  .module-tight { padding-bottom: 36px; }
+  .more { padding-bottom: 36px; }
+</style>

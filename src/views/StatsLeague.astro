@@ -1,0 +1,126 @@
+---
+// One league's stats page body (table, fixtures, results, scorers), shared by /stats/<slug> and /kn/stats/<slug>.
+import Base from '../layouts/Base.astro';
+import StandingsTable from '../components/StandingsTable.astro';
+import MatchList from '../components/MatchList.astro';
+import { compName, type Competition } from '../config/competitions';
+import { SECTIONS, SITE } from '../config/site';
+import { getLeague } from '../lib/data';
+import { longDateTime } from '../lib/format';
+import { getLocale, groupName, localePath, personName, seasonText, t, teamName } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const href = (p: string) => localePath(locale, p);
+
+const { comp } = Astro.props as { comp: Competition };
+const data = getLeague(comp);
+const now = new Date().toISOString();
+const results = (data?.fixtures ?? []).filter((m) => m.status === 'ft').sort((a, b) => b.kickoff.localeCompare(a.kickoff)).slice(0, 15);
+const upcoming = (data?.fixtures ?? []).filter((m) => m.status === 'scheduled' && m.kickoff >= now).sort((a, b) => a.kickoff.localeCompare(b.kickoff)).slice(0, 15);
+const sectionTitle = locale === 'kn' ? SECTIONS[comp.section].titleKn : SECTIONS[comp.section].title;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t(locale, 'stats.eyebrow'), item: `${SITE.url}${href('/stats')}` },
+    { '@type': 'ListItem', position: 2, name: compName(locale, comp), item: `${SITE.url}${href(`/stats/${comp.slug}`)}` },
+  ],
+};
+---
+<Base title={t(locale, 'stats.leagueTableTitle', { name: compName(locale, comp) })} description={t(locale, 'stats.leagueDescription', { name: comp.name, season: data?.season ?? '' })} jsonLd={jsonLd}>
+  <header class="bg-photo head-bg" style="--img:url(/bg/crowd.webp)"><div class="wrap module head">
+    <a class="eyebrow" href={href(`/${comp.section}`)}>{sectionTitle}</a>
+    <h1>{compName(locale, comp)}</h1>
+    <p class="muted">{data?.seasonLabel ? seasonText(locale, comp.name, comp.nameKn, data.seasonLabel) : t(locale, 'stats.noSeason')}</p>
+    <div class="chips" role="tablist" aria-label={t(locale, 'stats.views')}>
+      <button class="chip" role="tab" id="tab-table" aria-controls="table" aria-selected="true" data-tab="table" type="button">{t(locale, 'stats.tabTable')}</button>
+      <button class="chip" role="tab" id="tab-fixtures" aria-controls="fixtures" aria-selected="false" data-tab="fixtures" type="button">{t(locale, 'stats.tabFixtures')}</button>
+      <button class="chip" role="tab" id="tab-results" aria-controls="results" aria-selected="false" data-tab="results" type="button">{t(locale, 'stats.tabResults')}</button>
+      <button class="chip" role="tab" id="tab-scorers" aria-controls="scorers" aria-selected="false" data-tab="scorers" type="button">{t(locale, 'stats.tabScorers')}</button>
+    </div>
+  </div></header>
+
+  <section class="wrap module panel" id="table" role="tabpanel" aria-labelledby="tab-table" data-panel="table">
+    <h2 id="table-h" class="sr-only">{t(locale, 'stats.tabTable')}</h2>
+    {!data || data.stages.every((s) => s.groups.every((g) => g.rows.length === 0)) ? (
+      <p class="note">{t(locale, 'stats.noTable')}</p>
+    ) : (
+      data.stages.map((stage) => (
+        <div class="stage">
+          {data.stages.length > 1 && <h3>{groupName(locale, stage.name)}</h3>}
+          <div class="groups">
+            {stage.groups.map((g) => (
+              <div class="stack" style="gap:6px">
+                {g.name && <p class="gname">{groupName(locale, g.name)}</p>}
+                <StandingsTable rows={g.rows} comp={comp} caption={`${compName(locale, comp)} ${groupName(locale, stage.name)} ${groupName(locale, g.name)}`.trim()} />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    )}
+    <p class="src-line">
+      {data?.updatedAt ? t(locale, 'stats.updated', { date: longDateTime(data.updatedAt, locale) }) : t(locale, 'stats.noResultsEntered')} · {t(locale, 'stats.source')}: <a href={comp.sourceUrl} rel="noopener">{comp.sourceLabel}</a>
+    </p>
+  </section>
+
+  <section class="wrap module panel" id="fixtures" role="tabpanel" aria-labelledby="tab-fixtures" data-panel="fixtures">
+    <div class="box">
+      <h2>{t(locale, 'stats.tabFixtures')}</h2>
+      {upcoming.length ? <MatchList matches={upcoming} showDate /> : <p class="muted">{t(locale, 'stats.noUpcoming')}</p>}
+    </div>
+  </section>
+
+  <section class="wrap module panel" id="results" role="tabpanel" aria-labelledby="tab-results" data-panel="results">
+    <div class="box">
+      <h2>{t(locale, 'stats.tabResults')}</h2>
+      {results.length ? <MatchList matches={results} showDate /> : <p class="muted">{t(locale, 'stats.noResults')}</p>}
+    </div>
+  </section>
+
+  <section class="wrap module panel" id="scorers" role="tabpanel" aria-labelledby="tab-scorers" data-panel="scorers">
+    <h2>{t(locale, 'stats.tabScorers')}</h2>
+    {data?.scorers.length ? (
+      <div class="tbl" style="margin-top:12px">
+        <table>
+          <thead><tr><th class="l">#</th><th class="l">{t(locale, 'stats.player')}</th><th class="l">{t(locale, 'table.club')}</th><th>{t(locale, 'stats.goals')}</th></tr></thead>
+          <tbody>
+            {data.scorers.slice(0, 15).map((s, i) => (
+              <tr><td class="l">{i + 1}</td><td class="l"><b>{personName(locale, s.player)}</b></td><td class="l">{teamName(locale, s.team)}</td><td><b>{s.goals}</b></td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ) : <p class="muted">{t(locale, 'stats.noScorers')}</p>}
+  </section>
+</Base>
+
+<script>
+  // Tabs: swap panels in place (no scrolling); the URL hash keeps the view linkable.
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-tab]')];
+  const panels = [...document.querySelectorAll<HTMLElement>('[data-panel]')];
+  document.documentElement.classList.add('tabs-on');
+  const show = (name: string, push = true) => {
+    if (!tabs.some((t) => t.dataset.tab === name)) name = 'table';
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === name)));
+    panels.forEach((p) => { p.hidden = p.dataset.panel !== name; });
+    if (push) history.replaceState(null, '', `#${name}`);
+  };
+  tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.tab!)));
+  addEventListener('hashchange', () => show(location.hash.slice(1), false));
+  show(location.hash.slice(1), false);
+</script>
+
+<style>
+  .head { display: grid; gap: 8px; padding-block: 36px 8px; }
+  .head .chips { margin-top: 12px; }
+  .stage + .stage { margin-top: 32px; }
+  .stage h3 { margin-bottom: 12px; font-size: 20px; }
+  .groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 24px; }
+  .gname { font-weight: 700; color: var(--text-2); }
+  .src-line { margin-top: 14px; font-size: 13.5px; color: var(--text-3); }
+  .panel[hidden] { display: none; }
+  .panel > .box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; box-shadow: var(--shadow); }
+  .box h2 { margin-bottom: 6px; font-size: 22px; }
+</style>

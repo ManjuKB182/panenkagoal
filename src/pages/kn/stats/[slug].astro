@@ -1,0 +1,11 @@
+---
+import StatsLeague from '../../../views/StatsLeague.astro';
+import { statsLeaguePaths } from '../../../lib/statsRoutes';
+
+export function getStaticPaths() {
+  return statsLeaguePaths();
+}
+
+const { comp } = Astro.props;
+---
+<StatsLeague comp={comp} />

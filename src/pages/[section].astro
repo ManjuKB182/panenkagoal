@@ -1,74 +1,12 @@
 ---
-import Base from '../layouts/Base.astro';
-import VideoCard from '../components/VideoCard.astro';
-import TabBar from '../components/TabBar.astro';
-import FixturesByDay from '../components/FixturesByDay.astro';
-import LeaguePanel from '../components/LeaguePanel.astro';
-import NewsTiles from '../components/NewsTiles.astro';
-import { SECTIONS, SECTION_KEYWORDS, type SectionKey } from '../config/site';
-import { COMPETITIONS } from '../config/competitions';
-import { getAllMatches, getLeague, getNews, getSectionVideos } from '../lib/data';
+import SectionPage from '../views/SectionPage.astro';
+import { sectionPaths } from '../lib/routes';
 
 // Karnataka has its own page (src/pages/karnataka/index.astro).
 export function getStaticPaths() {
-  return ['mens', 'wofo', 'youth'].map((section) => ({ params: { section } }));
+  return sectionPaths();
 }
 
-const HERO_BG: Record<string, string> = { mens: '/bg/banner.webp', wofo: '/bg/crowd.webp', youth: '/bg/here.webp' };
-const section = Astro.params.section as SectionKey;
-const meta = SECTIONS[section];
-const comps = COMPETITIONS.filter((c) => c.section === section).map((comp) => ({ comp, data: getLeague(comp) }));
-const matches = getAllMatches().filter((m) => m.comp.section === section);
-const videos = getSectionVideos(section, SECTION_KEYWORDS[section], 8);
-const news = getNews(section);
-const tableTab = (c: (typeof comps)[number]) => ({ id: c.comp.slug, label: section === 'youth' ? c.comp.short : c.comp.short });
-const tabs = [
-  { id: 'fixtures', label: 'Fixtures' },
-  { id: 'tables', label: 'Tables' },
-  { id: 'news', label: 'News' },
-  ...(videos.length ? [{ id: 'episodes', label: 'Episodes' }] : []),
-];
+const section = Astro.params.section as 'mens' | 'wofo' | 'youth';
 ---
-<Base title={meta.heading ?? meta.title} description={meta.blurb}>
-  <header class="sec-hero bg-photo" style={`--img:url(${HERO_BG[section]})`}>
-    <div class="wrap pagehead">
-      <p class="kn" lang="kn">{meta.titleKn}</p>
-      <h1>{meta.heading ?? meta.title}</h1>
-      <p>{meta.blurb}</p>
-    </div>
-  </header>
-
-  <div class="wrap body">
-    <TabBar group={section} tabs={tabs} />
-
-    <section class="tabpanel" data-group={section} data-panel="fixtures">
-      <FixturesByDay matches={matches} id={section} />
-    </section>
-
-    <section class="tabpanel" data-group={section} data-panel="tables" hidden>
-      {comps.length > 1 && <TabBar group={`${section}-lg`} tabs={comps.map(tableTab)} />}
-      {comps.map((c, i) => (
-        <div class="tabpanel" data-group={`${section}-lg`} data-panel={c.comp.slug} hidden={i !== 0}>
-          <LeaguePanel comp={c.comp} data={c.data} />
-        </div>
-      ))}
-    </section>
-
-    <section class="tabpanel" data-group={section} data-panel="news" hidden>
-      <NewsTiles items={news} limit={5} moreHref={`/news#${section}`} />
-    </section>
-
-    {videos.length > 0 && (
-      <section class="tabpanel" data-group={section} data-panel="episodes" hidden>
-        <div class="mod-head"><h2>Episodes</h2><a href="/armchair-gaffers">All shows →</a></div>
-        <div class="rail">{videos.map((v) => <VideoCard video={v} />)}</div>
-      </section>
-    )}
-  </div>
-</Base>
-
-<style>
-  .sec-hero { padding-block: 12px 0; }
-  .sec-hero .pagehead { padding-block: 36px 24px; }
-  .body { padding-bottom: 48px; }
-</style>
+<SectionPage section={section} />

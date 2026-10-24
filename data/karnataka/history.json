@@ -4,21 +4,84 @@
     "Mysore State finished fourth in Asia. That is arguably the most distinctive starting point in Karnataka football: a state side competing at continental level more than four decades before Bengaluru FC was founded."
   ],
   "campaign": [
-    { "score": "0–5", "opponent": "Yangzee FC", "note": "A difficult opening against the South Korean side." },
-    { "score": "1–1", "opponent": "Bangkok Bank", "note": "A draw kept their qualification hopes alive." },
-    { "score": "2–1", "opponent": "Vietnam Police", "note": "A crucial victory in the group stage." },
-    { "score": "2–1", "opponent": "Manila Lions", "note": "Another win secured a place in the semi-finals." },
-    { "score": "1–6", "opponent": "Maccabi Tel Aviv", "note": "Semi-final. Mysore’s run ended here." },
-    { "score": "0–2", "opponent": "Toyo Kogyo", "note": "Third-place match against the Japanese side." }
+    {
+      "score": "0–5",
+      "opponent": "Yangzee FC",
+      "note": "A difficult opening against the South Korean side.",
+      "noteKn": "ದಕ್ಷಿಣ ಕೊರಿಯಾದ ತಂಡದ ವಿರುದ್ಧ ಕಠಿಣ ಆರಂಭ."
+    },
+    {
+      "score": "1–1",
+      "opponent": "Bangkok Bank",
+      "note": "A draw kept their qualification hopes alive.",
+      "noteKn": "ಡ್ರಾ ಫಲಿತಾಂಶದಿಂದ ಅರ್ಹತೆಯ ಭರವಸೆ ಉಳಿಯಿತು."
+    },
+    {
+      "score": "2–1",
+      "opponent": "Vietnam Police",
+      "note": "A crucial victory in the group stage.",
+      "noteKn": "ಗುಂಪು ಹಂತದಲ್ಲಿ ನಿರ್ಣಾಯಕ ಗೆಲುವು."
+    },
+    {
+      "score": "2–1",
+      "opponent": "Manila Lions",
+      "note": "Another win secured a place in the semi-finals.",
+      "noteKn": "ಮತ್ತೊಂದು ಗೆಲುವಿನೊಂದಿಗೆ ಸೆಮಿಫೈನಲ್‌ನಲ್ಲಿ ಸ್ಥಾನ ಖಚಿತವಾಯಿತು."
+    },
+    {
+      "score": "1–6",
+      "opponent": "Maccabi Tel Aviv",
+      "note": "Semi-final. Mysore’s run ended here.",
+      "noteKn": "ಸೆಮಿಫೈನಲ್. ಮೈಸೂರಿನ ಪಯಣ ಇಲ್ಲಿಗೆ ಕೊನೆಗೊಂಡಿತು."
+    },
+    {
+      "score": "0–2",
+      "opponent": "Toyo Kogyo",
+      "note": "Third-place match against the Japanese side.",
+      "noteKn": "ಜಪಾನಿನ ತಂಡದ ವಿರುದ್ಧ ಮೂರನೇ ಸ್ಥಾನದ ಪಂದ್ಯ."
+    }
   ],
   "timelineIntro": "The state kept competing in the Santosh Trophy, India’s senior national championship, after the Mysore team became known as Karnataka.",
   "timeline": [
-    { "year": "1946-47", "text": "Mysore win their first Santosh Trophy." },
-    { "year": "1952-53", "text": "Mysore win a second title." },
-    { "year": "1967-68 and 1968-69", "text": "Back-to-back championships make Mysore a major force." },
-    { "year": "1969", "text": "Mysore State finish fourth at the Asian Champion Club Tournament in Bangkok." },
-    { "year": "2013", "text": "Bengaluru FC founded." },
-    { "year": "2016", "text": "Bengaluru FC become the first Indian club to reach the AFC Cup final, losing 1–0 to Iraq’s Al-Quwa Al-Jawiya in Doha." },
-    { "year": "2022-23", "text": "Karnataka win the Santosh Trophy after a 54-year wait, beating Meghalaya 3–2 in the final in Riyadh." }
-  ]
+    {
+      "year": "1946-47",
+      "text": "Mysore win their first Santosh Trophy.",
+      "textKn": "ಮೈಸೂರು ತನ್ನ ಮೊದಲ Santosh Trophy ಗೆದ್ದಿತು."
+    },
+    {
+      "year": "1952-53",
+      "text": "Mysore win a second title.",
+      "textKn": "ಮೈಸೂರು ಎರಡನೇ ಪ್ರಶಸ್ತಿ ಗೆದ್ದಿತು."
+    },
+    {
+      "year": "1967-68 and 1968-69",
+      "text": "Back-to-back championships make Mysore a major force.",
+      "textKn": "ಸತತ ಎರಡು ಚಾಂಪಿಯನ್‌ಷಿಪ್‌ಗಳಿಂದ ಮೈಸೂರು ಪ್ರಮುಖ ಶಕ್ತಿಯಾಯಿತು."
+    },
+    {
+      "year": "1969",
+      "text": "Mysore State finish fourth at the Asian Champion Club Tournament in Bangkok.",
+      "textKn": "ಬ್ಯಾಂಕಾಕ್‌ನ Asian Champion Club Tournament ನಲ್ಲಿ ಮೈಸೂರು ರಾಜ್ಯ ನಾಲ್ಕನೇ ಸ್ಥಾನ ಪಡೆಯಿತು."
+    },
+    {
+      "year": "2013",
+      "text": "Bengaluru FC founded.",
+      "textKn": "Bengaluru FC ಸ್ಥಾಪನೆಯಾಯಿತು."
+    },
+    {
+      "year": "2016",
+      "text": "Bengaluru FC become the first Indian club to reach the AFC Cup final, losing 1–0 to Iraq’s Al-Quwa Al-Jawiya in Doha.",
+      "textKn": "AFC Cup ಫೈನಲ್ ತಲುಪಿದ ಮೊದಲ ಭಾರತೀಯ ಕ್ಲಬ್ ಆಗಿ Bengaluru FC ಹೊರಹೊಮ್ಮಿತು; ದೋಹಾದಲ್ಲಿ ಇರಾಕ್‌ನ Al-Quwa Al-Jawiya ವಿರುದ್ಧ 1–0 ಅಂತರದಲ್ಲಿ ಸೋತಿತು."
+    },
+    {
+      "year": "2022-23",
+      "text": "Karnataka win the Santosh Trophy after a 54-year wait, beating Meghalaya 3–2 in the final in Riyadh.",
+      "textKn": "54 ವರ್ಷಗಳ ಕಾಯುವಿಕೆಯ ನಂತರ ಕರ್ನಾಟಕ Santosh Trophy ಗೆದ್ದಿತು; ರಿಯಾದ್‌ನಲ್ಲಿ ನಡೆದ ಫೈನಲ್‌ನಲ್ಲಿ Meghalaya ವಿರುದ್ಧ 3–2 ಅಂತರದ ಜಯ."
+    }
+  ],
+  "introKn": [
+    "ಮೈಸೂರು ಭಾರತೀಯ ಫುಟ್ಬಾಲ್‌ನ ಪ್ರಮುಖ ರಾಜ್ಯ ತಂಡಗಳಲ್ಲಿ ಒಂದಾಗಿತ್ತು. 1967-68 ಮತ್ತು 1968-69ರಲ್ಲಿ Santosh Trophy ಗೆದ್ದ ನಂತರ, ತಂಡಕ್ಕೆ Bangkok ನಲ್ಲಿ ನಡೆದ 1969ರ Asian Champion Club Tournament ನಲ್ಲಿ ಭಾರತವನ್ನು ಪ್ರತಿನಿಧಿಸುವ ಅವಕಾಶ ಸಿಕ್ಕಿತು. ಇದು ಇಂದಿನ ಖಂಡೀಯ ಕ್ಲಬ್ ಸ್ಪರ್ಧೆಗಳ ಪೂರ್ವಗಾಮಿ.",
+    "ಮೈಸೂರು ರಾಜ್ಯ ತಂಡ ಏಷ್ಯಾದಲ್ಲಿ ನಾಲ್ಕನೇ ಸ್ಥಾನ ಪಡೆಯಿತು. Bengaluru FC ಸ್ಥಾಪನೆಯಾಗುವ ನಾಲ್ಕು ದಶಕಗಳಿಗೂ ಹೆಚ್ಚು ಮೊದಲೇ, ರಾಜ್ಯ ತಂಡವೊಂದು ಖಂಡ ಮಟ್ಟದಲ್ಲಿ ಸ್ಪರ್ಧಿಸಿತ್ತು ಎಂಬುದು ಕರ್ನಾಟಕ ಫುಟ್ಬಾಲ್‌ನ ಅತ್ಯಂತ ವಿಶಿಷ್ಟ ಆರಂಭ ಎನ್ನಬಹುದು."
+  ],
+  "timelineIntroKn": "ಮೈಸೂರು ತಂಡ ಕರ್ನಾಟಕ ಎಂದು ಹೆಸರಾದ ನಂತರವೂ, ಭಾರತದ ಹಿರಿಯ ರಾಷ್ಟ್ರೀಯ ಚಾಂಪಿಯನ್‌ಷಿಪ್ ಆದ Santosh Trophy ಯಲ್ಲಿ ರಾಜ್ಯ ತನ್ನ ಸ್ಪರ್ಧೆಯನ್ನು ಮುಂದುವರಿಸಿತು."
 }

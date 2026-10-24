@@ -1,0 +1,243 @@
+---
+// Writer's submit page. Rendered by the English and the /kn/ page files.
+import Base from '../layouts/Base.astro';
+import WriteHead from '../components/WriteHead.astro';
+import { localePath, t, type Locale } from '../i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const href = (p: string) => localePath(locale, p);
+// Client-side strings and link prefix for the script below.
+const ui = {
+  base: locale === 'kn' ? '/kn' : '',
+  photoLimit: t(locale, 'write.submit.photoLimit'),
+  preparing: t(locale, 'write.submit.preparing'),
+  photoBad: t(locale, 'write.submit.photoBad'),
+  photoHint: t(locale, 'write.submit.photoHint'),
+  chooseCover: t(locale, 'write.submit.chooseCover'),
+  changeCover: t(locale, 'write.submit.changeCover'),
+  choosePhoto: t(locale, 'write.submit.choosePhoto'),
+  changePhoto: t(locale, 'write.submit.changePhoto'),
+  photoN: t(locale, 'write.submit.photoN'),
+  remove: t(locale, 'write.common.remove'),
+  textPlaceholder: t(locale, 'write.submit.textPlaceholder'),
+  captionPlaceholder: t(locale, 'write.submit.captionPlaceholder'),
+  confirm: t(locale, 'write.submit.confirm'),
+  confirmCredit: t(locale, 'write.submit.confirmCredit'),
+  notSignedIn: t(locale, 'write.submit.notSignedIn'),
+  reloadSignIn: t(locale, 'write.submit.reloadSignIn'),
+  sending: t(locale, 'write.common.sending'),
+  sendFailed: t(locale, 'write.submit.sendFailed'),
+  sendNetwork: t(locale, 'write.submit.sendNetwork'),
+  thanks: t(locale, 'write.submit.thanks'),
+  thanksBody: t(locale, 'write.submit.thanksBody'),
+  friend: t(locale, 'write.submit.friend'),
+  intl: locale === 'kn' ? 'kn-IN' : 'en-IN',
+};
+---
+<Base title={t(locale, 'write.submit.title')} description={t(locale, 'write.submit.desc')}>
+  <WriteHead locale={locale} active="write" compact />
+  <section class="wrap module" style="padding-top:12px" id="wr-root">
+    <p style="margin-bottom:10px"><a class="wr-back" href={href('/armchair-gaffers/write')}>{t(locale, 'write.submit.back')}</a></p>
+    <p class="eyebrow">{t(locale, 'write.eyebrow')}</p>
+    <h1>{t(locale, 'write.submit.title')}</h1>
+    <p class="muted" style="margin:6px 0 16px;max-width:60ch">{t(locale, 'write.submit.lede')}</p>
+
+    <div class="wr-cols" id="wr-form-wrap">
+      <div class="wr-card wr-form">
+        <label for="f-title">{t(locale, 'write.submit.titleLabel')}</label>
+        <input id="f-title" maxlength="140" placeholder={t(locale, 'write.submit.titlePlaceholder')} />
+        <label>{t(locale, 'write.submit.iAm')}</label>
+        <div class="chips" id="f-kind" role="radiogroup" aria-label={t(locale, 'write.submit.kindGroup')}>
+          <button class="chip" type="button" role="radio" data-k="fan" aria-selected="true">{t(locale, 'write.kind.fan')}</button>
+          <button class="chip" type="button" role="radio" data-k="analyst" aria-selected="false">{t(locale, 'write.kind.analyst')}</button>
+        </div>
+        <label>{t(locale, 'write.submit.cover')}</label>
+        <div class="wr-fig" id="f-cover"></div>
+        <label>{t(locale, 'write.submit.piece')}</label>
+        <div class="wr-form" id="f-blocks"></div>
+        <div class="chips">
+          <button class="chip" type="button" id="add-p">{t(locale, 'write.submit.addParagraph')}</button>
+          <button class="chip" type="button" id="add-img">{t(locale, 'write.submit.addPhoto')}</button>
+        </div>
+      </div>
+
+      <div class="wr-card wr-form" style="align-content:start">
+        <label for="f-name">{t(locale, 'write.submit.nameLabel')}</label>
+        <input id="f-name" maxlength="80" autocomplete="name" />
+        <label>{t(locale, 'write.submit.signedInAs')}</label>
+        <p id="f-email" class="wr-note" style="font-size:14px;color:var(--text)">…</p>
+        <p class="wr-note">{t(locale, 'write.submit.emailNote')} <a href={href('/armchair-gaffers/write/mine')}>{t(locale, 'write.submit.seeMine')}</a></p>
+        <label>{t(locale, 'write.submit.rights')}</label>
+        <label class="chk"><input type="radio" name="own" value="mine" checked /> {t(locale, 'write.submit.rightsMine')}</label>
+        <label class="chk"><input type="radio" name="own" value="credit" /> {t(locale, 'write.submit.rightsCredit')}</label>
+        <input id="f-credit" maxlength="200" hidden placeholder={t(locale, 'write.submit.creditPlaceholder')} aria-label={t(locale, 'write.submit.creditAria')} />
+        <p class="wr-note">{t(locale, 'write.submit.creditNote')}</p>
+        <label class="chk"><input type="checkbox" id="f-ok" /> <span id="f-ok-text">{t(locale, 'write.submit.confirm')}</span></label>
+        <div class="hp" aria-hidden="true"><label>{t(locale, 'write.submit.hpLabel')} <input id="f-hp" tabindex="-1" autocomplete="off" /></label></div>
+        <div id="f-turnstile"></div>
+        <button class="btn" type="button" id="f-send" disabled>{t(locale, 'write.submit.send')}</button>
+        <p class="wr-msg" id="f-msg" role="status"></p>
+      </div>
+    </div>
+
+    <div class="wr-card wr-ok" id="wr-done" hidden>
+      <p class="eyebrow">{t(locale, 'write.submit.received')}</p>
+      <h2 style="font-size:30px" id="done-h"></h2>
+      <p style="color:var(--text-2)" id="done-p"></p>
+      <div class="wr-row"><button class="btn" type="button" id="again">{t(locale, 'write.submit.writeAnother')}</button> <a class="btn ghost" href={href('/armchair-gaffers/write/mine')}>{t(locale, 'write.nav.mine')}</a> <a class="btn ghost" href={href('/armchair-gaffers/write')}>{t(locale, 'write.submit.backHome')}</a></div>
+    </div>
+  </section>
+</Base>
+<script type="application/json" id="wr-i18n" set:html={JSON.stringify(ui)} />
+
+<script>
+  const MAX_EDGE = 1600, MAX_BYTES = 5 * 1024 * 1024, MAX_PHOTOS = 12;
+  type Photo = { blob: Blob; url: string };
+  type Blk = { t: 'p'; txt: string } | { t: 'img'; photo: Photo | null; cap: string };
+  const ui = JSON.parse(document.getElementById('wr-i18n')!.textContent!) as Record<string, string>;
+  const fill = (tpl: string, vars: Record<string, string | number>) => Object.entries(vars).reduce((s, [k, v]) => s.replaceAll(`{${k}}`, String(v)), tpl);
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const state = { email: '', kind: 'fan', cover: null as Photo | null, blocks: [{ t: 'p', txt: '' }] as Blk[], own: 'mine', token: '' };
+  let siteKey: string | null = null;
+
+  /** Shrink in the browser before upload: longest side 1600px, JPEG at 0.85 (JPEG, not WebP: X's card crawler does not reliably show WebP). */
+  async function resize(file: File): Promise<Photo> {
+    const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' } as ImageBitmapOptions);
+    const scale = Math.min(1, MAX_EDGE / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas');
+    c.width = Math.round(bmp.width * scale); c.height = Math.round(bmp.height * scale);
+    const ctx = c.getContext('2d')!;
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height); // JPEG has no transparency
+    ctx.drawImage(bmp, 0, 0, c.width, c.height);
+    bmp.close?.();
+    const toBlob = (type: string, q: number) => new Promise<Blob | null>((res) => c.toBlob(res, type, q));
+    for (const q of [0.85, 0.7, 0.55]) {
+      const b = await toBlob('image/jpeg', q);
+      if (b && b.size <= MAX_BYTES) return { blob: b, url: URL.createObjectURL(b) };
+    }
+    throw new Error('too big');
+  }
+  const photoCount = () => (state.cover ? 1 : 0) + state.blocks.filter((b) => b.t === 'img' && b.photo).length;
+  const say = (m: string) => { $('f-msg').textContent = m; };
+
+  async function pick(input: HTMLInputElement, set: (p: Photo) => void) {
+    const f = input.files?.[0];
+    if (!f) return;
+    if (photoCount() >= MAX_PHOTOS) { say(fill(ui.photoLimit, { max: MAX_PHOTOS })); return; }
+    try { say(ui.preparing); set(await resize(f)); say(''); }
+    catch { say(ui.photoBad); }
+    renderAll();
+  }
+  function fileButton(label: string, onPick: (i: HTMLInputElement) => void) {
+    const l = document.createElement('label'); l.className = 'wr-filebtn'; l.append(label);
+    const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*';
+    i.addEventListener('change', () => onPick(i)); l.append(i);
+    return l;
+  }
+  function figure(photo: Photo | null, placeholder: string) {
+    if (!photo) { const d = document.createElement('div'); d.className = 'wr-note'; d.textContent = placeholder; return d; }
+    const im = document.createElement('img'); im.src = photo.url; im.alt = ''; return im;
+  }
+
+  function renderCover() {
+    const box = $('f-cover'); box.replaceChildren(figure(state.cover, ui.photoHint));
+    box.append(fileButton(state.cover ? ui.changeCover : ui.chooseCover, (i) => pick(i, (p) => (state.cover = p))));
+    if (state.cover) {
+      const rm = document.createElement('button'); rm.type = 'button'; rm.className = 'chip'; rm.textContent = ui.remove;
+      rm.onclick = () => { state.cover = null; renderAll(); }; box.append(rm);
+    }
+  }
+  function renderBlocks() {
+    const host = $('f-blocks'); host.replaceChildren();
+    state.blocks.forEach((b, i) => {
+      const w = document.createElement('div'); w.className = 'wr-blk';
+      if (b.t === 'p') {
+        const t = document.createElement('textarea'); t.rows = 5; t.placeholder = ui.textPlaceholder; t.value = b.txt;
+        t.maxLength = 8000; t.addEventListener('input', () => { b.txt = t.value; updateSend(); }); w.append(t);
+      } else {
+        const fig = document.createElement('div'); fig.className = 'wr-fig';
+        fig.append(figure(b.photo, fill(ui.photoN, { n: i + 1 })));
+        fig.append(fileButton(b.photo ? ui.changePhoto : ui.choosePhoto, (inp) => pick(inp, (p) => (b.photo = p))));
+        const c = document.createElement('input'); c.placeholder = ui.captionPlaceholder; c.value = b.cap; c.maxLength = 300;
+        c.addEventListener('input', () => (b.cap = c.value)); fig.append(c); w.append(fig);
+      }
+      const x = document.createElement('button'); x.type = 'button'; x.className = 'x'; x.textContent = '✕'; x.setAttribute('aria-label', ui.remove);
+      x.onclick = () => { state.blocks.splice(i, 1); if (!state.blocks.length) state.blocks.push({ t: 'p', txt: '' }); renderAll(); };
+      w.append(x); host.append(w);
+    });
+  }
+  function renderAll() { renderCover(); renderBlocks(); updateSend(); }
+
+  function updateSend() {
+    const credit = ($('f-credit') as HTMLInputElement).value.trim();
+    const ready = ($('f-title') as HTMLInputElement).value.trim() && ($('f-name') as HTMLInputElement).value.trim() && state.email
+      && ($('f-ok') as HTMLInputElement).checked && (state.own !== 'credit' || credit)
+      && state.blocks.some((b) => b.t === 'p' && b.txt.trim()) && (!siteKey || state.token)
+      && state.blocks.every((b) => b.t === 'p' || b.photo);
+    ($('f-send') as HTMLButtonElement).disabled = !ready;
+  }
+
+  async function send() {
+    const btn = $('f-send') as HTMLButtonElement; btn.disabled = true; say(ui.sending);
+    const fd = new FormData();
+    const photos: Blob[] = [];
+    const add = (p: Photo) => photos.push(p.blob) - 1;
+    const payload = {
+      title: ($('f-title') as HTMLInputElement).value, kind: state.kind, name: ($('f-name') as HTMLInputElement).value,
+      email: state.email, ownership: state.own, credit: ($('f-credit') as HTMLInputElement).value,
+      confirm: ($('f-ok') as HTMLInputElement).checked,
+      cover: state.cover ? add(state.cover) : null,
+      blocks: state.blocks.map((b) => (b.t === 'p' ? b : { t: 'img', file: add(b.photo!), cap: b.cap })),
+    };
+    fd.set('payload', JSON.stringify(payload));
+    photos.forEach((b, i) => fd.set(`photo${i}`, b, `photo${i}.${b.type === 'image/webp' ? 'webp' : 'jpg'}`));
+    fd.set('hp', ($('f-hp') as HTMLInputElement).value);
+    fd.set('cf-turnstile-response', state.token);
+    const showDone = () => {
+      $('done-h').textContent = fill(ui.thanks, { name: payload.name.trim() || ui.friend });
+      $('done-p').textContent = fill(ui.thanksBody, { email: state.email });
+      $('wr-form-wrap').hidden = true; $('wr-done').hidden = false; say(''); window.scrollTo({ top: 0 });
+    };
+    try {
+      const r = await fetch('/api/write/submit', { method: 'POST', body: fd });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) { say(d.error ?? ui.sendFailed); (window as any).turnstile?.reset(); state.token = ''; updateSend(); return; }
+      showDone();
+    } catch { say(ui.sendNetwork); updateSend(); }
+  }
+
+  // wiring
+  $('add-p').onclick = () => { state.blocks.push({ t: 'p', txt: '' }); renderAll(); };
+  $('add-img').onclick = () => { state.blocks.push({ t: 'img', photo: null, cap: '' }); renderAll(); };
+  document.querySelectorAll<HTMLButtonElement>('#f-kind .chip').forEach((c) => c.addEventListener('click', () => {
+    state.kind = c.dataset.k!; document.querySelectorAll('#f-kind .chip').forEach((x) => x.setAttribute('aria-selected', String(x === c)));
+  }));
+  document.querySelectorAll<HTMLInputElement>('input[name=own]').forEach((r) => r.addEventListener('change', () => {
+    state.own = r.value; ($('f-credit') as HTMLInputElement).hidden = r.value !== 'credit';
+    $('f-ok-text').textContent = r.value === 'credit' ? ui.confirmCredit : ui.confirm;
+    updateSend();
+  }));
+  ['f-title', 'f-name', 'f-credit', 'f-ok'].forEach((id) => $(id).addEventListener('input', updateSend));
+  $('f-ok').addEventListener('change', updateSend);
+  $('f-send').addEventListener('click', send);
+  $('again').addEventListener('click', () => location.reload());
+  renderAll();
+
+  // Who is signed in (Cloudflare Access, one-time PIN). Name is prefilled from their last piece.
+  fetch('/api/write/mine?me=1').then(async (r) => {
+    if (!r.ok) throw new Error('signin');
+    const me = await r.json();
+    state.email = me.email; $('f-email').textContent = me.email;
+    const n = $('f-name') as HTMLInputElement; if (!n.value && me.name) n.value = me.name;
+    updateSend();
+  }).catch(() => { $('f-email').textContent = ui.notSignedIn; say(ui.reloadSignIn); });
+
+  // Spam check: Cloudflare Turnstile, only when a site key is configured on the server.
+  fetch('/api/write/config').then((r) => r.json()).then((c) => {
+    siteKey = c.turnstileSiteKey; if (!siteKey) return;
+    const s = document.createElement('script'); s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; s.async = true;
+    s.onload = () => (window as any).turnstile.render('#f-turnstile', { sitekey: siteKey, callback: (t: string) => { state.token = t; updateSend(); }, 'expired-callback': () => { state.token = ''; updateSend(); } });
+    document.head.append(s); updateSend();
+  }).catch(() => {});
+</script>

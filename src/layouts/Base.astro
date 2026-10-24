@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
 import { SITE } from '../config/site';
+import { englishPath, getLocale, localePath, t } from '../i18n';
 
 interface Props {
   title?: string;
@@ -12,12 +13,16 @@ interface Props {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 const { title, description = SITE.description, image = '/og.png', jsonLd } = Astro.props;
-const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name}: ${SITE.tagline}`;
+const locale = getLocale(Astro.url);
+const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name}: ${locale === 'kn' ? SITE.taglineKn : SITE.tagline}`;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const ogImage = new URL(image, SITE.url).href;
+// Same page in each language; x-default points at English.
+const enHref = new URL(englishPath(Astro.url.pathname), SITE.url).href;
+const knHref = new URL(localePath('kn', englishPath(Astro.url.pathname)), SITE.url).href;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <script is:inline>
@@ -29,6 +34,9 @@ const ogImage = new URL(image, SITE.url).href;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="kn" href={knHref} />
+    <link rel="alternate" hreflang="x-default" href={enHref} />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
@@ -36,6 +44,7 @@ const ogImage = new URL(image, SITE.url).href;
     <link rel="manifest" href="/site.webmanifest" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={locale === 'kn' ? 'kn_IN' : 'en_IN'} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -46,28 +55,28 @@ const ogImage = new URL(image, SITE.url).href;
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;700&display=swap"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;700&display=swap"
       />
     </noscript>
     <link rel="preconnect" href="https://i.ytimg.com" />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body>
-    <a class="sr-only" href="#main">Skip to content</a>
+    <a class="sr-only" href="#main">{t(locale, 'a11y.skip')}</a>
     <Header />
-    <main id="main">
+    <main id="main" data-locale={locale} data-ft={t(locale, 'match.ft')} data-live={t(locale, 'match.live')}>
       <slot />
     </main>
     <Footer />
     <Analytics />
-    <dialog class="yt-dialog" id="yt-dialog" aria-label="Video player">
-      <button type="button" class="yt-close" aria-label="Close video">×</button>
+    <dialog data-yt-label={t(locale, 'a11y.youtubeVideo')} class="yt-dialog" id="yt-dialog" aria-label={t(locale, 'a11y.videoPlayer')}>
+      <button type="button" class="yt-close" aria-label={t(locale, 'a11y.closeVideo')}>×</button>
       <div class="yt-box"></div>
     </dialog>
     <script>
@@ -86,7 +95,7 @@ const ogImage = new URL(image, SITE.url).href;
         e.preventDefault();
         const frame = document.createElement('iframe');
         frame.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.yt}?autoplay=1&rel=0`;
-        frame.title = btn.dataset.title ?? 'YouTube video';
+        frame.title = btn.dataset.title ?? dlg.dataset.ytLabel!;
         frame.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
         frame.allowFullscreen = true;
         box.replaceChildren(frame);

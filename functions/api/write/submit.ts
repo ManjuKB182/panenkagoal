@@ -2,6 +2,7 @@ import {
   blocksFor, getSql, ipHash, json, LIMITS, photoKey, sniffImage, signInNeeded, slugify, validateSubmission, verifyTurnstile, writerIdentity, type Env,
 } from '../../../src/lib/write';
 import { notifyReviewers, submissionEmail, type MailEnv } from '../../../src/lib/mail';
+import { apiMsg } from './_locale';
 
 // POST /api/write/submit (multipart/form-data). Writers only: signed in through the writers' Access app;
 // the piece is tied to the verified Access email, whatever the form says.
@@ -12,21 +13,21 @@ export const onRequestPost = async ({ request, env, waitUntil }: { request: Requ
   const who = await writerIdentity(request, env);
   if (!who) return signInNeeded();
   const sql = getSql(env);
-  if (!sql || !env.POSTS_BUCKET) return json({ error: 'Submissions are not open yet. Please try again later.' }, 503);
+  if (!sql || !env.POSTS_BUCKET) return json({ error: apiMsg(request, 'write.api.notOpen') }, 503);
 
   let form: FormData;
-  try { form = await request.formData(); } catch { return json({ error: 'Something went wrong. Please try again.' }, 400); }
+  try { form = await request.formData(); } catch { return json({ error: apiMsg(request, 'write.api.wrong') }, 400); }
 
   // Honeypot: bots fill every field. Pretend it worked.
   if (String(form.get('hp') ?? '').trim()) return json({ ok: true });
 
   const ip = request.headers.get('CF-Connecting-IP') ?? '';
   if (!(await verifyTurnstile(env, String(form.get('cf-turnstile-response') ?? ''), ip))) {
-    return json({ error: 'The spam check did not pass. Please reload the page and try again.' }, 400);
+    return json({ error: apiMsg(request, 'write.api.spam') }, 400);
   }
 
   let payload: any;
-  try { payload = JSON.parse(String(form.get('payload') ?? '')); } catch { return json({ error: 'Something went wrong. Please try again.' }, 400); }
+  try { payload = JSON.parse(String(form.get('payload') ?? '')); } catch { return json({ error: apiMsg(request, 'write.api.wrong') }, 400); }
   payload = { ...payload, email: who.email };
   const files: File[] = [];
   for (let i = 0; i < LIMITS.photos + 1; i++) {
@@ -41,8 +42,8 @@ export const onRequestPost = async ({ request, env, waitUntil }: { request: Requ
   const h = await ipHash(env, ip || 'unknown');
   try {
     const [{ n }] = await sql(`select count(*)::int as n from write_submissions where ip_hash = $1 and at > now() - interval '1 hour'`, [h]);
-    if (n >= LIMITS.perHour) return json({ error: 'You have sent a few pieces already. Please try again in an hour.' }, 429);
-  } catch { return json({ error: 'Submissions are not open yet. Please try again later.' }, 503); }
+    if (n >= LIMITS.perHour) return json({ error: apiMsg(request, 'write.api.rateLimit') }, 429);
+  } catch { return json({ error: apiMsg(request, 'write.api.notOpen') }, 503); }
 
   // Check the real bytes (browser-reported types can lie), then store with random keys.
   const keys: string[] = [];
@@ -50,7 +51,7 @@ export const onRequestPost = async ({ request, env, waitUntil }: { request: Requ
   for (const f of files) {
     const data = await f.arrayBuffer();
     const kind = sniffImage(new Uint8Array(data, 0, Math.min(16, data.byteLength)));
-    if (!kind) return json({ error: 'Photos must be JPG, PNG or WebP.' }, 400);
+    if (!kind) return json({ error: apiMsg(request, 'write.api.photoType') }, 400);
     const key = photoKey(kind.ext);
     keys.push(key);
     bytes.push({ key, data, type: kind.type });
@@ -66,7 +67,7 @@ export const onRequestPost = async ({ request, env, waitUntil }: { request: Requ
     await sql(`insert into write_submissions (ip_hash) values ($1)`, [h]);
   } catch {
     await Promise.allSettled(keys.map((k) => env.POSTS_BUCKET.delete(k)));
-    return json({ error: 'We could not save your piece. Please try again.' }, 500);
+    return json({ error: apiMsg(request, 'write.api.saveFailed') }, 500);
   }
   // Tell the editors in the background so the writer sees success the moment the piece is saved.
   const mail = notifyReviewers(env, submissionEmail({

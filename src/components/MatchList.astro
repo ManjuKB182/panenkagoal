@@ -1,6 +1,9 @@
 ---
 import type { Match } from '../lib/types';
 import { kickoffTime, shortDate } from '../lib/format';
+import { digits, getLocale, localePath, t, teamName } from '../i18n';
+
+const locale = getLocale(Astro.url);
 
 interface Props { matches: Match[]; showDate?: boolean }
 const { matches, showDate = false } = Astro.props;
@@ -10,19 +13,19 @@ const overdue = (m: Match) => m.status === 'scheduled' && Date.now() - new Date(
 <ul class="ml">
   {matches.map((m) => (
     <li data-mid={m.id} data-ko={m.kickoff}>
-      <a class="row" href={`/match?id=${encodeURIComponent(m.id)}`} aria-label={`${m.home} v ${m.away}: match details`}>
-      <span class="h">{m.home}{m.homeLogo && <img src={m.homeLogo} alt="" width="22" height="22" loading="lazy" />}</span>
+      <a class="row" href={localePath(locale, `/match?id=${encodeURIComponent(m.id)}`)} aria-label={t(locale, 'match.details', { home: teamName(locale, m.home), away: teamName(locale, m.away) })}>
+      <span class="h">{teamName(locale, m.home)}{m.homeLogo && <img src={m.homeLogo} alt="" width="22" height="22" loading="lazy" />}</span>
       <span class={`st ${m.status}`}>
         {m.status === 'ft' || m.status === 'live' ? (
-          <><b>{m.homeScore} – {m.awayScore}</b><small>{m.status === 'ft' ? 'FT' : 'LIVE'}</small></>
+          <><b>{digits(locale, m.homeScore!)} – {digits(locale, m.awayScore!)}</b><small>{m.status === 'ft' ? t(locale, 'match.ft') : t(locale, 'match.live')}</small></>
         ) : m.status === 'postponed' ? (
-          <small>Postponed</small>
+          <small>{t(locale, 'match.postponed')}</small>
         ) : (
-          <><b>{kickoffTime(m.kickoff)}</b>{overdue(m) ? <small>Result awaited</small> : showDate && <small>{shortDate(m.kickoff)}</small>}</>
+          <><b>{kickoffTime(m.kickoff, locale)}</b>{overdue(m) ? <small>{t(locale, 'match.resultAwaited')}</small> : showDate && <small>{shortDate(m.kickoff, locale)}</small>}</>
         )}
-        {(m.status === 'ft') && showDate && <small>{shortDate(m.kickoff)}</small>}
+        {(m.status === 'ft') && showDate && <small>{shortDate(m.kickoff, locale)}</small>}
       </span>
-      <span class="a">{m.awayLogo && <img src={m.awayLogo} alt="" width="22" height="22" loading="lazy" />}{m.away}</span>
+      <span class="a">{m.awayLogo && <img src={m.awayLogo} alt="" width="22" height="22" loading="lazy" />}{teamName(locale, m.away)}</span>
       </a>
     </li>
   ))}

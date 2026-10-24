@@ -3,16 +3,19 @@
 import MatchList from './MatchList.astro';
 import type { getAllMatches } from '../lib/data';
 import { istDay } from '../lib/format';
+import { compName } from '../config/competitions';
+import { digits, getLocale, localePath, t } from '../i18n';
 
 type Item = ReturnType<typeof getAllMatches>[number];
 interface Props { matches: Item[]; id: string }
 const { matches, id } = Astro.props;
+const locale = getLocale(Astro.url);
 const today = istDay(new Date().toISOString());
 const days = [-3, -2, -1, 0, 1, 2, 3].map((offset) => {
   const d = new Date(`${today}T12:00:00+05:30`);
   d.setUTCDate(d.getUTCDate() + offset);
-  const label = offset === 0 ? 'Today' : offset === -1 ? 'Yesterday' : offset === 1 ? 'Tomorrow'
-    : d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', timeZone: 'Asia/Kolkata' });
+  const label = offset === 0 ? t(locale, 'home.today') : offset === -1 ? t(locale, 'home.yesterday') : offset === 1 ? t(locale, 'home.tomorrow')
+    : digits(locale, d.toLocaleDateString(locale === 'kn' ? 'kn-IN' : 'en-IN', { weekday: 'short', day: 'numeric', timeZone: 'Asia/Kolkata' }));
   return { key: istDay(d.toISOString()), label };
 });
 const byDay = new Map(days.map((d) => [d.key, matches.filter((m) => istDay(m.kickoff) === d.key)]));
@@ -25,21 +28,21 @@ const groupByComp = (ms: Item[]) => {
 const open = byDay.get(today)!.length ? today : (days.find((d) => byDay.get(d.key)!.length)?.key ?? today);
 ---
 <div class="fbd" data-fbd={id}>
-  <div class="chips days" role="tablist" aria-label="Day">
+  <div class="chips days" role="tablist" aria-label={t(locale, 'home.day')}>
     {days.map((d) => (
       <button class="chip" type="button" role="tab" data-day={d.key} aria-selected={d.key === open ? 'true' : 'false'}>
-        {d.label}{byDay.get(d.key)!.length ? <span class="n">{byDay.get(d.key)!.length}</span> : null}
+        {d.label}{byDay.get(d.key)!.length ? <span class="n">{digits(locale, byDay.get(d.key)!.length)}</span> : null}
       </button>
     ))}
   </div>
   {days.map((d) => (
     <div class="panel-card day" data-dayp={d.key} hidden={d.key !== open}>
       {byDay.get(d.key)!.length === 0 ? (
-        <p class="muted empty">No matches on this day.</p>
+        <p class="muted empty">{t(locale, 'sections.fixtures.noDay')}</p>
       ) : (
         groupByComp(byDay.get(d.key)!).map((ms) => (
           <div class="comp-group">
-            <a class="comp-name" href={`/stats/${ms[0].comp.slug}`}>{ms[0].comp.name}</a>
+            <a class="comp-name" href={localePath(locale, `/stats/${ms[0].comp.slug}`)}>{compName(locale, ms[0].comp)}</a>
             <MatchList matches={ms} />
           </div>
         ))

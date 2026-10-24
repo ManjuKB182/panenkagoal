@@ -51,14 +51,14 @@ export const SECTIONS: Record<SectionKey, { title: string; heading?: string; tit
 
 // `blurb` is the one-line description shown in the phone menu.
 export const NAV = [
-  { href: '/mens', label: "Men's", blurb: 'Fixtures, tables and news' },
-  { href: '/wofo', label: "Women's", blurb: 'IWL, IWL 2 and the national team' },
-  { href: '/youth', label: 'Youth', blurb: 'U18, U15 and U13 leagues' },
-  { href: '/karnataka', label: 'Karnataka', blurb: 'Academies, players, legends and history' },
-  { href: '/stats', label: 'Stats', blurb: 'League tables and top performers' },
-  { href: '/armchair-gaffers/write', match: '/armchair-gaffers', hot: true, label: 'Outfield Talks', blurb: 'Write for us. Watch our shows' },
-  { href: '/news', label: 'All news', blurb: 'Every headline in one place' },
-  { href: '/merch', label: 'Merch', blurb: 'Panenka Goal gear' },
+  { href: '/mens', label: "Men's", labelKn: 'ಪುರುಷರ', blurb: 'Fixtures, tables and news', blurbKn: 'ಪಂದ್ಯಗಳು, ಕೋಷ್ಟಕಗಳು ಮತ್ತು ಸುದ್ದಿ' },
+  { href: '/wofo', label: "Women's", labelKn: 'ಮಹಿಳಾ', blurb: 'IWL, IWL 2 and the national team', blurbKn: 'IWL, IWL 2 ಮತ್ತು ರಾಷ್ಟ್ರೀಯ ತಂಡ' },
+  { href: '/youth', label: 'Youth', labelKn: 'ಯುವ', blurb: 'U18, U15 and U13 leagues', blurbKn: 'U18, U15 ಮತ್ತು U13 ಲೀಗ್‌ಗಳು' },
+  { href: '/karnataka', label: 'Karnataka', labelKn: 'ಕರ್ನಾಟಕ', blurb: 'Academies, players, legends and history', blurbKn: 'ಅಕಾಡೆಮಿಗಳು, ಆಟಗಾರರು, ದಿಗ್ಗಜರು ಮತ್ತು ಇತಿಹಾಸ' },
+  { href: '/stats', label: 'Stats', labelKn: 'ಅಂಕಿಅಂಶಗಳು', blurb: 'League tables and top performers', blurbKn: 'ಲೀಗ್ ಕೋಷ್ಟಕಗಳು ಮತ್ತು ಅತ್ಯುತ್ತಮ ಆಟಗಾರರು' },
+  { href: '/armchair-gaffers/write', match: '/armchair-gaffers', hot: true, label: 'Outfield Talks', labelKn: 'ಔಟ್‌ಫೀಲ್ಡ್ ಚರ್ಚೆ', blurb: 'Write for us. Watch our shows', blurbKn: 'ನಮಗಾಗಿ ಬರೆಯಿರಿ. ನಮ್ಮ ಶೋಗಳನ್ನು ನೋಡಿ' },
+  { href: '/news', label: 'All news', labelKn: 'ಎಲ್ಲಾ ಸುದ್ದಿ', blurb: 'Every headline in one place', blurbKn: 'ಎಲ್ಲಾ ಸುದ್ದಿ ಶೀರ್ಷಿಕೆಗಳು ಒಂದೇ ಕಡೆ' },
+  { href: '/merch', label: 'Merch', labelKn: 'ಮರ್ಚ್', blurb: 'Panenka Goal gear', blurbKn: 'ಪನೇಂಕ ಗೋಲ್ ಉತ್ಪನ್ನಗಳು' },
 ] as const;
 
 // Files Panenka's own videos under a section when the TITLE mentions it (hashtags are ignored,

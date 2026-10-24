@@ -1,0 +1,7 @@
+---
+import { getLocale } from '../../../../i18n';
+import WriteSubmit from '../../../../views/WriteSubmit.astro';
+
+const locale = getLocale(Astro.url);
+---
+<WriteSubmit locale={locale} />

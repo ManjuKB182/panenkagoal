@@ -3,28 +3,32 @@
 import type { NewsItem } from '../lib/types';
 import { SECTIONS } from '../config/site';
 import { timeAgo } from '../lib/format';
+import { getLocale, localePath, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
 
 interface Props { items: NewsItem[]; limit?: number; moreHref?: string; all?: boolean }
 const { items, limit = 5, moreHref = '/news', all = false } = Astro.props;
+const sectionName = (key: keyof typeof SECTIONS) => (locale === 'kn' ? SECTIONS[key].titleKn : SECTIONS[key].title);
 const shown = all ? items : items.slice(0, limit);
 ---
 {shown.length === 0 ? (
-  <p class="muted">No headlines here right now. We check for new ones every 30 minutes.</p>
+  <p class="muted">{t(locale, 'news.emptyAll')}</p>
 ) : (
   <div class="tiles">
     {shown.map((n) => (
       <a class="tile" href={n.url} rel="noopener" target={n.source === 'Panenka' ? undefined : '_blank'}>
-        <div class="eyebrow">{n.source}{n.section ? ` · ${SECTIONS[n.section].title}` : ''}</div>
+        <div class="eyebrow">{n.source}{n.section ? ` · ${sectionName(n.section)}` : ''}</div>
         <h3>{n.title}</h3>
         {n.summary && <p class="meta">{n.summary.length > 110 ? `${n.summary.slice(0, 110)}…` : n.summary}</p>}
-        <div class="foot"><span class="plain">{timeAgo(n.publishedAt)}</span><span>Read →</span></div>
+        <div class="foot"><span class="plain">{timeAgo(n.publishedAt, undefined, locale)}</span><span>{t(locale, 'news.read')}</span></div>
       </a>
     ))}
-    {!all && <a class="tile more" href={moreHref}>
-      <div class="eyebrow">More</div>
-      <h3>All news</h3>
-      <p class="meta">{items.length > limit ? `${items.length - limit} more headlines` : 'Every headline in one place'}</p>
-      <div class="foot"><span class="plain"></span><span>All news →</span></div>
+    {!all && <a class="tile more" href={localePath(locale, moreHref)}>
+      <div class="eyebrow">{t(locale, 'news.more')}</div>
+      <h3>{t(locale, 'news.allNews')}</h3>
+      <p class="meta">{items.length > limit ? t(locale, 'news.moreHeadlines', { n: items.length - limit }) : t(locale, 'news.everyHeadline')}</p>
+      <div class="foot"><span class="plain"></span><span>{t(locale, 'news.allNews')} →</span></div>
     </a>}
   </div>
 )}

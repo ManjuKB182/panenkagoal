@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import VideoCard from '../components/VideoCard.astro';
+import { getVideos, type Show } from '../lib/data';
+import { getLocale, localePath, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const href = (p: string) => localePath(locale, p);
+const { show } = Astro.props as { show: Show & { blurbKn?: string } };
+const videos = getVideos().panenka.filter((v) => v.show === show.slug);
+const playlist = `https://www.youtube.com/playlist?list=${show.playlistId}`;
+const name = locale === 'kn' ? (show.nameKn ?? show.name) : show.name;
+const blurb = locale === 'kn' ? (show.blurbKn ?? show.blurb) : show.blurb;
+---
+<Base title={name} description={blurb}>
+  <section class="wrap module">
+    <a class="eyebrow" href={href('/armchair-gaffers')}>{t(locale, 'outfield.watchEyebrow')}</a>
+    <h1>{name}</h1>
+    {locale === 'en' && show.nameKn && <p class="kn" lang="kn" style="font-size:20px">{show.nameKn}</p>}
+    <p style="max-width:60ch;margin-top:6px">{blurb} <a href={playlist} rel="noopener">{t(locale, 'outfield.playlist')}</a></p>
+  </section>
+  <section class="wrap grid">
+    {videos.map((v) => <VideoCard video={v} />)}
+  </section>
+  {videos.length === 0 && <p class="wrap muted">{t(locale, 'outfield.noEpisodes')}</p>}
+</Base>
+
+<style>
+  .eyebrow { text-decoration: none; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 20px; }
+</style>

@@ -1,13 +1,16 @@
 ---
 // Underline tab bar. Panels are elements with data-panel="<id>" (and data-group matching `group`) placed by the page.
 // Without JS every panel shows; with JS only the selected one does, and the URL hash keeps the view linkable.
+import { getLocale, t } from '../i18n';
+
 interface Props { group: string; tabs: { id: string; label: string; n?: number }[]; first?: string; pill?: boolean; select?: boolean; label?: string }
 const { group, tabs, first = tabs[0]?.id, pill = false, select = false, label } = Astro.props;
+const locale = getLocale(Astro.url);
 ---
 {select ? (
   <label class="sel">
     {label && <span>{label}</span>}
-    <select data-tabs={group} aria-label={label ?? 'Choose'}>
+    <select data-tabs={group} aria-label={label ?? t(locale, 'sections.tabs.choose')}>
       {tabs.map((t) => <option value={t.id} data-tab={t.id} selected={t.id === first}>{t.label}</option>)}
     </select>
   </label>

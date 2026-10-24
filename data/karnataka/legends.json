@@ -2,22 +2,30 @@
   {
     "name": "Ilyas Pasha",
     "era": "India international",
-    "line": "Karnataka-born defender who played for India."
+    "line": "Karnataka-born defender who played for India.",
+    "eraKn": "ಭಾರತ ಅಂತರರಾಷ್ಟ್ರೀಯ ಆಟಗಾರ",
+    "lineKn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಜನಿಸಿದ ಡಿಫೆಂಡರ್, ಭಾರತ ತಂಡದ ಪರ ಆಡಿದವರು."
   },
   {
     "name": "Babu Mani",
     "era": "India international",
-    "line": "Karnataka-born forward who played for India."
+    "line": "Karnataka-born forward who played for India.",
+    "eraKn": "ಭಾರತ ಅಂತರರಾಷ್ಟ್ರೀಯ ಆಟಗಾರ",
+    "lineKn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಜನಿಸಿದ ಫಾರ್ವರ್ಡ್, ಭಾರತ ತಂಡದ ಪರ ಆಡಿದವರು."
   },
   {
     "name": "Carlton Chapman",
     "era": "India international",
-    "line": "Karnataka-born midfielder who played for India."
+    "line": "Karnataka-born midfielder who played for India.",
+    "eraKn": "ಭಾರತ ಅಂತರರಾಷ್ಟ್ರೀಯ ಆಟಗಾರ",
+    "lineKn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಜನಿಸಿದ ಮಿಡ್‌ಫೀಲ್ಡರ್, ಭಾರತ ತಂಡದ ಪರ ಆಡಿದವರು."
   },
   {
     "name": "Shanmugam Venkatesh",
     "era": "India international",
-    "line": "Karnataka-born forward who played for India."
+    "line": "Karnataka-born forward who played for India.",
+    "eraKn": "ಭಾರತ ಅಂತರರಾಷ್ಟ್ರೀಯ ಆಟಗಾರ",
+    "lineKn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಜನಿಸಿದ ಫಾರ್ವರ್ಡ್, ಭಾರತ ತಂಡದ ಪರ ಆಡಿದವರು."
   },
   {
     "name": "N. S. Manju",
@@ -33,7 +41,9 @@
       {
         "club": "DYS, Karnataka",
         "years": "youth",
-        "note": "Youth club"
+        "note": "Youth club",
+        "yearsKn": "ಯುವ",
+        "noteKn": "ಯುವ ಕ್ಲಬ್"
       },
       {
         "club": "Hindustan Aeronautics (HAL)",
@@ -50,27 +60,32 @@
       {
         "club": "United Sikkim",
         "years": "2011-2012",
-        "note": "I-League 2nd Division"
+        "note": "I-League 2nd Division",
+        "noteKn": "I-League ದ್ವಿತೀಯ ವಿಭಾಗ"
       },
       {
         "club": "Pune FC",
         "years": "2012",
-        "note": "Loan for the rest of 2011-12"
+        "note": "Loan for the rest of 2011-12",
+        "noteKn": "2011-12ರ ಉಳಿದ ಅವಧಿಗೆ ಸಾಲದ ಮೇಲೆ"
       },
       {
         "club": "Bengaluru FC",
         "years": "2013-2016",
-        "note": "I-League. Debut 2 Nov 2013 v Mumbai FC (2-2), full match. 3 apps, 0 goals as of 22 Dec 2013"
+        "note": "I-League. Debut 2 Nov 2013 v Mumbai FC (2-2), full match. 3 apps, 0 goals as of 22 Dec 2013",
+        "noteKn": "I-League. ಚೊಚ್ಚಲ ಪಂದ್ಯ 2 ನವೆಂಬರ್ 2013, Mumbai FC ವಿರುದ್ಧ (2-2), ಪೂರ್ಣ ಪಂದ್ಯ. 22 ಡಿಸೆಂಬರ್ 2013ರ ವೇಳೆಗೆ 3 ಪಂದ್ಯ, 0 ಗೋಲು."
       }
     ],
     "stats": [
       {
         "label": "India caps",
-        "value": "25"
+        "value": "25",
+        "labelKn": "ಭಾರತ ಕ್ಯಾಪ್‌ಗಳು"
       },
       {
         "label": "India goals",
-        "value": "2"
+        "value": "2",
+        "labelKn": "ಭಾರತ ಗೋಲುಗಳು"
       }
     ],
     "honours": [
@@ -81,6 +96,16 @@
     "intl": "India U20 (2004), India U23 captain (2006-08) and India senior (2005-11): 25 caps, 2 goals. Scored v Maldives at the 2005 SAFF Gold Cup (14 Dec 2005, 1-0) and v Saudi Arabia in 2007 AFC Asian Cup qualifying (6 Sep 2006, 1-7 loss). Wore no. 3 in the 2011 AFC Asian Cup squad. An injury in the 2009 Nehru Cup opener v Lebanon ruled him out of that tournament, the IFA Shield, the Durand Cup and the Federation Cup.",
     "sources": [
       "https://en.wikipedia.org/wiki/N._S._Manju"
+    ],
+    "eraKn": "ಭಾರತ ಅಂತರರಾಷ್ಟ್ರೀಯ ಆಟಗಾರ",
+    "lineKn": "ಮೈಸೂರಿನಲ್ಲಿ ಜನಿಸಿದ ಡಿಫೆಂಡರ್; 25 ಭಾರತ ಕ್ಯಾಪ್ ಗಳಿಸಿ 2005ರ SAFF ಚಾಂಪಿಯನ್‌ಷಿಪ್ ಗೆದ್ದವರು; ನಂತರ Bengaluru FC ಪರ ಆಡಿದರು.",
+    "positionKn": "ಡಿಫೆಂಡರ್",
+    "bioKn": "ಮೈಸೂರಿನಲ್ಲಿ ಜನಿಸಿದ ಡಿಫೆಂಡರ್. ಕರ್ನಾಟಕದ DYS ಸಂಸ್ಥೆಯಲ್ಲಿ ಬೆಳೆದು, HAL, Mahindra United ಮತ್ತು Mohun Bagan ಪರ ಆಡಿದರು. ನಂತರ United Sikkim ಪರ ಆಡಿ, Pune FC ಗೆ ಸಾಲದ ಮೇಲೆ ಹೋದರು ಮತ್ತು 2013ರಲ್ಲಿ Bengaluru FC ಸೇರಿದರು. ಅವರು ಭಾರತದ U-23 ತಂಡದ ನಾಯಕರಾಗಿದ್ದರು, 25 ಹಿರಿಯ ಕ್ಯಾಪ್ ಗಳಿಸಿ ಎರಡು ಗೋಲು ಹೊಡೆದರು, ಮತ್ತು 2011ರ AFC Asian Cup ತಂಡದಲ್ಲಿದ್ದರು. ನಿವೃತ್ತಿಯ ನಂತರ ಇಂಡಿಯನ್ ಸೂಪರ್ ಲೀಗ್ ಸಮಯದಲ್ಲಿ Star Sports ಗೆ ಕನ್ನಡ ಫುಟ್ಬಾಲ್ ಕಾಮೆಂಟೇಟರ್ ಆಗಿ ಕೆಲಸ ಮಾಡಿದ್ದಾರೆ.",
+    "intlKn": "India U20 (2004), India U23 ನಾಯಕ (2006-08) ಮತ್ತು ಭಾರತ ಹಿರಿಯ ತಂಡ (2005-11): 25 ಕ್ಯಾಪ್, 2 ಗೋಲು. 2005 SAFF Gold Cup ನಲ್ಲಿ Maldives ವಿರುದ್ಧ (14 ಡಿಸೆಂಬರ್ 2005, 1-0) ಮತ್ತು 2007 AFC Asian Cup ಅರ್ಹತೆಯಲ್ಲಿ Saudi Arabia ವಿರುದ್ಧ (6 ಸೆಪ್ಟೆಂಬರ್ 2006, 1-7 ಸೋಲು) ಗೋಲು ಗಳಿಸಿದ್ದರು. 2011 AFC Asian Cup ತಂಡದಲ್ಲಿ ಜೆರ್ಸಿ ಸಂಖ್ಯೆ 3 ಧರಿಸಿದ್ದರು. 2009 Nehru Cup ಆರಂಭಿಕ ಪಂದ್ಯದಲ್ಲಿ Lebanon ವಿರುದ್ಧ ಆದ ಗಾಯದಿಂದ ಅವರು IFA Shield, Durand Cup ಮತ್ತು Federation Cup ನಿಂದ ಹೊರಗುಳಿದರು.",
+    "honoursKn": [
+      "SAFF ಚಾಂಪಿಯನ್‌ಷಿಪ್ 2005 (ವಿಜೇತ) ಮತ್ತು 2008 (ರನ್ನರ್‌ಅಪ್)",
+      "Nehru Cup 2007 ಮತ್ತು 2009 (ತಂಡದ ಸದಸ್ಯ; 2009ರ ಆರಂಭಿಕ ಪಂದ್ಯದಲ್ಲಿ ಗಾಯಗೊಂಡಿದ್ದರು)",
+      "ಮೊದಲ FPAI ಪ್ರಶಸ್ತಿ ಸಮಾರಂಭ, 2009: Best Indian Player ವಿಭಾಗಕ್ಕೆ ನಾಮನಿರ್ದೇಶನ"
     ]
   }
 ]

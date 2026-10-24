@@ -2,12 +2,15 @@
 import type { NewsItem } from '../lib/types';
 import { SECTIONS } from '../config/site';
 import { timeAgo } from '../lib/format';
+import { getLocale, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
 
 interface Props { items: NewsItem[]; showSummary?: boolean }
 const { items, showSummary = false } = Astro.props;
 ---
 {items.length === 0 ? (
-  <p class="muted">No headlines for this section right now. We check for new ones every 30 minutes.</p>
+  <p class="muted">{t(locale, 'news.empty')}</p>
 ) : (
   <ul class="news">
     {items.map((n) => (
@@ -17,8 +20,8 @@ const { items, showSummary = false } = Astro.props;
           {showSummary && n.summary && <p class="sum">{n.summary}</p>}
           <p class="muted">
             <span class={`src ${n.source === 'Panenka' ? 'panenka' : ''}`}>{n.source}</span>
-            {' · '}{timeAgo(n.publishedAt)}
-            {n.section && <> · {SECTIONS[n.section].title}</>}
+            {' · '}{timeAgo(n.publishedAt, undefined, locale)}
+            {n.section && <> · {locale === 'kn' ? SECTIONS[n.section].titleKn : SECTIONS[n.section].title}</>}
           </p>
         </div>
       </li>

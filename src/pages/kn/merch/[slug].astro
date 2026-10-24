@@ -1,0 +1,10 @@
+---
+import MerchItemPage from '../../../views/MerchItemPage.astro';
+import { merchPaths } from '../../../views/MerchPaths';
+
+export function getStaticPaths() {
+  return merchPaths();
+}
+const { item } = Astro.props;
+---
+<MerchItemPage item={item} />

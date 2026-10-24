@@ -1,13 +1,4 @@
 ---
-// Static frame for /armchair-gaffers/write/<slug>. The Pages Function in
-// functions/armchair-gaffers/write/[slug].ts injects the article into #post-root at request time.
-import Base from '../../layouts/Base.astro';
-import WriteHead from '../../components/WriteHead.astro';
+import OutfieldArticleShell from '../../views/OutfieldArticleShell.astro';
 ---
-<Base title="Outfield Talks" description="Fans and analysts break down Indian football.">
-  <WriteHead active="write" compact />
-  <section class="wrap module wr-page" style="padding-top:12px">
-    <p style="margin-bottom:14px"><a class="wr-back" href="/armchair-gaffers/write">← All pieces</a></p>
-    <div id="post-root"><p class="wr-note">Open a piece from the <a href="/armchair-gaffers/write">Write tab</a>.</p></div>
-  </section>
-</Base>
+<OutfieldArticleShell />

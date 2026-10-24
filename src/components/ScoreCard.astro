@@ -1,19 +1,22 @@
 ---
 import type { getAllMatches } from '../lib/data';
 import { kickoffTime, shortDate } from '../lib/format';
+import { digits, getLocale, localePath, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
 
 type Item = ReturnType<typeof getAllMatches>[number];
 interface Props { m: Item; copy: number; short: string; shortAway: string }
 const { m, copy, short, shortAway } = Astro.props;
 const done = m.status === 'ft' || m.status === 'live';
 ---
-<a class="sc" href={`/match?id=${encodeURIComponent(m.id)}`} data-card={m.id} data-mid={copy === 0 ? m.id : undefined} data-ko={m.kickoff} tabindex={copy === 1 ? -1 : undefined}>
+<a class="sc" href={localePath(locale, `/match?id=${encodeURIComponent(m.id)}`)} data-card={m.id} data-mid={copy === 0 ? m.id : undefined} data-ko={m.kickoff} tabindex={copy === 1 ? -1 : undefined}>
   <span class="sc-top">
     <span class="comp">{m.comp.short}</span>
-    <span class={`state ${m.status}`} data-state>{m.status === 'ft' ? 'FT' : m.status === 'live' ? 'LIVE' : `${shortDate(m.kickoff)} · ${kickoffTime(m.kickoff)}`}</span>
+    <span class={`state ${m.status}`} data-state>{m.status === 'ft' ? t(locale, 'match.ft') : m.status === 'live' ? t(locale, 'match.live') : `${shortDate(m.kickoff, locale)} · ${kickoffTime(m.kickoff, locale)}`}</span>
   </span>
-  <span class="row"><span class="t">{m.homeLogo && <img class="tl" src={m.homeLogo} alt="" width="16" height="16" loading="lazy" />}{short}</span><b data-side="home" class={m.status === 'ft' && m.homeScore! > m.awayScore! ? 'w' : ''}>{done ? m.homeScore : ''}</b></span>
-  <span class="row"><span class="t">{m.awayLogo && <img class="tl" src={m.awayLogo} alt="" width="16" height="16" loading="lazy" />}{shortAway}</span><b data-side="away" class={m.status === 'ft' && m.awayScore! > m.homeScore! ? 'w' : ''}>{done ? m.awayScore : ''}</b></span>
+  <span class="row"><span class="t">{m.homeLogo && <img class="tl" src={m.homeLogo} alt="" width="16" height="16" loading="lazy" />}{short}</span><b data-side="home" class={m.status === 'ft' && m.homeScore! > m.awayScore! ? 'w' : ''}>{done ? digits(locale, m.homeScore!) : ''}</b></span>
+  <span class="row"><span class="t">{m.awayLogo && <img class="tl" src={m.awayLogo} alt="" width="16" height="16" loading="lazy" />}{shortAway}</span><b data-side="away" class={m.status === 'ft' && m.awayScore! > m.homeScore! ? 'w' : ''}>{done ? digits(locale, m.awayScore!) : ''}</b></span>
 </a>
 <style>
   .tl { width: 16px; height: 16px; object-fit: contain; vertical-align: -3px; margin-right: 7px; }

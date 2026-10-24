@@ -1,0 +1,451 @@
+---
+import Base from '../layouts/Base.astro';
+import VideoCard from '../components/VideoCard.astro';
+import NewsList from '../components/NewsList.astro';
+import StandingsTable from '../components/StandingsTable.astro';
+import MatchList from '../components/MatchList.astro';
+import { SITE } from '../config/site';
+import { HOME_TABLES, compName, getCompetition } from '../config/competitions';
+import { getAllMatches, getLeague, getNews, getShows, getVideos, isShort } from '../lib/data';
+import { istDay, kickoffTime, shortDate, ytWatch } from '../lib/format';
+import { getLocale, localePath, seasonText, t, teamName } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const href = (to: string) => localePath(locale, to);
+const dateLocale = locale === 'kn' ? 'kn-IN' : 'en-IN';
+
+const shows = getShows();
+const { panenka, isl } = getVideos();
+const longForm = panenka.filter((v) => !isShort(v));
+const showName = (slug?: string) => shows.find((s) => s.slug === slug)?.name;
+// Latest episodes rail: full episodes, newest first, never Shorts. "All" shows the newest 12; each show chip shows
+// that show's newest 8 (Football Kathe is filmed vertically, so a show's vertical episodes count too).
+const allIds = new Set(longForm.slice(0, 12).map((v) => v.id));
+const showIds = new Set(shows.flatMap((s) => panenka.filter((v) => v.show === s.slug).slice(0, 8).map((v) => v.id)));
+const episodes = panenka.filter((v) => allIds.has(v.id) || showIds.has(v.id));
+const shortsRail = panenka.filter((v) => isShort(v) && !v.show).slice(0, 10);
+// Hero slider: the five newest full episodes.
+const slides = longForm.slice(0, 5);
+// Hero titles: drop hashtags and keep the part before the first " | " (YouTube titles carry show names and tags after it).
+const cleanTitle = (t: string) => t.replace(/#\w+/g, '').split(/\s+\|\s*/)[0].trim();
+const highlights = isl.slice(0, 3);
+
+const news = getNews().slice(0, 5);
+
+// "Coming up" card under ISL Highlights: next senior fixtures across leagues.
+const nowIso = new Date().toISOString();
+const comingUp = getAllMatches()
+  .filter((m) => m.comp.section !== 'youth' && m.status === 'scheduled' && m.kickoff > nowIso)
+  .sort((a, b) => a.kickoff.localeCompare(b.kickoff))
+  .slice(0, 4);
+
+
+const tables = HOME_TABLES.map((slug) => getCompetition(slug)!)
+  .map((comp) => ({ comp, data: getLeague(comp) }))
+  .filter((t) => t.data && t.data.stages[0]?.groups[0]?.rows.length);
+
+// Fixtures strip: three days either side of today (IST), all leagues.
+const today = istDay(new Date().toISOString());
+const days = [-3, -2, -1, 0, 1, 2, 3].map((offset) => {
+  const d = new Date(`${today}T12:00:00+05:30`);
+  d.setUTCDate(d.getUTCDate() + offset);
+  const key = istDay(d.toISOString());
+  const label = offset === 0 ? t(locale, 'home.today') : offset === -1 ? t(locale, 'home.yesterday') : offset === 1 ? t(locale, 'home.tomorrow')
+    : d.toLocaleDateString(dateLocale, { weekday: 'short', day: 'numeric', timeZone: 'Asia/Kolkata' });
+  return { key, label };
+});
+const allMatches = getAllMatches();
+const byDay = new Map(days.map((d) => [d.key, allMatches.filter((m) => istDay(m.kickoff) === d.key)]));
+const groupByComp = (ms: typeof allMatches) => {
+  const groups = new Map<string, typeof allMatches>();
+  for (const m of ms.sort((a, b) => a.kickoff.localeCompare(b.kickoff))) groups.set(m.comp.slug, [...(groups.get(m.comp.slug) ?? []), m]);
+  return [...groups.values()];
+};
+
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  sameAs: Object.values(SITE.socials),
+  publisher: { '@type': 'Organization', name: SITE.name, logo: `${SITE.url}/logo-512.png` },
+};
+---
+
+<Base jsonLd={jsonLd}>
+  {slides.length > 0 && (
+    <section class="stage" aria-roledescription="carousel" aria-label={t(locale, 'home.heroLabel')}>
+      {slides.map((v, i) => (
+        <div class={`slide ${i === 0 ? 'active' : ''}`} data-i={i} aria-hidden={i === 0 ? undefined : 'true'}>
+          <img class="bg" src={`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`} alt="" width="1280" height="720"
+            srcset={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg 480w, https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg 1280w`} sizes="100vw"
+            loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'}
+            onerror={`this.onerror=null;this.src='${v.thumbnail}'`} />
+        </div>
+      ))}
+      <div class="shade" aria-hidden="true"></div>
+      <div class="wrap stage-inner">
+        <p class="tag kn" lang="kn">{SITE.taglineKn}</p>
+        <div class="texts">
+          {slides.map((v, i) => (
+            <div class={`txt ${i === 0 ? 'active' : ''}`} data-i={i} aria-hidden={i === 0 ? undefined : 'true'}>
+              <p class="show">{showName(v.show) ?? 'Panenka Goal'} · {shortDate(v.publishedAt, locale)}</p>
+              <h1>{cleanTitle(v.title)}</h1>
+              <div class="cta-row">
+                <a class="btn" href={ytWatch(v.id)} data-yt={v.id} data-title={v.title} rel="noopener" tabindex={i === 0 ? undefined : -1}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
+                  {t(locale, 'home.watch')}
+                </a>
+                <a class="btn ghost" href={href('/armchair-gaffers')} tabindex={i === 0 ? undefined : -1}>{t(locale, 'home.allShows')}</a>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="dots" role="tablist" aria-label={t(locale, 'home.chooseEpisode')}>
+          {slides.map((v, i) => (
+            <button class={`dot ${i === 0 ? 'active' : ''}`} role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-i={i} type="button">
+              <span class="bar"><span class="fill"></span></span>
+              <span class="lbl">{cleanTitle(v.title)}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="wrap module duo reveal">
+    <aside class="panel-card" aria-labelledby="isl-h">
+      <div class="card-head red">
+        <h2 id="isl-h">{t(locale, 'home.islHighlights')}</h2>
+        <a href={href('/armchair-gaffers#isl-highlights')}>{t(locale, 'home.all')} →</a>
+      </div>
+      <div class="card-body hl">
+        {highlights.length ? highlights.map((v) => <VideoCard video={v} size="row" />) : <p class="muted">{t(locale, 'home.highlightsEmpty')}</p>}
+      </div>
+    </aside>
+    {comingUp.length > 0 && (
+      <aside class="panel-card" aria-labelledby="next-h">
+        <div class="card-head yellow">
+          <h2 id="next-h">{t(locale, 'home.comingUp')}</h2>
+          <a href={href('/stats')}>{t(locale, 'home.allFixtures')} →</a>
+        </div>
+        <ul class="next card-body">
+          {comingUp.map((m) => (
+            <li>
+              <span class="when"><b>{kickoffTime(m.kickoff)}</b><small>{shortDate(m.kickoff, locale)}</small></span>
+              <span class="teams">{teamName(locale, m.home)} <i>{t(locale, 'home.vs')}</i> {teamName(locale, m.away)}</span>
+              <span class="lg">{m.comp.short}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    )}
+  </section>
+
+  <section class="wrap module reveal" aria-labelledby="fx-h">
+    <div class="mod-head">
+      <h2 id="fx-h">{t(locale, 'home.fixtures')}</h2>
+      <a href={href('/stats')}>{t(locale, 'home.byLeague')} →</a>
+    </div>
+    <div class="chips days" role="tablist" aria-label={t(locale, 'home.day')}>
+      {days.map((d) => (
+        <button class="chip" role="tab" aria-controls={`day-${d.key}`} aria-selected={d.key === today ? 'true' : 'false'}>
+          {d.label}{byDay.get(d.key)!.length ? <span class="n">{byDay.get(d.key)!.length}</span> : null}
+        </button>
+      ))}
+    </div>
+    {days.map((d) => (
+      <div class="panel-card day" id={`day-${d.key}`} role="tabpanel" hidden={d.key !== today}>
+        {byDay.get(d.key)!.length === 0 ? (
+          <p class="muted empty">{t(locale, 'home.noMatches')}</p>
+        ) : (
+          groupByComp(byDay.get(d.key)!).map((ms) => (
+            <div class="comp-group">
+              <a class="comp-name" href={href(`/stats/${ms[0].comp.slug}`)}>{compName(locale, ms[0].comp)}</a>
+              <MatchList matches={ms} />
+            </div>
+          ))
+        )}
+      </div>
+    ))}
+  </section>
+
+  <div class="band bg-photo" style="--img:url(/bg/banner.webp)">
+  <section class="wrap module reveal" aria-labelledby="latest-h">
+    <div class="mod-head">
+      <div class="chips" role="tablist" aria-label={t(locale, 'home.latestVideos')}>
+        <button class="chip" role="tab" id="tab-episodes" aria-controls="panel-episodes" aria-selected="true"><span id="latest-h">{t(locale, 'home.latestEpisodesTab')}</span></button>
+        {shortsRail.length > 0 && <button class="chip" role="tab" id="tab-shorts" aria-controls="panel-shorts" aria-selected="false">{t(locale, 'home.shorts')}</button>}
+      </div>
+      <a href={href('/armchair-gaffers')}>{t(locale, 'home.allShows')} →</a>
+    </div>
+    <div id="panel-episodes" role="tabpanel" aria-labelledby="tab-episodes">
+      <div class="chips" role="tablist" aria-label={t(locale, 'home.filterShow')} data-filter-for="latest-rail">
+        <button class="chip" role="tab" aria-selected="true" data-show="">{t(locale, 'home.all')}</button>
+        {shows.map((s) => <button class="chip" role="tab" aria-selected="false" data-show={s.slug}>{s.name}</button>)}
+      </div>
+      <div class="rail" id="latest-rail">
+        {episodes.map((v) => (
+          <div data-show={v.show ?? ''} data-all={allIds.has(v.id) ? '1' : '0'} hidden={!allIds.has(v.id)}>
+            <VideoCard video={v} badge={showName(v.show)} />
+          </div>
+        ))}
+      </div>
+    </div>
+    {shortsRail.length > 0 && (
+      <div id="panel-shorts" role="tabpanel" aria-labelledby="tab-shorts" hidden>
+        <div class="rail shorts-rail">
+          {shortsRail.map((v) => <VideoCard video={v} size="vertical" />)}
+        </div>
+      </div>
+    )}
+  </section>
+
+  </div>
+
+  <div class="band bg-photo" style="--img:url(/bg/trophies.webp)">
+  <section class="wrap module split reveal">
+    <div class="col" aria-labelledby="news-h">
+      <div class="mod-head">
+        <h2 id="news-h" class="sr-only">{t(locale, 'home.newsAndBlogs')}</h2>
+        <div class="chips nb-tabs" role="tablist" aria-label={t(locale, 'home.newsOrBlogs')}>
+          <button class="chip" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="true">{t(locale, 'home.news')}</button>
+          <button class="chip" role="tab" id="tab-blogs" aria-controls="panel-blogs" aria-selected="false">{t(locale, 'home.blogs')}</button>
+        </div>
+        <a id="link-news" href={href('/news')}>{t(locale, 'home.allNews')}</a>
+        <a id="link-blogs" href={href('/armchair-gaffers/write')} hidden>{t(locale, 'home.allBlogs')}</a>
+      </div>
+      <div class="nb-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
+        <NewsList items={news} />
+      </div>
+      <div class="nb-panel" id="panel-blogs" role="tabpanel" aria-labelledby="tab-blogs" hidden>
+        <ul class="news bl" id="blog-list" aria-live="polite" data-locale={locale} data-blog-meta={t(locale, 'home.blogMeta')} data-no-blogs={t(locale, 'home.noBlogs')} data-blogs-failed={t(locale, 'home.blogsFailed')}><li class="bl-empty">{t(locale, 'home.loadingBlogs')}</li></ul>
+      </div>
+    </div>
+    <div class="col" aria-labelledby="tables-h">
+      <div class="mod-head">
+        <h2 id="tables-h">{t(locale, 'home.tables')}</h2>
+        <a href={href('/stats')}>{t(locale, 'home.allStats')}</a>
+      </div>
+      <div class="panel-card">
+        <div class="card-head yellow tabs-head">
+          <div class="chips" role="tablist" aria-label={t(locale, 'home.competition')}>
+            {tables.map((tb, i) => (
+              <button class="chip" role="tab" id={`tab-${tb.comp.slug}`} aria-controls={`panel-${tb.comp.slug}`} aria-selected={i === 0 ? 'true' : 'false'}>{tb.comp.short}</button>
+            ))}
+          </div>
+        </div>
+        {tables.map((tb, i) => (
+          <div class="panel" id={`panel-${tb.comp.slug}`} role="tabpanel" aria-labelledby={`tab-${tb.comp.slug}`} hidden={i !== 0}>
+            <p class="muted season">{seasonText(locale, tb.comp.name, tb.comp.nameKn, tb.data!.seasonLabel)}</p>
+            <div class="flat"><StandingsTable rows={tb.data!.stages[0].groups[0].rows} comp={tb.comp} compact limit={6} caption={t(locale, 'home.tableCaption', { name: tb.comp.name })} /></div>
+            <a class="full" href={href(`/stats/${tb.comp.slug}`)}>{t(locale, 'home.fullTable', { short: tb.comp.short })}</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  </div>
+</Base>
+
+<script>
+  // Hero slider: advance every 7 s; the progress bar on the active dot shows the time left.
+  const stage = document.querySelector<HTMLElement>('.stage');
+  if (stage) {
+    const parts = (sel: string) => [...stage.querySelectorAll<HTMLElement>(sel)];
+    const slidesEl = parts('.slide'), textsEl = parts('.txt'), dotsEl = parts('.dot');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let cur = 0, timer = 0;
+    const show = (i: number) => {
+      cur = (i + slidesEl.length) % slidesEl.length;
+      [slidesEl, textsEl, dotsEl].forEach((group) => group.forEach((el, j) => {
+        el.classList.toggle('active', j === cur);
+        if (el.classList.contains('dot')) el.setAttribute('aria-selected', String(j === cur));
+        else el.toggleAttribute('aria-hidden', j !== cur);
+      }));
+      textsEl.forEach((el, j) => el.querySelectorAll('a').forEach((a) => (j === cur ? a.removeAttribute('tabindex') : a.setAttribute('tabindex', '-1'))));
+      const img = slidesEl[cur].querySelector('img');
+      if (img && img.loading === 'lazy') img.loading = 'eager';
+      restart();
+    };
+    const restart = () => { clearTimeout(timer); if (!reduce && slidesEl.length > 1) timer = window.setTimeout(() => show(cur + 1), 7000); };
+    dotsEl.forEach((d, j) => d.addEventListener('click', () => show(j)));
+    stage.addEventListener('mouseenter', () => { clearTimeout(timer); stage.classList.add('paused'); });
+    stage.addEventListener('mouseleave', () => { stage.classList.remove('paused'); restart(); });
+    document.addEventListener('visibilitychange', () => (document.hidden ? clearTimeout(timer) : restart()));
+    restart();
+  }
+
+  // Tabs: each tablist toggles the panels its buttons control.
+  document.querySelectorAll<HTMLElement>('[role="tablist"]').forEach((list) => {
+    const tabs = [...list.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    tabs.forEach((tab) =>
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => {
+          const on = t === tab;
+          t.setAttribute('aria-selected', String(on));
+          const panel = t.getAttribute('aria-controls');
+          if (panel) document.getElementById(panel)!.hidden = !on;
+        });
+        // Show filter for the video rail.
+        const railId = list.dataset.filterFor;
+        if (railId) {
+          const show = tab.dataset.show ?? '';
+          document.querySelectorAll<HTMLElement>(`#${railId} > [data-show]`).forEach((el) => {
+            el.hidden = show === '' ? el.dataset.all !== '1' : el.dataset.show !== show;
+          });
+        }
+      }),
+    );
+  });
+  // The header link follows the News / Blogs tab.
+  const linkNews = document.getElementById('link-news'), linkBlogs = document.getElementById('link-blogs');
+  document.getElementById('tab-news')?.addEventListener('click', () => { linkNews!.hidden = false; linkBlogs!.hidden = true; });
+  document.getElementById('tab-blogs')?.addEventListener('click', () => { linkNews!.hidden = true; linkBlogs!.hidden = false; });
+  // Blogs tab: published Outfield Talks pieces load live, so a newly approved piece shows without a rebuild.
+  const blogList = document.getElementById('blog-list');
+  if (blogList) {
+    const note = (text: string) => { const li = document.createElement('li'); li.className = 'bl-empty'; li.textContent = text; blogList.replaceChildren(li); };
+    fetch('/api/write/posts')
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d: { posts?: { slug: string; title: string; author: string; publishedAt: string; minutes: number }[] }) => {
+        const posts = (d.posts ?? []).slice(0, 5);
+        if (!posts.length) return note(blogList.dataset.noBlogs!);
+        blogList.replaceChildren(...posts.map((p) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = `${blogList.dataset.locale === 'kn' ? '/kn' : ''}/armchair-gaffers/write/${p.slug}`;
+          a.textContent = p.title;
+          const meta = document.createElement('p');
+          meta.className = 'bl-meta';
+          const date = new Date(p.publishedAt).toLocaleDateString(blogList.dataset.locale === 'kn' ? 'kn-IN' : 'en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+          meta.textContent = blogList.dataset.blogMeta!.replace('{author}', p.author).replace('{date}', date).replace('{minutes}', String(p.minutes));
+          li.append(a, meta);
+          return li;
+        }));
+      })
+      .catch(() => note(blogList.dataset.blogsFailed!));
+  }
+  // Centre "Today" in the date strip without scrolling the page.
+  const strip = document.querySelector<HTMLElement>('.days');
+  const today = strip?.querySelector<HTMLElement>('[aria-selected="true"]');
+  if (strip && today) strip.scrollLeft = today.offsetLeft - strip.offsetLeft - (strip.clientWidth - today.offsetWidth) / 2;
+</script>
+
+<style>
+  /* Hero stage: dark in both themes, like a broadcast stage. */
+  .stage { position: relative; overflow: hidden; background: var(--ink); color: #fff; min-height: clamp(440px, 64vh, 640px); display: flex; }
+  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.1s ease; }
+  .slide.active { opacity: 1; }
+  .bg { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); }
+  .slide.active .bg { animation: kenburns 9s ease-out forwards; }
+  @keyframes kenburns { from { transform: scale(1.04); } to { transform: scale(1.13) translateX(-1.5%); } }
+  .shade {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(10, 11, 13, 0.94) 0%, rgba(10, 11, 13, 0.72) 38%, rgba(10, 11, 13, 0.15) 75%, rgba(10, 11, 13, 0.05) 100%),
+      linear-gradient(0deg, rgba(10, 11, 13, 0.9) 0%, rgba(10, 11, 13, 0) 40%);
+  }
+  .stage-inner { position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: 22px; padding-block: 40px 28px; }
+  .tag { color: var(--accent); font-weight: 700; font-size: 15px; }
+  .texts { display: grid; }
+  .txt { grid-area: 1 / 1; max-width: 640px; display: grid; gap: 14px; align-content: end; opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); pointer-events: none; }
+  .txt.active { opacity: 1; transform: none; pointer-events: auto; transition-delay: 0.25s; }
+  .show { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #d9dde3; }
+  .txt h1 { color: #fff; font-size: clamp(30px, 4.4vw, 56px); line-height: 1.02; text-transform: uppercase; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+  .stage .btn.ghost { color: #fff; border-color: rgba(255, 255, 255, 0.45); }
+  .stage .btn.ghost:hover { background: rgba(255, 255, 255, 0.1); }
+  .dots { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; max-width: 900px; }
+  .dot { display: grid; gap: 8px; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; color: rgba(255, 255, 255, 0.6); font: 500 12.5px/1.3 var(--body); }
+  .dot:hover, .dot.active { color: #fff; }
+  .bar { height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.25); overflow: hidden; }
+  .fill { display: block; height: 100%; width: 0; background: var(--accent); }
+  .dot.active .fill { animation: fill 7s linear forwards; }
+  .stage.paused .dot.active .fill { animation-play-state: paused; }
+  @keyframes fill { to { width: 100%; } }
+  .lbl { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .duo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+  .hl { display: grid; gap: 14px; }
+  .next { list-style: none; margin: 0; display: grid; gap: 0; }
+  .next li { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .next li:first-child { padding-top: 0; }
+  .next li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .when { display: grid; line-height: 1.2; }
+  .when b { font-size: 15px; }
+  .when small { font-size: 12px; color: var(--text-3); }
+  .teams { font-size: 14.5px; font-weight: 600; line-height: 1.35; }
+  .teams i { font-style: normal; color: var(--text-3); font-weight: 400; margin-inline: 2px; }
+  .lg { font-size: 11px; font-weight: 700; padding: 3px 6px; border-radius: 4px; background: var(--accent); color: var(--on-accent); }
+
+  .rail { margin-top: 16px; }
+  .rail > [hidden] { display: none; }
+  /* Shorts are 9:16, so the rail fits more of them per row. */
+  .shorts-rail { margin-top: 0; grid-auto-columns: calc((100% - 6 * 16px) / 7); }
+  @media (max-width: 1200px) { .shorts-rail { grid-auto-columns: calc((100% - 4 * 16px) / 5); } }
+  @media (max-width: 900px) { .shorts-rail { grid-auto-columns: 30%; } }
+  @media (max-width: 560px) { .shorts-rail { grid-auto-columns: 44%; } }
+
+  /* Both columns stretch to the taller one, so their bottoms line up. */
+  .split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: stretch; }
+  .col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+  .col > .mod-head { margin-bottom: 0; }
+  .col > .panel-card { flex: 1; }
+  .nb-tabs { margin: 0; }
+  .nb-panel { display: flex; flex-direction: column; flex: 1; gap: 4px; }
+  .nb-panel[hidden] { display: none; }
+  .nb-panel :global(.news) { flex: 1; }
+  #link-news[hidden], #link-blogs[hidden] { display: none; }
+  .col > .mod-head a { font-weight: 600; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+  .col > .mod-head a:hover { text-decoration: underline; }
+  .bl { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
+  .bl :global(li) { display: grid; gap: 4px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .bl :global(li:last-child) { border-bottom: 0; }
+  .bl :global(a) { color: var(--text); font-weight: 600; text-decoration: none; line-height: 1.4; font-size: 16.5px; }
+  .bl :global(a:hover) { color: var(--brand); }
+  .bl :global(.bl-meta), .bl :global(.bl-empty) { font-size: 13px; color: var(--text-3); }
+  /* Phones show three headlines; the rest live under All news / All blogs. */
+  @media (max-width: 640px) {
+    .nb-panel :global(.news > li:nth-child(n + 4)) { display: none; }
+  }
+  .tabs-head { padding: 12px 16px; }
+  .tabs-head .chip { padding: 7px 12px; font-size: 13.5px; }
+  .panel { padding: 14px 16px 16px; }
+  .season { margin-bottom: 10px; }
+  .flat :global(.tbl) { box-shadow: none; }
+  .full { display: inline-block; margin-top: 12px; font-weight: 600; font-size: 14.5px; text-decoration: none; }
+  .full:hover { text-decoration: underline; }
+  .scorers { list-style: none; margin: 0; counter-reset: s; }
+  .scorers li { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); counter-increment: s; }
+  .scorers li:first-child { padding-top: 0; }
+  .scorers li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .scorers li::before { content: counter(s); width: 18px; color: var(--text-3); font-weight: 600; font-size: 14px; }
+  .who { display: grid; flex: 1; line-height: 1.3; }
+  .who b { font-weight: 600; font-size: 15px; }
+  .who small { color: var(--text-3); font-size: 13px; }
+  .g { font: 700 18px/1 var(--display); color: var(--brand); min-width: 28px; text-align: right; }
+
+  .days { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+  .days .chip { white-space: nowrap; }
+  .n { display: inline-grid; place-items: center; min-width: 18px; height: 18px; margin-left: 6px; font-size: 11px; background: var(--surface-2); color: var(--text-2); border-radius: 99px; padding: 0 5px; }
+  .days .chip[aria-selected='true'] .n { background: var(--accent); color: var(--on-accent); }
+  .day { margin-top: 16px; padding: 4px 20px 8px; }
+  .empty { padding: 16px 0; }
+  .comp-group { padding-top: 14px; }
+  .comp-group + .comp-group { border-top: 1px solid var(--line); margin-top: 6px; }
+  .comp-name { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--brand); text-decoration: none; }
+  .comp-name:hover { text-decoration: underline; }
+  @media (max-width: 960px) {
+    .duo, .split { grid-template-columns: minmax(0, 1fr); }
+    .day { padding-inline: 14px; }
+  }
+  @media (max-width: 640px) {
+    .stage { min-height: 520px; }
+    .shade { background: linear-gradient(0deg, rgba(10, 11, 13, 0.96) 0%, rgba(10, 11, 13, 0.7) 50%, rgba(10, 11, 13, 0.2) 100%); }
+    .dots { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+    .lbl { display: none; }
+  }
+</style>
