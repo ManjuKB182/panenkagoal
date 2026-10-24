@@ -79,8 +79,7 @@ export const COMPETITIONS: Competition[] = [
     short: 'IWL',
     section: 'wofo',
     gender: 'women',
-    // AIFF's IWL feed (type 11) now carries IWL 2 2026-27, so the top division has no 2026-27 source yet:
-    // teams listed by hand with zero results. Switch to an 'aiff' source once AIFF publishes it.
+    // AIFF type 11 has the IWL top division's points table, but its fixtures are IWL 2 2026-27. Top division stays hand-kept until verified.
     source: { kind: 'manual', file: 'data/manual/iwl.json' },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/iwl',
@@ -93,10 +92,10 @@ export const COMPETITIONS: Competition[] = [
     short: 'IWL 2',
     section: 'wofo',
     gender: 'women',
-    source: { kind: 'aiff', type: 11 }, // type 69 is the finished 2025-26 IWL 2
-    sourceLabel: 'AIFF',
-    sourceUrl: 'https://www.the-aiff.com/competitions/iwl-2',
-    fallbacks: [{ kind: 'ifl', slug: 'iwl-2' }],
+    // AIFF type 11 is the IWL top division's table (its fixtures are IWL 2's), so IWL 2 comes from indianfootballleague.in.
+    source: { kind: 'ifl', slug: 'iwl-2' },
+    sourceLabel: 'IFL',
+    sourceUrl: 'https://indianfootballleague.in/points-table/iwl-2/',
   },
   {
     slug: 'elite-u18',

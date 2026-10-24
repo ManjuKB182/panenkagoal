@@ -26,20 +26,26 @@ export async function readDataset<T>(key: string): Promise<T | null> {
   }
 }
 
-/** Writes the dataset. Returns true when the content changed. */
+/**
+ * Writes the dataset. Returns true when the content changed locally or in Neon.
+ * Neon is compared by its own hash, not the local file: a local copy can match the new data while Neon holds an old row.
+ */
 export async function writeDataset(key: string, data: unknown): Promise<boolean> {
   const hash = contentHash(data);
   const previous = await readDataset(key);
-  const changed = previous === null || contentHash(previous) !== hash;
+  let changed = previous === null || contentHash(previous) !== hash;
   if (changed) {
     await mkdir(dirname(fileFor(key)), { recursive: true });
     await writeFile(fileFor(key), JSON.stringify(data, null, 2) + '\n');
   }
-  if (sql && changed) {
-    await sql`
+  if (sql) {
+    const updated = await sql`
       insert into datasets (key, data, hash, updated_at)
       values (${key}, ${JSON.stringify(data)}::jsonb, ${hash}, now())
-      on conflict (key) do update set data = excluded.data, hash = excluded.hash, updated_at = now()`;
+      on conflict (key) do update set data = excluded.data, hash = excluded.hash, updated_at = now()
+      where datasets.hash <> excluded.hash
+      returning key`;
+    if (updated.length) changed = true;
   }
   return changed;
 }

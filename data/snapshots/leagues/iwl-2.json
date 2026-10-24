@@ -1,6 +1,6 @@
 {
   "slug": "iwl-2",
-  "seasonLabel": "IWL 2 2026-27",
+  "seasonLabel": "Indian Women's League 2 2026-27",
   "season": "2026-27",
   "stages": [
     {
@@ -12,7 +12,7 @@
             {
               "pos": 1,
               "team": "GNDU Football Club",
-              "logo": "https://aiff.b-cdn.net/logos/lr_14749-logo-1646222060.jpeg",
+              "logo": "https://administrator.the-aiff.com/logos/lr_14749-logo-1646222060.jpeg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -20,12 +20,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 2,
               "team": "MATA RUKMANI FOOTBALL CLUB (GIRLS)",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_MATARUKMANILOGO_1616811527.jfif",
+              "logo": "https://administrator.the-aiff.com/uploads/sm_MATARUKMANILOGO_1616811527.jfif",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -33,12 +34,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 3,
               "team": "SAG Football Academy",
-              "logo": "https://aiff.b-cdn.net/logos/11430-logo-1509450430.jpeg",
+              "logo": "https://administrator.the-aiff.com/logos/11430-logo-1509450430.jpeg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -46,12 +48,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 4,
               "team": "Sporting Club Bacaim",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_Logo_1649158170.jpg",
+              "logo": "https://administrator.the-aiff.com/uploads/sm_Logo_1649158170.jpg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -59,12 +62,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 5,
               "team": "United Kolkata Sports Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG0017_1751623067.jpeg",
+              "logo": "https://administrator.the-aiff.com/uploads/sm_IMG0017_1751623067.jpeg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -72,7 +76,8 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             }
           ]
         },
@@ -81,34 +86,36 @@
           "rows": [
             {
               "pos": 1,
-              "team": "DKR Football Academy",
-              "logo": "https://aiff.b-cdn.net/logos/sm_18584-logo_small-1774354850.jpg",
-              "played": 0,
-              "won": 0,
+              "team": "Narmada Valley FC MANDLA",
+              "logo": "https://administrator.the-aiff.com/uploads/sm_NVFCLogo_1782930123.jpeg",
+              "played": 1,
+              "won": 1,
               "drawn": 0,
               "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
+              "gf": 6,
+              "ga": 1,
+              "gd": 5,
+              "points": 3,
+              "form": "W"
             },
             {
               "pos": 2,
-              "team": "Narmada Valley FC MANDLA",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_NVFCLogo_1782930123.jpeg",
-              "played": 0,
+              "team": "DKR Football Academy",
+              "logo": "https://administrator.the-aiff.com/logos/sm_18584-logo_small-1774354850.jpg",
+              "played": 1,
               "won": 0,
               "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
+              "lost": 1,
+              "gf": 1,
+              "ga": 6,
+              "gd": -5,
+              "points": 0,
+              "form": "L"
             },
             {
               "pos": 3,
               "team": "Pune Krida Prabhodhini Academy",
-              "logo": "https://aiff.b-cdn.net/logos/sm_13798-logo_small-1689603467.png",
+              "logo": "https://administrator.the-aiff.com/logos/sm_13798-logo_small-1689603467.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -116,12 +123,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 4,
               "team": "Sports Odisha",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11804-logo_small-1647241678.jpg",
+              "logo": "https://administrator.the-aiff.com/logos/sm_11804-logo_small-1647241678.jpg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -129,12 +137,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 5,
               "team": "Youth Welfare Club, Thambalkhong, Imphal",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_ywclogo_1576738900.jpg",
+              "logo": "https://administrator.the-aiff.com/uploads/sm_ywclogo_1576738900.jpg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -142,7 +151,8 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             }
           ]
         },
@@ -152,7 +162,7 @@
             {
               "pos": 1,
               "team": "AIFF FIFA Talent Academy, Telangana",
-              "logo": "https://aiff.b-cdn.net/logos/sm_21554-logo_small-1768910639.png",
+              "logo": "https://administrator.the-aiff.com/logos/sm_21554-logo_small-1768910639.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -160,7 +170,8 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 2,
@@ -172,12 +183,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 3,
               "team": "Kemp Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_KempFinalColorPNG_1660214685.png",
+              "logo": "https://administrator.the-aiff.com/uploads/sm_KempFinalColorPNG_1660214685.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -185,12 +197,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 4,
               "team": "Mumbai Knights FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_15788-logo_small-1754239625.png",
+              "logo": "https://administrator.the-aiff.com/logos/sm_15788-logo_small-1754239625.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -198,7 +211,8 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             }
           ]
         },
@@ -208,7 +222,7 @@
             {
               "pos": 1,
               "team": "Misaka United FC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG6835_1611217313.png",
+              "logo": "https://administrator.the-aiff.com/uploads/sm_IMG6835_1611217313.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -216,12 +230,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 2,
               "team": "Rangers Sports Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_12673-logo_small-1788438812.jpeg",
+              "logo": "https://administrator.the-aiff.com/logos/sm_12673-logo_small-1788438812.jpeg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -229,12 +244,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 3,
               "team": "SESA Football Academy",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_SFANewLogo_1658138240.png",
+              "logo": "https://administrator.the-aiff.com/uploads/sm_SFANewLogo_1658138240.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -242,12 +258,13 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             },
             {
               "pos": 4,
               "team": "Zinc Football Academy",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_ZFALogo_1659445434.png",
+              "logo": "https://administrator.the-aiff.com/uploads/sm_ZFALogo_1659445434.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -255,7 +272,8 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": ""
             }
           ]
         }
@@ -264,126 +282,317 @@
   ],
   "fixtures": [
     {
-      "id": "aiff-75278",
-      "kickoff": "2026-10-24T02:30:00.000Z",
+      "id": "ifl-75278",
+      "kickoff": "2026-10-24T08:00:00+05:30",
       "home": "Narmada Valley FC MANDLA",
       "away": "DKR Football Academy",
-      "status": "scheduled",
-      "venue": "Capital Football Arena"
+      "homeScore": 6,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75268",
-      "kickoff": "2026-10-24T03:30:00.000Z",
+      "id": "ifl-75268",
+      "kickoff": "2026-10-24T09:00:00+05:30",
       "home": "MATA RUKMANI FOOTBALL CLUB (GIRLS)",
       "away": "United Kolkata Sports Club",
       "status": "scheduled",
-      "venue": "Football NAVI MUMBAI Centre of Excellence"
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75279",
-      "kickoff": "2026-10-24T09:30:00.000Z",
+      "id": "ifl-75279",
+      "kickoff": "2026-10-24T15:00:00+05:30",
       "home": "Pune Krida Prabhodhini Academy",
       "away": "Youth Welfare Club, Thambalkhong, Imphal",
       "status": "scheduled",
-      "venue": "Capital Football Arena"
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75269",
-      "kickoff": "2026-10-24T10:30:00.000Z",
+      "id": "ifl-75269",
+      "kickoff": "2026-10-24T16:00:00+05:30",
       "home": "GNDU Football Club",
       "away": "SAG Football Academy",
       "status": "scheduled",
-      "venue": "Football NAVI MUMBAI Centre of Excellence"
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75287",
-      "kickoff": "2026-10-25T03:30:00.000Z",
+      "id": "ifl-75287",
+      "kickoff": "2026-10-25T09:00:00+05:30",
       "home": "Mumbai Knights FC",
       "away": "Kemp Football Club",
       "status": "scheduled",
-      "venue": "SSA Stadium"
+      "venue": "SSA Stadium",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75293",
-      "kickoff": "2026-10-25T03:30:00.000Z",
+      "id": "ifl-75293",
+      "kickoff": "2026-10-25T09:00:00+05:30",
       "home": "Zinc Football Academy",
       "away": "Rangers Sports Club",
       "status": "scheduled",
-      "venue": "Duler Stadium"
+      "venue": "Duler Stadium",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75288",
-      "kickoff": "2026-10-25T09:00:00.000Z",
+      "id": "ifl-75288",
+      "kickoff": "2026-10-25T14:30:00+05:30",
       "home": "JAKREM SPORTS CLUB",
       "away": "AIFF FIFA Talent Academy, Telangana",
       "status": "scheduled",
-      "venue": "SSA Stadium"
+      "venue": "SSA Stadium",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75294",
-      "kickoff": "2026-10-25T10:30:00.000Z",
+      "id": "ifl-75294",
+      "kickoff": "2026-10-25T16:00:00+05:30",
       "home": "SESA Football Academy",
       "away": "Misaka United FC",
       "status": "scheduled",
-      "venue": "Duler Stadium"
+      "venue": "Duler Stadium",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75280",
-      "kickoff": "2026-10-26T02:30:00.000Z",
+      "id": "ifl-75280",
+      "kickoff": "2026-10-26T08:00:00+05:30",
       "home": "Youth Welfare Club, Thambalkhong, Imphal",
       "away": "Sports Odisha",
       "status": "scheduled",
-      "venue": "Capital Football Arena"
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75270",
-      "kickoff": "2026-10-26T03:30:00.000Z",
+      "id": "ifl-75270",
+      "kickoff": "2026-10-26T09:00:00+05:30",
       "home": "SAG Football Academy",
       "away": "Sporting Club Bacaim",
       "status": "scheduled",
-      "venue": "Football NAVI MUMBAI Centre of Excellence"
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75281",
-      "kickoff": "2026-10-26T09:30:00.000Z",
+      "id": "ifl-75281",
+      "kickoff": "2026-10-26T15:00:00+05:30",
       "home": "Pune Krida Prabhodhini Academy",
       "away": "Narmada Valley FC MANDLA",
       "status": "scheduled",
-      "venue": "Capital Football Arena"
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75271",
-      "kickoff": "2026-10-26T10:30:00.000Z",
+      "id": "ifl-75271",
+      "kickoff": "2026-10-26T16:00:00+05:30",
       "home": "GNDU Football Club",
       "away": "MATA RUKMANI FOOTBALL CLUB (GIRLS)",
       "status": "scheduled",
-      "venue": "Football NAVI MUMBAI Centre of Excellence"
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75295",
-      "kickoff": "2026-10-27T03:30:00.000Z",
+      "id": "ifl-75289",
+      "kickoff": "2026-10-27T09:00:00+05:30",
+      "home": "AIFF FIFA Talent Academy, Telangana",
+      "away": "Mumbai Knights FC",
+      "status": "scheduled",
+      "venue": "SSA Stadium",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75295",
+      "kickoff": "2026-10-27T09:00:00+05:30",
       "home": "Misaka United FC",
       "away": "Zinc Football Academy",
       "status": "scheduled",
-      "venue": "Duler Stadium"
+      "venue": "Duler Stadium",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75290",
-      "kickoff": "2026-10-27T09:00:00.000Z",
+      "id": "ifl-75290",
+      "kickoff": "2026-10-27T14:30:00+05:30",
       "home": "Kemp Football Club",
       "away": "JAKREM SPORTS CLUB",
       "status": "scheduled",
-      "venue": "SSA Stadium"
+      "venue": "SSA Stadium",
+      "round": "Group Stage"
     },
     {
-      "id": "aiff-75296",
-      "kickoff": "2026-10-27T10:30:00.000Z",
+      "id": "ifl-75296",
+      "kickoff": "2026-10-27T16:00:00+05:30",
       "home": "Rangers Sports Club",
       "away": "SESA Football Academy",
       "status": "scheduled",
-      "venue": "Duler Stadium"
+      "venue": "Duler Stadium",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75282",
+      "kickoff": "2026-10-28T08:00:00+05:30",
+      "home": "Sports Odisha",
+      "away": "Pune Krida Prabhodhini Academy",
+      "status": "scheduled",
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75272",
+      "kickoff": "2026-10-28T09:00:00+05:30",
+      "home": "Sporting Club Bacaim",
+      "away": "GNDU Football Club",
+      "status": "scheduled",
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75283",
+      "kickoff": "2026-10-28T15:00:00+05:30",
+      "home": "DKR Football Academy",
+      "away": "Youth Welfare Club, Thambalkhong, Imphal",
+      "status": "scheduled",
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75273",
+      "kickoff": "2026-10-28T16:00:00+05:30",
+      "home": "United Kolkata Sports Club",
+      "away": "SAG Football Academy",
+      "status": "scheduled",
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75291",
+      "kickoff": "2026-10-29T09:00:00+05:30",
+      "home": "Kemp Football Club",
+      "away": "AIFF FIFA Talent Academy, Telangana",
+      "status": "scheduled",
+      "venue": "SSA Stadium",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75297",
+      "kickoff": "2026-10-29T09:00:00+05:30",
+      "home": "Rangers Sports Club",
+      "away": "Misaka United FC",
+      "status": "scheduled",
+      "venue": "Duler Stadium",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75292",
+      "kickoff": "2026-10-29T14:30:00+05:30",
+      "home": "Mumbai Knights FC",
+      "away": "JAKREM SPORTS CLUB",
+      "status": "scheduled",
+      "venue": "SSA Stadium",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75298",
+      "kickoff": "2026-10-29T16:00:00+05:30",
+      "home": "Zinc Football Academy",
+      "away": "SESA Football Academy",
+      "status": "scheduled",
+      "venue": "Duler Stadium",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75284",
+      "kickoff": "2026-10-30T08:00:00+05:30",
+      "home": "DKR Football Academy",
+      "away": "Pune Krida Prabhodhini Academy",
+      "status": "scheduled",
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75274",
+      "kickoff": "2026-10-30T09:00:00+05:30",
+      "home": "United Kolkata Sports Club",
+      "away": "GNDU Football Club",
+      "status": "scheduled",
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75285",
+      "kickoff": "2026-10-30T15:00:00+05:30",
+      "home": "Narmada Valley FC MANDLA",
+      "away": "Sports Odisha",
+      "status": "scheduled",
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75275",
+      "kickoff": "2026-10-30T16:00:00+05:30",
+      "home": "MATA RUKMANI FOOTBALL CLUB (GIRLS)",
+      "away": "Sporting Club Bacaim",
+      "status": "scheduled",
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75299",
+      "kickoff": "2026-11-01T08:00:00+05:30",
+      "home": "Youth Welfare Club, Thambalkhong, Imphal",
+      "away": "Narmada Valley FC MANDLA",
+      "status": "scheduled",
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75276",
+      "kickoff": "2026-11-01T09:00:00+05:30",
+      "home": "SAG Football Academy",
+      "away": "MATA RUKMANI FOOTBALL CLUB (GIRLS)",
+      "status": "scheduled",
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75286",
+      "kickoff": "2026-11-01T15:00:00+05:30",
+      "home": "Sports Odisha",
+      "away": "DKR Football Academy",
+      "status": "scheduled",
+      "venue": "Capital Football Arena",
+      "round": "Group Stage"
+    },
+    {
+      "id": "ifl-75277",
+      "kickoff": "2026-11-01T16:00:00+05:30",
+      "home": "Sporting Club Bacaim",
+      "away": "United Kolkata Sports Club",
+      "status": "scheduled",
+      "venue": "Football NAVI MUMBAI Centre of Excellence",
+      "round": "Group Stage"
     }
   ],
-  "scorers": [],
-  "updatedAt": "2026-10-21T15:35:33.986Z"
+  "scorers": [
+    {
+      "player": "Lalita",
+      "team": "Narmada Valley FC MANDLA",
+      "goals": 3
+    },
+    {
+      "player": "Neelam Pusam",
+      "team": "Narmada Valley FC MANDLA",
+      "goals": 2
+    },
+    {
+      "player": "Ambika Dhurwey",
+      "team": "Narmada Valley FC MANDLA",
+      "goals": 1
+    },
+    {
+      "player": "Laxmi Thatal",
+      "team": "DKR Football Academy",
+      "goals": 1
+    }
+  ],
+  "updatedAt": "2026-10-24T05:18:56.410Z"
 }
