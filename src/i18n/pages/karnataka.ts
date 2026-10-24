@@ -5,7 +5,7 @@ const en = {
   'karnataka.heading': 'Football in Karnataka',
   'karnataka.intro': 'Academies, home-grown players, the legends and the story so far.',
   'karnataka.tabAcademies': 'Academies',
-  'karnataka.tabPlayers': 'Karnataka-born players',
+  'karnataka.tabPlayers': 'Karnataka players',
   'karnataka.tabLegends': 'Legends',
   'karnataka.tabHistory': 'History',
   'karnataka.accreditation': 'Accreditation',

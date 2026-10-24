@@ -108,6 +108,7 @@ export const PERSON_NAMES_KN: Record<string, string> = {
   'Ashik Adhikari': 'ಆಶಿಕ್ ಅಧಿಕಾರಿ',
   'Mahin Riza R': 'ಮಹಿನ್ ರಿಜಾ ಆರ್',
   // Karnataka-born players (data/players/karnataka-born.json)
+  'Ankith Padmanabhan': 'ಅಂಕಿತ್ ಪದ್ಮನಾಭ',
   'Dhruv Alva': 'ಧ್ರುವ ಆಲ್ವಾ',
   'Franklin Robin Nazareth': 'ಫ್ರಾಂಕ್ಲಿನ್ ರಾಬಿನ್ ನಜರೆತ್',
   'Hridaya Jain': 'ಹೃದಯ ಜೈನ್',
@@ -116,6 +117,7 @@ export const PERSON_NAMES_KN: Record<string, string> = {
   'Priyansh Dubey': 'ಪ್ರಿಯಾಂಶ್ ದುಬೆ',
   'Rivka Ramji': 'ರಿವ್ಕಾ ರಾಮ್ಜಿ',
   'Rudra Ved Moola': 'ರುದ್ರ ವೇದ್ ಮೂಲಾ',
+  'Soham Varshneya': 'ಸೋಹಮ್ ವರ್ಷ್ನೇಯ',
   'Som Kumar': 'ಸೋಮ್ ಕುಮಾರ್',
   'Vignesh Dakshinamurthy': 'ವಿಘ್ನೇಶ್ ದಕ್ಷಿಣಾಮೂರ್ತಿ',
   'Vinith Venkatesh': 'ವಿನಿತ್ ವೆಂಕಟೇಶ್',
