@@ -8,6 +8,7 @@ import {
   isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffArticles, parseAiffFixtures, parseAiffPointsTable, parseAiffScorers, parseIflFixtures, parseIflScorers,
   parseAiffMatchDetail, parseAiffTournamentSchedule, parseAiffTournamentStages, sumScorers, teamNamesFromTable,
   parseIslFixtures, parseIslScorers, parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel, currentSeason, zeroStages, parseTransfermarktTable, latestSeasonMatches,
+  stagesFromFixtures,
 } from './parsers';
 import { readDataset, writeDataset } from './store';
 
@@ -145,18 +146,23 @@ async function fetchLeague(c: Competition, prev: LeagueSnapshot | null): Promise
   }
   if (s.kind === 'aiff') {
     const api = 'https://www.the-aiff.com/api/competition';
+    // A feed whose table or stats belong to another competition is not fetched for them: the table comes from the fixtures.
+    const fromFixtures = s.tableFromFixtures === true;
     const [table, fixtures, stats] = await Promise.all([
-      getJson(`${api}/points-table/${s.type}`),
+      fromFixtures ? null : getJson(`${api}/points-table/${s.type}`),
       getJson(`${api}/fixtures/${s.type}`),
-      getJson(`${api}/stats/${s.type}`),
+      fromFixtures ? null : getJson(`${api}/stats/${s.type}`),
     ]);
     const { seasonLabel, matches } = parseAiffFixtures(fixtures);
     const season = seasonFromLabel(seasonLabel);
     // AIFF returns only the latest 10 fixtures, so accumulate across runs within the same season.
     const keep = prev && prev.season === season ? prev.fixtures : [];
+    const all = mergeById(keep, matches);
     return {
       slug: c.slug, seasonLabel, season,
-      stages: parseAiffPointsTable(table), fixtures: mergeById(keep, matches), scorers: parseAiffScorers(stats),
+      stages: fromFixtures ? stagesFromFixtures(all) : parseAiffPointsTable(table),
+      fixtures: all,
+      scorers: fromFixtures ? [] : parseAiffScorers(stats),
     };
   }
   if (s.kind === 'aiff-tournament') {

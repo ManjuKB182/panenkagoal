@@ -7,152 +7,10 @@
       "name": "Group Stage",
       "groups": [
         {
-          "name": "GROUP A_NAVI MUMBAI",
+          "name": "Group A",
           "rows": [
             {
-              "pos": 1,
-              "team": "GNDU Football Club",
-              "logo": "https://aiff.b-cdn.net/logos/lr_14749-logo-1646222060.jpeg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 2,
-              "team": "MATA RUKMANI FOOTBALL CLUB (GIRLS)",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_MATARUKMANILOGO_1616811527.jfif",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 3,
-              "team": "SAG Football Academy",
-              "logo": "https://aiff.b-cdn.net/logos/11430-logo-1509450430.jpeg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 4,
-              "team": "Sporting Club Bacaim",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_Logo_1649158170.jpg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 5,
-              "team": "United Kolkata Sports Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG0017_1751623067.jpeg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            }
-          ]
-        },
-        {
-          "name": "GROUP B_ODISHA",
-          "rows": [
-            {
-              "pos": 1,
-              "team": "DKR Football Academy",
-              "logo": "https://aiff.b-cdn.net/logos/sm_18584-logo_small-1774354850.jpg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 2,
-              "team": "Narmada Valley FC MANDLA",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_NVFCLogo_1782930123.jpeg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 3,
-              "team": "Pune Krida Prabhodhini Academy",
-              "logo": "https://aiff.b-cdn.net/logos/sm_13798-logo_small-1689603467.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 4,
-              "team": "Sports Odisha",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11804-logo_small-1647241678.jpg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 5,
-              "team": "Youth Welfare Club, Thambalkhong, Imphal",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_ywclogo_1576738900.jpg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            }
-          ]
-        },
-        {
-          "name": "GROUP C_MEGHALAYA",
-          "rows": [
-            {
-              "pos": 1,
               "team": "AIFF FIFA Talent Academy, Telangana",
-              "logo": "https://aiff.b-cdn.net/logos/sm_21554-logo_small-1768910639.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -160,10 +18,11 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": "",
+              "pos": 1
             },
             {
-              "pos": 2,
               "team": "JAKREM SPORTS CLUB",
               "played": 0,
               "won": 0,
@@ -172,12 +31,12 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": "",
+              "pos": 2
             },
             {
-              "pos": 3,
               "team": "Kemp Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_KempFinalColorPNG_1660214685.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -185,12 +44,12 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": "",
+              "pos": 3
             },
             {
-              "pos": 4,
               "team": "Mumbai Knights FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_15788-logo_small-1754239625.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -198,17 +57,157 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": "",
+              "pos": 4
             }
           ]
         },
         {
-          "name": "GROUP D_GOA",
+          "name": "Group B",
           "rows": [
             {
-              "pos": 1,
+              "team": "Narmada Valley FC MANDLA",
+              "played": 1,
+              "won": 1,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 6,
+              "ga": 1,
+              "gd": 5,
+              "points": 3,
+              "form": "W",
+              "pos": 1
+            },
+            {
+              "team": "Pune Krida Prabhodhini Academy",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0,
+              "form": "",
+              "pos": 2
+            },
+            {
+              "team": "Sports Odisha",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0,
+              "form": "",
+              "pos": 3
+            },
+            {
+              "team": "Youth Welfare Club, Thambalkhong, Imphal",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0,
+              "form": "",
+              "pos": 4
+            },
+            {
+              "team": "DKR Football Academy",
+              "played": 1,
+              "won": 0,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 1,
+              "ga": 6,
+              "gd": -5,
+              "points": 0,
+              "form": "L",
+              "pos": 5
+            }
+          ]
+        },
+        {
+          "name": "Group C",
+          "rows": [
+            {
+              "team": "GNDU Football Club",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0,
+              "form": "",
+              "pos": 1
+            },
+            {
+              "team": "MATA RUKMANI FOOTBALL CLUB (GIRLS)",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0,
+              "form": "",
+              "pos": 2
+            },
+            {
+              "team": "SAG Football Academy",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0,
+              "form": "",
+              "pos": 3
+            },
+            {
+              "team": "Sporting Club Bacaim",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0,
+              "form": "",
+              "pos": 4
+            },
+            {
+              "team": "United Kolkata Sports Club",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0,
+              "form": "",
+              "pos": 5
+            }
+          ]
+        },
+        {
+          "name": "Group D",
+          "rows": [
+            {
               "team": "Misaka United FC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG6835_1611217313.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -216,12 +215,12 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": "",
+              "pos": 1
             },
             {
-              "pos": 2,
               "team": "Rangers Sports Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_12673-logo_small-1788438812.jpeg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -229,12 +228,12 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": "",
+              "pos": 2
             },
             {
-              "pos": 3,
               "team": "SESA Football Academy",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_SFANewLogo_1658138240.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -242,12 +241,12 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": "",
+              "pos": 3
             },
             {
-              "pos": 4,
               "team": "Zinc Football Academy",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_ZFALogo_1659445434.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -255,7 +254,9 @@
               "gf": 0,
               "ga": 0,
               "gd": 0,
-              "points": 0
+              "points": 0,
+              "form": "",
+              "pos": 4
             }
           ]
         }
@@ -268,8 +269,10 @@
       "kickoff": "2026-10-24T02:30:00.000Z",
       "home": "Narmada Valley FC MANDLA",
       "away": "DKR Football Academy",
-      "status": "scheduled",
-      "venue": "Capital Football Arena"
+      "status": "ft",
+      "venue": "Capital Football Arena",
+      "homeScore": 6,
+      "awayScore": 1
     },
     {
       "id": "aiff-75268",
@@ -385,5 +388,5 @@
     }
   ],
   "scorers": [],
-  "updatedAt": "2026-10-21T15:35:33.986Z"
+  "updatedAt": "2026-10-24T05:07:43.978Z"
 }

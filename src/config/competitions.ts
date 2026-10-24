@@ -3,7 +3,8 @@ import type { SectionKey } from './site';
 // Every league the Stats section tracks. A rename or a new season is an edit here, not a code change.
 export type Source =
   | { kind: 'isl'; seriesId: number; tournament: string }
-  | { kind: 'aiff'; type: number }
+  // tableFromFixtures: the feed's points table is another competition's, so the table is built from the fixtures instead.
+  | { kind: 'aiff'; type: number; tableFromFixtures?: boolean }
   | { kind: 'aiff-tournament'; id: number } // AIFF state leagues, by tournament id (the AIFF app's competition id)
   | { kind: 'ifl'; slug: string }
   | { kind: 'manual'; file: string };
@@ -79,8 +80,7 @@ export const COMPETITIONS: Competition[] = [
     short: 'IWL',
     section: 'wofo',
     gender: 'women',
-    // AIFF's IWL feed (type 11) now carries IWL 2 2026-27, so the top division has no 2026-27 source yet:
-    // teams listed by hand with zero results. Switch to an 'aiff' source once AIFF publishes it.
+    // AIFF type 11 has the IWL top division's points table, but its fixtures are IWL 2 2026-27. Top division stays hand-kept until verified.
     source: { kind: 'manual', file: 'data/manual/iwl.json' },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/iwl',
@@ -93,7 +93,8 @@ export const COMPETITIONS: Competition[] = [
     short: 'IWL 2',
     section: 'wofo',
     gender: 'women',
-    source: { kind: 'aiff', type: 11 }, // type 69 is the finished 2025-26 IWL 2
+    // Type 11's points table is the IWL top division, so the table comes from these fixtures. Type 69 is the finished 2025-26 IWL 2.
+    source: { kind: 'aiff', type: 11, tableFromFixtures: true },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/iwl-2',
     fallbacks: [{ kind: 'ifl', slug: 'iwl-2' }],
