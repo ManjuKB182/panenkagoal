@@ -27,6 +27,12 @@ describe('routing', () => {
     expect(localePath('kn', '/')).toBe('/kn');
     expect(englishPath('/kn/mens')).toBe('/mens');
     expect(englishPath('/kn')).toBe('/');
+    // Static build can leave .html / index.html in the URL.
+    expect(englishPath('/kn/index.html')).toBe('/');
+    expect(englishPath('/kn.html')).toBe('/');
+    expect(englishPath('/kn/mens.html')).toBe('/mens');
+    expect(englishPath('/mens.html')).toBe('/mens');
+    expect(englishPath('/index.html')).toBe('/');
   });
 });
 

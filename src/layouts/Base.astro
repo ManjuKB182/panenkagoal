@@ -15,11 +15,12 @@ interface Props {
 const { title, description = SITE.description, image = '/og.png', jsonLd } = Astro.props;
 const locale = getLocale(Astro.url);
 const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name}: ${locale === 'kn' ? SITE.taglineKn : SITE.tagline}`;
-const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const pagePath = englishPath(Astro.url.pathname);
+const canonical = new URL(localePath(locale, pagePath), SITE.url).href;
 const ogImage = new URL(image, SITE.url).href;
 // Same page in each language; x-default points at English.
-const enHref = new URL(englishPath(Astro.url.pathname), SITE.url).href;
-const knHref = new URL(localePath('kn', englishPath(Astro.url.pathname)), SITE.url).href;
+const enHref = new URL(pagePath, SITE.url).href;
+const knHref = new URL(localePath('kn', pagePath), SITE.url).href;
 ---
 <!doctype html>
 <html lang={locale}>

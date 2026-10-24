@@ -50,8 +50,10 @@ export function localePath(locale: Locale, path: string): string {
 
 /** Removes the /kn prefix, giving the English path of the current page. */
 export function englishPath(pathname: string): string {
-  if (pathname === '/kn') return '/';
-  return pathname.startsWith('/kn/') ? pathname.slice(3) : pathname;
+  // The static build (format: 'file') can leave .html or index.html in Astro.url; strip them so links stay clean.
+  const clean = pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+  if (clean === '/kn' || clean === '/kn/' || clean === '/') return '/';
+  return clean.startsWith('/kn/') ? clean.slice(3) : clean;
 }
 
 const KN_DIGITS = ['೦', '೧', '೨', '೩', '೪', '೫', '೬', '೭', '೮', '೯'];
