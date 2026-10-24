@@ -33,6 +33,9 @@ describe('routing', () => {
     expect(englishPath('/kn/mens.html')).toBe('/mens');
     expect(englishPath('/mens.html')).toBe('/mens');
     expect(englishPath('/index.html')).toBe('/');
+    expect(getLocale('/kn.html')).toBe('kn');
+    expect(getLocale('/kn/index.html')).toBe('kn');
+    expect(getLocale('/mens.html')).toBe('en');
   });
 });
 

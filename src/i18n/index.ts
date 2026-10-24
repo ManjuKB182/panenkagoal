@@ -26,8 +26,13 @@ const DICTS: Record<Locale, Partial<Record<string, string>>> = { en: EN, kn: KN 
 
 /** Reads the locale from a URL: /kn/... is Kannada, everything else English. */
 export function getLocale(url: URL | string): Locale {
-  const path = typeof url === 'string' ? url : url.pathname;
+  const path = cleanPath(typeof url === 'string' ? url : url.pathname);
   return path === '/kn' || path.startsWith('/kn/') ? 'kn' : 'en';
+}
+
+/** Drops the .html / index.html that the static build can leave in Astro.url. */
+function cleanPath(pathname: string): string {
+  return pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
 }
 
 /** Looks up a UI string. Falls back to English when a Kannada string is missing. */
@@ -50,8 +55,7 @@ export function localePath(locale: Locale, path: string): string {
 
 /** Removes the /kn prefix, giving the English path of the current page. */
 export function englishPath(pathname: string): string {
-  // The static build (format: 'file') can leave .html or index.html in Astro.url; strip them so links stay clean.
-  const clean = pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+  const clean = cleanPath(pathname);
   if (clean === '/kn' || clean === '/kn/' || clean === '/') return '/';
   return clean.startsWith('/kn/') ? clean.slice(3) : clean;
 }
