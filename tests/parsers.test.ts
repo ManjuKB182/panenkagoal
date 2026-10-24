@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   classifyNews, iflKickoff, isIslHighlight, parseNewsSitemap, parseRss, toNewsItems, parseAiffArticles, parseAiffFixtures, parseAiffPointsTable, parseIflFixtures, parseIslFixtures,
   parseIslStandings, parseKhelNowFeed, parseYouTubeFeed, seasonFromLabel,
-  parseAiffMatchDetail, parseAiffTournamentSchedule, sumScorers, teamNamesFromTable, parseTransfermarktTable, latestSeasonMatches, stagesFromFixtures,
+  parseAiffMatchDetail, parseAiffTournamentSchedule, sumScorers, teamNamesFromTable, parseTransfermarktTable, latestSeasonMatches,
 } from '../scripts/ingest/parsers';
 
 const fx = (name: string) => readFileSync(join(import.meta.dirname, 'fixtures', name), 'utf8');
@@ -174,24 +174,4 @@ describe('latestSeasonMatches', () => {
     expect(r.matches.map((x) => x.id)).toEqual(['2', '3']);
   });
   it('is empty with no fixtures', () => expect(latestSeasonMatches([]).season).toBe(''));
-});
-
-describe('tables built from fixtures', () => {
-  const m = (home: string, away: string, hs?: number, as?: number) => ({
-    id: `${home}-${away}`, kickoff: '2026-10-24T16:00:00+05:30', home, away,
-    homeScore: hs, awayScore: as, status: hs === undefined ? ('scheduled' as const) : ('ft' as const),
-  });
-  it('splits teams that never meet into separate groups and tallies only their own results', () => {
-    const stages = stagesFromFixtures([m('A1', 'A2', 2, 0), m('A2', 'A3'), m('B1', 'B2', 0, 0), m('B1', 'B3', 1, 0)]);
-    expect(stages[0].name).toBe('Group Stage');
-    const [a, b] = stages[0].groups;
-    expect(a.name).toBe('Group A');
-    expect(a.rows.map((r) => r.team).sort()).toEqual(['A1', 'A2', 'A3']);
-    expect(a.rows[0]).toMatchObject({ team: 'A1', points: 3, played: 1 });
-    expect(b.rows.find((r) => r.team === 'B1')).toMatchObject({ points: 4, played: 2 });
-  });
-  it('with no results every team is listed at zero', () => {
-    const [st] = stagesFromFixtures([m('X', 'Y'), m('Z', 'W')]);
-    expect(st.groups.flatMap((g) => g.rows).every((r) => r.played === 0 && r.points === 0)).toBe(true);
-  });
 });

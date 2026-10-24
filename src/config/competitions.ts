@@ -3,8 +3,7 @@ import type { SectionKey } from './site';
 // Every league the Stats section tracks. A rename or a new season is an edit here, not a code change.
 export type Source =
   | { kind: 'isl'; seriesId: number; tournament: string }
-  // tableFromFixtures: the feed's points table is another competition's, so the table is built from the fixtures instead.
-  | { kind: 'aiff'; type: number; tableFromFixtures?: boolean }
+  | { kind: 'aiff'; type: number }
   | { kind: 'aiff-tournament'; id: number } // AIFF state leagues, by tournament id (the AIFF app's competition id)
   | { kind: 'ifl'; slug: string }
   | { kind: 'manual'; file: string };
@@ -93,11 +92,10 @@ export const COMPETITIONS: Competition[] = [
     short: 'IWL 2',
     section: 'wofo',
     gender: 'women',
-    // Type 11's points table is the IWL top division, so the table comes from these fixtures. Type 69 is the finished 2025-26 IWL 2.
-    source: { kind: 'aiff', type: 11, tableFromFixtures: true },
-    sourceLabel: 'AIFF',
-    sourceUrl: 'https://www.the-aiff.com/competitions/iwl-2',
-    fallbacks: [{ kind: 'ifl', slug: 'iwl-2' }],
+    // AIFF type 11 is the IWL top division's table (its fixtures are IWL 2's), so IWL 2 comes from indianfootballleague.in.
+    source: { kind: 'ifl', slug: 'iwl-2' },
+    sourceLabel: 'IFL',
+    sourceUrl: 'https://indianfootballleague.in/points-table/iwl-2/',
   },
   {
     slug: 'elite-u18',

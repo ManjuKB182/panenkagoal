@@ -3,7 +3,6 @@ import { XMLParser } from 'fast-xml-parser';
 import type { Match, MatchStatus, NewsItem, Scorer, Stage, StandingRow, Video } from '../../src/lib/types';
 import type { SectionKey } from '../../src/config/site';
 import { to24 } from '../../src/lib/kickoff';
-import { computeTable } from '../../src/lib/standings';
 
 const xml = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@', textNodeName: '#text' });
 const arr = <T>(x: T | T[] | undefined): T[] => (x === undefined ? [] : Array.isArray(x) ? x : [x]);
@@ -235,38 +234,6 @@ export function parseAiffFixtures(json: any): { seasonLabel: string; matches: Ma
       venue: f.venue || undefined,
     })),
   };
-}
-
-/**
- * Group-stage tables built from the fixtures themselves. Teams that play each other are in the same group (union-find over
- * the fixture graph), so the table can only ever show the teams in the fixtures next to it. Used when a feed's points table
- * belongs to a different competition (AIFF type 11 is the IWL top division's table, but its fixtures are IWL 2's).
- */
-export function stagesFromFixtures(matches: Match[]): Stage[] {
-  const parent = new Map<string, string>();
-  const find = (t: string): string => {
-    const p = parent.get(t)!;
-    if (p === t) return t;
-    const root = find(p);
-    parent.set(t, root);
-    return root;
-  };
-  for (const m of matches) for (const t of [m.home, m.away]) if (!parent.has(t)) parent.set(t, t);
-  for (const m of matches) parent.set(find(m.home), find(m.away));
-  const byRoot = new Map<string, string[]>();
-  for (const t of parent.keys()) byRoot.set(find(t), [...(byRoot.get(find(t)) ?? []), t]);
-  const groups = [...byRoot.values()].map((teams) => teams.sort()).sort((a, b) => a[0].localeCompare(b[0]));
-  const results = matches
-    .filter((m) => m.status === 'ft' && m.homeScore !== undefined && m.awayScore !== undefined)
-    .map((m) => ({ home: m.home, away: m.away, homeScore: m.homeScore!, awayScore: m.awayScore!, date: m.kickoff }));
-  const named = groups.length > 1;
-  return [{
-    name: named ? 'Group Stage' : 'League',
-    groups: groups.map((teams, i) => ({
-      name: named ? `Group ${String.fromCharCode(65 + i)}` : '',
-      rows: computeTable(teams, results.filter((r) => teams.includes(r.home))),
-    })),
-  }];
 }
 
 export function parseAiffScorers(json: any): Scorer[] {
