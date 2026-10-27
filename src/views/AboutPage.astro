@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, SECTIONS, type SectionKey } from '../config/site';
+import { getShows } from '../lib/data';
+import { getLocale, localePath, t, type MessageKey } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const href = (p: string) => localePath(locale, p);
+const shows = getShows();
+const COVER: Record<SectionKey, MessageKey> = {
+  mens: 'about.cover.mens',
+  wofo: 'about.cover.wofo',
+  youth: 'about.cover.youth',
+  karnataka: 'about.cover.karnataka',
+};
+---
+<Base title={t(locale, 'about.title')} description={t(locale, 'about.description')}>
+  <header class="bg-photo hero" style="--img:url(/bg/crowd.webp)">
+    <div class="wrap">
+      <p class="eyebrow">{t(locale, 'about.eyebrow')}</p>
+      <h1>{t(locale, 'about.h1')}</h1>
+      <p lang="kn" class="kn tag">{SITE.taglineKn}</p>
+    </div>
+  </header>
+
+  <article class="wrap module prose" lang={locale}>
+    <p class="lead">{t(locale, 'about.lead')}</p>
+
+    <h2>{t(locale, 'about.whyH')}</h2>
+    <p>{t(locale, 'about.why')}</p>
+
+    <h2>{t(locale, 'about.coverH')}</h2>
+    <ul class="cov">
+      {Object.entries(SECTIONS).map(([key, s]) => (
+        <li><b>{locale === 'kn' ? s.titleKn : (s.heading ?? s.title)}.</b> {t(locale, COVER[key as SectionKey])}</li>
+      ))}
+    </ul>
+
+    <h2>{t(locale, 'about.showsH')}</h2>
+    <div class="shows">
+      {shows.map((s) => {
+        const blurb = locale === 'kn' ? ((s as typeof s & { blurbKn?: string }).blurbKn ?? s.blurb) : s.blurb;
+        return (
+          <a class="show" href={href(`/armchair-gaffers/${s.slug}`)}>
+            <b>{locale === 'kn' ? (s.nameKn ?? s.name) : s.name}</b>
+            {locale === 'en' && s.nameKn && <span class="kn" lang="kn">{s.nameKn}</span>}
+            <span class="muted">{blurb}</span>
+          </a>
+        );
+      })}
+    </div>
+
+    <h2>{t(locale, 'about.believeH')}</h2>
+    <ul>
+      <li>{t(locale, 'about.believe1')}</li>
+      <li>{t(locale, 'about.believe2')}</li>
+      <li>{t(locale, 'about.believe3')}</li>
+      <li>{t(locale, 'about.believe4')}</li>
+    </ul>
+
+    <h2>{t(locale, 'about.helloH')}</h2>
+    <p>
+      {t(locale, 'about.helloLead')}
+      <a href={SITE.socials.youtube} rel="noopener">YouTube</a>,
+      <a href={SITE.socials.instagram} rel="noopener">Instagram</a> {t(locale, 'about.and')}
+      <a href={SITE.socials.x} rel="noopener">X</a>{t(locale, 'about.helloTail')}
+    </p>
+  </article>
+</Base>
+
+<style>
+  .hero { padding-block: 48px 28px; }
+  .hero h1 { margin-top: 6px; }
+  .tag { font-size: 20px; margin-top: 8px; }
+  .prose { max-width: 72ch; display: grid; gap: 14px; margin-inline: auto; }
+  .prose h2 { margin-top: 14px; }
+  .lead { font-size: 19px; line-height: 1.6; color: var(--text); }
+  ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+  .shows { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px; }
+  .show { display: grid; gap: 4px; align-content: start; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); text-decoration: none; color: var(--text); transition: border-color 0.15s, transform 0.2s; }
+  .show:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+  .show .kn { color: var(--brand-text); font-weight: 700; font-size: 14px; }
+</style>

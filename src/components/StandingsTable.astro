@@ -1,6 +1,9 @@
 ---
 import type { Competition } from '../config/competitions';
 import type { StandingRow } from '../lib/types';
+import { digits, getLocale, t, teamName } from '../i18n';
+
+const locale = getLocale(Astro.url);
 
 interface Props { rows: StandingRow[]; comp: Competition; compact?: boolean; limit?: number; caption?: string }
 const { rows, comp, compact = false, limit, caption } = Astro.props;
@@ -17,40 +20,40 @@ const hasZones = Boolean(z.top || z.promotion || z.relegation);
     <thead>
       <tr>
         <th class="l" scope="col">#</th>
-        <th class="l" scope="col">Club</th>
-        <th scope="col" title="Played">P</th>
-        {!compact && <th scope="col" title="Won">W</th>}
-        {!compact && <th scope="col" title="Drawn">D</th>}
-        {!compact && <th scope="col" title="Lost">L</th>}
-        {!compact && <th scope="col" title="Goals for">GF</th>}
-        {!compact && <th scope="col" title="Goals against">GA</th>}
-        <th scope="col" title="Goal difference">GD</th>
-        <th scope="col" title="Points">Pts</th>
-        {!compact && <th class="l" scope="col">Form</th>}
+        <th class="l" scope="col">{t(locale, 'table.club')}</th>
+        <th scope="col" title={t(locale, 'table.played')}>{t(locale, 'table.p')}</th>
+        {!compact && <th scope="col" title={t(locale, 'table.won')}>{t(locale, 'table.w')}</th>}
+        {!compact && <th scope="col" title={t(locale, 'table.drawn')}>{t(locale, 'table.d')}</th>}
+        {!compact && <th scope="col" title={t(locale, 'table.lost')}>{t(locale, 'table.l')}</th>}
+        {!compact && <th scope="col" title={t(locale, 'table.gf')}>{t(locale, 'table.gfShort')}</th>}
+        {!compact && <th scope="col" title={t(locale, 'table.ga')}>{t(locale, 'table.gaShort')}</th>}
+        <th scope="col" title={t(locale, 'table.gd')}>{t(locale, 'table.gdShort')}</th>
+        <th scope="col" title={t(locale, 'table.pts')}>{t(locale, 'table.ptsShort')}</th>
+        {!compact && <th class="l" scope="col">{t(locale, 'table.form')}</th>}
       </tr>
     </thead>
     <tbody>
       {shown.map((r) => (
         <tr class={zone(r.pos)} data-team={r.team}>
           <td class="l pos">
-            {r.pos}
-            {move(r) === 'up' && <span class="mv up" title={`Up from ${r.prevPos}`}>▲</span>}
-            {move(r) === 'down' && <span class="mv down" title={`Down from ${r.prevPos}`}>▼</span>}
+            {digits(locale, r.pos)}
+            {move(r) === 'up' && <span class="mv up" title={t(locale, 'match.up', { n: digits(locale, r.prevPos!) })}>▲</span>}
+            {move(r) === 'down' && <span class="mv down" title={t(locale, 'match.down', { n: digits(locale, r.prevPos!) })}>▼</span>}
           </td>
           <td class="l team">
             <span class="tm">
               {r.logo && <img src={r.logo} alt="" width="20" height="20" loading="lazy" />}
-              <span class="full">{r.team}</span>
+              <span class="full">{teamName(locale, r.team)}</span>
             </span>
           </td>
-          <td>{r.played}</td>
-          {!compact && <td>{r.won}</td>}
-          {!compact && <td>{r.drawn}</td>}
-          {!compact && <td>{r.lost}</td>}
-          {!compact && <td>{r.gf}</td>}
-          {!compact && <td>{r.ga}</td>}
-          <td>{r.gd > 0 ? `+${r.gd}` : r.gd}</td>
-          <td class="pts">{r.points}</td>
+          <td>{digits(locale, r.played)}</td>
+          {!compact && <td>{digits(locale, r.won)}</td>}
+          {!compact && <td>{digits(locale, r.drawn)}</td>}
+          {!compact && <td>{digits(locale, r.lost)}</td>}
+          {!compact && <td>{digits(locale, r.gf)}</td>}
+          {!compact && <td>{digits(locale, r.ga)}</td>}
+          <td>{digits(locale, r.gd > 0 ? `+${r.gd}` : r.gd)}</td>
+          <td class="pts">{digits(locale, r.points)}</td>
           {!compact && (
             <td class="l">
               <span class="form">{(r.form ?? '').split('').map((f) => <i class={f}>{f}</i>)}</span>
@@ -62,9 +65,9 @@ const hasZones = Boolean(z.top || z.promotion || z.relegation);
   </table>
   {hasZones && !compact && (
     <p class="legend">
-      {z.top && <span class="lg top">Top {z.top}{comp.slug === 'isl' ? ': playoffs' : ''}</span>}
-      {z.promotion && <span class="lg promo">Promotion</span>}
-      {z.relegation && <span class="lg rel">Relegation</span>}
+      {z.top && <span class="lg top">{t(locale, 'table.top', { n: z.top })}{comp.slug === 'isl' ? `: ${t(locale, 'table.playoffs')}` : ''}</span>}
+      {z.promotion && <span class="lg promo">{t(locale, 'table.promotion')}</span>}
+      {z.relegation && <span class="lg rel">{t(locale, 'table.relegation')}</span>}
     </p>
   )}
 </div>

@@ -1,11 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
+import { t } from '../i18n';
+
+// 404 is served at /404 (English) and /kn/404 (Kannada) and at unknown paths.
+const locale = Astro.url.pathname.startsWith('/kn') ? 'kn' : 'en';
 ---
-<Base title="Page not found">
+<Base title={t(locale, 'err.404Meta')}>
   <section class="wrap module" style="display:grid;gap:12px;justify-items:start">
-    <p class="eyebrow">404</p>
-    <h1>Over the bar</h1>
-    <p>This page doesn't exist. It may have moved.</p>
-    <a class="chip on" href="/">Back to the homepage</a>
+    <p class="eyebrow">{t(locale, 'err.404Code')}</p>
+    <h1>{t(locale, 'err.404Title')}</h1>
+    <p>{t(locale, 'err.404Body')}</p>
+    <a class="chip on" href={locale === 'kn' ? '/kn' : '/'}>{t(locale, 'err.404Back')}</a>
   </section>
 </Base>

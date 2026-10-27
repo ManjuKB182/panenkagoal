@@ -1,0 +1,7 @@
+---
+import { getLocale } from '../../../../i18n';
+import WriteBrowse from '../../../../views/WriteBrowse.astro';
+
+const locale = getLocale(Astro.url);
+---
+<WriteBrowse locale={locale} />

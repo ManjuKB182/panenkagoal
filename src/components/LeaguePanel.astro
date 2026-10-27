@@ -6,11 +6,15 @@ import type { Competition } from '../config/competitions';
 import type { LeagueSnapshot } from '../lib/types';
 import { teamStats, matchStats } from '../lib/numbers';
 import { longDateTime } from '../lib/format';
+import { digits, getLocale, groupName, localePath, personName, seasonText, t, teamName } from '../i18n';
+import { compName } from '../config/competitions';
 
 interface Props { comp: Competition; data: LeagueSnapshot | null; limit?: number }
 const { comp, data, limit } = Astro.props;
+const locale = getLocale(Astro.url);
+const href = (p: string) => localePath(locale, p);
 const hasTable = !!data && data.stages.some((s) => s.groups.some((g) => g.rows.length > 0));
-const stats = teamStats(data);
+const stats = teamStats(data, locale);
 const ms = matchStats(data);
 const scorers = (data?.scorers ?? []).slice(0, 5);
 // Stages in order; groups A to Z (natural order, so 'Group 2' comes before 'Group 10').
@@ -22,15 +26,15 @@ const stages = (data?.stages ?? [])
   .sort((a, b) => rank(a.name) - rank(b.name) || a.name.localeCompare(b.name));
 const started = (st: (typeof stages)[number]) => st.groups.some((g) => g.rows.some((r) => r.played > 0));
 const current = Math.max(0, stages.map(started).lastIndexOf(true));
-const score = (m: { homeScore?: number; awayScore?: number }) => `${m.homeScore}–${m.awayScore}`;
+const score = (m: { homeScore?: number; awayScore?: number }) => `${digits(locale, m.homeScore ?? 0)}–${digits(locale, m.awayScore ?? 0)}`;
 ---
 <div class="lp">
   <div class="lp-head">
     <div>
-      <h2>{comp.name}</h2>
-      <p class="muted">{data?.seasonLabel ?? 'Season not started'}{data?.updatedAt && <> · Updated {longDateTime(data.updatedAt)}</>}</p>
+      <h2>{compName(locale, comp)}</h2>
+      <p class="muted">{data?.seasonLabel ? seasonText(locale, comp.name, comp.nameKn, data.seasonLabel) : t(locale, 'sections.league.notStarted')}{data?.updatedAt && <> · {t(locale, 'sections.league.updated', { date: longDateTime(data.updatedAt, locale) })}</>}</p>
     </div>
-    <a class="full" href={`/stats/${comp.slug}`}>Fixtures &amp; results →</a>
+    <a class="full" href={href(`/stats/${comp.slug}`)}>{t(locale, 'sections.league.fixturesResults')}</a>
   </div>
 
   {hasTable ? (
@@ -38,43 +42,43 @@ const score = (m: { homeScore?: number; awayScore?: number }) => `${m.homeScore}
       {stages.length > 1 && <TabBar group={`${comp.slug}-st`} tabs={stages.map((st, i) => ({ id: `s${i}`, label: st.name }))} first={`s${current}`} />}
       {stages.map((stage, i) => (
         <div class="tabpanel stage" data-group={`${comp.slug}-st`} data-panel={`s${i}`} hidden={i !== current}>
-          {stage.groups.length > 1 && <TabBar pill={stage.groups.length <= 4} select={stage.groups.length > 4} label="Group" group={`${comp.slug}-g${i}`} tabs={stage.groups.map((g, j) => ({ id: `g${j}`, label: g.name }))} />}
+          {stage.groups.length > 1 && <TabBar pill={stage.groups.length <= 4} select={stage.groups.length > 4} label={t(locale, 'sections.league.group')} group={`${comp.slug}-g${i}`} tabs={stage.groups.map((g, j) => ({ id: `g${j}`, label: g.name }))} />}
           {stage.groups.map((g, j) => (
             <div class="tabpanel" data-group={`${comp.slug}-g${i}`} data-panel={`g${j}`} hidden={j !== 0}>
-              <StandingsTable rows={g.rows} comp={comp} limit={limit} caption={`${comp.name} ${stage.name} ${g.name}`.trim()} />
+              <StandingsTable rows={g.rows} comp={comp} limit={limit} caption={`${compName(locale, comp)} ${groupName(locale, stage.name)} ${groupName(locale, g.name)}`.trim()} />
             </div>
           ))}
         </div>
       ))}
     </>
-  ) : <p class="note">The table appears once the season starts.</p>}
+  ) : <p class="note">{t(locale, 'sections.league.tableSoon')}</p>}
 
-  <h2 class="numh">{comp.short} numbers</h2>
-  {scorers.length === 0 && stats.length === 0 ? <p class="muted">Numbers appear after the first results.</p> : (
+  <h2 class="numh">{t(locale, 'sections.league.numbers', { short: comp.short })}</h2>
+  {scorers.length === 0 && stats.length === 0 ? <p class="muted">{t(locale, 'sections.league.numbersSoon')}</p> : (
     <div class="nums">
       {scorers.length > 0 && (
         <section class="panel-card">
-          <div class="card-head red"><h3>Top scorers</h3></div>
+          <div class="card-head red"><h3>{t(locale, 'sections.league.topScorers')}</h3></div>
           <ol class="scorers card-body">
-            {scorers.map((p, i) => <li><span class="rk">{i + 1}</span><span class="who"><b>{p.player}</b><small>{p.team}</small></span><span class="g">{p.goals}</span></li>)}
+            {scorers.map((p, i) => <li><span class="rk">{digits(locale, i + 1)}</span><span class="who"><b>{personName(locale, p.player)}</b><small>{teamName(locale, p.team)}</small></span><span class="g">{digits(locale, p.goals)}</span></li>)}
           </ol>
         </section>
       )}
       {stats.length > 0 && (
         <section class="panel-card">
-          <div class="card-head yellow"><h3>Team numbers</h3></div>
+          <div class="card-head yellow"><h3>{t(locale, 'sections.league.teamNumbers')}</h3></div>
           <ul class="card-body kv">
-            {stats.map((s) => <li><span class="k">{s.label}</span><span class="v"><b>{s.team}</b><small>{s.value}{s.note && ` · ${s.note}`}</small></span></li>)}
+            {stats.map((s) => <li><span class="k">{s.label}</span><span class="v"><b>{teamName(locale, s.team)}</b><small>{s.value}{s.note && ` · ${s.note}`}</small></span></li>)}
           </ul>
         </section>
       )}
       {ms.count > 0 && (
         <section class="panel-card">
-          <div class="card-head green"><h3>Goals &amp; results</h3></div>
+          <div class="card-head green"><h3>{t(locale, 'sections.league.goalsResults')}</h3></div>
           <ul class="card-body kv">
-            <li><span class="k">Goals scored</span><span class="v"><b>{ms.goals}</b><small>in {ms.count} matches · {ms.perMatch.toFixed(1)} per match</small></span></li>
-            {ms.biggest.slice(0, 1).map((m) => <li><span class="k">Biggest win</span><span class="v"><b>{m.home} {score(m)} {m.away}</b></span></li>)}
-            {ms.topScoring.slice(0, 1).filter((m) => m.homeScore + m.awayScore > 0).map((m) => <li><span class="k">Highest scoring</span><span class="v"><b>{m.home} {score(m)} {m.away}</b></span></li>)}
+            <li><span class="k">{t(locale, 'sections.league.goalsScored')}</span><span class="v"><b>{digits(locale, ms.goals)}</b><small>{t(locale, 'sections.league.inMatches', { n: digits(locale, ms.count), avg: digits(locale, ms.perMatch.toFixed(1)) })}</small></span></li>
+            {ms.biggest.slice(0, 1).map((m) => <li><span class="k">{t(locale, 'sections.league.biggestWin')}</span><span class="v"><b>{teamName(locale, m.home)} {score(m)} {teamName(locale, m.away)}</b></span></li>)}
+            {ms.topScoring.slice(0, 1).filter((m) => m.homeScore + m.awayScore > 0).map((m) => <li><span class="k">{t(locale, 'sections.league.highestScoring')}</span><span class="v"><b>{teamName(locale, m.home)} {score(m)} {teamName(locale, m.away)}</b></span></li>)}
           </ul>
         </section>
       )}

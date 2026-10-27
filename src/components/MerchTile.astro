@@ -1,25 +1,36 @@
 ---
 import type { MerchItem } from '../lib/data';
 import { SITE } from '../config/site';
+import { digits, getLocale, localePath, t, type MessageKey } from '../i18n';
 
 interface Props { item: MerchItem; full?: boolean }
 const { item, full = false } = Astro.props;
-const STATUS = { 'coming-soon': 'Coming soon', 'pre-order': 'Pre-order', live: 'Available', 'sold-out': 'Sold out' } as const;
+const locale = getLocale(Astro.url);
+const href = (p: string) => localePath(locale, p);
+const STATUS: Record<MerchItem['status'], MessageKey> = {
+  'coming-soon': 'merch.status.comingSoon',
+  'pre-order': 'merch.status.preOrder',
+  live: 'merch.status.live',
+  'sold-out': 'merch.status.soldOut',
+};
 const orderable = (item.status === 'live' || item.status === 'pre-order') && SITE.whatsapp;
-const message = `Hi Panenka! I'd like to order: ${item.name}. Size: ___. Qty: 1. (${SITE.url}/merch/${item.slug})`;
+// The WhatsApp message itself stays English; the button label and links follow the page language.
+const message = `Hi Panenka! I'd like to order: ${item.name}. Size: ___. Qty: 1. (${SITE.url}${href(`/merch/${item.slug}`)})`;
 const waLink = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
 const words = item.name.split(' ');
+const blurb = locale === 'kn' ? ((item as MerchItem & { blurbKn?: string }).blurbKn ?? item.blurb) : item.blurb;
+const price = item.price ? `₹${digits(locale, item.price.toLocaleString('en-IN'))}` : t(locale, 'merch.priceAtLaunch');
 ---
-<article class={`mt ${item.colour}`}>
-  <a class="art" href={`/merch/${item.slug}`} aria-label={item.name}>
+<article class={`mt ${item.colour}`} lang={locale}>
+  <a class="art" href={href(`/merch/${item.slug}`)} aria-label={item.name}>
     <span>{words.slice(0, -1).join(' ')}<br />{words.at(-1)}</span>
   </a>
   <div class="meta">
-    <span class={`badge ${item.status === 'live' ? 'red' : ''}`}>{STATUS[item.status]}</span>
-    <h3><a href={`/merch/${item.slug}`}>{item.name}</a></h3>
-    {full && <p>{item.blurb}</p>}
-    <p class="muted">{item.price ? `₹${item.price.toLocaleString('en-IN')}` : 'Price at launch'} · {item.sizes.join(', ')}</p>
-    {orderable && <a class="wa" href={waLink} rel="noopener">Order on WhatsApp</a>}
+    <span class={`badge ${item.status === 'live' ? 'red' : ''}`}>{t(locale, STATUS[item.status])}</span>
+    <h3><a href={href(`/merch/${item.slug}`)}>{item.name}</a></h3>
+    {full && <p>{blurb}</p>}
+    <p class="muted">{price} · {item.sizes.join(', ')}</p>
+    {orderable && <a class="wa" href={waLink} rel="noopener">{t(locale, 'merch.order')}</a>}
   </div>
 </article>
 

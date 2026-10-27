@@ -1,25 +1,4 @@
 ---
-import Base from '../../layouts/Base.astro';
-import MerchTile from '../../components/MerchTile.astro';
-import { getMerch } from '../../lib/data';
-
-const items = getMerch();
-const anyLive = items.some((m) => m.status === 'live' || m.status === 'pre-order');
+import MerchPage from '../../views/MerchPage.astro';
 ---
-<Base title="Merch" description="Panenka Goal merch in arishina yellow and kumkuma red. Our own designs, ordered on WhatsApp.">
-  <section class="wrap module">
-    <p class="eyebrow">Merch</p>
-    <h1>Wear the colours</h1>
-    <p style="max-width:60ch;margin-top:8px">
-      Our own designs in arishina yellow and kumkuma red. Pick an item and tap <b>Order on WhatsApp</b>: we confirm size, price and delivery in the chat, and you pay by UPI.
-    </p>
-    {!anyLive && <p class="note" style="margin-top:14px">The first drop is coming soon. Follow us on Instagram to hear first.</p>}
-  </section>
-  <section class="wrap grid">
-    {items.map((m) => <MerchTile item={m} />)}
-  </section>
-</Base>
-
-<style>
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 18px; }
-</style>
+<MerchPage />

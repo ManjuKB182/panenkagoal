@@ -1,11 +1,12 @@
 import { denied, getSql, json, verifyAccess, type Env } from '../../../../src/lib/write';
+import { apiMsg } from '../_locale';
 
 // GET /api/write/review?status=pending|published|sent_back: editor list (includes author email).
 // Protect /api/write/review* with Cloudflare Access (see docs/write-setup.md).
 export const onRequestGet = async ({ request, env }: { request: Request; env: Env }) => {
   if (!(await verifyAccess(request, env))) return denied();
   const sql = getSql(env);
-  if (!sql) return json({ error: 'Database is not configured.' }, 503);
+  if (!sql) return json({ error: apiMsg(request, 'write.api.dbNotConfigured') }, 503);
   const status = new URL(request.url).searchParams.get('status') ?? 'pending';
   if (!['pending', 'published', 'sent_back'].includes(status)) return json({ error: 'bad status' }, 400);
   const rows = await sql(

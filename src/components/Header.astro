@@ -1,10 +1,17 @@
 ---
-import { NAV, SITE } from '../config/site';
+import { NAV } from '../config/site';
 import { getAllMatches } from '../lib/data';
 import ScoreCard from './ScoreCard.astro';
-import { kickoffTime, shortDate } from '../lib/format';
+import { englishPath, getLocale, localePath, LOCALES, t, teamName, type Locale } from '../i18n';
 
-const path = Astro.url.pathname;
+const locale = getLocale(Astro.url);
+// Nav state is compared on the English path so /kn/mens and /mens light up the same item.
+const path = englishPath(Astro.url.pathname);
+const href = (to: string) => localePath(locale, to);
+// Nav labels: Kannada from config when the locale is kn.
+const label = (n: { label: string; labelKn: string }) => (locale === 'kn' ? n.labelKn : n.label);
+const blurb = (n: { blurb: string; blurbKn: string }) => (locale === 'kn' ? n.blurbKn : n.blurb);
+const langLabel: Record<Locale, string> = { en: 'EN', kn: 'ಕನ್ನಡ' };
 const active = (href: string) => path === href || path.startsWith(`${href}/`);
 // Outfield Talks opens on its Write tab but stays highlighted on every /armchair-gaffers page.
 const isOn = (n: { href: string; match?: string }) => active(n.match ?? n.href);
@@ -16,7 +23,8 @@ const results = senior.filter((m) => m.status === 'ft').sort((a, b) => b.kickoff
 const recent = new Date(Date.now() - 3 * 3600_000).toISOString();
 const next = senior.filter((m) => (m.status === 'scheduled' && m.kickoff > recent) || m.status === 'live').sort((a, b) => a.kickoff.localeCompare(b.kickoff)).slice(0, 7);
 const strip = [...results, ...next];
-const short = (name: string, code?: string) => code ?? name.replace(/\b(FC|SC|Football Club)\b/g, '').trim().slice(0, 14);
+// Kannada names are not abbreviated: the card shows the full translated name.
+const short = (name: string, code?: string) => (locale === 'kn' ? teamName(locale, name) : code ?? name.replace(/\b(FC|SC|Football Club)\b/g, '').trim().slice(0, 14));
 // With enough cards the strip loops slowly on its own (paused on hover); the list is rendered twice for a seamless loop.
 const pinned = strip.filter((m) => m.status === 'live');
 const moving = strip.filter((m) => m.status !== 'live');
@@ -24,36 +32,39 @@ const loop = moving.length >= 6;
 ---
 <header class="site-header">
   <div class="wrap bar">
-    <a class="mark" href="/" aria-label={`${SITE.name} home`}>
+    <a class="mark" href={href('/')} aria-label={`${t(locale, 'footer.home')}`}>
       <picture><source srcset="/logo-96.webp" type="image/webp" /><img src="/logo-96.png" alt="" width="44" height="44" /></picture>
     </a>
-    <a class="word" href="/">
+    <a class="word" href={href('/')}>
       <span class="name">Panenka <b>Goal</b></span>
-      <span class="sub">Football in Kannada</span>
+      <span class="sub" lang={locale}>{t(locale, 'nav.tagline')}</span>
     </a>
-    <nav class="main-nav" aria-label="Main">
-      {NAV.filter((n) => n.href !== '/news').map((n) => <a href={n.href} class={'hot' in n ? 'hot' : undefined} aria-current={isOn(n) ? 'page' : undefined}>{n.label}</a>)}
+    <nav class="main-nav" aria-label={t(locale, 'nav.main')}>
+      {NAV.filter((n) => n.href !== '/news').map((n) => <a href={href(n.href)} class={'hot' in n ? 'hot' : undefined} aria-current={isOn(n) ? 'page' : undefined}>{label(n)}</a>)}
     </nav>
-    <button class="theme" type="button" id="theme-toggle" aria-label="Switch to dark mode" title="Light / dark">
+    <nav class="lang" aria-label={t(locale, 'nav.language')}>
+      {LOCALES.map((l) => <a href={localePath(l, path)} hreflang={l} lang={l} aria-current={l === locale ? 'true' : undefined}>{langLabel[l]}</a>)}
+    </nav>
+    <button class="theme" type="button" id="theme-toggle" aria-label={t(locale, 'nav.toggleTheme')} title={t(locale, 'nav.light')} data-label-light={t(locale, 'nav.switchLight')} data-label-dark={t(locale, 'nav.switchDark')}>
       <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor" /></svg>
       <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor" /><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" /></g></svg>
     </button>
-    <button class="burger" type="button" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+    <button class="burger" type="button" id="menu-btn" aria-label={t(locale, 'nav.openMenu')} data-label-open={t(locale, 'nav.openMenu')} data-label-close={t(locale, 'nav.closeMenu')} aria-expanded="false" aria-controls="menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
 <div class="menu" id="menu" hidden>
-  <nav aria-label="All pages">
-    <a href="/" aria-current={path === '/' ? 'page' : undefined}><b>Home</b><small>Latest episodes, scores and news</small></a>
-    {NAV.map((n) => <a href={n.href} class={'hot' in n ? 'hot' : undefined} aria-current={isOn(n) ? 'page' : undefined}><b>{n.label}</b><small>{n.blurb}</small></a>)}
+  <nav aria-label={t(locale, 'nav.allPages')}>
+    <a href={href('/')} aria-current={path === '/' ? 'page' : undefined}><b>{t(locale, 'nav.home')}</b><small>{t(locale, 'nav.homeBlurb')}</small></a>
+    {NAV.map((n) => <a href={href(n.href)} class={'hot' in n ? 'hot' : undefined} aria-current={isOn(n) ? 'page' : undefined}><b>{label(n)}</b><small>{blurb(n)}</small></a>)}
   </nav>
 </div>
 
 {strip.length > 0 && (
-  <div class="scores" aria-label="Latest results and next fixtures">
-    <div class="pin" id="pin" aria-label="Live now">
+  <div class="scores" lang={locale} aria-label={t(locale, 'nav.scoresLabel')}>
+    <div class="pin" id="pin" aria-label={t(locale, 'nav.liveNow')}>
       {pinned.map((m) => <ScoreCard m={m} copy={0} short={short(m.home, m.homeShort)} shortAway={short(m.away, m.awayShort)} />)}
     </div>
     <div class="ticker">
@@ -71,6 +82,9 @@ const loop = moving.length >= 6;
 <script>
   // Live scores: patch any match on the page (data-mid) from /api/live. Polls every 30 s only while a match is on or about to start.
   type Live = { id: string; state: 'live' | 'ft' | 'scheduled'; homeScore?: number; awayScore?: number; clock?: string };
+  const labels = document.getElementById('main')?.dataset ?? {};
+  // Kannada numerals on the live score strip (matches digits() on the server).
+  const num = (v: string | number) => (labels.locale === 'kn' ? String(v).replace(/[0-9]/g, (d) => '೦೧೨೩೪೫೬೭೮೯'[+d]) : String(v));
   const targets = [...document.querySelectorAll<HTMLElement>('[data-mid]')];
   const near = () => targets.some((el) => { const d = Date.now() - new Date(el.dataset.ko!).getTime(); return d > -10 * 60_000 && d < 3.5 * 3600_000; });
   // A live card moves out of the scrolling ticker into the fixed "pin" on the left; at full time it goes back.
@@ -94,8 +108,8 @@ const loop = moving.length >= 6;
   };
   const apply = (m: Live) => {
     if (m.state === 'scheduled') return;
-    const score = `${m.homeScore} – ${m.awayScore}`;
-    const label = m.state === 'ft' ? 'FT' : `LIVE${m.clock && m.clock !== 'LIVE' ? ' ' + m.clock : ''}`;
+    const score = `${num(m.homeScore!)} – ${num(m.awayScore!)}`;
+    const label = m.state === 'ft' ? (labels.ft ?? 'FT') : `${labels.live ?? 'LIVE'}${m.clock && m.clock !== 'LIVE' ? ' ' + num(m.clock) : ''}`;
     if (m.state === 'live') pin(m.id);
     if (m.state === 'ft') unpin(m.id);
     document.querySelectorAll<HTMLElement>(`[data-mid="${m.id}"]`).forEach((el) => {
@@ -104,7 +118,7 @@ const loop = moving.length >= 6;
         st.textContent = label; st.className = `state ${m.state}`;
         const [h, a] = [m.homeScore!, m.awayScore!];
         const sides = { home: el.querySelector<HTMLElement>('[data-side=home]')!, away: el.querySelector<HTMLElement>('[data-side=away]')! };
-        sides.home.textContent = String(h); sides.away.textContent = String(a);
+        sides.home.textContent = num(h); sides.away.textContent = num(a);
         sides.home.className = m.state === 'ft' && h > a ? 'w' : ''; sides.away.className = m.state === 'ft' && a > h ? 'w' : '';
       } else {
         const st = el.querySelector<HTMLElement>('.st');
@@ -138,7 +152,7 @@ const loop = moving.length >= 6;
     if (open) menu.style.setProperty('--menu-top', `${Math.round(document.querySelector('.site-header')!.getBoundingClientRect().bottom)}px`);
     menu.hidden = !open;
     mbtn.setAttribute('aria-expanded', String(open));
-    mbtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mbtn.setAttribute('aria-label', open ? mbtn.dataset.labelClose! : mbtn.dataset.labelOpen!);
     document.documentElement.classList.toggle('menu-open', open);
   };
   mbtn.addEventListener('click', () => setMenu(menu.hidden));
@@ -151,7 +165,7 @@ const loop = moving.length >= 6;
   const btn = document.getElementById('theme-toggle')!;
   const root = document.documentElement;
   const isDark = () => root.dataset.theme === 'dark' || (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
-  const label = () => btn.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode');
+  const label = () => btn.setAttribute('aria-label', isDark() ? btn.dataset.labelLight! : btn.dataset.labelDark!);
   label();
   btn.addEventListener('click', () => {
     const next = isDark() ? 'light' : 'dark';
@@ -200,6 +214,10 @@ const loop = moving.length >= 6;
     flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%;
     border: 1px solid var(--line); background: var(--surface); color: var(--text-2); cursor: pointer; transition: color 0.15s, border-color 0.15s, transform 0.3s;
   }
+  .lang { flex: none; display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
+  .lang a { font-size: 13px; font-weight: 600; padding: 6px 10px; color: var(--text-2); text-decoration: none; line-height: 1.2; }
+  .lang a[aria-current='true'] { color: var(--text); background: var(--line); }
+  .lang a:lang(kn) { font-family: var(--kn); }
   .theme:hover { color: var(--text); border-color: var(--line-strong); }
   .theme:active { transform: rotate(30deg); }
   .theme svg { width: 18px; height: 18px; }
@@ -227,17 +245,23 @@ const loop = moving.length >= 6;
   .scores:focus-within .track.loop { animation-play-state: paused; }
   @keyframes ticker { to { transform: translateX(-50%); } }
   .set { display: flex; }
-  .scores :global(.sc) { flex: none; width: 176px; display: grid; gap: 3px; padding: 9px 14px; color: var(--text); text-decoration: none; border-right: 1px solid var(--line); transition: background-color 0.15s; }
+  .scores :global(.sc) { flex: none; width: 176px; display: grid; gap: 3px; padding: 9px 14px; overflow: hidden; color: var(--text); text-decoration: none; border-right: 1px solid var(--line); transition: background-color 0.15s; }
   .scores :global(.sc:hover) { background: var(--surface); }
   .scores :global(.sc-top) { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; font-weight: 600; color: var(--text-3); }
-  .scores :global(.comp) { font-weight: 700; color: var(--text-2); letter-spacing: 0.04em; }
+  .scores :global(.state) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .scores :global(.comp) { font-weight: 700; color: var(--text-2); letter-spacing: 0.04em; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .scores :global(.state.ft) { color: var(--text); }
   .scores :global(.state.live) { color: var(--brand-text); font-weight: 700; }
   .scores :global(.state.live::before) { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); margin-right: 5px; vertical-align: 1px; animation: pulse 1.4s ease-in-out infinite; }
   @keyframes pulse { 50% { opacity: 0.25; } }
-  .scores :global(.row) { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; font-weight: 600; line-height: 1.35; }
-  .scores :global(.row .t) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-2); }
-  .scores :global(.row b) { color: var(--text-3); font-weight: 700; }
+  .scores :global(.row) { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; font-size: 13.5px; font-weight: 600; line-height: 1.35; }
+  /* Kannada names are longer: they wrap to two lines and the card clips anything beyond that. */
+  .scores :global(.row .t) { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; white-space: normal; overflow: hidden; word-break: break-word; }
+  .scores :global(.sc-top .state), .scores :global(.sc-top .comp) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .scores :global([lang='kn'] .row) { font-size: 12.5px; line-height: 1.4; }
+  .scores :global([lang='kn'] .sc-top) { font-size: 10.5px; }
+  .scores :global(.row .t) { flex: 1; min-width: 0; color: var(--text-2); }
+  .scores :global(.row b) { flex: none; color: var(--text-3); font-weight: 700; }
   .scores :global(.row b.w), .pin :global(.row b) { color: var(--text); }
 
   .burger { display: none; flex: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); cursor: pointer; padding: 0; place-content: center; gap: 4px; }

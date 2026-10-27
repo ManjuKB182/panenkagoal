@@ -13,6 +13,7 @@ export type Fallback = { kind: 'ifl'; slug: string } | { kind: 'transfermarkt'; 
 export interface Competition {
   slug: string;
   name: string;
+  nameKn: string;
   short: string;
   section: SectionKey;
   gender: 'men' | 'women';
@@ -30,6 +31,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'isl',
     name: 'Indian Super League',
+    nameKn: 'ಇಂಡಿಯನ್ ಸೂಪರ್ ಲೀಗ್',
     short: 'ISL',
     section: 'mens',
     gender: 'men',
@@ -41,6 +43,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'ifl',
     name: 'Indian Football League',
+    nameKn: 'ಇಂಡಿಯನ್ ಫುಟ್‌ಬಾಲ್ ಲೀಗ್',
     short: 'IFL',
     section: 'mens',
     gender: 'men',
@@ -53,6 +56,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'i-league-2',
     name: 'I-League 2',
+    nameKn: 'ಐ-ಲೀಗ್ 2',
     short: 'IL2',
     section: 'mens',
     gender: 'men',
@@ -65,6 +69,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'i-league-3',
     name: 'I-League 3',
+    nameKn: 'ಐ-ಲೀಗ್ 3',
     short: 'IL3',
     section: 'mens',
     gender: 'men',
@@ -76,6 +81,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'iwl',
     name: "Indian Women's League",
+    nameKn: 'ಇಂಡಿಯನ್ ವುಮೆನ್ಸ್ ಲೀಗ್',
     short: 'IWL',
     section: 'wofo',
     gender: 'women',
@@ -89,6 +95,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'iwl-2',
     name: "Indian Women's League 2",
+    nameKn: 'ಇಂಡಿಯನ್ ವುಮೆನ್ಸ್ ಲೀಗ್ 2',
     short: 'IWL 2',
     section: 'wofo',
     gender: 'women',
@@ -100,6 +107,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'elite-u18',
     name: 'AIFF Elite Youth League (U18)',
+    nameKn: 'ಎಐಎಫ್‌ಎಫ್ ಎಲೈಟ್ ಯೂತ್ ಲೀಗ್ (U18)',
     short: 'U18',
     section: 'youth',
     gender: 'men',
@@ -110,6 +118,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'junior-u15',
     name: 'AIFF Junior League (U15)',
+    nameKn: 'ಎಐಎಫ್‌ಎಫ್ ಜೂನಿಯರ್ ಲೀಗ್ (U15)',
     short: 'U15',
     section: 'youth',
     gender: 'men',
@@ -120,6 +129,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'sub-junior-u13',
     name: 'AIFF Sub-Junior League (U13)',
+    nameKn: 'ಎಐಎಫ್‌ಎಫ್ ಸಬ್-ಜೂನಿಯರ್ ಲೀಗ್ (U13)',
     short: 'U13',
     section: 'youth',
     gender: 'men',
@@ -130,6 +140,7 @@ export const COMPETITIONS: Competition[] = [
   {
     slug: 'bdfa-sd',
     name: 'KSFA Super Division',
+    nameKn: 'ಕೆಎಸ್‌ಎಫ್‌ಎ ಸೂಪರ್ ಡಿವಿಷನ್',
     short: 'KSFA SD',
     section: 'karnataka',
     gender: 'men',
@@ -144,3 +155,6 @@ export const COMPETITIONS: Competition[] = [
 export const HOME_TABLES = ['isl', 'ifl', 'iwl', 'iwl-2', 'i-league-2', 'i-league-3', 'bdfa-sd'];
 
 export const getCompetition = (slug: string) => COMPETITIONS.find((c) => c.slug === slug);
+
+/** Competition name in the page language. */
+export const compName = (locale: 'en' | 'kn', c: Pick<Competition, 'name' | 'nameKn'>) => (locale === 'kn' ? c.nameKn : c.name);

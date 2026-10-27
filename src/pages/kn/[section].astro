@@ -1,0 +1,11 @@
+---
+import SectionPage from '../../views/SectionPage.astro';
+import { sectionPaths } from '../../lib/routes';
+
+export function getStaticPaths() {
+  return sectionPaths();
+}
+
+const section = Astro.params.section as 'mens' | 'wofo' | 'youth';
+---
+<SectionPage section={section} />

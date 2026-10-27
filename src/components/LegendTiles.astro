@@ -5,14 +5,24 @@ import legends from '../../data/karnataka/legends.json';
 interface Legend {
   name: string; era: string; line: string; photo?: string; fullName?: string; position?: string; bio?: string;
   dob?: string | null; birthplace?: string | null;
-  career?: { club: string; years: string; note?: string | null }[]; stats?: { label: string; value: string }[];
+  career?: { club: string; years: string; yearsKn?: string; note?: string | null; noteKn?: string | null }[]; stats?: { label: string; labelKn?: string; value: string }[];
+  eraKn?: string; lineKn?: string; positionKn?: string; bioKn?: string; honoursKn?: string[]; intlKn?: string | null;
   honours?: string[]; intl?: string | null; sources?: string[];
+}
+import { digits, getLocale, personName, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const n = (v: number | string | null | undefined) => digits(locale, v ?? '');
+// Kannada text when the locale is kn and the Kn field exists; English otherwise.
+function pick<T>(en: T, kn?: T | null): T {
+  return locale === 'kn' && kn ? kn : en;
 }
 const list = legends as Legend[];
 const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const age = (dob: string) => Math.floor((Date.now() - new Date(dob).getTime()) / 31_557_600_000);
+const dateText = (iso: string) => new Date(iso).toLocaleDateString(locale === 'kn' ? 'kn-IN' : 'en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 const facts = (p: Legend) => ([
-  ['Born', p.dob ? `${new Date(p.dob).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} (${age(p.dob)})` : null], ['From', p.birthplace],
+  [t(locale, 'karnataka.born'), p.dob ? `${digits(locale, dateText(p.dob))} (${digits(locale, age(p.dob))})` : null], [t(locale, 'karnataka.from'), p.birthplace],
 ] as [string, string | null | undefined][]).filter((f): f is [string, string] => !!f[1]);
 ---
 <div class="tiles">
@@ -20,10 +30,10 @@ const facts = (p: Legend) => ([
     const inner = (
       <>
         {l.photo && <img class="lphoto" src={l.photo} alt={l.name} width="682" height="1024" loading="lazy" />}
-        <div class="eyebrow">{l.era}</div>
-        <h3>{l.name}</h3>
-        <div class="meta">{l.line}</div>
-        <div class="foot"><span class="plain">Legends of Karnataka</span>{l.bio && <span>View profile →</span>}</div>
+        <div class="eyebrow">{pick(l.era, l.eraKn)}</div>
+        <h3>{personName(locale, l.name)}</h3>
+        <div class="meta">{pick(l.line, l.lineKn)}</div>
+        <div class="foot"><span class="plain">{t(locale, 'karnataka.legendsFoot')}</span>{l.bio && <span>{t(locale, 'karnataka.viewProfile')}</span>}</div>
       </>
     );
     return l.bio
@@ -34,7 +44,7 @@ const facts = (p: Legend) => ([
 
 {list.filter((l) => l.bio).map((p) => (
   <dialog class="profile" id={`l-${slug(p.name)}`} aria-labelledby={`lh-${slug(p.name)}`}>
-    <form method="dialog"><button class="x" aria-label="Close profile">×</button></form>
+    <form method="dialog"><button class="x" aria-label={t(locale, 'karnataka.closeProfile')}>×</button></form>
     <div class="pbody">
       <div class="side">
         <div class="ph big">
@@ -47,23 +57,23 @@ const facts = (p: Legend) => ([
         )}
       </div>
       <div class="main">
-        <p class="eyebrow">{p.era}</p>
-        <h2 id={`lh-${slug(p.name)}`}>{p.name}</h2>
-        {(p.fullName || p.position) && <p class="muted pos">{[p.position, p.fullName].filter(Boolean).join(' · ')}</p>}
-        <p class="bio">{p.bio}</p>
+        <p class="eyebrow">{pick(p.era, p.eraKn)}</p>
+        <h2 id={`lh-${slug(p.name)}`}>{personName(locale, p.name)}</h2>
+        {(p.fullName || p.position) && <p class="muted pos">{[pick(p.position, p.positionKn), p.fullName].filter(Boolean).join(' · ')}</p>}
+        <p class="bio">{n(pick(p.bio, p.bioKn))}</p>
         {p.career?.length ? (
-          <section><h3>Career</h3>
-            <ol class="career">{p.career.map((c) => <li><b>{c.club}</b><span>{c.years}</span>{c.note && <small>{c.note}</small>}</li>)}</ol>
+          <section><h3>{t(locale, 'karnataka.career')}</h3>
+            <ol class="career">{p.career.map((c) => <li><b>{c.club}</b><span>{locale === 'kn' ? n(c.yearsKn ?? c.years) : c.years}</span>{pick(c.note, c.noteKn) && <small>{n(pick(c.note, c.noteKn))}</small>}</li>)}</ol>
           </section>
         ) : null}
         {p.stats?.length ? (
-          <section><h3>Numbers</h3>
-            <div class="stats">{p.stats.map((s) => <div><b>{s.value}</b><span>{s.label}</span></div>)}</div>
+          <section><h3>{t(locale, 'karnataka.numbers')}</h3>
+            <div class="stats">{p.stats.map((s) => <div><b>{n(s.value)}</b><span>{n(pick(s.label, s.labelKn))}</span></div>)}</div>
           </section>
         ) : null}
-        {p.honours?.length ? <section><h3>Honours</h3><ul class="hon">{p.honours.map((h) => <li>{h}</li>)}</ul></section> : null}
-        {p.intl && <section><h3>National team</h3><p>{p.intl}</p></section>}
-        {p.sources?.length ? <p class="muted src">Source: {p.sources.map((s, i) => <>{i > 0 && ', '}<a href={s} rel="noopener noreferrer" target="_blank">{new URL(s).hostname.replace(/^en\./, '')}</a></>)}</p> : null}
+        {p.honours?.length ? <section><h3>{t(locale, 'karnataka.honours')}</h3><ul class="hon">{pick(p.honours, p.honoursKn).map((h) => <li>{n(h)}</li>)}</ul></section> : null}
+        {p.intl && <section><h3>{t(locale, 'karnataka.nationalTeam')}</h3><p>{n(pick(p.intl, p.intlKn))}</p></section>}
+        {p.sources?.length ? <p class="muted src">{t(locale, 'karnataka.source')}{p.sources.map((s, i) => <>{i > 0 && ', '}<a href={s} rel="noopener noreferrer" target="_blank">{new URL(s).hostname.replace(/^en\./, '')}</a></>)}</p> : null}
       </div>
     </div>
   </dialog>

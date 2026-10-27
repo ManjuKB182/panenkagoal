@@ -1,0 +1,216 @@
+---
+// Body of the Karnataka page. Rendered by src/pages/karnataka/index.astro (English) and src/pages/kn/karnataka/index.astro (Kannada).
+import Base from '../layouts/Base.astro';
+import TabBar from '../components/TabBar.astro';
+import KarnatakaPlayers from '../components/KarnatakaPlayers.astro';
+import LeaguePanel from '../components/LeaguePanel.astro';
+import academies from '../../data/karnataka/academies.json';
+import LegendTiles from '../components/LegendTiles.astro';
+import history from '../../data/karnataka/history.json';
+import profiles from '../../data/karnataka/academy-profiles.json';
+import { SECTIONS } from '../config/site';
+import { getCompetition } from '../config/competitions';
+import { getLeague } from '../lib/data';
+import { digits, getLocale, groupName, leagueName, personName, t, teamName } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const n =(v: number | string) => digits(locale, v);
+const sPlural = (count: number) => (count === 1 ? '' : 's');
+// Kannada text when the locale is kn and the Kn field exists; English otherwise.
+function pick<T>(en: T, kn?: T | null): T {
+  return locale === 'kn' && kn ? kn : en;
+}
+const POS_KEY: Record<string, 'karnataka.posGK' | 'karnataka.posDEF' | 'karnataka.posMID' | 'karnataka.posFWD'> = { GK: 'karnataka.posGK', DEF: 'karnataka.posDEF', MID: 'karnataka.posMID', FWD: 'karnataka.posFWD' };
+const posText = (code?: string) => (locale === 'kn' && code && POS_KEY[code] ? t(locale, POS_KEY[code]) : (code ?? ''));
+
+const meta = SECTIONS.karnataka;
+const ksfa = getCompetition('bdfa-sd')!;
+const tabs = [
+  { id: 'academies', label: t(locale, 'karnataka.tabAcademies') },
+  { id: 'players', label: t(locale, 'karnataka.tabPlayers') },
+  { id: 'legends', label: t(locale, 'karnataka.tabLegends') },
+  { id: 'history', label: t(locale, 'karnataka.tabHistory') },
+];
+const levels = [...new Set((academies as { accreditation: string | null }[]).map((a) => a.accreditation).filter((x): x is string => !!x))].sort().reverse();
+type Tournament = { league: string; season: string; stage?: string; group?: string; pos?: number; played?: number; won?: number; drawn?: number; lost?: number; gf?: number; ga?: number; points?: number; grounds: string[]; coaches: string[]; sheets: number; players: { name: string; position?: string; number?: number }[] };
+const profile = (name: string) => ((profiles as Record<string, { tournaments: Tournament[] }>)[name]?.tournaments ?? []).filter((t) => !/2025-26/.test(t.season) && (t.pos || t.players.length)); // last season's tables are not shown
+const tidy = (v?: string) => (v ?? '').toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
+const POS: Record<string, number> = { GK: 0, DEF: 1, MID: 2, FWD: 3 };
+const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+---
+<Base title={t(locale, 'karnataka.title')} description={t(locale, 'karnataka.description')}>
+  <header class="sec-hero bg-photo" style="--img:url(/bg/trophies.webp)">
+    <div class="wrap pagehead">
+      <p class="kn" lang="kn">{meta.titleKn}</p>
+      <h1>{t(locale, 'karnataka.heading')}</h1>
+      <p>{t(locale, 'karnataka.intro')}</p>
+    </div>
+  </header>
+
+  <div class="wrap body">
+    <section class="ksfa"><LeaguePanel comp={ksfa} data={getLeague(ksfa)} /></section>
+
+    <TabBar group="kar" tabs={tabs} />
+
+    <section class="tabpanel" data-group="kar" data-panel="academies">
+      {levels.length > 0 && (
+        <div class="chips filter" role="tablist" aria-label={t(locale, 'karnataka.accreditation')}>
+          <button class="chip" type="button" role="tab" aria-selected="true" data-acc="">{t(locale, 'karnataka.all')}</button>
+          {levels.map((l) => <button class="chip" type="button" role="tab" aria-selected="false" data-acc={l}>{n(l)}</button>)}
+        </div>
+      )}
+      <div class="tiles">
+        {academies.map((a) => {
+          const count = profile(a.name).length;
+          const stars = a.accreditation ? parseInt(a.accreditation) : 0;
+          return (
+            <button class="tile acad" type="button" data-acad={slug(a.name)} data-acc={a.accreditation ?? ''}>
+              <div class="top">
+                <span class="crest">{(a as any).logo ? <img src={(a as any).logo} alt="" width="56" height="56" loading="lazy" /> : <b>{a.name.slice(0, 2)}</b>}</span>
+                <span class="stars" aria-label={a.accreditation ? t(locale, 'karnataka.starsAria', { n: n(stars) }) : t(locale, 'karnataka.ratingTbc')}>{a.accreditation ? '★'.repeat(stars) + '☆'.repeat(5 - stars) : '☆☆☆☆☆'}</span>
+              </div>
+              <div class="eyebrow">{a.city}</div>
+              <h3>{teamName(locale, a.name)}</h3>
+              {a.accreditation ? <span class="badge">{t(locale, 'karnataka.aiffBadge', { level: n(a.accreditation) })}</span> : <span class="badge grey">{t(locale, 'karnataka.ratingTbc')}</span>}
+              <div class="meta">{count ? t(locale, 'karnataka.playingIn', { n: n(count), s: sPlural(count) }) : t(locale, 'karnataka.academyAccredited')}</div>
+              <div class="foot"><span class="plain">{t(locale, 'karnataka.accreditationProfile')}</span><span>→</span></div>
+            </button>
+          );
+        })}
+      </div>
+      <p class="note-src">{t(locale, 'karnataka.academyNote', { season: n('2026-27') })}</p>
+      {academies.map((a) => (
+        <dialog class="profile" id={`acad-${slug(a.name)}`} aria-labelledby={`h-${slug(a.name)}`}>
+          <form method="dialog"><button class="x" aria-label={t(locale, 'karnataka.closeProfile')}>×</button></form>
+          <div class="pf-head">{(a as any).logo && <span class="crest big"><img src={(a as any).logo} alt="" width="72" height="72" /></span>}<div><div class="eyebrow">{t(locale, 'karnataka.academyProfile')}</div><h2 id={`h-${slug(a.name)}`}>{teamName(locale, a.name)}</h2></div></div>
+          <dl class="kv">
+            <dt>{t(locale, 'karnataka.city')}</dt><dd>{a.city}</dd>
+            {a.ageGroups && <><dt>{t(locale, 'karnataka.ageGroups')}</dt><dd>{a.ageGroups}</dd></>}
+            <dt>{t(locale, 'karnataka.aiffAccreditation')}</dt><dd>{a.accreditation ? n(a.accreditation) : t(locale, 'karnataka.toBeConfirmed')}</dd>
+            {a.pathway && <><dt>{t(locale, 'karnataka.pathway')}</dt><dd>{a.pathway}</dd></>}
+            {a.website && <><dt>{t(locale, 'karnataka.website')}</dt><dd><a href={a.website} rel="noopener" target="_blank">{a.website}</a></dd></>}
+          </dl>
+          <p class="about">{pick(a.about, a.aboutKn)}</p>
+          {profile(a.name).length > 0 && (
+            <div class="tours">
+              <h3>{t(locale, 'karnataka.takingPart', { n: n(profile(a.name).length), s: sPlural(profile(a.name).length) })}</h3>
+              {profile(a.name).map((tour) => (
+                <section class="tour">
+                  <div class="tour-head"><b>{leagueName(locale, tour.league)}</b><span>{n(tour.season)}</span></div>
+                  {tour.stage && <p class="tour-sub">{groupName(locale, tour.stage)}{tour.group ? ` · ${locale === 'kn' ? groupName(locale, tour.group) : tidy(tour.group)}` : ''}{tour.pos ? ` · ${t(locale, 'karnataka.position', { n: n(tour.pos) })}` : ''}</p>}
+                  {tour.played ? <p class="rec"><b>{n(tour.played)}</b> {t(locale, 'karnataka.statPlayed')} · <b>{n(tour.won ?? 0)}</b> {t(locale, 'karnataka.statWon')} · <b>{n(tour.drawn ?? 0)}</b> {t(locale, 'karnataka.statDrawn')} · <b>{n(tour.lost ?? 0)}</b> {t(locale, 'karnataka.statLost')} · {n(tour.gf ?? 0)}–{n(tour.ga ?? 0)} {t(locale, 'karnataka.statGoals')} · <b>{n(tour.points ?? 0)}</b> {t(locale, 'karnataka.statPts')}</p> : null}
+                  <dl class="kv">
+                    {tour.grounds.length > 0 && <><dt>{t(locale, 'karnataka.homeGround')}</dt><dd>{tour.grounds.join(' · ')}</dd></>}
+                    {tour.coaches.length > 0 && <><dt>{t(locale, 'karnataka.coach')}</dt><dd>{tour.coaches.map((c) => personName(locale, c)).join(', ')}</dd></>}
+                    {tour.players.length > 0 && <><dt>{t(locale, 'karnataka.players')}</dt><dd>{t(locale, 'karnataka.namedIn', { n: n(tour.players.length), sheets: n(tour.sheets), s: sPlural(tour.sheets) })}</dd></>}
+                  </dl>
+                  {tour.players.length > 0 && (
+                    <details>
+                      <summary>{t(locale, 'karnataka.seePlayers')}</summary>
+                      <ul class="pl">
+                        {[...tour.players].sort((x, y) => (POS[x.position ?? ''] ?? 9) - (POS[y.position ?? ''] ?? 9) || (x.number ?? 99) - (y.number ?? 99)).map((p) => <li><span class="no">{p.number ? n(p.number) : ''}</span>{personName(locale, p.name)}<small>{posText(p.position)}</small></li>)}
+                      </ul>
+                    </details>
+                  )}
+                </section>
+              ))}
+            </div>
+          )}
+        </dialog>
+      ))}
+    </section>
+
+    <section class="tabpanel" data-group="kar" data-panel="players" hidden>
+      <p class="lede">{t(locale, 'karnataka.playersLede')}</p>
+      <KarnatakaPlayers />
+    </section>
+
+    <section class="tabpanel" data-group="kar" data-panel="legends" hidden>
+      <LegendTiles />
+    </section>
+
+    <section class="tabpanel" data-group="kar" data-panel="history" hidden>
+      <article class="panel-card story">
+        <p class="eyebrow">{t(locale, 'karnataka.eraMysore')}</p>
+        <h2>{t(locale, 'karnataka.asianAchievement')}</h2>
+        {pick(history.intro, history.introKn).map((p) => <p>{n(p)}</p>)}
+      </article>
+      <h2 class="sub">{t(locale, 'karnataka.campaign1969')}</h2>
+      <div class="tiles">
+        {history.campaign.map((c) => (
+          <div class="tile">
+            <div class="eyebrow">{t(locale, 'karnataka.mysoreVs')}</div>
+            <h3>{c.opponent}</h3>
+            <div class="meta">{pick(c.note, c.noteKn)}</div>
+            <div class="foot"><span class="plain">{t(locale, 'karnataka.result')}</span><b class="res">{n(c.score)}</b></div>
+          </div>
+        ))}
+      </div>
+      <h2 class="sub">{t(locale, 'karnataka.mysoreToKa')}</h2>
+      <article class="panel-card story">
+        <p>{pick(history.timelineIntro, history.timelineIntroKn)}</p>
+        <ol class="tl">
+          {history.timeline.map((e) => <li><b>{n(e.year)}</b><p>{n(pick(e.text, e.textKn))}</p></li>)}
+        </ol>
+      </article>
+    </section>
+  </div>
+</Base>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-acad]').forEach((tile) =>
+    tile.addEventListener('click', () => (document.getElementById(`acad-${tile.dataset.acad}`) as HTMLDialogElement | null)?.showModal()));
+  document.querySelectorAll<HTMLDialogElement>('dialog.profile').forEach((d) =>
+    d.addEventListener('click', (e) => { if (e.target === d) d.close(); }));
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('.filter [data-acc]')];
+  chips.forEach((c) => c.addEventListener('click', () => {
+    chips.forEach((x) => x.setAttribute('aria-selected', String(x === c)));
+    document.querySelectorAll<HTMLElement>('button.tile[data-acc]').forEach((tile) => { tile.hidden = !!c.dataset.acc && tile.dataset.acc !== c.dataset.acc; });
+  }));
+</script>
+
+<style>
+  .sec-hero { padding-block: 12px 0; }
+  .sec-hero .pagehead { padding-block: 36px 24px; }
+  .body { padding-bottom: 48px; }
+  .ksfa { padding-block: 24px 32px; }
+  .filter { margin-bottom: 16px; }
+  .tile.acad { min-height: 212px; }
+  .acad .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+  .crest { width: 60px; height: 60px; flex: none; display: grid; place-items: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 5px; }
+  .crest img { width: 100%; height: 100%; object-fit: contain; }
+  .crest b { font: 700 18px var(--display); color: #555; text-transform: uppercase; }
+  .crest.big { width: 80px; height: 80px; }
+  .stars { color: var(--accent); letter-spacing: 2px; font-size: 15px; text-shadow: 0 0 1px rgba(0, 0, 0, 0.35); }
+  .pf-head { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+  .pf-head h2 { margin: 2px 0 0; }
+  .note-src { margin-top: 14px; font-size: 13px; color: var(--text-3); }
+  .lede { color: var(--text-2); max-width: 62ch; margin-bottom: 16px; }
+  .sub { margin: 28px 0 12px; }
+  .story { padding: 20px 22px; display: grid; gap: 12px; }
+  .story p { color: var(--text-2); max-width: 70ch; }
+  .res { font: 700 22px var(--display); color: var(--text); }
+  .tl { list-style: none; margin: 8px 0 0 8px; padding: 0 0 0 22px; border-left: 2px solid var(--line-strong); display: grid; gap: 18px; }
+  .tl li { position: relative; }
+  .tl li::before { content: ''; position: absolute; left: -30px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--ink); }
+  .tl b { font: 700 20px var(--display); }
+  .profile { max-height: 88vh; overflow-y: auto; border: 1px solid var(--line-strong); border-radius: var(--r); background: var(--surface); color: var(--text); padding: 22px; width: min(92vw, 600px); }
+  .profile::backdrop { background: rgba(0, 0, 0, 0.55); }
+  .profile .x { position: absolute; top: 10px; right: 12px; border: 0; background: none; font-size: 26px; cursor: pointer; color: var(--text-2); }
+  .profile h2 { margin: 4px 0 0; }
+  .kv { display: grid; grid-template-columns: 120px 1fr; gap: 8px 12px; font-size: 15px; margin: 0 0 12px; }
+  .kv dt { color: var(--text-3); } .kv dd { margin: 0; font-weight: 500; }
+  .about { color: var(--text-2); font-size: 15px; }
+  .tours { margin-top: 18px; display: grid; gap: 12px; }
+  .tours h3 { font-size: 18px; }
+  .tour { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; background: var(--surface-2); }
+  .tour-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .tour-head span, .tour-sub { color: var(--text-3); font-size: 13px; }
+  .rec { font-size: 14px; color: var(--text-2); }
+  .tour .kv { margin: 4px 0 0; grid-template-columns: 100px 1fr; }
+  .tour summary { cursor: pointer; font-weight: 700; font-size: 13.5px; color: var(--brand-text); margin-top: 4px; }
+  .pl { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; font-size: 14px; }
+  .pl li { display: grid; grid-template-columns: 28px 1fr auto; gap: 8px; }
+  .pl .no { color: var(--text-3); font-weight: 700; }
+  .pl small { color: var(--text-3); }
+</style>

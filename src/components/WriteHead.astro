@@ -1,21 +1,24 @@
 ---
 // Page head + Watch / Write tabs shared by every Outfield Talks page, plus the styles
 // for the Write pages (global, prefixed wr-, because article HTML is injected at request time).
-interface Props { active: 'watch' | 'write' | 'mine' | 'none'; compact?: boolean }
-const { active, compact = false } = Astro.props;
+import { getLocale, localePath, t, type Locale } from '../i18n';
+interface Props { active: 'watch' | 'write' | 'mine' | 'none'; compact?: boolean; locale?: Locale }
+// Reads the locale from the page URL unless a caller passes one, so no page can fall back to English by mistake.
+const { active, compact = false, locale = getLocale(Astro.url) } = Astro.props;
+const href = (p: string) => localePath(locale, p);
 ---
 <header class="wrap wr-head">
   {!compact && (
     <>
-      <p class="eyebrow">Fans &amp; analysts</p>
-      <h1 class="adda-title">Outfield Talks</h1>
-      <p class="muted wr-lede">Fans and analysts break down the game. Watch the shows or read the takes.</p>
+      <p class="eyebrow">{t(locale, 'write.head.eyebrow')}</p>
+      <h1 class="adda-title">{t(locale, 'write.head.title')}</h1>
+      <p class="muted wr-lede">{t(locale, 'write.head.lede')}</p>
     </>
   )}
-  <nav class="chips wr-tabs" aria-label="Outfield Talks sections">
-    <a class="chip" href="/armchair-gaffers/write" aria-selected={active === 'write' || active === 'mine' ? 'true' : 'false'}>Write</a>
-    <a class="chip" href="/armchair-gaffers" aria-selected={active === 'watch' ? 'true' : 'false'}>Watch</a>
-    {active === 'mine' && <a class="chip" href="/armchair-gaffers/write/mine" aria-selected="true">My pieces</a>}
+  <nav class="chips wr-tabs" aria-label={t(locale, 'write.nav.label')}>
+    <a class="chip" href={href('/armchair-gaffers/write')} aria-selected={active === 'write' || active === 'mine' ? 'true' : 'false'}>{t(locale, 'write.nav.write')}</a>
+    <a class="chip" href={href('/armchair-gaffers')} aria-selected={active === 'watch' ? 'true' : 'false'}>{t(locale, 'write.nav.watch')}</a>
+    {active === 'mine' && <a class="chip" href={href('/armchair-gaffers/write/mine')} aria-selected="true">{t(locale, 'write.nav.mine')}</a>}
   </nav>
 </header>
 

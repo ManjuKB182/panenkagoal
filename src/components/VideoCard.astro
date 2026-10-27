@@ -1,6 +1,10 @@
 ---
 import type { Video } from '../lib/types';
 import { timeAgo, ytWatch } from '../lib/format';
+import { digits, getLocale, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const dateLocale = locale === 'kn' ? 'kn-IN' : 'en-IN';
 
 interface Props { video: Video; badge?: string; size?: 'hero' | 'tile' | 'row' | 'vertical'; play?: boolean }
 const { video, badge, size = 'tile', play = size === 'hero' } = Astro.props;
@@ -13,7 +17,7 @@ const playAttrs = { 'data-yt': video.id, 'data-title': video.title, 'data-short'
       <img src={video.thumbnail} alt="" loading={size === 'hero' ? 'eager' : 'lazy'} fetchpriority={size === 'hero' ? 'high' : 'auto'} width="480" height="360" />
       {badge && <span class="badge">{badge}</span>}
       <span class="play" aria-hidden="true"></span>
-      <span class="sr-only">Play {video.title}</span>
+      <span class="sr-only">{t(locale, 'video.play', { title: video.title })}</span>
     </a>
   ) : (
     <a class="thumb" href={ytWatch(video.id)} rel="noopener" {...playAttrs}>
@@ -24,7 +28,7 @@ const playAttrs = { 'data-yt': video.id, 'data-title': video.title, 'data-short'
   )}
   <div class="meta">
     <h3 class="t"><a href={ytWatch(video.id)} rel="noopener" {...playAttrs}>{video.title}</a></h3>
-    <p class="muted">{timeAgo(video.publishedAt)}{video.views ? ` · ${video.views.toLocaleString('en-IN')} views` : ''}</p>
+    <p class="muted">{timeAgo(video.publishedAt, undefined, locale)}{video.views ? ` · ${t(locale, 'video.views', { n: digits(locale, video.views.toLocaleString(dateLocale)) })}` : ''}</p>
   </div>
 </article>
 

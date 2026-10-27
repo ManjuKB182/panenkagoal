@@ -1,0 +1,95 @@
+---
+// Writer's browse page: list of published pieces. Rendered by the English and the /kn/ page files.
+import Base from '../layouts/Base.astro';
+import WriteHead from '../components/WriteHead.astro';
+import { localePath, t, type Locale } from '../i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const href = (p: string) => localePath(locale, p);
+// Client-side strings and link prefix for the script below.
+const ui = {
+  base: locale === 'kn' ? '/kn' : '',
+  intl: locale === 'kn' ? 'kn-IN' : 'en-IN',
+  locale,
+  noPieces: t(locale, 'write.browse.none'),
+  noPiecesAtAll: t(locale, 'write.browse.noneAtAll'),
+  tileMeta: t(locale, 'write.browse.tileMeta'),
+  kindFan: t(locale, 'write.kind.fan'),
+  kindAnalyst: t(locale, 'write.kind.analyst'),
+  loadError: t(locale, 'write.browse.loadError'),
+};
+---
+<Base title={t(locale, 'write.browse.title')} description={t(locale, 'write.browse.desc')}>
+  <WriteHead locale={locale} active="write" />
+  <section class="wrap module" style="padding-top:12px">
+    <div class="wr-bar">
+      <div class="chips" role="tablist" aria-label={t(locale, 'write.browse.filterLabel')} id="wr-filter">
+        <button class="chip" type="button" role="tab" data-f="all" aria-selected="true">{t(locale, 'write.browse.all')}</button>
+        <button class="chip" type="button" role="tab" data-f="fan" aria-selected="false">{t(locale, 'write.browse.fans')}</button>
+        <button class="chip" type="button" role="tab" data-f="analyst" aria-selected="false">{t(locale, 'write.browse.analysts')}</button>
+      </div>
+      <a class="btn" href={href('/armchair-gaffers/write/submit')}>{t(locale, 'write.browse.submit')}</a>
+    </div>
+    <div class="wr-grid" id="wr-grid" aria-live="polite"><p class="wr-empty">{t(locale, 'write.browse.loading')}</p></div>
+    <p class="wr-note" style="margin-top:14px">{t(locale, 'write.browse.note')}</p>
+  </section>
+</Base>
+<script type="application/json" id="wr-i18n" set:html={JSON.stringify(ui)} />
+
+<script>
+  // Published pieces load live from /api/write/posts, so a newly approved piece shows up without a site rebuild.
+  type P = { slug: string; title: string; kind: 'fan' | 'analyst'; author: string; publishedAt: string; minutes: number; cover: string | null };
+  const ui = JSON.parse(document.getElementById('wr-i18n')!.textContent!) as {
+    base: string; intl: string; locale: string; noPieces: string; noPiecesAtAll: string; tileMeta: string;
+    kindFan: string; kindAnalyst: string; loadError: string;
+  };
+  const digits = (n: number) => (ui.locale === 'kn' ? String(n).replace(/[0-9]/g, (d) => '೦೧೨೩೪೫೬೭೮೯'[Number(d)]) : String(n));
+  const grid = document.getElementById('wr-grid')!;
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('#wr-filter .chip')];
+  let posts: P[] = [];
+  let filter = 'all';
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function render() {
+    grid.replaceChildren();
+    const list = posts.filter((p) => filter === 'all' || p.kind === filter);
+    if (!list.length) {
+      grid.append(el('p', 'wr-empty', posts.length ? ui.noPieces : ui.noPiecesAtAll));
+      return;
+    }
+    for (const p of list) {
+      const a = el('a', 'wr-tile') as HTMLAnchorElement;
+      a.href = `${ui.base}/armchair-gaffers/write/${p.slug}`;
+      if (p.cover) {
+        const img = el('img', 'wr-cover') as HTMLImageElement;
+        img.src = `/api/write/photo/${p.cover}`;
+        img.alt = '';
+        img.loading = 'lazy';
+        a.append(img);
+      }
+      a.append(el('span', 'wr-tag' + (p.kind === 'analyst' ? ' an' : ''), p.kind === 'analyst' ? ui.kindAnalyst : ui.kindFan));
+      a.append(el('h3', '', p.title));
+      const foot = el('div', 'wr-foot');
+      const date = new Date(p.publishedAt).toLocaleDateString(ui.intl, { day: 'numeric', month: 'short', year: 'numeric' });
+      const meta = ui.tileMeta.replace('{author}', p.author).replace('{date}', date).replace('{minutes}', digits(p.minutes));
+      foot.append(el('span', '', meta), el('b', '', '→'));
+      a.append(foot);
+      grid.append(a);
+    }
+  }
+  chips.forEach((c) => c.addEventListener('click', () => {
+    filter = c.dataset.f!;
+    chips.forEach((x) => x.setAttribute('aria-selected', String(x === c)));
+    render();
+  }));
+  fetch('/api/write/posts')
+    .then((r) => (r.ok ? r.json() : Promise.reject()))
+    .then((d) => { posts = d.posts ?? []; render(); })
+    .catch(() => { grid.replaceChildren(el('p', 'wr-empty', ui.loadError)); });
+</script>

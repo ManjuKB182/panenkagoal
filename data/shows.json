@@ -6,6 +6,7 @@
       "nameKn": "ನೀಲಿ ಪಡೆ",
       "playlistId": "PLEHFPqueXIIrSwG3zFx7j3dbB7-l5_ep_",
       "blurb": "Our flagship podcast on Indian football, BFC and Karnataka football.",
+      "blurbKn": "ಭಾರತೀಯ ಫುಟ್ಬಾಲ್, BFC ಮತ್ತು ಕರ್ನಾಟಕ ಫುಟ್ಬಾಲ್ ಕುರಿತ ನಮ್ಮ ಪ್ರಮುಖ ಪಾಡ್‌ಕ್ಯಾಸ್ಟ್.",
       "titleMatch": "neeli ?pade|ನೀಲಿ ಪಡೆ"
     },
     {
@@ -13,6 +14,7 @@
       "name": "MD Previews",
       "playlistId": "PLEHFPqueXIIqwP7hYYcqPU0X2IihzpPaD",
       "blurb": "Matchday previews and quick takes.",
+      "blurbKn": "ಪಂದ್ಯದ ದಿನದ ಪೂರ್ವವೀಕ್ಷಣೆಗಳು ಮತ್ತು ತ್ವರಿತ ಅಭಿಪ್ರಾಯಗಳು.",
       "titleMatch": "\\bMD ?preview|match ?day preview"
     },
     {
@@ -20,6 +22,7 @@
       "name": "Special Interviews",
       "playlistId": "PLEHFPqueXIIo2dCGn7kc1CRjqoDWccynC",
       "blurb": "Conversations with players, coaches and people who run the game.",
+      "blurbKn": "ಆಟಗಾರರು, ಕೋಚ್‌ಗಳು ಮತ್ತು ಆಟವನ್ನು ನಡೆಸುವವರೊಂದಿಗೆ ಸಂಭಾಷಣೆಗಳು.",
       "titleMatch": "interview"
     },
     {
@@ -28,6 +31,7 @@
       "nameKn": "ಫುಟ್ಬಾಲ್ ಕಥೆ ನಮ್ಮ ಜೊತೆ",
       "playlistId": "PLEHFPqueXIIr2o-V1bxh5ajTBOawKuij3",
       "blurb": "Football stories, told in Kannada.",
+      "blurbKn": "ಫುಟ್ಬಾಲ್ ಕಥೆಗಳು, ಕನ್ನಡದಲ್ಲಿ ಹೇಳಲಾಗಿದೆ.",
       "titleMatch": "kathe|ಕಥೆ"
     }
   ]

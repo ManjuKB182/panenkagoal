@@ -6,23 +6,34 @@ import players from '../../data/players/karnataka-born.json';
 interface Player {
   name: string; club: string; league: string; photo?: string; position?: string; bio?: string;
   dob?: string | null; birthplace?: string | null; heightCm?: number | null; foot?: string | null; shirt?: number | null;
-  career?: { club: string; years: string; note?: string | null }[]; stats?: { label: string; value: string }[];
+  career?: { club: string; years: string; yearsKn?: string; note?: string | null; noteKn?: string | null }[]; stats?: { label: string; labelKn?: string; value: string }[];
+  eraKn?: string; lineKn?: string; positionKn?: string; bioKn?: string; honoursKn?: string[]; intlKn?: string | null;
   honours?: string[]; intl?: string | null; sources?: string[];
+}
+import { digits, getLocale, personName, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const n = (v: number | string | null | undefined) => digits(locale, v ?? '');
+// Kannada text when the locale is kn and the Kn field exists; English otherwise.
+function pick<T>(en: T, kn?: T | null): T {
+  return locale === 'kn' && kn ? kn : en;
 }
 const list = players as Player[];
 const leagues = [...new Set(list.map((p) => p.league))];
 const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const age = (dob: string) => Math.floor((Date.now() - new Date(dob).getTime()) / 31_557_600_000);
+const dateText = (iso: string) => new Date(iso).toLocaleDateString(locale === 'kn' ? 'kn-IN' : 'en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 const facts = (p: Player) => ([
-  ['Born', p.dob ? `${new Date(p.dob).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} (${age(p.dob)})` : null], ['From', p.birthplace], ['Height', p.heightCm ? `${p.heightCm} cm` : null],
-  ['Foot', p.foot], ['Shirt', p.shirt ? `#${p.shirt}` : null],
+  [t(locale, 'karnataka.born'), p.dob ? `${digits(locale, dateText(p.dob))} (${digits(locale, age(p.dob))})` : null], [t(locale, 'karnataka.from'), p.birthplace],
+  [t(locale, 'karnataka.height'), p.heightCm ? t(locale, 'karnataka.cm', { n: digits(locale, p.heightCm) }) : null],
+  [t(locale, 'karnataka.foot'), p.foot], [t(locale, 'karnataka.shirt'), p.shirt ? `#${digits(locale, p.shirt)}` : null],
 ] as [string, string | null | undefined][]).filter((f): f is [string, string] => !!f[1]);
 const initials = (n: string) => n.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 ---
 <div class="kp">
   {leagues.length > 1 && (
-    <div class="chips" role="tablist" aria-label="Filter by league">
-      <button class="chip" role="tab" aria-selected="true" data-league="" type="button">All</button>
+    <div class="chips" role="tablist" aria-label={t(locale, 'karnataka.filterLeague')}>
+      <button class="chip" role="tab" aria-selected="true" data-league="" type="button">{t(locale, 'karnataka.all')}</button>
       {leagues.map((l) => <button class="chip" role="tab" aria-selected="false" data-league={l} type="button">{l}</button>)}
     </div>
   )}
@@ -35,9 +46,9 @@ const initials = (n: string) => n.split(/\s+/).filter(Boolean).slice(0, 2).map((
             <span class="badge lg">{p.league}</span>
           </span>
           <span class="info">
-            <span class="nm">{p.name}</span>
+            <span class="nm">{personName(locale, p.name)}</span>
             <span class="club">{p.club}</span>
-            <span class="more">View profile →</span>
+            <span class="more">{t(locale, 'karnataka.viewProfile')}</span>
           </span>
         </button>
       </li>
@@ -46,7 +57,7 @@ const initials = (n: string) => n.split(/\s+/).filter(Boolean).slice(0, 2).map((
 
   {list.map((p) => (
     <dialog class="profile" id={`p-${slug(p.name)}`} aria-labelledby={`h-${slug(p.name)}`}>
-      <form method="dialog"><button class="x" aria-label="Close profile">×</button></form>
+      <form method="dialog"><button class="x" aria-label={t(locale, 'karnataka.closeProfile')}>×</button></form>
       <div class="pbody">
         <div class="side">
           <div class="ph big">
@@ -60,21 +71,21 @@ const initials = (n: string) => n.split(/\s+/).filter(Boolean).slice(0, 2).map((
         </div>
         <div class="main">
           <p class="eyebrow">{p.league} · {p.club}</p>
-          <h2 id={`h-${slug(p.name)}`}>{p.name}</h2>
-          {p.position && <p class="muted pos">{p.position}</p>}
-          {p.bio ? <p class="bio">{p.bio}</p> : <p class="muted">Full profile coming soon.</p>}
+          <h2 id={`h-${slug(p.name)}`}>{personName(locale, p.name)}</h2>
+          {p.position && <p class="muted pos">{pick(p.position, p.positionKn)}</p>}
+          {p.bio ? <p class="bio">{n(pick(p.bio, p.bioKn))}</p> : <p class="muted">{t(locale, 'karnataka.profileSoon')}</p>}
           {p.career?.length ? (
-            <section><h3>Career</h3>
-              <ol class="career">{p.career.map((c) => <li><b>{c.club}</b><span>{c.years}</span>{c.note && <small>{c.note}</small>}</li>)}</ol>
+            <section><h3>{t(locale, 'karnataka.career')}</h3>
+              <ol class="career">{p.career.map((c) => <li><b>{c.club}</b><span>{locale === 'kn' ? n(c.yearsKn ?? c.years) : c.years}</span>{pick(c.note, c.noteKn) && <small>{n(pick(c.note, c.noteKn))}</small>}</li>)}</ol>
             </section>
           ) : null}
           {p.stats?.length ? (
-            <section><h3>Numbers</h3>
-              <div class="stats">{p.stats.map((s) => <div><b>{s.value}</b><span>{s.label}</span></div>)}</div>
+            <section><h3>{t(locale, 'karnataka.numbers')}</h3>
+              <div class="stats">{p.stats.map((s) => <div><b>{n(s.value)}</b><span>{n(pick(s.label, s.labelKn))}</span></div>)}</div>
             </section>
           ) : null}
-          {p.honours?.length ? <section><h3>Honours</h3><ul class="hon">{p.honours.map((h) => <li>{h}</li>)}</ul></section> : null}
-          {p.intl && <section><h3>National team</h3><p>{p.intl}</p></section>}
+          {p.honours?.length ? <section><h3>{t(locale, 'karnataka.honours')}</h3><ul class="hon">{pick(p.honours, p.honoursKn).map((h) => <li>{n(h)}</li>)}</ul></section> : null}
+          {p.intl && <section><h3>{t(locale, 'karnataka.nationalTeam')}</h3><p>{n(pick(p.intl, p.intlKn))}</p></section>}
         </div>
       </div>
     </dialog>

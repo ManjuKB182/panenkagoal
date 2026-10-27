@@ -1,0 +1,7 @@
+---
+import { getLocale } from '../../../i18n';
+import WriteArticleShell from '../../../views/WriteArticleShell.astro';
+
+const locale = getLocale(Astro.url);
+---
+<WriteArticleShell locale={locale} />

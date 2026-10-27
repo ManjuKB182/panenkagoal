@@ -13,41 +13,51 @@
       {
         "club": "Ryan FC / Dodsal FC / Mumbai FC",
         "years": "youth",
-        "note": "Youth career"
+        "note": "Youth career",
+        "yearsKn": "ಯುವ",
+        "noteKn": "ಯುವ ವೃತ್ತಿಜೀವನ"
       },
       {
         "club": "East Bengal",
         "years": "2016-2018",
-        "note": "14 league apps"
+        "note": "14 league apps",
+        "noteKn": "14 ಲೀಗ್ ಪಂದ್ಯಗಳು"
       },
       {
         "club": "FC Pune City",
         "years": "2018-2019",
-        "note": "9 apps, 1 goal"
+        "note": "9 apps, 1 goal",
+        "noteKn": "9 ಪಂದ್ಯ, 1 ಗೋಲು"
       },
       {
         "club": "Hyderabad FC",
         "years": "2019-2024",
-        "note": "79 apps, 1 goal"
+        "note": "79 apps, 1 goal",
+        "noteKn": "79 ಪಂದ್ಯ, 1 ಗೋಲು"
       },
       {
         "club": "Bengaluru FC",
         "years": "2024-present",
-        "note": "27 apps, 0 goals"
+        "note": "27 apps, 0 goals",
+        "yearsKn": "2024–ಈಗಿನವರೆಗೆ",
+        "noteKn": "27 ಪಂದ್ಯ, 0 ಗೋಲು"
       }
     ],
     "stats": [
       {
         "label": "India caps",
-        "value": "33"
+        "value": "33",
+        "labelKn": "ಭಾರತ ಕ್ಯಾಪ್‌ಗಳು"
       },
       {
         "label": "Hyderabad FC league apps",
-        "value": "79"
+        "value": "79",
+        "labelKn": "Hyderabad FC ಲೀಗ್ ಪಂದ್ಯಗಳು"
       },
       {
         "label": "BFC league apps (to early 2026)",
-        "value": "27"
+        "value": "27",
+        "labelKn": "BFC ಲೀಗ್ ಪಂದ್ಯಗಳು (2026ರ ಆರಂಭದವರೆಗೆ)"
       }
     ],
     "honours": [
@@ -62,7 +72,16 @@
       "https://deccanherald.com/sports/football/bengaluru-fc-rope-in-nikhil-poojary-football-2873378",
       "https://www.theweek.in/news/sports/2024/01/31/football-news-isl-transfers-bengaluru-fc-sign-wing-back-nikhil-poojary.amp.html"
     ],
-    "photo": "/players/nikhil-poojary.jpeg"
+    "photo": "/players/nikhil-poojary.jpeg",
+    "positionKn": "ರೈಟ್-ಬ್ಯಾಕ್ / ವಿಂಗರ್",
+    "bioKn": "ಮಂಗಳೂರಿನಲ್ಲಿ ಜನಿಸಿದ ಫುಲ್-ಬ್ಯಾಕ್. ಮುಂಬೈ ಯುವ ತಂಡಗಳಲ್ಲಿ ಬೆಳೆದು, ನಂತರ East Bengal, Pune City ಮತ್ತು Hyderabad FC ಪರ ಹಿರಿಯ ವೃತ್ತಿಜೀವನ ನಡೆಸಿದರು. 2021-22ರ ISL ಪ್ರಶಸ್ತಿಯನ್ನು Hyderabad ಜೊತೆ ಗೆದ್ದರು ಮತ್ತು ಜನವರಿ 2024ರಲ್ಲಿ ನಾಲ್ಕು ವರ್ಷದ ಒಪ್ಪಂದದ ಮೇಲೆ Bengaluru FC ಸೇರಿದರು. ಅವರು ಭಾರತ ಹಿರಿಯ ತಂಡದ ಪರ ಆಡಿದ್ದಾರೆ.",
+    "honoursKn": [
+      "ಇಂಡಿಯನ್ ಸೂಪರ್ ಲೀಗ್ 2021-22 (Hyderabad FC)",
+      "SAFF ಚಾಂಪಿಯನ್‌ಷಿಪ್ 2023 (ಭಾರತ)",
+      "ತ್ರಿ-ರಾಷ್ಟ್ರ ಸರಣಿ 2017 (ಭಾರತ)",
+      "ಇಂಟರ್‌ಕಾಂಟಿನೆಂಟಲ್ ಕಪ್ 2023 (ಭಾರತ)"
+    ],
+    "intlKn": "ಭಾರತ ಹಿರಿಯ ತಂಡ: 33 ಕ್ಯಾಪ್, 1 ಗೋಲು (2017ರಿಂದ ಈಚೆಗೆ); ಭಾರತ U23: 5 ಪಂದ್ಯ"
   },
   {
     "name": "Vinith Venkatesh",
@@ -78,27 +97,33 @@
       {
         "club": "Bengaluru FC youth",
         "years": "2013-2023",
-        "note": "Academy"
+        "note": "Academy",
+        "noteKn": "ಅಕಾಡೆಮಿ"
       },
       {
         "club": "Bengaluru FC B",
         "years": "2023-2024",
-        "note": "Reserve side"
+        "note": "Reserve side",
+        "noteKn": "ಮೀಸಲು ತಂಡ"
       },
       {
         "club": "Bengaluru FC",
         "years": "2024-present",
-        "note": "First team; ISL debut 14 Sep 2024"
+        "note": "First team; ISL debut 14 Sep 2024",
+        "yearsKn": "2024–ಈಗಿನವರೆಗೆ",
+        "noteKn": "ಮೊದಲ ತಂಡ; ISL ಚೊಚ್ಚಲ ಪಂದ್ಯ 14 ಸೆಪ್ಟೆಂಬರ್ 2024"
       }
     ],
     "stats": [
       {
         "label": "ISL 2024-25 apps",
-        "value": "19"
+        "value": "19",
+        "labelKn": "ISL 2024-25 ಪಂದ್ಯಗಳು"
       },
       {
         "label": "ISL 2024-25 goals",
-        "value": "1"
+        "value": "1",
+        "labelKn": "ISL 2024-25 ಗೋಲುಗಳು"
       }
     ],
     "intl": "India U23: 2 apps, 0 goals (as of Aug 2025)",
@@ -107,7 +132,10 @@
       "https://africa.espn.com/football/player/stats/_/id/391474/vinith-venkatesh",
       "https://www.fotmob.com/tr/players/1667335/vinith-venkatesh"
     ],
-    "photo": "/players/vinith-venkatesh.jpeg"
+    "photo": "/players/vinith-venkatesh.jpeg",
+    "positionKn": "ಮಿಡ್‌ಫೀಲ್ಡರ್",
+    "bioKn": "ಬೆಂಗಳೂರಿನಲ್ಲಿ ಜನಿಸಿದ ಮಿಡ್‌ಫೀಲ್ಡರ್. ಒಂದು ದಶಕ ಕಾಲ Bengaluru FC ಯುವ ವ್ಯವಸ್ಥೆಯಲ್ಲಿದ್ದು, 2024ರಲ್ಲಿ ಮೊದಲ ತಂಡದಲ್ಲಿ ಸ್ಥಾನ ಪಡೆದರು. Durand Cup ಸೆಮಿಫೈನಲ್‌ನಲ್ಲಿ Mohun Bagan ವಿರುದ್ಧ ಗೋಲು ಗಳಿಸಿದರು ಮತ್ತು ಸೆಪ್ಟೆಂಬರ್ 2024ರಲ್ಲಿ East Bengal ವಿರುದ್ಧದ ISL ಚೊಚ್ಚಲ ಪಂದ್ಯದಲ್ಲಿ ವಿಜಯ ಗೋಲು ಹೊಡೆದರು. ಅವರು ಭಾರತ U23 ತಂಡದ ಪರ ಆಡಿದ್ದಾರೆ.",
+    "intlKn": "ಭಾರತ U23: 2 ಪಂದ್ಯ, 0 ಗೋಲು (ಆಗಸ್ಟ್ 2025ರ ವೇಳೆಗೆ)"
   },
   {
     "name": "Vignesh Dakshinamurthy",
@@ -122,36 +150,43 @@
       {
         "club": "Ozone FC",
         "years": "2017-2018",
-        "note": "18 apps, I-League 2nd Division"
+        "note": "18 apps, I-League 2nd Division",
+        "noteKn": "18 ಪಂದ್ಯ, I-League ದ್ವಿತೀಯ ವಿಭಾಗ"
       },
       {
         "club": "Mumbai City",
         "years": "2018-2023",
-        "note": "53 league apps, 2 goals"
+        "note": "53 league apps, 2 goals",
+        "noteKn": "53 ಲೀಗ್ ಪಂದ್ಯಗಳು, 2 ಗೋಲು"
       },
       {
         "club": "Hyderabad FC",
         "years": "2023-2024",
-        "note": "6 apps; swap deal"
+        "note": "6 apps; swap deal",
+        "noteKn": "6 ಪಂದ್ಯ; ವಿನಿಮಯ ಒಪ್ಪಂದ"
       },
       {
         "club": "Odisha FC",
         "years": "2024",
-        "note": "Loan; 11 league apps"
+        "note": "Loan; 11 league apps",
+        "noteKn": "ಸಾಲ; 11 ಲೀಗ್ ಪಂದ್ಯಗಳು"
       },
       {
         "club": "Chennaiyin FC",
-        "years": "2024-present"
+        "years": "2024-present",
+        "yearsKn": "2024–ಈಗಿನವರೆಗೆ"
       }
     ],
     "stats": [
       {
         "label": "India caps",
-        "value": "2"
+        "value": "2",
+        "labelKn": "ಭಾರತ ಕ್ಯಾಪ್‌ಗಳು"
       },
       {
         "label": "Mumbai City league apps",
-        "value": "53"
+        "value": "53",
+        "labelKn": "Mumbai City ಲೀಗ್ ಪಂದ್ಯಗಳು"
       }
     ],
     "honours": [
@@ -164,7 +199,15 @@
       "https://en.wikipedia.org/wiki/Vignesh_Dakshinamurthy",
       "https://africa.espn.com/football/player/stats/_/id/280529/vignesh-dakshinamurthy"
     ],
-    "photo": "/players/vignesh-dakshinamurthy.jpeg"
+    "photo": "/players/vignesh-dakshinamurthy.jpeg",
+    "positionKn": "ಲೆಫ್ಟ್-ಬ್ಯಾಕ್",
+    "bioKn": "ಕರ್ನಾಟಕದ Srirampura ದವರಾದ ಲೆಫ್ಟ್-ಬ್ಯಾಕ್. Ozone ಅಕಾಡೆಮಿಯಲ್ಲಿ ಆರಂಭಿಸಿ, ಐದು ವರ್ಷ Mumbai City ಪರ ಆಡಿ 2020-21ರ ISL ಡಬಲ್ ಗೆದ್ದರು. ನಂತರ Hyderabad FC ಪರ ಆಡಿದರು, 2024ರಲ್ಲಿ Odisha FC ಗೆ ಸಾಲದ ಮೇಲೆ ಹೋದರು ಮತ್ತು ನಂತರ Chennaiyin FC ಸೇರಿದರು. ಅವರು 2018ರಲ್ಲಿ ಎರಡು ಹಿರಿಯ ಭಾರತ ಕ್ಯಾಪ್ ಗಳಿಸಿದ್ದಾರೆ, ಮತ್ತು ಮಾಜಿ ಭಾರತ ಅಂತರರಾಷ್ಟ್ರೀಯ Shanmugam Venkatesh ಅವರ ಸೋದರಳಿಯ.",
+    "honoursKn": [
+      "ISL ಪ್ರೀಮಿಯರ್ಸ್ (ಲೀಗ್ ವಿನ್ನರ್ಸ್ ಶೀಲ್ಡ್) 2020-21 (Mumbai City)",
+      "ISL ಚಾಂಪಿಯನ್ಸ್ 2020-21 (Mumbai City)",
+      "SAFF ಚಾಂಪಿಯನ್‌ಷಿಪ್ ರನ್ನರ್‌ಅಪ್ 2018 (ಭಾರತ)"
+    ],
+    "intlKn": "ಭಾರತ ಹಿರಿಯ ತಂಡ: 2 ಕ್ಯಾಪ್ (ಚೊಚ್ಚಲ ಪಂದ್ಯ 9 ಸೆಪ್ಟೆಂಬರ್ 2018, Maldives ವಿರುದ್ಧ, SAFF ಚಾಂಪಿಯನ್‌ಷಿಪ್); ಭಾರತ U17 ಮತ್ತು U20 ತಂಡಗಳ ಪರವೂ ಆಡಿದ್ದಾರೆ"
   },
   {
     "name": "Macarton Louis Nickson",
@@ -179,41 +222,50 @@
       {
         "club": "Root FC (Bengaluru)",
         "years": "2012",
-        "note": "Youth"
+        "note": "Youth",
+        "noteKn": "ಯುವ"
       },
       {
         "club": "Bengaluru FC academy",
         "years": "2013-2021",
-        "note": "Youth"
+        "note": "Youth",
+        "noteKn": "ಯುವ"
       },
       {
         "club": "Indian Arrows",
         "years": "2021-22",
-        "note": "3 apps"
+        "note": "3 apps",
+        "noteKn": "3 ಪಂದ್ಯ"
       },
       {
         "club": "Bengaluru United",
         "years": "2022-23",
-        "note": "9 apps"
+        "note": "9 apps",
+        "noteKn": "9 ಪಂದ್ಯ"
       },
       {
         "club": "NorthEast United",
         "years": "2023-present",
-        "note": "2023-24: 14 league apps; 2024-25: 21 league apps, 2 goals"
+        "note": "2023-24: 14 league apps; 2024-25: 21 league apps, 2 goals",
+        "yearsKn": "2023–ಈಗಿನವರೆಗೆ",
+        "noteKn": "2023-24: 14 ಲೀಗ್ ಪಂದ್ಯ; 2024-25: 21 ಲೀಗ್ ಪಂದ್ಯ, 2 ಗೋಲು"
       }
     ],
     "stats": [
       {
         "label": "NEUFC league 2024-25 apps",
-        "value": "21"
+        "value": "21",
+        "labelKn": "NEUFC ಲೀಗ್ 2024-25 ಪಂದ್ಯಗಳು"
       },
       {
         "label": "NEUFC league 2024-25 goals",
-        "value": "2"
+        "value": "2",
+        "labelKn": "NEUFC ಲೀಗ್ 2024-25 ಗೋಲುಗಳು"
       },
       {
         "label": "India caps",
-        "value": "6"
+        "value": "6",
+        "labelKn": "ಭಾರತ ಕ್ಯಾಪ್‌ಗಳು"
       }
     ],
     "honours": [
@@ -226,7 +278,14 @@
       "https://www.indiansuperleague.com/interviews/macarton-nickson-interview-team-unity-is-northeast-united-fcs-biggest-strength",
       "https://africa.espn.com/football/player/bio/_/id/336711/macarton-nickson"
     ],
-    "photo": "/players/macarton-louis-nickson.jpeg"
+    "photo": "/players/macarton-louis-nickson.jpeg",
+    "positionKn": "ಡಿಫೆನ್ಸಿವ್ ಮಿಡ್‌ಫೀಲ್ಡರ್",
+    "bioKn": "ಬೆಂಗಳೂರಿನಲ್ಲಿ ಬೆಳೆದ ಡಿಫೆನ್ಸಿವ್ ಮಿಡ್‌ಫೀಲ್ಡರ್; ಎಂಟು ವರ್ಷ Bengaluru FC ಅಕಾಡೆಮಿಯಲ್ಲಿದ್ದರು. ಮಾಜಿ ಭಾರತ ಅಂತರರಾಷ್ಟ್ರೀಯ Louis Nickson ಅವರ ಮಗ. 2023-24ರಲ್ಲಿ NorthEast United ಮೂಲಕ ISLಗೆ ಕಾಲಿಟ್ಟರು, ಮತ್ತು 2024 ಹಾಗೂ 2025ರಲ್ಲಿ ಕ್ಲಬ್ ಜೊತೆ Durand Cup ಗೆದ್ದರು. ಮಾರ್ಚ್ 2025ರಲ್ಲಿ ಮೊದಲ ಬಾರಿಗೆ ಹಿರಿಯ ಭಾರತ ತಂಡಕ್ಕೆ ಕರೆ ಪಡೆದರು.",
+    "honoursKn": [
+      "Durand Cup 2024 ವಿಜೇತರು (NorthEast United)",
+      "Durand Cup 2025 ವಿಜೇತರು (NorthEast United)"
+    ],
+    "intlKn": "ಭಾರತ ಹಿರಿಯ ತಂಡ: 6 ಪಂದ್ಯ, 0 ಗೋಲು (2025ರಲ್ಲಿ 2, 2026ರಲ್ಲಿ 4); ಭಾರತ U23: 5 ಪಂದ್ಯ"
   },
   {
     "name": "Hridaya Jain",
@@ -241,37 +300,45 @@
       {
         "club": "Techtro Swades United FC",
         "years": "2023-2024",
-        "note": "5 apps"
+        "note": "5 apps",
+        "noteKn": "5 ಪಂದ್ಯ"
       },
       {
         "club": "FC Bengaluru United",
         "years": "2024",
-        "note": "Loan; 2 apps"
+        "note": "Loan; 2 apps",
+        "noteKn": "ಸಾಲ; 2 ಪಂದ್ಯ"
       },
       {
         "club": "Delhi FC",
         "years": "2024-2025",
-        "note": "I-League: 21 apps, 4 goals"
+        "note": "I-League: 21 apps, 4 goals",
+        "noteKn": "I-League: 21 ಪಂದ್ಯ, 4 ಗೋಲು"
       },
       {
         "club": "NK Brinje Grosuplje (Slovenia)",
         "years": "2025-2026",
-        "note": "1 app"
+        "note": "1 app",
+        "noteKn": "1 ಪಂದ್ಯ"
       },
       {
         "club": "Mumbai City",
         "years": "2026-present",
-        "note": "Joined for 2026-27"
+        "note": "Joined for 2026-27",
+        "yearsKn": "2026–ಈಗಿನವರೆಗೆ",
+        "noteKn": "2026-27ಕ್ಕಾಗಿ ಸೇರ್ಪಡೆ"
       }
     ],
     "stats": [
       {
         "label": "I-League 2024-25 apps",
-        "value": "21"
+        "value": "21",
+        "labelKn": "I-League 2024-25 ಪಂದ್ಯಗಳು"
       },
       {
         "label": "I-League 2024-25 goals",
-        "value": "4"
+        "value": "4",
+        "labelKn": "I-League 2024-25 ಗೋಲುಗಳು"
       }
     ],
     "honours": [
@@ -282,7 +349,12 @@
       "https://www.indiansuperleague.com/players/forward-233516-hridaya-jain-profile",
       "https://www.indiansuperleague.com/clubs/506-mumbai-city-fc-profile/squad"
     ],
-    "photo": "/players/hridaya-jain.jpeg"
+    "photo": "/players/hridaya-jain.jpeg",
+    "positionKn": "ಫಾರ್ವರ್ಡ್ / ಅಟ್ಯಾಕಿಂಗ್ ಮಿಡ್‌ಫೀಲ್ಡರ್",
+    "bioKn": "ಕರ್ನಾಟಕದಲ್ಲಿ ಜನಿಸಿದ ಆಟಗಾರ; Techtro Swades United ನಲ್ಲಿ ಆರಂಭಿಸಿ, FC Bengaluru United ಗೆ ಸಾಲದ ಮೇಲೆ ಹೋದರು. 2024-25ರಲ್ಲಿ Delhi FC ಪರ 21 I-League ಪಂದ್ಯಗಳಲ್ಲಿ ನಾಲ್ಕು ಗೋಲು ಗಳಿಸಿ I-League ಎಮರ್ಜಿಂಗ್ ಪ್ಲೇಯರ್ ಪ್ರಶಸ್ತಿ ಗೆದ್ದರು. ನಂತರ ಸ್ಲೊವೇನಿಯಾದಲ್ಲಿ NK Brinje Grosuplje ಜೊತೆ ಒಂದು ವರ್ಷ ಕಳೆದು, ನಂತರ Mumbai City ಸೇರಿದರು.",
+    "honoursKn": [
+      "I-League ಎಮರ್ಜಿಂಗ್ ಪ್ಲೇಯರ್ ಪ್ರಶಸ್ತಿ 2024-25"
+    ]
   },
   {
     "name": "Dhruv Alva",
@@ -300,7 +372,9 @@
       "https://www.fotmob.com/players/1837694/dhruv-alva",
       "https://x.com/MumbaiCityFC/status/1976143533074776363"
     ],
-    "photo": "/players/dhruv-alva.jpeg"
+    "photo": "/players/dhruv-alva.jpeg",
+    "positionKn": "ಡಿಫೆಂಡರ್",
+    "bioKn": "Mumbai City FC ತಂಡದ ಡಿಫೆಂಡರ್. ಅವರ ಪೂರ್ಣ ಪ್ರೊಫೈಲ್‌ಗೆ ಪರಿಶೀಲಿತ ವಿವರಗಳನ್ನು ಇನ್ನೂ ಸಂಗ್ರಹಿಸುತ್ತಿದ್ದೇವೆ."
   },
   {
     "name": "Franklin Robin Nazareth",
@@ -315,12 +389,15 @@
       {
         "club": "Reliance Foundation Young Champs",
         "years": "2019-2023",
-        "note": "Academy"
+        "note": "Academy",
+        "noteKn": "ಅಕಾಡೆಮಿ"
       },
       {
         "club": "Mumbai City FC",
         "years": "2023-present",
-        "note": "Contract to May 2027"
+        "note": "Contract to May 2027",
+        "yearsKn": "2023–ಈಗಿನವರೆಗೆ",
+        "noteKn": "ಒಪ್ಪಂದ ಮೇ 2027ರವರೆಗೆ"
       }
     ],
     "sources": [
@@ -330,7 +407,9 @@
       "https://africa.espn.com/football/player/bio/_/id/369866/franklin-nazareth",
       "https://www.fotmob.com/players/1538077/franklin-nazareth"
     ],
-    "photo": "/players/franklin-robin-nazareth.jpeg"
+    "photo": "/players/franklin-robin-nazareth.jpeg",
+    "positionKn": "ಮಿಡ್‌ಫೀಲ್ಡರ್",
+    "bioKn": "Reliance Foundation Young Champs ಅಕಾಡೆಮಿಯಲ್ಲಿ ಬೆಳೆದ ಮಿಡ್‌ಫೀಲ್ಡರ್; ಜುಲೈ 2023ರಲ್ಲಿ Mumbai City FC ಸೇರಿದರು, ಒಪ್ಪಂದ ಮೇ 2027ರವರೆಗೆ. ಅವರ ಪೂರ್ಣ ಪ್ರೊಫೈಲ್‌ಗೆ ಪರಿಶೀಲಿತ ವಿವರಗಳನ್ನು ಇನ್ನೂ ಸಂಗ್ರಹಿಸುತ್ತಿದ್ದೇವೆ."
   },
   {
     "name": "Rudra Ved Moola",
@@ -346,47 +425,57 @@
       {
         "club": "JSW Bengaluru FC youth academy",
         "years": "",
-        "note": "Joined at 13"
+        "note": "Joined at 13",
+        "noteKn": "13ನೇ ವಯಸ್ಸಿನಲ್ಲಿ ಸೇರ್ಪಡೆ"
       },
       {
         "club": "Atletico Saguntino U19 (Spain)",
         "years": "",
-        "note": "Debut vs La Creu CF"
+        "note": "Debut vs La Creu CF",
+        "noteKn": "ಚೊಚ್ಚಲ ಪಂದ್ಯ La Creu CF ವಿರುದ್ಧ"
       },
       {
         "club": "Mare Nostrum CF (Spain)",
         "years": "",
-        "note": "Valencian regional senior leagues"
+        "note": "Valencian regional senior leagues",
+        "noteKn": "ವೇಲೆನ್ಸಿಯನ್ ಪ್ರಾದೇಶಿಕ ಹಿರಿಯ ಲೀಗ್‌ಗಳು"
       },
       {
         "club": "CD Acero (Spain)",
         "years": "",
-        "note": "Tercera RFEF, joined at 22"
+        "note": "Tercera RFEF, joined at 22",
+        "noteKn": "Tercera RFEF, 22ನೇ ವಯಸ್ಸಿನಲ್ಲಿ ಸೇರ್ಪಡೆ"
       },
       {
         "club": "South United FC",
         "years": "2025",
-        "note": "16 matches, 1 goal, 1 assist (1,300 min)"
+        "note": "16 matches, 1 goal, 1 assist (1,300 min)",
+        "noteKn": "16 ಪಂದ್ಯ, 1 ಗೋಲು, 1 ಅಸಿಸ್ಟ್ (1,300 ನಿಮಿಷ)"
       },
       {
         "club": "Shillong Lajong",
         "years": "2025-2026",
-        "note": "I-League; 13 clean sheets, ~1,900 min (Khel Now); Soccerway: 14 apps 1 goal"
+        "note": "I-League; 13 clean sheets, ~1,900 min (Khel Now); Soccerway: 14 apps 1 goal",
+        "noteKn": "I-League; 13 ಕ್ಲೀನ್ ಶೀಟ್, ಸುಮಾರು 1,900 ನಿಮಿಷ (Khel Now); Soccerway: 14 ಪಂದ್ಯ, 1 ಗೋಲು"
       },
       {
         "club": "FC Goa",
         "years": "2026-present",
-        "note": "Signed June/Aug 2026"
+        "note": "Signed June/Aug 2026",
+        "yearsKn": "2026–ಈಗಿನವರೆಗೆ",
+        "noteKn": "ಜೂನ್/ಆಗಸ್ಟ್ 2026ರಲ್ಲಿ ಸಹಿ"
       }
     ],
     "stats": [
       {
         "label": "I-League 2025-26 apps",
-        "value": "14"
+        "value": "14",
+        "labelKn": "I-League 2025-26 ಪಂದ್ಯಗಳು"
       },
       {
         "label": "I-League 2025-26 goals",
-        "value": "1"
+        "value": "1",
+        "labelKn": "I-League 2025-26 ಗೋಲುಗಳು"
       }
     ],
     "sources": [
@@ -394,7 +483,9 @@
       "https://africa.espn.com/football/player/bio/_/id/419540/rudra-ved",
       "https://us.soccerway.com/player/ved-rudra/Uu4bmjwe/"
     ],
-    "photo": "/players/rudra-ved-moola.jpeg"
+    "photo": "/players/rudra-ved-moola.jpeg",
+    "positionKn": "ಸೆಂಟರ್-ಬ್ಯಾಕ್",
+    "bioKn": "ಸೆಂಟರ್-ಬ್ಯಾಕ್. 13ನೇ ವಯಸ್ಸಿನಲ್ಲಿ JSW Bengaluru FC ಯುವ ಅಕಾಡೆಮಿ ಸೇರಿ, 18ನೇ ವಯಸ್ಸಿನಲ್ಲಿ ಸ್ಪೇನ್‌ಗೆ ತೆರಳಿದರು. ಅಲ್ಲಿ ಸುಮಾರು ಎಂಟು ವರ್ಷ Atletico Saguntino, Mare Nostrum ಮತ್ತು CD Acero ಪರ ಆಡಿದರು. ನಂತರ South United ಮತ್ತು Shillong Lajong ಮೂಲಕ ಭಾರತಕ್ಕೆ ಮರಳಿದರು, ಮತ್ತು 2026-27ಕ್ಕೂ ಮುನ್ನ FC Goa ಅವರನ್ನು ಸೇರಿಸಿಕೊಂಡಿತು. ವೈಮಾನಿಕ ಚೆಂಡಿನ ಮೇಲಿನ ಬಲ ಮತ್ತು ದೈಹಿಕ ಉಪಸ್ಥಿತಿಗೆ ಅವರು ಹೆಸರಾಗಿದ್ದಾರೆ."
   },
   {
     "name": "Priyansh Dubey",
@@ -408,11 +499,13 @@
       {
         "club": "Reliance Foundation Young Champs",
         "years": "",
-        "note": "Academy"
+        "note": "Academy",
+        "noteKn": "ಅಕಾಡೆಮಿ"
       },
       {
         "club": "Mohun Bagan Super Giant",
-        "years": "2023-present"
+        "years": "2023-present",
+        "yearsKn": "2023–ಈಗಿನವರೆಗೆ"
       }
     ],
     "intl": "India U20 (SAFF U-20 Championship 2024, AFC U20 Asian Cup qualifiers); caps count not found",
@@ -422,7 +515,10 @@
       "https://africa.espn.com/football/player/bio/_/id/410769/priyansh-dubey",
       "https://www.worldfootball.net/person/pe1823234/priyansh-dubey/"
     ],
-    "photo": "/players/priyansh-dubey.jpeg"
+    "photo": "/players/priyansh-dubey.jpeg",
+    "positionKn": "ಗೋಲ್‌ಕೀಪರ್",
+    "bioKn": "Reliance Foundation Young Champs ಅಕಾಡೆಮಿಯ ಗೋಲ್‌ಕೀಪರ್. 2023-24ರ ಆರಂಭದಲ್ಲಿ Mohun Bagan Super Giant ಸೇರಿದರು. 2024ರ SAFF U-20 ಚಾಂಪಿಯನ್‌ಷಿಪ್‌ನಲ್ಲಿ ಭಾರತದ ಪರ ಗೋಲ್‌ನಲ್ಲಿ ಆರಂಭಿಕ ಆಟಗಾರರಾಗಿದ್ದರು. ಅವರ ಪೂರ್ಣ ಪ್ರೊಫೈಲ್‌ಗೆ ಪರಿಶೀಲಿತ ವಿವರಗಳನ್ನು ಇನ್ನೂ ಸಂಗ್ರಹಿಸುತ್ತಿದ್ದೇವೆ.",
+    "intlKn": "ಭಾರತ U20 (SAFF U-20 ಚಾಂಪಿಯನ್‌ಷಿಪ್ 2024, AFC U20 ಏಷ್ಯನ್ ಕಪ್ ಅರ್ಹತೆ); ಹಿರಿಯ ಕ್ಯಾಪ್ ಸಂಖ್ಯೆ ಸಿಕ್ಕಿಲ್ಲ"
   },
   {
     "name": "Yohan Victor Britto",
@@ -438,7 +534,9 @@
       "https://africa.espn.com/football/player/bio/_/id/418944/yohann-britto",
       "https://us.soccerway.com/player/victor-britto-yohann/Ei4TJQL8/transfers"
     ],
-    "photo": "/players/yohan-victor-britto.jpeg"
+    "photo": "/players/yohan-victor-britto.jpeg",
+    "positionKn": "ಫಾರ್ವರ್ಡ್",
+    "bioKn": "Sporting Club Delhi ತಂಡದ ಫಾರ್ವರ್ಡ್. ಅವರ ಪೂರ್ಣ ಪ್ರೊಫೈಲ್‌ಗೆ ಪರಿಶೀಲಿತ ವಿವರಗಳನ್ನು ಇನ್ನೂ ಸಂಗ್ರಹಿಸುತ್ತಿದ್ದೇವೆ."
   },
   {
     "name": "Som Kumar",
@@ -452,22 +550,29 @@
       {
         "club": "NK Bravo / NK Krka / Olimpija Ljubljana",
         "years": "youth",
-        "note": "Youth career in Slovenia"
+        "note": "Youth career in Slovenia",
+        "yearsKn": "ಯುವ",
+        "noteKn": "ಸ್ಲೊವೇನಿಯಾದಲ್ಲಿ ಯುವ ವೃತ್ತಿಜೀವನ"
       },
       {
         "club": "Kerala Blasters",
         "years": "2024-2025",
-        "note": "4 ISL apps"
+        "note": "4 ISL apps",
+        "noteKn": "4 ISL ಪಂದ್ಯ"
       },
       {
         "club": "NK Radomlje",
         "years": "2025-2026",
-        "note": "Free agent signing, later loan to Slovan"
+        "note": "Free agent signing, later loan to Slovan",
+        "yearsKn": "2025–2026",
+        "noteKn": "ಉಚಿತ ಏಜೆಂಟ್ ಆಗಿ ಸಹಿ, ನಂತರ Slovan ಗೆ ಸಾಲ"
       },
       {
         "club": "ND Slovan",
         "years": "2025-present",
-        "note": "Loan, then permanent from Feb 2026"
+        "note": "Loan, then permanent from Feb 2026",
+        "yearsKn": "2025–ಈಗಿನವರೆಗೆ",
+        "noteKn": "ಸಾಲ, ನಂತರ ಫೆಬ್ರವರಿ 2026ರಿಂದ ಖಾಯಂ"
       }
     ],
     "intl": "India U17 and U20 international",
@@ -478,7 +583,10 @@
       "https://us.soccerway.com/player/kumar-som/CQ6VfsLO/",
       "https://onmanorama.com/sports/football/2024/06/12/kerala-blasters-sign-goalkeeper-som-kumar.html"
     ],
-    "photo": "/players/som-kumar.jpeg"
+    "photo": "/players/som-kumar.jpeg",
+    "positionKn": "ಗೋಲ್‌ಕೀಪರ್",
+    "bioKn": "ಬೆಂಗಳೂರಿನಲ್ಲಿ ಜನಿಸಿದ ಗೋಲ್‌ಕೀಪರ್. ಹದಿಹರೆಯದಲ್ಲೇ ಭಾರತ ಬಿಟ್ಟು ಸ್ಲೊವೇನಿಯಾದ NK Bravo ಅಕಾಡೆಮಿ ಸೇರಿದರು, ಮತ್ತು NK Krka ಹಾಗೂ Olimpija Ljubljana ಯುವ ವ್ಯವಸ್ಥೆಯಲ್ಲಿ ಬೆಳೆದರು. 2022ರ SAFF U-20 ಚಾಂಪಿಯನ್‌ಷಿಪ್‌ನಲ್ಲಿ ಭಾರತದ ಪರ ಅತ್ಯುತ್ತಮ ಗೋಲ್‌ಕೀಪರ್ ಎಂದು ಹೆಸರಿಸಲ್ಪಟ್ಟರು. ಜೂನ್ 2024ರಲ್ಲಿ Olimpija ಇಂದ Kerala Blasters ಸೇರಿದರು ಮತ್ತು 2024-25ರಲ್ಲಿ ನಾಲ್ಕು ISL ಪಂದ್ಯಗಳಲ್ಲಿ ಆಡಿದರು. ಅಂದಿನಿಂದ ಸ್ಲೊವೇನಿಯಾದ ಎರಡನೇ ಹಂತದ Radomlje ಮತ್ತು Slovan ಪರ ಆಡಿದ್ದಾರೆ.",
+    "intlKn": "ಭಾರತ U17 ಮತ್ತು U20 ಅಂತರರಾಷ್ಟ್ರೀಯ ಆಟಗಾರ"
   },
   {
     "name": "Rivka Ramji",
@@ -491,22 +599,28 @@
       {
         "club": "Misaka United FC",
         "years": "early career",
-        "note": "Karnataka club football"
+        "note": "Karnataka club football",
+        "yearsKn": "ಆರಂಭಿಕ ವೃತ್ತಿ",
+        "noteKn": "ಕರ್ನಾಟಕ ಕ್ಲಬ್ ಫುಟ್ಬಾಲ್"
       },
       {
         "club": "Kemp FC",
         "years": "early career",
-        "note": "Karnataka club football"
+        "note": "Karnataka club football",
+        "yearsKn": "ಆರಂಭಿಕ ವೃತ್ತಿ",
+        "noteKn": "ಕರ್ನಾಟಕ ಕ್ಲಬ್ ಫುಟ್ಬಾಲ್"
       },
       {
         "club": "Sethu FC",
         "years": "2023-2025, 2026-present",
-        "note": "Indian Women's League"
+        "note": "Indian Women's League",
+        "yearsKn": "2023–2025, 2026–ಈಗಿನವರೆಗೆ"
       },
       {
         "club": "Lion City Sailors",
         "years": "2025",
-        "note": "First Karnataka woman to join a foreign club"
+        "note": "First Karnataka woman to join a foreign club",
+        "noteKn": "ವಿದೇಶಿ ಕ್ಲಬ್ ಸೇರಿದ ಮೊದಲ ಕರ್ನಾಟಕ ಮಹಿಳೆ"
       }
     ],
     "intl": "India youth international; India U20 squad since 2024",
@@ -516,6 +630,118 @@
       "https://technosports.co.in/rivka-ramji-lion-city-sailors-fc-move-singapore/",
       "https://khelnow.com/football/indian-football-female-playing-overseas"
     ],
-    "photo": "/players/rivka-ramji.jpeg"
+    "photo": "/players/rivka-ramji.jpeg",
+    "positionKn": "ಮಿಡ್‌ಫೀಲ್ಡರ್",
+    "bioKn": "Sethu FC ಪರ Indian Women's League ಆಡುವ ಕರ್ನಾಟಕದ ಮಿಡ್‌ಫೀಲ್ಡರ್. Misaka United ಮತ್ತು Kemp FC ಯಲ್ಲಿ ಆರಂಭಿಸಿ, Sethu ಗೆ ಮರಳಿದರು, ಮತ್ತು ಎರಡು ಬಾರಿ ಕರ್ನಾಟಕ ರಾಜ್ಯ ಫುಟ್ಬಾಲ್ ಸಂಸ್ಥೆಯಿಂದ ಅತ್ಯುತ್ತಮ ಮಿಡ್‌ಫೀಲ್ಡರ್ ಎಂದು ಹೆಸರಿಸಲ್ಪಟ್ಟರು. ನವೆಂಬರ್ 2025ರಲ್ಲಿ ವಿದೇಶಿ ಕ್ಲಬ್ ಸೇರಿದ ಕರ್ನಾಟಕದ ಮೊದಲ ಮಹಿಳಾ ಫುಟ್ಬಾಲ್ ಆಟಗಾರ್ತಿ ಆದರು (ಸಿಂಗಾಪುರದ Lion City Sailors). ಭಾರತದ ಯುವ ಮಟ್ಟದಲ್ಲಿ ಪ್ರತಿನಿಧಿಸಿದ್ದಾರೆ. ಪಾದದ ಗಾಯ ಮತ್ತು ಫಿಬುಲಾ ಮುರಿತ ಸೇರಿದಂತೆ ಗಾಯಗಳು 2024-25ರ ಋತುವನ್ನು ಅಡ್ಡಿಪಡಿಸಿದವು.",
+    "intlKn": "ಭಾರತ ಯುವ ಅಂತರರಾಷ್ಟ್ರೀಯ ಆಟಗಾರ್ತಿ; 2024ರಿಂದ ಭಾರತ U20 ತಂಡದಲ್ಲಿ"
+  },
+  {
+    "name": "Ankith Padmanabhan",
+    "club": "NorthEast United FC",
+    "league": "ISL",
+    "position": "Forward",
+    "birthplace": "Bengaluru, Karnataka",
+    "bio": "A Bengaluru-born forward who started at Ozone FC at the age of nine. He joined Bengaluru FC in 2022 and won the 2023-24 Bengaluru Super Division with the club's reserve side. He was a key player in Karnataka's Santosh Trophy win in 2022-23, scoring in the semi-final and against Maharashtra. NorthEast United signed him in July 2024 on a one-year deal with an option to extend.",
+    "career": [
+      {
+        "club": "Ozone FC",
+        "years": "youth",
+        "note": "Youth career from age nine",
+        "yearsKn": "ಯುವ",
+        "noteKn": "ಒಂಬತ್ತನೇ ವಯಸ್ಸಿನಿಂದ ಯುವ ವೃತ್ತಿ"
+      },
+      {
+        "club": "Bengaluru FC",
+        "years": "2022-2024",
+        "note": "Won the 2023-24 Bengaluru Super Division with the reserves",
+        "yearsKn": "2022–2024",
+        "noteKn": "2023-24ರ Bengaluru Super Division ಅನ್ನು ಮೀಸಲು ತಂಡದೊಂದಿಗೆ ಗೆದ್ದರು"
+      },
+      {
+        "club": "NorthEast United FC",
+        "years": "2024-present",
+        "note": "ISL; signed July 2024",
+        "yearsKn": "2024–ಈಗಿನವರೆಗೆ",
+        "noteKn": "ISL; ಜುಲೈ 2024ರಲ್ಲಿ ಸಹಿ"
+      }
+    ],
+    "honours": [
+      "Santosh Trophy 2022-23 (Karnataka)",
+      "Bengaluru Super Division 2023-24 (Bengaluru FC reserves)"
+    ],
+    "sources": [
+      "https://theawayend.co/2024/07/24/isl-northeast-united-fc-sign-ankith-padmanabhan/",
+      "https://sportskeeda.com/indian-football/news-northeast-united-fc-sign-indian-forward-ankith-padmanabhan",
+      "https://www.fotmob.com/players/1553136/ankith-padmanabhan"
+    ],
+    "photo": "/players/ankith-padmanabhan.jpeg",
+    "positionKn": "ಫಾರ್ವರ್ಡ್",
+    "bioKn": "ಬೆಂಗಳೂರಿನಲ್ಲಿ ಜನಿಸಿದ ಫಾರ್ವರ್ಡ್. ಒಂಬತ್ತನೇ ವಯಸ್ಸಿನಲ್ಲಿ Ozone FC ಯಲ್ಲಿ ಆರಂಭಿಸಿದರು. 2022ರಲ್ಲಿ Bengaluru FC ಸೇರಿ, 2023-24ರಲ್ಲಿ ಕ್ಲಬ್‌ನ ಮೀಸಲು ತಂಡದೊಂದಿಗೆ Bengaluru Super Division ಗೆದ್ದರು. 2022-23ರ Santosh Trophy ಗೆಲುವಿನಲ್ಲಿ ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಆಟಗಾರರಾಗಿದ್ದರು; ಸೆಮಿಫೈನಲ್ ಮತ್ತು Maharashtra ವಿರುದ್ಧ ಗೋಲು ಗಳಿಸಿದರು. ಜುಲೈ 2024ರಲ್ಲಿ NorthEast United ಒಂದು ವರ್ಷದ ಒಪ್ಪಂದದ ಮೇಲೆ ಸಹಿ ಹಾಕಿತು, ವಿಸ್ತರಣೆಯ ಆಯ್ಕೆಯೊಂದಿಗೆ.",
+    "honoursKn": [
+      "Santosh Trophy 2022-23 (ಕರ್ನಾಟಕ)",
+      "Bengaluru Super Division 2023-24 (Bengaluru FC ಮೀಸಲು ತಂಡ)"
+    ]
+  },
+  {
+    "name": "Soham Varshneya",
+    "club": "Bengaluru FC",
+    "league": "ISL",
+    "position": "Midfielder",
+    "bio": "A Bengaluru FC midfielder who came up through the club's reserve side. He scored 14 goals and provided 12 assists in 24 appearances across competitions in 2024-25, earning the BFC 'B' Team Player of the Year award. He made his ISL debut against Mumbai City FC on the final league-stage matchday of the 2025 season, and his national-team debut at the AFC U-23 Asian Cup qualifiers in Qatar in September 2025. In August 2026 the club extended his contract to 2028-29.",
+    "career": [
+      {
+        "club": "Bengaluru FC B",
+        "years": "2024-2025",
+        "note": "Reserve side; BFC 'B' Team Player of the Year",
+        "yearsKn": "2024–2025",
+        "noteKn": "ಮೀಸಲು ತಂಡ; BFC 'B' ತಂಡದ ವರ್ಷದ ಆಟಗಾರ"
+      },
+      {
+        "club": "Bengaluru FC",
+        "years": "2025-present",
+        "note": "First team; ISL debut 2025; contract to 2028-29",
+        "yearsKn": "2025–ಈಗಿನವರೆಗೆ",
+        "noteKn": "ಮೊದಲ ತಂಡ; ISL ಚೊಚ್ಚಲ 2025; ಒಪ್ಪಂದ 2028-29ರವರೆಗೆ"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ISL 2025-26 apps",
+        "value": "8",
+        "labelKn": "ISL 2025-26 ಪಂದ್ಯಗಳು"
+      },
+      {
+        "label": "ISL 2025-26 assists",
+        "value": "1",
+        "labelKn": "ISL 2025-26 ಅಸಿಸ್ಟ್‌ಗಳು"
+      },
+      {
+        "label": "Reserve goals (2024-25)",
+        "value": "14",
+        "labelKn": "ಮೀಸಲು ತಂಡದ ಗೋಲುಗಳು (2024-25)"
+      },
+      {
+        "label": "Reserve assists (2024-25)",
+        "value": "12",
+        "labelKn": "ಮೀಸಲು ತಂಡದ ಅಸಿಸ್ಟ್‌ಗಳು (2024-25)"
+      }
+    ],
+    "honours": [
+      "BFC 'B' Team Player of the Year 2024-25"
+    ],
+    "intl": "National-team debut at the AFC U-23 Asian Cup qualifiers in Qatar (September 2025)",
+    "sources": [
+      "https://ianslive.in/ready-to-give-everything-for-bengaluru-fc-says-soham-varshneya-on-contract-extrension--20260824150517",
+      "https://www.newkerala.com/news/a/soham-varshneya-extends-contract-bengaluru-fc-until-end-202.htm",
+      "https://us.soccerway.com/player/varshneya-soham/MgkZKAse",
+      "https://www.fotmob.com/players/1727885/soham-varshneya"
+    ],
+    "photo": "/players/soham-varshneya.jpeg",
+    "positionKn": "ಮಿಡ್‌ಫೀಲ್ಡರ್",
+    "bioKn": "Bengaluru FC ಮಿಡ್‌ಫೀಲ್ಡರ್. ಕ್ಲಬ್‌ನ ಮೀಸಲು ತಂಡದಿಂದ ಮೇಲೇರಿ ಬಂದವರು. 2024-25ರಲ್ಲಿ ಎಲ್ಲಾ ಸ್ಪರ್ಧೆಗಳ 24 ಪಂದ್ಯಗಳಲ್ಲಿ 14 ಗೋಲು ಮತ್ತು 12 ಅಸಿಸ್ಟ್ ಮಾಡಿ BFC 'B' ತಂಡದ ವರ್ಷದ ಆಟಗಾರರಾಗಿ ಆಯ್ಕೆಯಾದರು. 2025ರ ISL ಲೀಗ್ ಹಂತದ ಕೊನೆಯ ಪಂದ್ಯದಲ್ಲಿ Mumbai City ವಿರುದ್ಧ ISL ಚೊಚ್ಚಲ ಪಂದ್ಯ ಆಡಿದರು. ಸೆಪ್ಟೆಂಬರ್ 2025ರಲ್ಲಿ ಕತಾರ್‌ನ AFC U-23 ಏಷ್ಯನ್ ಕಪ್ ಅರ್ಹತಾ ಪಂದ್ಯಗಳಲ್ಲಿ ರಾಷ್ಟ್ರೀಯ ತಂಡದ ಚೊಚ್ಚಲ ಪಂದ್ಯ ಆಡಿದರು. ಆಗಸ್ಟ್ 2026ರಲ್ಲಿ ಒಪ್ಪಂದವನ್ನು 2028-29ರವರೆಗೆ ವಿಸ್ತರಿಸಲಾಯಿತು.",
+    "honoursKn": [
+      "BFC 'B' ತಂಡದ ವರ್ಷದ ಆಟಗಾರ 2024-25"
+    ],
+    "intlKn": "ರಾಷ್ಟ್ರೀಯ ತಂಡದ ಚೊಚ್ಚಲ: AFC U-23 ಏಷ್ಯನ್ ಕಪ್ ಅರ್ಹತಾ ಪಂದ್ಯಗಳು, ಕತಾರ್ (ಸೆಪ್ಟೆಂಬರ್ 2025)"
   }
 ]

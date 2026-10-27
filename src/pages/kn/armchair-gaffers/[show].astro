@@ -1,0 +1,10 @@
+---
+import OutfieldShow from '../../../views/OutfieldShow.astro';
+import { outfieldShowPaths } from '../../../views/OutfieldPaths';
+
+export function getStaticPaths() {
+  return outfieldShowPaths();
+}
+const { show } = Astro.props;
+---
+<OutfieldShow show={show} />

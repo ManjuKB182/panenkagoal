@@ -1,4 +1,5 @@
 import { getSql, json, signInNeeded, writerIdentity, type Env } from '../../../../src/lib/write';
+import { apiMsg } from '../_locale';
 
 // GET /api/write/mine: the signed-in writer. Protect /api/write/mine* with the writers' Access app (docs/write-setup.md).
 //   ?me=1            -> { email, name }   (name is the one used on their latest piece; prefills the submit form)
@@ -7,7 +8,7 @@ export const onRequestGet = async ({ request, env }: { request: Request; env: En
   const who = await writerIdentity(request, env);
   if (!who) return signInNeeded();
   const sql = getSql(env);
-  if (!sql) return json({ error: 'Database is not configured.' }, 503);
+  if (!sql) return json({ error: apiMsg(request, 'write.api.dbNotConfigured') }, 503);
   const rows = await sql(
     `select id, slug, title, kind, author_name, cover_key, body, status, editor_note, created_at, published_at
        from posts where lower(author_email) = $1 order by created_at desc limit 200`, [who.email]);
