@@ -191,6 +191,7 @@ const LEAGUE_NAMES_KN: Record<string, string> = {
   'AIFF Junior League (U15)': 'AIFF ಜೂನಿಯರ್ ಲೀಗ್ (U15)',
   'AIFF Sub-Junior League (U13)': 'AIFF ಸಬ್-ಜೂನಿಯರ್ ಲೀಗ್ (U13)',
   'AIFF Elite Youth League (U18)': 'AIFF ಎಲೈಟ್ ಯೂತ್ ಲೀಗ್ (U18)',
+  'Reliance Foundation Development League (U21)': 'ರಿಲಯನ್ಸ್ ಫೌಂಡೇಶನ್ ಡೆವಲಪ್‌ಮೆಂಟ್ ಲೀಗ್ (U21)',
   "Indian Women's League 2": 'ಭಾರತೀಯ ಮಹಿಳಾ ಲೀಗ್ 2',
   "Indian Women's League": 'ಭಾರತೀಯ ಮಹಿಳಾ ಲೀಗ್',
 };
