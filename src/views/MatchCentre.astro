@@ -120,6 +120,32 @@ const href = (p: string) => localePath(locale, p);
     if (p.off) marks.append(span('mc-off', `↓${digits(locale, p.off)}`));
     return h('div', 'mc-pl', badge, h('span', 'mc-nm', personName(locale, p.name)), marks);
   }
+  // Goalkeeper chip sits in front of a small goal frame, like the goal behind the keeper on a real pitch.
+  function gkChip(p: Player) {
+    const c = chip(p);
+    c.classList.add('mc-pl-gk');
+    c.prepend(h('span', 'mc-goal', svgGoal()));
+    return c;
+  }
+  function svgGoal() {
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 48 30');
+    svg.setAttribute('aria-hidden', 'true');
+    const frame = document.createElementNS(ns, 'path');
+    frame.setAttribute('d', 'M3 28 V3 H45 V28');
+    frame.setAttribute('fill', 'none');
+    frame.setAttribute('stroke', '#fff');
+    frame.setAttribute('stroke-width', '3');
+    frame.setAttribute('stroke-linejoin', 'miter');
+    const net = document.createElementNS(ns, 'path');
+    net.setAttribute('d', 'M8 3 L12 28 M16 3 L19 28 M24 3 V28 M32 3 L29 28 M40 3 L36 28 M3 9 H45 M3 16 H45 M3 22 H45');
+    net.setAttribute('fill', 'none');
+    net.setAttribute('stroke', 'rgba(255,255,255,0.45)');
+    net.setAttribute('stroke-width', '1');
+    svg.append(net, frame);
+    return svg;
+  }
   function pitch(l: Lineup) {
     const parts = l.formation ? l.formation.split('-').map(Number) : [];
     if (!parts.length || l.starters.length !== 11) {
@@ -131,7 +157,8 @@ const href = (p: string) => localePath(locale, p);
     const el = h('div', 'mc-pitch');
     el.style.gridTemplateRows = `repeat(${rows.length}, 1fr)`;
     // Forwards at the top, goalkeeper at the bottom.
-    for (const r of rows.reverse()) el.append(h('div', 'mc-prow', ...r.map(chip)));
+    const gk = rows[0];
+    for (const r of rows.reverse()) el.append(h('div', 'mc-prow', ...r.map((p) => (gk.includes(p) ? gkChip(p) : chip(p)))));
     return el;
   }
   function team(name: string, l: Lineup) {
@@ -289,6 +316,9 @@ const href = (p: string) => localePath(locale, p);
   .mc-pitch::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px solid var(--pitch-line); }
   .mc-prow { display: flex; justify-content: space-around; align-items: center; position: relative; z-index: 1; gap: 2px; }
   .mc-pl { display: grid; justify-items: center; gap: 2px; font-size: 11.5px; color: #fff; font-weight: 600; text-align: center; min-width: 0; flex: 1 1 0; max-width: 92px; }
+  .mc-pl-gk { position: relative; }
+  .mc-goal { position: absolute; left: 50%; top: -20px; width: 46px; height: 28px; transform: translateX(-50%); z-index: 0; pointer-events: none; opacity: 0.9; }
+  .mc-goal svg { width: 100%; height: 100%; display: block; }
   .mc-pn { width: 38px; height: 38px; border-radius: 12px; background: #23262b; display: grid; place-items: center; font-style: normal; font-weight: 700; font-size: 14px; position: relative; color: #fff; }
   .mc-pn em { position: absolute; top: -5px; right: -5px; font-style: normal; font-size: 9.5px; background: #fff; color: #111; border-radius: 50%; width: 16px; height: 16px; display: grid; place-items: center; }
   .mc-nm { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
