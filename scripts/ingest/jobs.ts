@@ -274,5 +274,5 @@ export async function leaguesJob(only?: (c: Competition) => boolean): Promise<bo
 
 export const islJob = () => leaguesJob((c) => c.source.kind === 'isl');
 export const aiffIflJob = () => leaguesJob((c) => c.source.kind === 'ifl' || (c.source.kind === 'aiff' && c.section !== 'youth'));
-export const stateLeagueJob = () => leaguesJob((c) => c.source.kind === 'aiff-tournament');
-export const youthJob = () => leaguesJob((c) => c.source.kind === 'aiff' && c.section === 'youth');
+export const stateLeagueJob = () => leaguesJob((c) => c.source.kind === 'aiff-tournament' && c.section !== 'youth');
+export const youthJob = () => leaguesJob((c) => (c.source.kind === 'aiff' || c.source.kind === 'aiff-tournament') && c.section === 'youth');

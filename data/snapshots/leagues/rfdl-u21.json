@@ -1,0 +1,784 @@
+{
+  "slug": "rfdl-u21",
+  "seasonLabel": "Reliance Foundation Development League 2026-27",
+  "season": "2026-27",
+  "stages": [
+    {
+      "name": "Regional Qualifiers",
+      "groups": [
+        {
+          "name": "Mumbai",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Reliance Foundation Young Champs",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11472-logo_small-1602054182.jpg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 6,
+              "ga": 2,
+              "gd": 4,
+              "points": 6
+            },
+            {
+              "pos": 2,
+              "team": "Mumbai City FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_MCFC01_1691062308.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 7,
+              "ga": 4,
+              "gd": 3,
+              "points": 4
+            },
+            {
+              "pos": 3,
+              "team": "Maharashtra Oranje FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_MaharashtraOranjeFootballClub_1694505500.jpg",
+              "played": 2,
+              "won": 1,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 3,
+              "ga": 2,
+              "gd": 1,
+              "points": 4
+            },
+            {
+              "pos": 4,
+              "team": "MUM - Young Guns F.C.",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13412-logo_small-1605096141.png",
+              "played": 2,
+              "won": 1,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 2,
+              "ga": 2,
+              "gd": 0,
+              "points": 3
+            },
+            {
+              "pos": 5,
+              "team": "Mumbai Ultras FC",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 1,
+              "ga": 4,
+              "gd": -3,
+              "points": 0
+            },
+            {
+              "pos": 6,
+              "team": "Community Football Club India",
+              "logo": "https://aiff.b-cdn.net/logos/12356-Slogo-1576385887.png",
+              "played": 2,
+              "won": 0,
+              "drawn": 0,
+              "lost": 2,
+              "gf": 5,
+              "ga": 10,
+              "gd": -5,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "MG-MZ",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Langsning FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8037_logo_1576180009.jpg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 2,
+              "team": "Mawlai Sport Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_15781-logo_small-1678949831.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 3,
+              "team": "North East United FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11042-logo_small-1576475847.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 4,
+              "team": "Pay For Right Youth And Cultural Club Shillong",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG20211003WA0010_1710319260.jpg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 5,
+              "team": "Rangdajied United Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8013-logo_small-1776328116.jpeg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 6,
+              "team": "Shillong Lajong FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1660315168.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Kerala",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Kerala Blasters Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8982-logo_small-1608191863.jpg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 2,
+              "team": "Kerala United FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_14309-logo_small-1768407135.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 3,
+              "team": "Luca Soccer Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_LucaSoccerClubBadge_1656956436.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 4,
+              "team": "PFC Kerala",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_PFCKeralaPngLogo_1747911403.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Kolkata",
+          "rows": []
+        },
+        {
+          "name": "North",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "BBFS Garhwal Heroes Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_10929-logo_small-1699437762.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 2,
+              "team": "Namdhari Sports Academy",
+              "logo": "https://aiff.b-cdn.net/logos/lr_12488-logo-1655547091.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 3,
+              "team": "Punjab FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11135-logo_small-1757679563.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 4,
+              "team": "Rajasthan United Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1617780510.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 5,
+              "team": "Sporting Club Delhi",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13371-logo_small-1766751972.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 6,
+              "team": "Sudeva Delhi FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11400-logo_small-1635259548.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "ROI - I",
+          "rows": []
+        },
+        {
+          "name": "ROI - II",
+          "rows": []
+        },
+        {
+          "name": "South",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Bengaluru Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8021-logo_small-1578937550.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 2,
+              "team": "FC Madras",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11396-logo_small-1732536353.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 3,
+              "team": "Hal Banglore",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 4,
+              "team": "Roots Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_rootsfootballpng200x200_1659611505.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 5,
+              "team": "South United FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11949-logo_small-1658233791.jpg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 6,
+              "team": "Sreenidi Deccan Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SreenidhiDeccanFootballClubLogo_1637303730.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Goa",
+          "rows": []
+        }
+      ]
+    },
+    {
+      "name": "Zonal Group Stage",
+      "groups": [
+        {
+          "name": "",
+          "rows": []
+        }
+      ]
+    },
+    {
+      "name": "National Group Stage",
+      "groups": [
+        {
+          "name": "",
+          "rows": []
+        }
+      ]
+    },
+    {
+      "name": "National Championship",
+      "groups": [
+        {
+          "name": "",
+          "rows": []
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "aiff-75801",
+      "kickoff": "2026-10-24T08:00:00+05:30",
+      "home": "Reliance Foundation Young Champs",
+      "away": "Community Football Club India",
+      "status": "ft",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers",
+      "homeScore": 4,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Nirvaan Bhatt",
+          "team": "Community Football Club India"
+        },
+        {
+          "player": "Vanlalthazuala .",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Arjun Devendra Singh",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Ayush  Sihag",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Arjun Devendra Singh",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Vaibhav Bakle",
+          "team": "Community Football Club India"
+        }
+      ]
+    },
+    {
+      "id": "aiff-75803",
+      "kickoff": "2026-10-24T14:00:00+05:30",
+      "home": "Mumbai Ultras FC",
+      "away": "MUM - Young Guns F.C.",
+      "status": "ft",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers",
+      "homeScore": 0,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Kevin Coutinho",
+          "team": "MUM - Young Guns F.C."
+        },
+        {
+          "player": "Ishaan Vinod Jadhav",
+          "team": "MUM - Young Guns F.C."
+        }
+      ]
+    },
+    {
+      "id": "aiff-75802",
+      "kickoff": "2026-10-24T11:00:00+05:30",
+      "home": "Mumbai City FC",
+      "away": "Maharashtra Oranje FC",
+      "status": "ft",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Neev Chhipa",
+          "team": "Mumbai City FC"
+        },
+        {
+          "player": "Aarav Bhuta",
+          "team": "Maharashtra Oranje FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-75804",
+      "kickoff": "2026-10-27T08:00:00+05:30",
+      "home": "MUM - Young Guns F.C.",
+      "away": "Reliance Foundation Young Champs",
+      "status": "ft",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers",
+      "homeScore": 0,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Arjun Devendra Singh",
+          "team": "Reliance Foundation Young Champs"
+        }
+      ]
+    },
+    {
+      "id": "aiff-75806",
+      "kickoff": "2026-10-27T14:00:00+05:30",
+      "home": "Community Football Club India",
+      "away": "Mumbai City FC",
+      "status": "ft",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers",
+      "homeScore": 3,
+      "awayScore": 6,
+      "goals": [
+        {
+          "player": "Yousuf Mohamed",
+          "team": "Community Football Club India"
+        },
+        {
+          "player": "Muneeb Nivshekar",
+          "team": "Mumbai City FC"
+        },
+        {
+          "player": "Nirvaan Bhatt",
+          "team": "Community Football Club India"
+        },
+        {
+          "player": "Ryan Pereira",
+          "team": "Mumbai City FC"
+        },
+        {
+          "player": "Niranjan Gaikwad",
+          "team": "Mumbai City FC"
+        },
+        {
+          "player": "Parth Vijay Talkokul",
+          "team": "Mumbai City FC"
+        },
+        {
+          "player": "Agastya",
+          "team": "Mumbai City FC"
+        },
+        {
+          "player": "Nirvaan Bhatt",
+          "team": "Community Football Club India"
+        }
+      ]
+    },
+    {
+      "id": "aiff-75805",
+      "kickoff": "2026-10-27T11:00:00+05:30",
+      "home": "Mumbai Ultras FC",
+      "away": "Maharashtra Oranje FC",
+      "status": "ft",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Saad Husaini",
+          "team": "Mumbai Ultras FC"
+        },
+        {
+          "player": "Atharv Khadtare",
+          "team": "Maharashtra Oranje FC"
+        },
+        {
+          "player": "Kshitij Maral",
+          "team": "Maharashtra Oranje FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-75808",
+      "kickoff": "2026-11-21T11:00:00+05:30",
+      "home": "Community Football Club India",
+      "away": "MUM - Young Guns F.C.",
+      "status": "scheduled",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-75807",
+      "kickoff": "2026-11-21T08:00:00+05:30",
+      "home": "Mumbai City FC",
+      "away": "Mumbai Ultras FC",
+      "status": "scheduled",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-75809",
+      "kickoff": "2026-11-21T14:00:00+05:30",
+      "home": "Reliance Foundation Young Champs",
+      "away": "Maharashtra Oranje FC",
+      "status": "scheduled",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-75811",
+      "kickoff": "2026-11-24T11:00:00+05:30",
+      "home": "Reliance Foundation Young Champs",
+      "away": "Mumbai Ultras FC",
+      "status": "scheduled",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-75812",
+      "kickoff": "2026-11-24T14:00:00+05:30",
+      "home": "MUM - Young Guns F.C.",
+      "away": "Mumbai City FC",
+      "status": "scheduled",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-75810",
+      "kickoff": "2026-11-24T08:00:00+05:30",
+      "home": "Maharashtra Oranje FC",
+      "away": "Community Football Club India",
+      "status": "scheduled",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-75813",
+      "kickoff": "2026-11-27T08:00:00+05:30",
+      "home": "Maharashtra Oranje FC",
+      "away": "MUM - Young Guns F.C.",
+      "status": "scheduled",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-75815",
+      "kickoff": "2026-11-27T14:00:00+05:30",
+      "home": "Community Football Club India",
+      "away": "Mumbai Ultras FC",
+      "status": "scheduled",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-75814",
+      "kickoff": "2026-11-27T11:00:00+05:30",
+      "home": "Reliance Foundation Young Champs",
+      "away": "Mumbai City FC",
+      "status": "scheduled",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers"
+    }
+  ],
+  "scorers": [
+    {
+      "player": "Nirvaan Bhatt",
+      "team": "Community Football Club India",
+      "goals": 3
+    },
+    {
+      "player": "Arjun Devendra Singh",
+      "team": "Reliance Foundation Young Champs",
+      "goals": 3
+    },
+    {
+      "player": "Vanlalthazuala .",
+      "team": "Reliance Foundation Young Champs",
+      "goals": 1
+    },
+    {
+      "player": "Ayush  Sihag",
+      "team": "Reliance Foundation Young Champs",
+      "goals": 1
+    },
+    {
+      "player": "Vaibhav Bakle",
+      "team": "Community Football Club India",
+      "goals": 1
+    },
+    {
+      "player": "Kevin Coutinho",
+      "team": "MUM - Young Guns F.C.",
+      "goals": 1
+    },
+    {
+      "player": "Ishaan Vinod Jadhav",
+      "team": "MUM - Young Guns F.C.",
+      "goals": 1
+    },
+    {
+      "player": "Neev Chhipa",
+      "team": "Mumbai City FC",
+      "goals": 1
+    },
+    {
+      "player": "Aarav Bhuta",
+      "team": "Maharashtra Oranje FC",
+      "goals": 1
+    },
+    {
+      "player": "Yousuf Mohamed",
+      "team": "Community Football Club India",
+      "goals": 1
+    },
+    {
+      "player": "Muneeb Nivshekar",
+      "team": "Mumbai City FC",
+      "goals": 1
+    },
+    {
+      "player": "Ryan Pereira",
+      "team": "Mumbai City FC",
+      "goals": 1
+    },
+    {
+      "player": "Niranjan Gaikwad",
+      "team": "Mumbai City FC",
+      "goals": 1
+    },
+    {
+      "player": "Parth Vijay Talkokul",
+      "team": "Mumbai City FC",
+      "goals": 1
+    },
+    {
+      "player": "Agastya",
+      "team": "Mumbai City FC",
+      "goals": 1
+    },
+    {
+      "player": "Saad Husaini",
+      "team": "Mumbai Ultras FC",
+      "goals": 1
+    },
+    {
+      "player": "Atharv Khadtare",
+      "team": "Maharashtra Oranje FC",
+      "goals": 1
+    },
+    {
+      "player": "Kshitij Maral",
+      "team": "Maharashtra Oranje FC",
+      "goals": 1
+    }
+  ],
+  "updatedAt": "2026-10-27T15:52:57.541Z"
+}

@@ -138,6 +138,17 @@ export const COMPETITIONS: Competition[] = [
     sourceUrl: 'https://www.the-aiff.com/competitions/sub-junior-league',
   },
   {
+    slug: 'rfdl-u21',
+    name: 'Reliance Foundation Development League (U21)',
+    nameKn: 'ರಿಲಯನ್ಸ್ ಫೌಂಡೇಶನ್ ಡೆವಲಪ್‌ಮೆಂಟ್ ಲೀಗ್ (U21)',
+    short: 'U21',
+    section: 'youth',
+    gender: 'men',
+    source: { kind: 'aiff-tournament', id: 1901 }, // AIFF app tournament id; not one of the numbered youth competitions
+    sourceLabel: 'AIFF',
+    sourceUrl: 'https://www.the-aiff.com/calendar?competition_id=1901',
+  },
+  {
     slug: 'bdfa-sd',
     name: 'KSFA Super Division',
     nameKn: 'ಕೆಎಸ್‌ಎಫ್‌ಎ ಸೂಪರ್ ಡಿವಿಷನ್',
