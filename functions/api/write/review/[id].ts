@@ -5,7 +5,7 @@ import { apiMsg } from '../_locale';
 //   { action: 'approve' }
 //   { action: 'send_back', note }
 //   { action: 'delete' }   (removes the piece and its photos for good, whatever its status)
-//   { action: 'edit', title, kind, body: [...blocks] }   (stays in its current status)
+//   { action: 'edit', title, kind, author_name, photo_credit, body: [...blocks] }   (stays in its current status, published or not)
 export const onRequestPost = async ({ request, env, params }: { request: Request; env: Env; params: { id: string } }) => {
   if (!(await verifyAccess(request, env))) return denied();
   const sql = getSql(env);
@@ -43,8 +43,13 @@ export const onRequestPost = async ({ request, env, params }: { request: Request
     const body = validateEditedBlocks(b.body, allowed);
     const title = cleanText(b.title, LIMITS.title);
     const kind = b.kind === 'analyst' ? 'analyst' : b.kind === 'fan' ? 'fan' : null;
-    if (!body || !title || !kind) return json({ error: apiMsg(request, 'write.api.checkFields') }, 400);
-    await sql(`update posts set title = $2, kind = $3, body = $4::jsonb where id = $1`, [id, title, kind, JSON.stringify(body)]);
+    const author = cleanText(b.author_name, LIMITS.name);
+    const photoCredit = cleanText(b.photo_credit, LIMITS.credit);
+    if (!body || !title || !kind || !author) return json({ error: apiMsg(request, 'write.api.checkFields') }, 400);
+    await sql(
+      `update posts set title = $2, kind = $3, body = $4::jsonb, author_name = $5, photo_credit = $6 where id = $1`,
+      [id, title, kind, JSON.stringify(body), author, photoCredit],
+    );
     return json({ ok: true });
   }
   return json({ error: 'unknown action' }, 400);

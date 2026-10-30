@@ -10,7 +10,7 @@ const href = (p: string) => localePath(locale, p);
 const RV_KEYS = [
   'fan', 'analyst', 'caption', 'save', 'cancel', 'approve', 'sendBack', 'edit', 'delete', 'viewLive', 'loading',
   'empty', 'signIn', 'loadFailed', 'actFailed', 'notePrompt', 'deleteConfirm', 'liveWarning', 'mailSubject',
-  'photoOne', 'photoMany', 'credit', 'ownPhotos', 'noteSent', 'readPiece', 'byline',
+  'photoOne', 'photoMany', 'credit', 'ownPhotos', 'noteSent', 'readPiece', 'byline', 'author', 'photoCredit',
 ] as const;
 const S: Record<string, string> = {};
 for (const k of RV_KEYS) S[k] = t(locale, `outfield.rv.${k}` as MessageKey);
@@ -67,19 +67,27 @@ const client = {
     host.replaceChildren();
     const form = el('div', 'wr-form');
     const title = el('input'); title.value = p.title;
+    const author = el('input'); author.value = p.author_name; author.placeholder = S.author;
     const kind = el('select'); for (const k of ['fan', 'analyst'] as const) { const o = el('option', '', k === 'fan' ? S.fan : S.analyst); o.value = k; kind.append(o); } kind.value = p.kind;
-    form.append(title, kind);
+    form.append(title, author, kind);
+    const coverCredit = el('input'); coverCredit.value = p.photo_credit; coverCredit.placeholder = S.photoCredit;
+    if (p.cover_key) { const im = el('img'); im.src = `/api/write/photo/${p.cover_key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain'; form.append(im, coverCredit); }
     const fields = p.body.map((b) => {
-      const f = el(b.t === 'p' ? 'textarea' : 'input') as HTMLTextAreaElement | HTMLInputElement;
-      if (b.t === 'p') { (f as HTMLTextAreaElement).rows = 5; f.value = b.txt; } else { f.value = b.cap; f.placeholder = S.caption; const im = el('img'); im.src = `/api/write/photo/${b.key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain'; form.append(im); }
-      form.append(f);
-      return f;
+      if (b.t === 'p') { const txt = el('textarea'); txt.rows = 5; txt.value = b.txt; form.append(txt); return { txt }; }
+      const im = el('img'); im.src = `/api/write/photo/${b.key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain';
+      const cap = el('input'); cap.value = b.cap; cap.placeholder = S.caption;
+      const credit = el('input'); credit.value = b.credit; credit.placeholder = S.photoCredit;
+      form.append(im, cap, credit);
+      return { cap, credit };
     });
     const row = el('div', 'wr-row');
     row.append(
       btn(S.save, async () => {
-        const body = p.body.map((b, i) => (b.t === 'p' ? { t: 'p', txt: fields[i].value } : { ...b, cap: fields[i].value }));
-        if (await act(p.id, { action: 'edit', title: title.value, kind: kind.value, body })) load();
+        const body = p.body.map((b, i) => (b.t === 'p'
+          ? { t: 'p', txt: fields[i].txt!.value }
+          : { ...b, cap: fields[i].cap!.value, credit: fields[i].credit!.value }));
+        const payload = { action: 'edit', title: title.value, kind: kind.value, author_name: author.value, photo_credit: coverCredit.value, body };
+        if (await act(p.id, payload)) load();
       }, 'btn'),
       btn(S.cancel, () => host.replaceChildren(), 'chip'),
     );

@@ -58,6 +58,8 @@ const en = {
   'outfield.rv.noteSent': 'Note sent: {note}',
   'outfield.rv.readPiece': 'Read the piece',
   'outfield.rv.byline': '{kind} · {author} · {photos} · {date} · ',
+  'outfield.rv.author': 'Writer name',
+  'outfield.rv.photoCredit': 'Photo credit',
 } as Record<string, string>;
 
 const kn = {
@@ -119,6 +121,8 @@ const kn = {
   'outfield.rv.noteSent': 'ಕಳುಹಿಸಿದ ಟಿಪ್ಪಣಿ: {note}',
   'outfield.rv.readPiece': 'ಬರಹವನ್ನು ಓದಿ',
   'outfield.rv.byline': '{kind} · {author} · {photos} · {date} · ',
+  'outfield.rv.author': 'ಬರಹಗಾರರ ಹೆಸರು',
+  'outfield.rv.photoCredit': 'ಫೋಟೋ ಕ್ರೆಡಿಟ್',
 } as Record<string, string>;
 
 export default { en, kn };
