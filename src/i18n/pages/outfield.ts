@@ -63,6 +63,10 @@ const en = {
   'outfield.rv.noCover': 'No cover photo. Add one here.',
   'outfield.rv.addCover': 'Add cover photo',
   'outfield.rv.photoBad': 'That photo could not be used. Try another.',
+  'outfield.rv.replacePhoto': 'Replace photo',
+  'outfield.rv.removePhoto': 'Remove photo',
+  'outfield.rv.undo': 'Undo',
+  'outfield.rv.removing': 'This photo will be removed when you save.',
 } as Record<string, string>;
 
 const kn = {
@@ -129,6 +133,10 @@ const kn = {
   'outfield.rv.noCover': 'ಕವರ್ ಫೋಟೋ ಇಲ್ಲ. ಇಲ್ಲಿ ಸೇರಿಸಿ.',
   'outfield.rv.addCover': 'ಕವರ್ ಫೋಟೋ ಸೇರಿಸಿ',
   'outfield.rv.photoBad': 'ಈ ಫೋಟೋ ಬಳಸಲಾಗಲಿಲ್ಲ. ಬೇರೆ ಫೋಟೋ ಆಯ್ಕೆಮಾಡಿ.',
+  'outfield.rv.replacePhoto': 'ಫೋಟೋ ಬದಲಿಸಿ',
+  'outfield.rv.removePhoto': 'ಫೋಟೋ ತೆಗೆದುಹಾಕಿ',
+  'outfield.rv.undo': 'ರದ್ದುಮಾಡಿ',
+  'outfield.rv.removing': 'ನೀವು ಉಳಿಸಿದಾಗ ಈ ಫೋಟೋ ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ.',
 } as Record<string, string>;
 
 export default { en, kn };
