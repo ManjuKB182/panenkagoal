@@ -60,6 +60,9 @@ const en = {
   'outfield.rv.byline': '{kind} · {author} · {photos} · {date} · ',
   'outfield.rv.author': 'Writer name',
   'outfield.rv.photoCredit': 'Photo credit',
+  'outfield.rv.noCover': 'No cover photo. Add one here.',
+  'outfield.rv.addCover': 'Add cover photo',
+  'outfield.rv.photoBad': 'That photo could not be used. Try another.',
 } as Record<string, string>;
 
 const kn = {
@@ -123,6 +126,9 @@ const kn = {
   'outfield.rv.byline': '{kind} · {author} · {photos} · {date} · ',
   'outfield.rv.author': 'ಬರಹಗಾರರ ಹೆಸರು',
   'outfield.rv.photoCredit': 'ಫೋಟೋ ಕ್ರೆಡಿಟ್',
+  'outfield.rv.noCover': 'ಕವರ್ ಫೋಟೋ ಇಲ್ಲ. ಇಲ್ಲಿ ಸೇರಿಸಿ.',
+  'outfield.rv.addCover': 'ಕವರ್ ಫೋಟೋ ಸೇರಿಸಿ',
+  'outfield.rv.photoBad': 'ಈ ಫೋಟೋ ಬಳಸಲಾಗಲಿಲ್ಲ. ಬೇರೆ ಫೋಟೋ ಆಯ್ಕೆಮಾಡಿ.',
 } as Record<string, string>;
 
 export default { en, kn };
