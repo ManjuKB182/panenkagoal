@@ -11,7 +11,7 @@ const RV_KEYS = [
   'fan', 'analyst', 'caption', 'save', 'cancel', 'approve', 'sendBack', 'edit', 'delete', 'viewLive', 'loading',
   'empty', 'signIn', 'loadFailed', 'actFailed', 'notePrompt', 'deleteConfirm', 'liveWarning', 'mailSubject',
   'photoOne', 'photoMany', 'credit', 'ownPhotos', 'noteSent', 'readPiece', 'byline', 'author', 'photoCredit',
-  'noCover', 'addCover', 'photoBad',
+  'noCover', 'addCover', 'photoBad', 'replacePhoto', 'removePhoto', 'undo', 'removing',
 ] as const;
 const S: Record<string, string> = {};
 for (const k of RV_KEYS) S[k] = t(locale, `outfield.rv.${k}` as MessageKey);
@@ -89,43 +89,49 @@ const client = {
     const kind = el('select'); for (const k of ['fan', 'analyst'] as const) { const o = el('option', '', k === 'fan' ? S.fan : S.analyst); o.value = k; kind.append(o); } kind.value = p.kind;
     form.append(title, author, kind);
     const coverCredit = el('input'); coverCredit.value = p.photo_credit; coverCredit.placeholder = S.photoCredit;
+    // Replacing or adding a photo is saved at once (like the cover add was). Removing one is only applied on Save.
+    let coverRemoved = false;
     const coverBox = el('div');
-    if (p.cover_key) { const im = el('img'); im.src = `/api/write/photo/${p.cover_key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain'; coverBox.append(im, coverCredit); }
-    else {
-      // No cover from the writer: the editor can add one. It is saved straight away, and the form keeps unsaved text.
-      const pick = el('input'); pick.type = 'file'; pick.accept = 'image/*';
-      const label = el('label', 'wr-filebtn', S.addCover); label.append(pick);
-      pick.addEventListener('change', async () => {
-        const f = pick.files?.[0];
-        if (!f) return;
-        let photo: Blob;
-        try { photo = await shrink(f); } catch { alert(S.photoBad); return; }
-        const fd = new FormData(); fd.append('photo', photo, 'cover.jpg');
-        const r = await fetch(`/api/write/review/cover/${p.id}`, { method: 'POST', body: fd });
-        const d = await r.json().catch(() => ({}));
-        if (!r.ok) { alert(d.error ?? S.actFailed); return; }
-        const kept = draft();
-        Object.assign(p, { title: kept.title, kind: kind.value as Post['kind'], author_name: kept.author_name, photo_credit: kept.photo_credit, body: kept.body as B[], cover_key: d.key as string });
-        editor(p, host);
-      });
-      coverBox.append(el('p', 'muted', S.noCover), label);
-    }
+    const renderCover = () => {
+      coverBox.replaceChildren();
+      if (!p.cover_key) { coverBox.append(el('p', 'muted', S.noCover), photoPicker(S.addCover, (blob) => swapPhoto('', blob, (k) => { p.cover_key = k; renderCover(); }))); return; }
+      const im = el('img'); im.src = `/api/write/photo/${p.cover_key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain';
+      if (coverRemoved) { coverBox.append(el('p', 'muted', S.removing), btn(S.undo, () => { coverRemoved = false; renderCover(); })); return; }
+      coverBox.append(
+        im, coverCredit,
+        photoPicker(S.replacePhoto, (blob) => swapPhoto(p.cover_key!, blob, (k) => { p.cover_key = k; renderCover(); })),
+        btn(S.removePhoto, () => { coverRemoved = true; renderCover(); }),
+      );
+    };
+    renderCover();
     form.append(coverBox);
+    // One entry per body block. Paragraphs are text only; photos can be replaced or removed.
     const fields = p.body.map((b) => {
-      if (b.t === 'p') { const txt = el('textarea'); txt.rows = 5; txt.value = b.txt; form.append(txt); return { txt }; }
+      if (b.t === 'p') { const txt = el('textarea'); txt.rows = 5; txt.value = b.txt; form.append(txt); return { txt, block: b, removed: false, cap: null as HTMLInputElement | null, credit: null as HTMLInputElement | null, wrap: null as HTMLDivElement | null }; }
+      const wrap = el('div', 'wr-blk');
       const im = el('img'); im.src = `/api/write/photo/${b.key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain';
       const cap = el('input'); cap.value = b.cap; cap.placeholder = S.caption;
       const credit = el('input'); credit.value = b.credit; credit.placeholder = S.photoCredit;
-      form.append(im, cap, credit);
-      return { cap, credit };
+      const f = { txt: null as HTMLTextAreaElement | null, block: b, removed: false, cap, credit, wrap: wrap as HTMLDivElement | null };
+      const removeBtn = btn(S.removePhoto, () => {
+        f.removed = !f.removed;
+        wrap.style.opacity = f.removed ? '0.4' : '';
+        cap.disabled = credit.disabled = f.removed;
+        removeBtn.textContent = f.removed ? S.undo : S.removePhoto;
+      });
+      const replaceBtn = photoPicker(S.replacePhoto, (blob) => swapPhoto(b.key, blob, (k) => { b.key = k; im.src = `/api/write/photo/${k}`; }));
+      wrap.append(im, cap, credit, replaceBtn, removeBtn);
+      form.append(wrap);
+      return f;
     });
-    // What is on screen now, in the shape the save API takes.
+    // What is on screen now, in the shape the save API takes. Removed photos are left out.
     function draft() {
       return {
         action: 'edit', title: title.value, kind: kind.value, author_name: author.value, photo_credit: coverCredit.value,
-        body: p.body.map((b, i) => (b.t === 'p'
-          ? { t: 'p', txt: fields[i].txt!.value }
-          : { ...b, cap: fields[i].cap!.value, credit: fields[i].credit!.value })),
+        remove_cover: coverRemoved,
+        body: fields.filter((f) => !f.removed).map((f) => (f.block.t === 'p'
+          ? { t: 'p', txt: f.txt!.value }
+          : { t: 'img', key: f.block.key, cap: f.cap!.value, credit: f.credit!.value })),
       };
     }
     const row = el('div', 'wr-row');
@@ -137,6 +143,29 @@ const client = {
     );
     form.append(row);
     host.append(form);
+
+    // Uploads one photo in place of `old` ('' adds a cover). Returns the new key through `done`.
+    async function swapPhoto(old: string, blob: Blob, done: (key: string) => void) {
+      const fd = new FormData(); fd.append('photo', blob, 'photo.jpg'); fd.append('old', old);
+      const r = await fetch(`/api/write/review/photo/${p.id}`, { method: 'POST', body: fd });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) { alert(d.error ?? S.actFailed); return; }
+      done(d.key as string);
+    }
+  }
+
+  /** A file button. Shrinks the pick, then hands it to onBlob. */
+  function photoPicker(label: string, onBlob: (blob: Blob) => Promise<void> | void) {
+    const pick = el('input'); pick.type = 'file'; pick.accept = 'image/*';
+    const l = el('label', 'wr-filebtn', label); l.append(pick);
+    pick.addEventListener('change', async () => {
+      const f = pick.files?.[0];
+      if (!f) return;
+      let blob: Blob;
+      try { blob = await shrink(f); } catch { alert(S.photoBad); return; }
+      await onBlob(blob);
+    });
+    return l;
   }
 
   function card(p: Post) {
@@ -207,4 +236,5 @@ const client = {
 
 <style is:global>
   .wr-del { color: var(--brand-text); border-color: var(--brand); }
+  .wr-blk { display: grid; gap: 6px; margin-bottom: 10px; }
 </style>
