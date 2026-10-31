@@ -11,6 +11,7 @@ const RV_KEYS = [
   'fan', 'analyst', 'caption', 'save', 'cancel', 'approve', 'sendBack', 'edit', 'delete', 'viewLive', 'loading',
   'empty', 'signIn', 'loadFailed', 'actFailed', 'notePrompt', 'deleteConfirm', 'liveWarning', 'mailSubject',
   'photoOne', 'photoMany', 'credit', 'ownPhotos', 'noteSent', 'readPiece', 'byline', 'author', 'photoCredit',
+  'noCover', 'addCover', 'photoBad',
 ] as const;
 const S: Record<string, string> = {};
 for (const k of RV_KEYS) S[k] = t(locale, `outfield.rv.${k}` as MessageKey);
@@ -63,6 +64,23 @@ const client = {
     return true;
   }
 
+  /** Same cap as the writer's form: longest side 1600px, JPEG under 5 MB. */
+  async function shrink(file: File): Promise<Blob> {
+    const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' } as ImageBitmapOptions);
+    const scale = Math.min(1, 1600 / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas');
+    c.width = Math.round(bmp.width * scale); c.height = Math.round(bmp.height * scale);
+    const ctx = c.getContext('2d')!;
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
+    ctx.drawImage(bmp, 0, 0, c.width, c.height);
+    bmp.close?.();
+    for (const q of [0.85, 0.7, 0.55]) {
+      const b = await new Promise<Blob | null>((res) => c.toBlob(res, 'image/jpeg', q));
+      if (b && b.size <= 5 * 1024 * 1024) return b;
+    }
+    throw new Error('too big');
+  }
+
   function editor(p: Post, host: HTMLElement) {
     host.replaceChildren();
     const form = el('div', 'wr-form');
@@ -71,7 +89,28 @@ const client = {
     const kind = el('select'); for (const k of ['fan', 'analyst'] as const) { const o = el('option', '', k === 'fan' ? S.fan : S.analyst); o.value = k; kind.append(o); } kind.value = p.kind;
     form.append(title, author, kind);
     const coverCredit = el('input'); coverCredit.value = p.photo_credit; coverCredit.placeholder = S.photoCredit;
-    if (p.cover_key) { const im = el('img'); im.src = `/api/write/photo/${p.cover_key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain'; form.append(im, coverCredit); }
+    const coverBox = el('div');
+    if (p.cover_key) { const im = el('img'); im.src = `/api/write/photo/${p.cover_key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain'; coverBox.append(im, coverCredit); }
+    else {
+      // No cover from the writer: the editor can add one. It is saved straight away, and the form keeps unsaved text.
+      const pick = el('input'); pick.type = 'file'; pick.accept = 'image/*';
+      const label = el('label', 'wr-filebtn', S.addCover); label.append(pick);
+      pick.addEventListener('change', async () => {
+        const f = pick.files?.[0];
+        if (!f) return;
+        let photo: Blob;
+        try { photo = await shrink(f); } catch { alert(S.photoBad); return; }
+        const fd = new FormData(); fd.append('photo', photo, 'cover.jpg');
+        const r = await fetch(`/api/write/review/cover/${p.id}`, { method: 'POST', body: fd });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok) { alert(d.error ?? S.actFailed); return; }
+        const kept = draft();
+        Object.assign(p, { title: kept.title, kind: kind.value as Post['kind'], author_name: kept.author_name, photo_credit: kept.photo_credit, body: kept.body as B[], cover_key: d.key as string });
+        editor(p, host);
+      });
+      coverBox.append(el('p', 'muted', S.noCover), label);
+    }
+    form.append(coverBox);
     const fields = p.body.map((b) => {
       if (b.t === 'p') { const txt = el('textarea'); txt.rows = 5; txt.value = b.txt; form.append(txt); return { txt }; }
       const im = el('img'); im.src = `/api/write/photo/${b.key}`; im.style.maxHeight = '140px'; im.style.objectFit = 'contain';
@@ -80,14 +119,19 @@ const client = {
       form.append(im, cap, credit);
       return { cap, credit };
     });
+    // What is on screen now, in the shape the save API takes.
+    function draft() {
+      return {
+        action: 'edit', title: title.value, kind: kind.value, author_name: author.value, photo_credit: coverCredit.value,
+        body: p.body.map((b, i) => (b.t === 'p'
+          ? { t: 'p', txt: fields[i].txt!.value }
+          : { ...b, cap: fields[i].cap!.value, credit: fields[i].credit!.value })),
+      };
+    }
     const row = el('div', 'wr-row');
     row.append(
       btn(S.save, async () => {
-        const body = p.body.map((b, i) => (b.t === 'p'
-          ? { t: 'p', txt: fields[i].txt!.value }
-          : { ...b, cap: fields[i].cap!.value, credit: fields[i].credit!.value }));
-        const payload = { action: 'edit', title: title.value, kind: kind.value, author_name: author.value, photo_credit: coverCredit.value, body };
-        if (await act(p.id, payload)) load();
+        if (await act(p.id, draft())) load();
       }, 'btn'),
       btn(S.cancel, () => host.replaceChildren(), 'chip'),
     );
