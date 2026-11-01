@@ -63,17 +63,9 @@ const groupByComp = (ms: typeof allMatches) => {
 };
 
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: SITE.name,
-  url: SITE.url,
-  sameAs: Object.values(SITE.socials),
-  publisher: { '@type': 'Organization', name: SITE.name, logo: `${SITE.url}/logo-512.png` },
-};
 ---
 
-<Base jsonLd={jsonLd}>
+<Base>
   {slides.length > 0 && (
     <section class="stage" aria-roledescription="carousel" aria-label={t(locale, 'home.heroLabel')}>
       {slides.map((v, i) => (
