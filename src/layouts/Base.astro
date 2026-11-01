@@ -10,14 +10,39 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  ogType?: 'website' | 'article';
+  // Utility pages (review queue, drafts, 404) stay out of search results.
+  noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
-const { title, description = SITE.description, image = '/og.png', jsonLd } = Astro.props;
+const { title, description = SITE.description, image = '/og.png', ogType = 'website', noindex = false, jsonLd } = Astro.props;
 const locale = getLocale(Astro.url);
 const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name}: ${locale === 'kn' ? SITE.taglineKn : SITE.tagline}`;
 const pagePath = englishPath(Astro.url.pathname);
 const canonical = new URL(localePath(locale, pagePath), SITE.url).href;
 const ogImage = new URL(image, SITE.url).href;
+// Site-wide entities on every page; the page's own jsonLd (if any) is added after them.
+const siteJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE.url}/#organization`,
+    name: SITE.name,
+    url: SITE.url,
+    logo: new URL('/logo-512.png', SITE.url).href,
+    sameAs: Object.values(SITE.socials),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE.url}/#website`,
+    name: SITE.name,
+    url: SITE.url,
+    inLanguage: ['en', 'kn'],
+    publisher: { '@id': `${SITE.url}/#organization` },
+  },
+];
+const allJsonLd = [...siteJsonLd, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [])];
 // Same page in each language; x-default points at English.
 const enHref = new URL(pagePath, SITE.url).href;
 const knHref = new URL(localePath('kn', pagePath), SITE.url).href;
@@ -34,6 +59,7 @@ const knHref = new URL(localePath('kn', pagePath), SITE.url).href;
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={enHref} />
     <link rel="alternate" hreflang="kn" href={knHref} />
@@ -43,14 +69,18 @@ const knHref = new URL(localePath('kn', pagePath), SITE.url).href;
     <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content={locale === 'kn' ? 'kn_IN' : 'en_IN'} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={fullTitle} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,7 +96,7 @@ const knHref = new URL(localePath('kn', pagePath), SITE.url).href;
       />
     </noscript>
     <link rel="preconnect" href="https://i.ytimg.com" />
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <script type="application/ld+json" set:html={JSON.stringify(allJsonLd)} />
   </head>
   <body>
     <a class="sr-only" href="#main">{t(locale, 'a11y.skip')}</a>
