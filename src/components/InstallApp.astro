@@ -1,0 +1,55 @@
+---
+import { getLocale, t } from '../i18n';
+
+const locale = getLocale(Astro.url);
+---
+<div class="install" data-install hidden>
+  <button type="button" class="install-btn" data-install-btn hidden>{t(locale, 'footer.installApp')}</button>
+  <p class="install-hint" data-install-ios hidden>{t(locale, 'footer.installIosHint')}</p>
+</div>
+
+<script>
+  // Shows an install button where the browser allows it (Android, desktop Chrome/Edge),
+  // and a hint on iPhone/iPad Safari, which has no install prompt.
+  const root = document.querySelector<HTMLElement>('[data-install]');
+  if (root) {
+    const btn = root.querySelector<HTMLButtonElement>('[data-install-btn]')!;
+    const ios = root.querySelector<HTMLElement>('[data-install-ios]')!;
+    const standalone = matchMedia('(display-mode: standalone)').matches || (navigator as any).standalone === true;
+    let deferred: any = null;
+
+    if (!standalone) {
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.hidden = false;
+        root.hidden = false;
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        await deferred.userChoice;
+        deferred = null;
+        btn.hidden = true;
+        root.hidden = true;
+      });
+      window.addEventListener('appinstalled', () => { btn.hidden = true; root.hidden = true; });
+
+      // iOS Safari never fires beforeinstallprompt, so show the manual steps instead.
+      const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+      if (isIos) { ios.hidden = false; root.hidden = false; }
+    }
+  }
+</script>
+
+<style>
+  .install { display: grid; gap: 8px; justify-items: start; margin-top: 4px; }
+  /* The display rule above would otherwise override the hidden attribute. */
+  .install[hidden], .install-btn[hidden], .install-hint[hidden] { display: none; }
+  .install-btn {
+    font: inherit; font-weight: 600; font-size: 14px; padding: 8px 14px; border-radius: 999px;
+    border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer;
+  }
+  .install-btn:hover { background: rgba(255, 255, 255, 0.08); }
+  .install-hint { margin: 0; font-size: 14px; }
+</style>

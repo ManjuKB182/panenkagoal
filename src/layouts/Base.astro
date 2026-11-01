@@ -111,6 +111,10 @@ const knHref = new URL(localePath('kn', pagePath), SITE.url).href;
       <div class="yt-box"></div>
     </dialog>
     <script>
+      // Offline support and install. Production only, so local dev never serves stale pages.
+      if (import.meta.env.PROD && 'serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+    </script>
+    <script>
       // Fade modules in as they scroll into view.
       const io = 'IntersectionObserver' in window
         ? new IntersectionObserver((entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io?.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' })
