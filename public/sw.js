@@ -3,7 +3,9 @@
 const VERSION = 'pg-v1';
 const SHELL = `${VERSION}-shell`;
 const ASSETS = `${VERSION}-assets`;
-const PRECACHE = ['/offline.html', '/logo-192.png', '/logo-512.png', '/favicon-48.png'];
+// Cloudflare Pages redirects /offline.html to /offline, so precache the clean URL.
+const OFFLINE = '/offline';
+const PRECACHE = [OFFLINE, '/logo-192.png', '/logo-512.png', '/favicon-48.png'];
 
 // Never cached: live scores, writer and editor routes, and anything that must be fresh.
 const NEVER_CACHE = (path) =>
@@ -48,7 +50,7 @@ async function navigate(req, url) {
     return res;
   } catch {
     const cached = NEVER_CACHE(url.pathname) ? null : await cache.match(req);
-    return cached || cache.match('/offline.html');
+    return cached || cache.match(OFFLINE);
   }
 }
 
