@@ -20,6 +20,14 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'file' },
-  integrations: [sitemap({ filter: (page) => !/\/armchair-gaffers\/(review|article-shell|write\/mine)/.test(page) && !/\/match\/?$/.test(page) })],
+  integrations: [
+    sitemap({
+      // English at the root, Kannada under /kn/. Each page lists its other-language twin.
+      // Codes match the hreflang tags in Base.astro.
+      i18n: { defaultLocale: 'en', locales: { en: 'en', kn: 'kn' } },
+      // Utility pages (editor queue, drafts, submit form, 404) and the live match centre stay out of search.
+      filter: (page) => !/\/armchair-gaffers\/(review|article-shell|write\/(mine|submit))/.test(page) && !/\/match\/?$/.test(page) && !/\/404\/?$/.test(page),
+    }),
+  ],
   vite: { plugins: [devLiveApi] },
 });
