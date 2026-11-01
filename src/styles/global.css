@@ -1,3 +1,14 @@
+/* Self-hosted fonts (no Google Fonts requests). Weights match the design system. */
+@import '@fontsource/barlow-semi-condensed/600.css';
+@import '@fontsource/barlow-semi-condensed/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/noto-sans-kannada/400.css';
+@import '@fontsource/noto-sans-kannada/500.css';
+@import '@fontsource/noto-sans-kannada/700.css';
+
 /* Panenka Goal design system.
    Neutral surfaces in light and dark; kumkuma red and arishina yellow (the Kannada flag) are accents only.
    Theme: <html data-theme="light|dark"> set by the toggle; with no choice saved it follows the system. */
