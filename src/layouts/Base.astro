@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
 import { SITE } from '../config/site';
 import { englishPath, getLocale, localePath, t } from '../i18n';
+import { ogImageFor } from '../lib/og';
 
 interface Props {
   title?: string;
@@ -15,12 +16,13 @@ interface Props {
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
-const { title, description = SITE.description, image = '/og.png', ogType = 'website', noindex = false, jsonLd } = Astro.props;
+const { title, description = SITE.description, image, ogType = 'website', noindex = false, jsonLd } = Astro.props;
 const locale = getLocale(Astro.url);
 const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name}: ${locale === 'kn' ? SITE.taglineKn : SITE.tagline}`;
 const pagePath = englishPath(Astro.url.pathname);
 const canonical = new URL(localePath(locale, pagePath), SITE.url).href;
-const ogImage = new URL(image, SITE.url).href;
+// Explicit image prop wins, then the page's own preview (src/lib/og.ts), then the shared default.
+const ogImage = new URL(image ?? ogImageFor(pagePath) ?? '/og.png', SITE.url).href;
 // Site-wide entities on every page; the page's own jsonLd (if any) is added after them.
 const siteJsonLd = [
   {
@@ -81,20 +83,6 @@ const knHref = new URL(localePath('kn', pagePath), SITE.url).href;
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;700&display=swap"
-      />
-    </noscript>
     <link rel="preconnect" href="https://i.ytimg.com" />
     <script type="application/ld+json" set:html={JSON.stringify(allJsonLd)} />
   </head>
@@ -110,6 +98,10 @@ const knHref = new URL(localePath('kn', pagePath), SITE.url).href;
       <button type="button" class="yt-close" aria-label={t(locale, 'a11y.closeVideo')}>×</button>
       <div class="yt-box"></div>
     </dialog>
+    <script>
+      // Offline support and install. Production only, so local dev never serves stale pages.
+      if (import.meta.env.PROD && 'serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+    </script>
     <script>
       // Fade modules in as they scroll into view.
       const io = 'IntersectionObserver' in window

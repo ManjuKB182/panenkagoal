@@ -1,6 +1,7 @@
 ---
 import { SITE } from '../config/site';
 import { getLocale, localePath, t } from '../i18n';
+import InstallApp from './InstallApp.astro';
 
 const locale = getLocale(Astro.url);
 const EMAIL = 'panenka995@gmail.com';
@@ -12,6 +13,7 @@ const EMAIL = 'panenka995@gmail.com';
       <div class="text">
         <a class="name" href={localePath(locale, '/')}>Panenka <b>Goal</b></a>
         <p class="kn" lang="kn">{SITE.taglineKn}</p>
+        <InstallApp />
       </div>
     </div>
 

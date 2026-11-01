@@ -24,6 +24,8 @@ const en = {
   'nav.liveNow': 'Live now',
   'footer.about': 'About Us',
   'footer.aboutLink': 'Our story',
+  'footer.installApp': 'Install app',
+  'footer.installIosHint': 'Tap Share, then "Add to Home Screen".',
   'footer.contact': 'Contact Us',
   'footer.emailGmail': 'Email Panenka Goal on Gmail',
   'footer.emailTitle': 'Email us on Gmail',

@@ -25,6 +25,8 @@ const kn = {
   'nav.liveNow': 'ಈಗ ನೇರಪ್ರಸಾರ',
   'footer.about': 'ನಮ್ಮ ಬಗ್ಗೆ',
   'footer.aboutLink': 'ನಮ್ಮ ಕಥೆ',
+  'footer.installApp': 'ಆ್ಯಪ್ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ',
+  'footer.installIosHint': 'Share ಒತ್ತಿ, ನಂತರ "Add to Home Screen" ಆಯ್ಕೆ ಮಾಡಿ.',
   'footer.contact': 'ಸಂಪರ್ಕಿಸಿ',
   'footer.emailGmail': 'Gmail ಮೂಲಕ ಪನೇಂಕ ಗೋಲ್‌ಗೆ ಮೇಲ್ ಕಳುಹಿಸಿ',
   'footer.emailTitle': 'Gmail ನಲ್ಲಿ ಮೇಲ್ ಕಳುಹಿಸಿ',
