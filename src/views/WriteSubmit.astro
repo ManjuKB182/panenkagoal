@@ -35,7 +35,7 @@ const ui = {
   intl: locale === 'kn' ? 'kn-IN' : 'en-IN',
 };
 ---
-<Base title={t(locale, 'write.submit.title')} description={t(locale, 'write.submit.desc')}>
+<Base title={t(locale, 'write.submit.title')} description={t(locale, 'write.submit.desc')} noindex>
   <WriteHead locale={locale} active="write" compact />
   <section class="wrap module" style="padding-top:12px" id="wr-root">
     <p style="margin-bottom:10px"><a class="wr-back" href={href('/armchair-gaffers/write')}>{t(locale, 'write.submit.back')}</a></p>
