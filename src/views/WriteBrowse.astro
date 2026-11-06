@@ -19,6 +19,10 @@ const ui = {
   kindAnalyst: t(locale, 'write.kind.analyst'),
   loadError: t(locale, 'write.browse.loadError'),
   viewsLabel: t(locale, 'write.views.label'),
+  share: t(locale, 'write.share.title'),
+  shareOn: t(locale, 'write.share.on'),
+  copy: t(locale, 'write.share.copy'),
+  copied: t(locale, 'write.share.copied'),
 };
 ---
 <Base title={t(locale, 'write.browse.title')} description={t(locale, 'write.browse.desc')}>
@@ -44,6 +48,7 @@ const ui = {
   const ui = JSON.parse(document.getElementById('wr-i18n')!.textContent!) as {
     base: string; intl: string; locale: string; noPieces: string; noPiecesAtAll: string; tileMeta: string;
     kindFan: string; kindAnalyst: string; loadError: string; viewsLabel: string;
+    share: string; shareOn: string; copy: string; copied: string;
   };
   const digits = (n: number) => (ui.locale === 'kn' ? String(n).replace(/[0-9]/g, (d) => '೦೧೨೩೪೫೬೭೮೯'[Number(d)]) : String(n));
   const EYE_SVG = '<svg class="wr-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
@@ -58,6 +63,49 @@ const ui = {
     if (text !== undefined) e.textContent = text;
     return e;
   }
+  // Forward arrow on each tile opens X, WhatsApp and copy-link options. It sits beside the tile link, not inside it.
+  function shareMenu(p: P, articleHref: string) {
+    const url = new URL(articleHref, location.origin).href;
+    const box = el('div', 'wr-tile-actions');
+    const btn = el('button', 'wr-tile-share', '→') as HTMLButtonElement;
+    btn.type = 'button';
+    btn.setAttribute('aria-label', ui.share);
+    btn.setAttribute('aria-expanded', 'false');
+    const menu = el('div', 'wr-tile-menu') as HTMLDivElement;
+    menu.hidden = true;
+    const x = el('a', 'wr-share-btn', 'X') as HTMLAnchorElement;
+    x.href = `https://x.com/intent/post?text=${encodeURIComponent(p.title)}&url=${encodeURIComponent(url)}`;
+    x.target = '_blank';
+    x.rel = 'noopener';
+    x.setAttribute('aria-label', ui.shareOn.replace('{network}', 'X'));
+    const wa = el('a', 'wr-share-btn', 'WhatsApp') as HTMLAnchorElement;
+    wa.href = `https://wa.me/?text=${encodeURIComponent(`${p.title} ${url}`)}`;
+    wa.target = '_blank';
+    wa.rel = 'noopener';
+    wa.setAttribute('aria-label', ui.shareOn.replace('{network}', 'WhatsApp'));
+    const copy = el('button', 'wr-share-btn', ui.copy) as HTMLButtonElement;
+    copy.type = 'button';
+    copy.dataset.copy = url;
+    copy.dataset.done = ui.copied;
+    menu.append(x, wa, copy);
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const open = menu.hidden;
+      closeMenus();
+      menu.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    box.append(btn, menu);
+    return box;
+  }
+  function closeMenus() {
+    document.querySelectorAll<HTMLDivElement>('.wr-tile-menu').forEach((m) => { m.hidden = true; });
+    document.querySelectorAll('.wr-tile-share').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+  }
+  document.addEventListener('click', (e) => {
+    if (!(e.target as Element).closest('.wr-tile-actions')) closeMenus();
+  });
+
   function render() {
     grid.replaceChildren();
     const list = posts.filter((p) => filter === 'all' || p.kind === filter);
@@ -66,6 +114,7 @@ const ui = {
       return;
     }
     for (const p of list) {
+      const wrap = el('div', 'wr-tile-wrap');
       const a = el('a', 'wr-tile') as HTMLAnchorElement;
       a.href = `${ui.base}/armchair-gaffers/write/${p.slug}`;
       if (p.cover) {
@@ -80,17 +129,16 @@ const ui = {
       const foot = el('div', 'wr-foot');
       const date = new Date(p.publishedAt).toLocaleDateString(ui.intl, { day: 'numeric', month: 'short', year: 'numeric' });
       const meta = ui.tileMeta.replace('{author}', p.author).replace('{date}', date).replace('{minutes}', digits(p.minutes));
-      const end = el('span', 'wr-foot-end');
       const views = el('span', 'wr-views');
       const viewsText = ui.viewsLabel.replace('{n}', digits(p.views));
       views.setAttribute('role', 'img');
       views.setAttribute('aria-label', viewsText);
       views.title = viewsText;
       views.innerHTML = EYE_SVG + digits(p.views);
-      end.append(views, el('b', '', '→'));
-      foot.append(el('span', '', meta), end);
+      foot.append(el('span', '', meta), views);
       a.append(foot);
-      grid.append(a);
+      wrap.append(a, shareMenu(p, a.href));
+      grid.append(wrap);
     }
   }
   chips.forEach((c) => c.addEventListener('click', () => {

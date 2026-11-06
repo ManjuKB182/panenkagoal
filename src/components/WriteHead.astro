@@ -100,7 +100,16 @@ const href = (p: string) => localePath(locale, p);
 
   .wr-views { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .wr-views .wr-eye { flex: none; }
-  .wr-tile .wr-foot-end { display: inline-flex; align-items: center; gap: 10px; }
+  .wr-tile-wrap { position: relative; min-width: 0; display: flex; }
+  .wr-tile-wrap > .wr-tile { flex: 1; min-width: 0; }
+  .wr-tile-wrap .wr-foot { padding-right: 40px; }
+  .wr-tile-actions { position: absolute; right: 12px; bottom: 12px; }
+  .wr-tile-share { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--brand-text); font: inherit; font-size: 15px; line-height: 1; cursor: pointer; transition: border-color 0.15s, transform 0.15s; }
+  .wr-tile-share:hover { border-color: var(--brand); }
+  .wr-tile-share:active { transform: scale(0.94); }
+  .wr-tile-menu { position: absolute; right: 0; bottom: 38px; display: flex; flex-direction: column; gap: 6px; padding: 8px; min-width: 160px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); z-index: 2; }
+  .wr-tile-menu[hidden] { display: none; }
+  .wr-tile-menu .wr-share-btn { justify-content: center; }
   .wr-by .wr-views { margin-left: auto; }
   .wr-share { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
   .wr-share-label { font-size: 14px; color: var(--text-2); margin-right: 4px; }
