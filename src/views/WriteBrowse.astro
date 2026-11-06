@@ -52,6 +52,7 @@ const ui = {
   };
   const digits = (n: number) => (ui.locale === 'kn' ? String(n).replace(/[0-9]/g, (d) => '೦೧೨೩೪೫೬೭೮೯'[Number(d)]) : String(n));
   const EYE_SVG = '<svg class="wr-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+  const SHARE_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 14 20 9 15 4"/><path d="M4 20v-7a4 4 0 0 1 4-4h12"/></svg>';
   const grid = document.getElementById('wr-grid')!;
   const chips = [...document.querySelectorAll<HTMLButtonElement>('#wr-filter .chip')];
   let posts: P[] = [];
@@ -67,7 +68,8 @@ const ui = {
   function shareMenu(p: P, articleHref: string) {
     const url = new URL(articleHref, location.origin).href;
     const box = el('div', 'wr-tile-actions');
-    const btn = el('button', 'wr-tile-share', '→') as HTMLButtonElement;
+    const btn = el('button', 'wr-tile-share') as HTMLButtonElement;
+    btn.innerHTML = SHARE_SVG;
     btn.type = 'button';
     btn.setAttribute('aria-label', ui.share);
     btn.setAttribute('aria-expanded', 'false');
