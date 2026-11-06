@@ -40,9 +40,22 @@ describe('helpers', () => {
     expect(slugify('ಕನ್ನಡ!')).toMatch(/^post-[a-z0-9]{5}$/);
   });
   it('escapes HTML in articles', () => {
-    const h = renderArticleHtml({ title: '<b>x</b>', kind: 'fan', author_name: 'A', cover_key: null, body: [{ t: 'p', txt: '<script>' }], photo_credit: '', published_at: new Date().toISOString() });
+    const h = renderArticleHtml({ title: '<b>x</b>', kind: 'fan', author_name: 'A', cover_key: null, body: [{ t: 'p', txt: '<script>' }], photo_credit: '', published_at: new Date().toISOString() }, { url: 'https://panenkagoal.com/armchair-gaffers/write/x' });
     expect(h).not.toContain('<script>');
     expect(h).not.toContain('<b>x');
+  });
+  it('adds share links (top and end) and the view count to articles', () => {
+    const url = 'https://panenkagoal.com/armchair-gaffers/write/my-piece';
+    const h = renderArticleHtml({ title: 'Big "win"', kind: 'analyst', author_name: 'A', cover_key: null, body: [{ t: 'p', txt: 'Hi' }], photo_credit: '', published_at: new Date().toISOString(), views: 2800 }, { url });
+    expect(h.match(/class="wr-share wr-share-/g)).toHaveLength(2);
+    expect(h).toContain(`https://x.com/intent/post?text=Big%20%22win%22&amp;url=${encodeURIComponent(url)}`);
+    expect(h).toContain(`https://wa.me/?text=${encodeURIComponent(`Big "win" ${url}`)}`);
+    expect(h).toContain(`data-copy="${url}"`);
+    expect(h).toContain('<span class="wr-views" role="img" aria-label="2800 views"');
+  });
+  it('renders Kannada share labels when asked', () => {
+    const h = renderArticleHtml({ title: 'x', kind: 'fan', author_name: 'A', cover_key: null, body: [], photo_credit: '', published_at: new Date().toISOString() }, { url: 'https://p/x', locale: 'kn' });
+    expect(h).toContain('ಲಿಂಕ್ ನಕಲಿಸಿ');
   });
   it('Access: fails closed when not configured or the token is junk', async () => {
     const withJwt = (jwt: string) => new Request('https://x/', { headers: { 'Cf-Access-Jwt-Assertion': jwt } });

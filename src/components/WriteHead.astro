@@ -98,6 +98,44 @@ const href = (p: string) => localePath(locale, p);
   .wr-thumbs { display: flex; gap: 6px; flex-wrap: wrap; }
   .wr-thumbs img { width: 72px; height: 54px; object-fit: cover; border-radius: 6px; }
 
+  .wr-views { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .wr-views .wr-eye { flex: none; }
+  .wr-tile-wrap { position: relative; min-width: 0; display: flex; }
+  .wr-tile-wrap > .wr-tile { flex: 1; min-width: 0; }
+  .wr-tile-wrap .wr-foot { padding-right: 40px; }
+  .wr-tile-actions { position: absolute; right: 12px; bottom: 12px; }
+  .wr-tile-share { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--brand-text); font: inherit; font-size: 15px; line-height: 1; cursor: pointer; transition: border-color 0.15s, transform 0.15s; }
+  .wr-tile-share:hover { border-color: var(--brand); }
+  .wr-tile-share:active { transform: scale(0.94); }
+  .wr-tile-menu { position: absolute; right: 0; bottom: 38px; display: flex; flex-direction: column; gap: 6px; padding: 8px; min-width: 160px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); z-index: 2; }
+  .wr-tile-menu[hidden] { display: none; }
+  .wr-tile-menu .wr-share-btn { justify-content: center; }
+  .wr-by .wr-views { margin-left: auto; }
+  .wr-share { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .wr-share-label { font-size: 14px; color: var(--text-2); margin-right: 4px; }
+  .wr-share-btn { display: inline-flex; align-items: center; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-size: 14px; line-height: 1.4; text-decoration: none; cursor: pointer; transition: border-color 0.15s, transform 0.15s; }
+  .wr-share-btn:hover { border-color: var(--brand); }
+  .wr-share-btn:active { transform: scale(0.97); }
+  .wr-share-end { padding-top: 14px; border-top: 1px solid var(--line); }
   @media (max-width: 900px) { .wr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .wr-cols { grid-template-columns: minmax(0, 1fr); } }
   @media (max-width: 560px) { .wr-grid { grid-template-columns: minmax(0, 1fr); } .wr-bar .btn { margin-left: 0; } }
 </style>
+
+<script>
+  // Copy-link buttons in the share bars, and one view per piece per browser tab (sessionStorage stops reload spam).
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as Element).closest<HTMLButtonElement>('[data-copy]');
+    if (!btn) return;
+    const label = btn.textContent ?? '';
+    navigator.clipboard?.writeText(btn.dataset.copy!).then(() => {
+      btn.textContent = btn.dataset.done!;
+      setTimeout(() => { btn.textContent = label; }, 1600);
+    }).catch(() => {});
+  });
+  const slug = location.pathname.match(/\/write\/([^/]+)$/)?.[1];
+  const key = slug ? `viewed:${slug}` : '';
+  if (slug && document.querySelector('#post-root .wr-art') && !sessionStorage.getItem(key)) {
+    sessionStorage.setItem(key, '1');
+    fetch(`/api/write/view/${slug}`, { method: 'POST', keepalive: true }).catch(() => {});
+  }
+</script>
