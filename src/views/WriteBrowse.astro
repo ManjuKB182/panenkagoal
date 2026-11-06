@@ -18,6 +18,7 @@ const ui = {
   kindFan: t(locale, 'write.kind.fan'),
   kindAnalyst: t(locale, 'write.kind.analyst'),
   loadError: t(locale, 'write.browse.loadError'),
+  viewsLabel: t(locale, 'write.views.label'),
 };
 ---
 <Base title={t(locale, 'write.browse.title')} description={t(locale, 'write.browse.desc')}>
@@ -39,12 +40,13 @@ const ui = {
 
 <script>
   // Published pieces load live from /api/write/posts, so a newly approved piece shows up without a site rebuild.
-  type P = { slug: string; title: string; kind: 'fan' | 'analyst'; author: string; publishedAt: string; minutes: number; cover: string | null };
+  type P = { slug: string; title: string; kind: 'fan' | 'analyst'; author: string; publishedAt: string; minutes: number; cover: string | null; views: number };
   const ui = JSON.parse(document.getElementById('wr-i18n')!.textContent!) as {
     base: string; intl: string; locale: string; noPieces: string; noPiecesAtAll: string; tileMeta: string;
-    kindFan: string; kindAnalyst: string; loadError: string;
+    kindFan: string; kindAnalyst: string; loadError: string; viewsLabel: string;
   };
   const digits = (n: number) => (ui.locale === 'kn' ? String(n).replace(/[0-9]/g, (d) => '೦೧೨೩೪೫೬೭೮೯'[Number(d)]) : String(n));
+  const EYE_SVG = '<svg class="wr-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
   const grid = document.getElementById('wr-grid')!;
   const chips = [...document.querySelectorAll<HTMLButtonElement>('#wr-filter .chip')];
   let posts: P[] = [];
@@ -78,7 +80,15 @@ const ui = {
       const foot = el('div', 'wr-foot');
       const date = new Date(p.publishedAt).toLocaleDateString(ui.intl, { day: 'numeric', month: 'short', year: 'numeric' });
       const meta = ui.tileMeta.replace('{author}', p.author).replace('{date}', date).replace('{minutes}', digits(p.minutes));
-      foot.append(el('span', '', meta), el('b', '', '→'));
+      const end = el('span', 'wr-foot-end');
+      const views = el('span', 'wr-views');
+      const viewsText = ui.viewsLabel.replace('{n}', digits(p.views));
+      views.setAttribute('role', 'img');
+      views.setAttribute('aria-label', viewsText);
+      views.title = viewsText;
+      views.innerHTML = EYE_SVG + digits(p.views);
+      end.append(views, el('b', '', '→'));
+      foot.append(el('span', '', meta), end);
       a.append(foot);
       grid.append(a);
     }

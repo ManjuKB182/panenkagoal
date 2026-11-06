@@ -9,7 +9,7 @@ export const onRequestGet = async (ctx: { request: Request; env: Env; params: { 
   const slug = String(ctx.params.slug);
   if (RESERVED_SLUGS.includes(slug)) return ctx.next(); // /write/submit is a real static page
   const sql = getSql(env);
-  const rows = sql ? await sql(`select title, kind, author_name, cover_key, body, photo_credit, published_at from posts where slug = $1 and status = 'published'`, [slug]).catch(() => []) : [];
+  const rows = sql ? await sql(`select title, kind, author_name, cover_key, body, photo_credit, published_at, views from posts where slug = $1 and status = 'published'`, [slug]).catch(() => []) : [];
   const shellUrl = new URL('/armchair-gaffers/article-shell', request.url);
   const shell = await env.ASSETS!.fetch(shellUrl.toString());
   const headers = new Headers({ 'content-type': 'text/html; charset=utf-8' });
@@ -36,7 +36,7 @@ export const onRequestGet = async (ctx: { request: Request; env: Env; params: { 
     .on('meta[property="og:type"]', { element(e: any) { e.setAttribute('content', 'article'); } })
     .on('meta[property="og:image"]', { element(e: any) { if (img) e.setAttribute('content', img); } })
     .on('meta[name="twitter:card"]', { element(e: any) { e.after(tw('twitter:title', title) + tw('twitter:description', firstPara) + (img ? tw('twitter:image', img) : ''), { html: true }); } })
-    .on('#post-root', { element(e: any) { e.setInnerContent(renderArticleHtml(p), { html: true }); } })
+    .on('#post-root', { element(e: any) { e.setInnerContent(renderArticleHtml(p, { url: canonical }), { html: true }); } })
     .transform(new Response(shell.body, { status: 200, headers }));
   res.headers.set('cache-control', 'public, max-age=60, stale-while-revalidate=300');
   return res;

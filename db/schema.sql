@@ -38,6 +38,8 @@ create table if not exists posts (
 create index if not exists posts_status_published on posts (status, published_at desc);
 -- 'My pieces' for signed-in writers. (No trailing comment: db-migrate splits on a line-ending semicolon.)
 create index if not exists posts_author_email on posts (lower(author_email));
+-- Reader views, counted by POST /api/write/view/<slug> when a published piece opens.
+alter table posts add column if not exists views integer not null default 0;
 
 -- Per-IP submission log for the rate limit (IP is stored hashed).
 create table if not exists write_submissions (

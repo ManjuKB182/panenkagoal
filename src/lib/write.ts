@@ -7,6 +7,7 @@
 // article into the static shell with HTMLRewriter, so it is real HTML for search engines and needs no deploy.
 
 import { neon } from '@neondatabase/serverless';
+import { digits, t, type Locale } from '../i18n';
 
 export type PostKind = 'fan' | 'analyst';
 export type PostStatus = 'pending' | 'published' | 'sent_back';
@@ -158,14 +159,40 @@ export function blocksFor(sub: SubmissionInput, keys: string[]): { blocks: Block
 export const KIND_LABEL: Record<string, string> = { fan: 'Fan', analyst: 'Analyst' };
 const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' });
 
-export function renderArticleHtml(p: { title: string; kind: string; author_name: string; cover_key: string | null; body: Block[]; photo_credit: string; published_at: string }): string {
+export interface ArticleView { title: string; kind: string; author_name: string; cover_key: string | null; body: Block[]; photo_credit: string; published_at: string; views?: number }
+
+// Eye icon for view counts. Decorative: the count's aria-label carries the meaning.
+const EYE_SVG = '<svg class="wr-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+
+export function viewsHtml(views: number, locale: Locale): string {
+  const n = digits(locale, views);
+  return `<span class="wr-views" role="img" aria-label="${esc(t(locale, 'write.views.label', { n }))}" title="${esc(t(locale, 'write.views.label', { n }))}">${EYE_SVG}${n}</span>`;
+}
+
+// Share bar: X and WhatsApp intent links plus a copy-link button (wired up in WriteHead.astro).
+export function shareBar(url: string, title: string, locale: Locale, where: 'top' | 'end'): string {
+  const x = `https://x.com/intent/post?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+  const wa = `https://wa.me/?text=${encodeURIComponent(`${title} ${url}`)}`;
+  const label = t(locale, where === 'end' ? 'write.share.endTitle' : 'write.share.title');
+  return `<div class="wr-share wr-share-${where}" role="group" aria-label="${esc(label)}">` +
+    `<span class="wr-share-label">${esc(label)}</span>` +
+    `<a class="wr-share-btn" href="${esc(x)}" target="_blank" rel="noopener" aria-label="${esc(t(locale, 'write.share.on', { network: 'X' }))}">X</a>` +
+    `<a class="wr-share-btn" href="${esc(wa)}" target="_blank" rel="noopener" aria-label="${esc(t(locale, 'write.share.on', { network: 'WhatsApp' }))}">WhatsApp</a>` +
+    `<button type="button" class="wr-share-btn" data-copy="${esc(url)}" data-done="${esc(t(locale, 'write.share.copied'))}">${esc(t(locale, 'write.share.copy'))}</button>` +
+    `</div>`;
+}
+
+export function renderArticleHtml(p: ArticleView, opts: { url: string; locale?: Locale }): string {
+  const locale = opts.locale ?? 'en';
   const fig = (key: string, cap: string, credit: string, eager = false) =>
     `<figure><img src="/api/write/photo/${esc(key)}" alt="${esc(cap)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">` +
     (cap || credit ? `<figcaption>${cap ? esc(cap) : ''}${credit ? `<i>${esc(credit)}</i>` : ''}</figcaption>` : '') + '</figure>';
   return `<article class="wr-art"><p class="eyebrow">${esc(KIND_LABEL[p.kind] ?? 'Fan')} analysis</p><h1>${esc(p.title)}</h1>` +
-    `<div class="wr-by"><span class="wr-tag${p.kind === 'analyst' ? ' an' : ''}">${esc(KIND_LABEL[p.kind] ?? 'Fan')}</span> ${esc(p.author_name)} · ${readMinutes(p.body)} min read · ${fmtDate(p.published_at)}</div>` +
+    `<div class="wr-by"><span class="wr-tag${p.kind === 'analyst' ? ' an' : ''}">${esc(KIND_LABEL[p.kind] ?? 'Fan')}</span> ${esc(p.author_name)} · ${readMinutes(p.body)} min read · ${fmtDate(p.published_at)}${viewsHtml(p.views ?? 0, locale)}</div>` +
+    shareBar(opts.url, p.title, locale, 'top') +
     (p.cover_key ? fig(p.cover_key, '', p.photo_credit, true) : '') +
     p.body.map((b) => (b.t === 'p' ? `<p>${esc(b.txt)}</p>` : fig(b.key, b.cap, b.credit))).join('') +
+    shareBar(opts.url, p.title, locale, 'end') +
     `<p class="wr-note">Photos remain the property of their owner.</p>` +
     `<div class="wr-card" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><span><b>Write for Outfield Talks</b><br><span class="wr-note">Send your own breakdown. Photos welcome.</span></span><a class="btn" href="/armchair-gaffers/write/submit">Submit your piece</a></div></article>`;
 }
