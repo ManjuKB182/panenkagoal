@@ -34,16 +34,16 @@ const playAttrs = { 'data-yt': video.id, 'data-title': video.title, 'data-short'
 
 <style>
   .vc { display: grid; gap: 10px; align-content: start; min-width: 0; }
-  .thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-2); border-radius: var(--r); }
+  .thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-2); border-radius: var(--r); box-shadow: 0 16px 30px -20px rgba(20, 22, 26, 0.7); }
   .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
   .thumb:hover img { transform: scale(1.03); }
   .vc :global(iframe) { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; border-radius: var(--r); }
   .badge { position: absolute; top: 10px; left: 10px; }
   .play {
     position: absolute; inset: 0; margin: auto; width: 56px; height: 56px; border-radius: 50%;
-    background: var(--brand); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25); transition: transform 0.15s ease;
+    background: linear-gradient(135deg, var(--brand), #ff6a3d); box-shadow: 0 8px 22px -4px rgba(200, 16, 46, 0.8); transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.5);
   }
-  .thumb:hover .play { transform: scale(1.06); }
+  .thumb:hover .play { transform: scale(1.14); }
   .play::after { content: ''; position: absolute; left: 22px; top: 17px; border-left: 17px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
   .play.small { width: 38px; height: 38px; }
   .play.small::after { left: 15px; top: 11px; border-left-width: 12px; border-top-width: 8px; border-bottom-width: 8px; }
