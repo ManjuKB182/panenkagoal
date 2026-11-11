@@ -1,0 +1,245 @@
+{
+  "slug": "iwl",
+  "seasonLabel": "Indian Women's League 2026-27",
+  "season": "2026-27",
+  "stages": [
+    {
+      "name": "League",
+      "groups": [
+        {
+          "name": "",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "BBFS Garhwal United Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG20240329WA0003_1711692243.jpg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 2,
+              "team": "East Bengal FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_EastBengalFClogowebp1_1680264050.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 3,
+              "team": "Gokulam Kerala FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11821-logo_small-1704290734.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 4,
+              "team": "HOPS Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_0001_1616604252.jpg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 5,
+              "team": "Juba Sangha FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG0350_1660244694.jpg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 6,
+              "team": "Kickstart FC Karnataka",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12772-logo_small-1683175136.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 7,
+              "team": "NITA FOOTBALL ACADEMY",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_LOGONFBA_1711611548.jpeg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 8,
+              "team": "SETHU, MADURAI",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20250812at105652AM_1754986256.jpeg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "aiff-75594",
+      "kickoff": "2026-11-13T13:30:00.000Z",
+      "home": "East Bengal FC",
+      "away": "Gokulam Kerala FC",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75595",
+      "kickoff": "2026-11-14T13:30:00.000Z",
+      "home": "Kickstart FC Karnataka",
+      "away": "SETHU, MADURAI",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75596",
+      "kickoff": "2026-11-16T13:30:00.000Z",
+      "home": "NITA FOOTBALL ACADEMY",
+      "away": "BBFS Garhwal United Football Club",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75597",
+      "kickoff": "2026-11-17T13:30:00.000Z",
+      "home": "Juba Sangha FC",
+      "away": "HOPS Football Club",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75598",
+      "kickoff": "2026-11-19T13:30:00.000Z",
+      "home": "NITA FOOTBALL ACADEMY",
+      "away": "East Bengal FC",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75599",
+      "kickoff": "2026-11-20T09:30:00.000Z",
+      "home": "SETHU, MADURAI",
+      "away": "Gokulam Kerala FC",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75600",
+      "kickoff": "2026-11-20T13:30:00.000Z",
+      "home": "Kickstart FC Karnataka",
+      "away": "HOPS Football Club",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75601",
+      "kickoff": "2026-11-21T13:30:00.000Z",
+      "home": "Juba Sangha FC",
+      "away": "BBFS Garhwal United Football Club",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75602",
+      "kickoff": "2026-11-23T13:30:00.000Z",
+      "home": "Kickstart FC Karnataka",
+      "away": "East Bengal FC",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75603",
+      "kickoff": "2026-11-24T13:30:00.000Z",
+      "home": "Gokulam Kerala FC",
+      "away": "BBFS Garhwal United Football Club",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75604",
+      "kickoff": "2026-11-26T13:30:00.000Z",
+      "home": "HOPS Football Club",
+      "away": "SETHU, MADURAI",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75605",
+      "kickoff": "2026-11-27T09:30:00.000Z",
+      "home": "NITA FOOTBALL ACADEMY",
+      "away": "Juba Sangha FC",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75606",
+      "kickoff": "2026-11-27T13:30:00.000Z",
+      "home": "BBFS Garhwal United Football Club",
+      "away": "East Bengal FC",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75607",
+      "kickoff": "2026-11-28T13:30:00.000Z",
+      "home": "Kickstart FC Karnataka",
+      "away": "Gokulam Kerala FC",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    },
+    {
+      "id": "aiff-75608",
+      "kickoff": "2026-11-30T13:30:00.000Z",
+      "home": "Juba Sangha FC",
+      "away": "SETHU, MADURAI",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium, West Bengal"
+    }
+  ],
+  "scorers": [],
+  "updatedAt": "2026-11-11T09:45:13.496Z"
+}
