@@ -62,11 +62,16 @@ const open = byDay.get(today)!.length ? today : (days.find((d) => byDay.get(d.ke
 </script>
 
 <style>
-  .days { margin-bottom: 14px; }
-  .days .n { margin-left: 6px; background: var(--accent); color: var(--on-accent); border-radius: 99px; font-size: 11px; padding: 1px 6px; font-weight: 700; }
+  /* Gen Z pass: pill day chips with a sticker count, competition headers as gradient tags. */
+  .days { margin-bottom: 16px; gap: 8px; }
+  .days :global(.chip) { border-radius: 99px; font-weight: 700; padding: 8px 16px; transition: transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1.4); }
+  .days :global(.chip:active) { transform: scale(0.94); }
+  .days :global(.chip[aria-selected='true']) { background: linear-gradient(135deg, var(--brand), #ff6a3d); border-color: transparent; color: #fff; box-shadow: 0 8px 20px -8px rgba(200, 16, 46, 0.7); }
+  .days .n { margin-left: 6px; background: var(--accent); color: var(--on-accent); border-radius: 99px; font-size: 11px; padding: 1px 7px; font-weight: 800; }
   .day[hidden] { display: none; }
-  .empty { padding: 20px; }
-  .comp-group { padding: 6px 18px 4px; border-bottom: 1px solid var(--line); }
-  .comp-group:last-child { border-bottom: 0; }
-  .comp-name { display: block; padding: 10px 0 2px; font: 700 13px var(--body); letter-spacing: 0.04em; text-transform: uppercase; color: var(--brand-text); text-decoration: none; }
+  .day { background: transparent; border: 0; box-shadow: none; overflow: visible; display: grid; gap: 14px; }
+  .empty { padding: 28px 20px; text-align: center; background: var(--surface); border: 1.5px dashed var(--line-strong); border-radius: 20px; }
+  .comp-group { padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 12px 30px -22px rgba(20, 22, 26, 0.5); }
+  .comp-name { display: inline-block; margin-bottom: 10px; padding: 5px 12px; border-radius: 99px; font: 800 11.5px var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-accent); background: var(--accent); text-decoration: none; transition: transform 0.15s; }
+  .comp-name:hover { transform: rotate(-2deg) scale(1.04); }
 </style>
