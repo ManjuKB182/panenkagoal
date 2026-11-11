@@ -85,8 +85,8 @@ export const COMPETITIONS: Competition[] = [
     short: 'IWL',
     section: 'wofo',
     gender: 'women',
-    // AIFF type 11 has the IWL top division's points table, but its fixtures are IWL 2 2026-27. Top division stays hand-kept until verified.
-    source: { kind: 'manual', file: 'data/manual/iwl.json' },
+    // AIFF type 11 now serves the IWL 2026-27 fixtures. data/manual/iwl.json stays as a fallback team list.
+    source: { kind: 'aiff', type: 11 },
     sourceLabel: 'AIFF',
     sourceUrl: 'https://www.the-aiff.com/competitions/iwl',
     fallbacks: [{ kind: 'ifl', slug: 'iwl' }],
