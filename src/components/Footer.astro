@@ -52,8 +52,9 @@ const EMAIL = 'panenka995@gmail.com';
 
 <style>
   footer {
-    margin-top: 48px; background: var(--ink); color: #cfc8bb; padding-block: 44px; font-size: 15px;
-    border-top: 3px solid; border-image: linear-gradient(90deg, var(--accent) 0 50%, var(--brand) 50% 100%) 1;
+    margin-top: 48px; background: var(--ink); color: #cfc8bb; padding-block: 48px; font-size: 15px;
+    border-radius: 32px 32px 0 0; position: relative; overflow: hidden;
+    background-image: radial-gradient(600px 220px at 12% 0%, rgba(200, 16, 46, 0.35), transparent 70%), radial-gradient(500px 200px at 90% 0%, rgba(245, 196, 0, 0.18), transparent 70%);
   }
   .grid { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; flex-wrap: wrap; }
 
@@ -66,21 +67,25 @@ const EMAIL = 'panenka995@gmail.com';
 
   .cols { display: flex; gap: 56px; flex-wrap: wrap; }
   section { display: grid; gap: 14px; align-content: start; justify-items: start; }
-  h2 { font: 600 12px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: #8d8679; margin: 0 0 4px; }
-  .link { color: #e9e4d9; text-decoration: none; transition: color 0.15s; }
-  .link:hover { color: var(--accent); }
+  h2 { font: 800 12px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: #8d8679; margin: 0 0 4px; }
+  .link { color: #e9e4d9; text-decoration: none; font-weight: 600; transition: color 0.15s, transform 0.15s; }
+  .link:hover { color: var(--accent); transform: translateX(3px); }
   .link { line-height: 46px; }
 
   .icons { display: flex; gap: 12px; }
   .icons a {
-    display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid #3d3a34; color: #e9e4d9;
+    display: grid; place-items: center; width: 46px; height: 46px; border-radius: 16px; border: 1px solid #3d3a34; background: rgba(255, 255, 255, 0.04); color: #e9e4d9;
     transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s;
   }
-  .icons a:hover { border-color: var(--accent); background: var(--accent); color: var(--on-accent); transform: translateY(-1px); }
+  .icons a:hover { border-color: var(--accent); background: var(--accent); color: var(--on-accent); transform: translateY(-3px) rotate(-4deg); }
+  /* Install button (InstallApp lives in the footer): same gradient pill as .btn. */
+  footer :global(.install-btn) { border: 0; color: #fff; font-weight: 700; padding: 10px 18px; background: linear-gradient(135deg, var(--brand), #ff6a3d); box-shadow: 0 10px 22px -10px rgba(200, 16, 46, 0.9); transition: transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1.4); }
+  footer :global(.install-btn:hover) { background: linear-gradient(135deg, var(--brand), #ff6a3d); transform: translateY(-2px); }
+  footer :global(.install-hint) { padding: 8px 12px; border-radius: 14px; background: rgba(255, 255, 255, 0.06); }
 
   /* Phones: compact brand row, then one labelled row per item. */
   @media (max-width: 760px) {
-    footer { margin-top: 32px; padding-block: 28px 24px; font-size: 14px; }
+    footer { border-radius: 24px 24px 0 0; margin-top: 32px; padding-block: 28px 24px; font-size: 14px; }
     .grid { flex-direction: column; gap: 22px; }
     .about { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; }
     .logo img { width: 44px; height: 44px; }

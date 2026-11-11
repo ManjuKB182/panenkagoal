@@ -183,7 +183,7 @@ const loop = moving.length >= 6;
     border-bottom: 1px solid var(--line);
   }
   /* A thin flag stripe is the only large use of the brand colours. */
-  .site-header::before { content: ''; display: block; height: 3px; background: linear-gradient(90deg, var(--accent) 0 50%, var(--brand) 50% 100%); }
+  .site-header::before { content: ''; display: block; height: 4px; background: linear-gradient(90deg, var(--accent), #ff8a3d 50%, var(--brand)); }
   .bar { display: flex; align-items: center; gap: 14px; min-height: 64px; }
   .mark { flex: none; display: block; }
   .mark img { width: 44px; height: 44px; transition: transform 0.3s ease; }
@@ -195,18 +195,18 @@ const loop = moving.length >= 6;
   .main-nav { display: flex; align-self: stretch; margin-left: auto; }
   .word { margin-left: -4px; }
   .main-nav a {
-    display: flex; align-items: center; color: var(--text-2); text-decoration: none; font-weight: 600; font-size: 15px;
-    padding: 0 13px; white-space: nowrap; box-shadow: inset 0 -2px 0 transparent; transition: color 0.15s, box-shadow 0.15s;
+    display: flex; align-items: center; align-self: center; color: var(--text-2); text-decoration: none; font-weight: 700; font-size: 14.5px;
+    padding: 8px 14px; margin-inline: 2px; border-radius: 99px; white-space: nowrap; transition: color 0.15s, background-color 0.15s, transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1.4);
   }
-  .main-nav a:hover { color: var(--text); }
-  .main-nav a[aria-current='page'] { color: var(--text); box-shadow: inset 0 -2px 0 var(--brand); }
+  .main-nav a:hover { color: var(--text); background: var(--surface-2); transform: translateY(-1px); }
+  .main-nav a[aria-current='page'] { color: #fff; background: linear-gradient(135deg, var(--brand), #ff6a3d); box-shadow: 0 8px 18px -8px rgba(200, 16, 46, 0.75); }
   /* Outfield Talks: a small teal dot that pulses slowly, nothing else. */
   .main-nav a.hot { gap: 7px; }
   .main-nav a.hot::before, .menu a.hot b::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--adda); flex: none; animation: adda-dot 2.8s ease-in-out infinite; }
-  .main-nav a.hot[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--adda); }
+  .main-nav a.hot[aria-current='page'] { background: linear-gradient(135deg, var(--adda), var(--adda-2)); box-shadow: 0 8px 18px -8px var(--adda-glow); }
+  .main-nav a.hot[aria-current='page']::before { background: #fff; }
   .main-nav a.hot { position: relative; }
-  .main-nav a.hot::after { content: ''; position: absolute; left: 13px; right: 13px; bottom: 0; height: 2px; background: var(--adda); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
-  .main-nav a.hot:hover::after { transform: scaleX(1); }
+  
   .menu a.hot b { display: inline-flex; align-items: center; gap: 9px; }
   .menu a.hot[aria-current='page'] b { color: var(--adda-text); }
   @keyframes adda-dot { 50% { transform: scale(0.6); opacity: 0.5; } }
@@ -214,9 +214,9 @@ const loop = moving.length >= 6;
     flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%;
     border: 1px solid var(--line); background: var(--surface); color: var(--text-2); cursor: pointer; transition: color 0.15s, border-color 0.15s, transform 0.3s;
   }
-  .lang { flex: none; display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
-  .lang a { font-size: 13px; font-weight: 600; padding: 6px 10px; color: var(--text-2); text-decoration: none; line-height: 1.2; }
-  .lang a[aria-current='true'] { color: var(--text); background: var(--line); }
+  .lang { flex: none; display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface-2); }
+  .lang a { font-size: 13px; font-weight: 700; padding: 6px 10px; color: var(--text-2); text-decoration: none; line-height: 1.2; }
+  .lang a[aria-current='true'] { color: var(--bg); background: var(--text); border-radius: 999px; }
   .lang a:lang(kn) { font-family: var(--kn); }
   .theme:hover { color: var(--text); border-color: var(--line-strong); }
   .theme:active { transform: rotate(30deg); }
@@ -233,7 +233,7 @@ const loop = moving.length >= 6;
   /* Live matches sit still on the left; everything else scrolls past on the right. */
   .pin { flex: none; display: flex; position: relative; z-index: 2; background: var(--strip-bg); box-shadow: 8px 0 10px -8px rgba(0, 0, 0, 0.25); }
   .pin:empty { display: none; }
-  .pin :global(.sc) { background: var(--brand-tint); box-shadow: inset 0 -2px 0 var(--brand); }
+  .pin :global(.sc) { background: var(--brand-tint); border-color: var(--brand); box-shadow: 0 0 18px -6px rgba(255, 61, 87, 0.7); }
   .ticker { flex: 1; min-width: 0; overflow: hidden; }
   .track { display: flex; width: max-content; }
   .track:not(.loop) { width: auto; overflow-x: auto; scrollbar-width: none; padding-inline: var(--gutter); }
@@ -245,8 +245,8 @@ const loop = moving.length >= 6;
   .scores:focus-within .track.loop { animation-play-state: paused; }
   @keyframes ticker { to { transform: translateX(-50%); } }
   .set { display: flex; }
-  .scores :global(.sc) { flex: none; width: 176px; display: grid; gap: 3px; padding: 9px 14px; overflow: hidden; color: var(--text); text-decoration: none; border-right: 1px solid var(--line); transition: background-color 0.15s; }
-  .scores :global(.sc:hover) { background: var(--surface); }
+  .scores :global(.sc) { flex: none; width: 176px; display: grid; gap: 3px; padding: 9px 14px; margin: 7px 4px; overflow: hidden; color: var(--text); text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; transition: border-color 0.15s, transform 0.18s cubic-bezier(0.2, 0.9, 0.3, 1.4); }
+  .scores :global(.sc:hover) { border-color: color-mix(in srgb, var(--brand) 50%, transparent); transform: translateY(-2px); }
   .scores :global(.sc-top) { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; font-weight: 600; color: var(--text-3); }
   .scores :global(.state) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .scores :global(.comp) { font-weight: 700; color: var(--text-2); letter-spacing: 0.04em; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -264,7 +264,7 @@ const loop = moving.length >= 6;
   .scores :global(.row b) { flex: none; color: var(--text-3); font-weight: 700; }
   .scores :global(.row b.w), .pin :global(.row b) { color: var(--text); }
 
-  .burger { display: none; flex: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); cursor: pointer; padding: 0; place-content: center; gap: 4px; }
+  .burger { display: none; flex: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2); cursor: pointer; padding: 0; place-content: center; gap: 4px; }
   .burger span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--text); transition: transform 0.2s, opacity 0.2s; }
   :global(html.menu-open) .burger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
   :global(html.menu-open) .burger span:nth-child(2) { opacity: 0; }
@@ -272,8 +272,9 @@ const loop = moving.length >= 6;
   .menu { position: fixed; inset: 0; top: var(--menu-top, 60px); z-index: 29; background: var(--header-bg); overflow-y: auto; padding: 8px var(--gutter) 40px; }
   .menu[hidden] { display: none; }
   .menu nav { display: grid; max-width: 640px; margin: 0 auto; }
-  .menu a { display: grid; gap: 2px; padding: 14px 4px; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--text); }
-  .menu a b { font: 700 22px/1.2 var(--display); letter-spacing: 0.01em; }
+  .menu a { display: grid; gap: 2px; padding: 14px 16px; margin-block: 4px; border-radius: 18px; background: var(--surface-2); text-decoration: none; color: var(--text); transition: transform 0.15s; }
+  .menu a:active { transform: scale(0.98); }
+  .menu a b { font: 800 22px/1.2 var(--display); letter-spacing: 0.01em; }
   .menu a small { color: var(--text-3); font-size: 13.5px; }
   .menu a[aria-current='page'] b { color: var(--brand-text); }
   :global(html.menu-open) { overflow: hidden; }
