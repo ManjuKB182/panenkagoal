@@ -44,8 +44,8 @@
 
   --gutter: clamp(16px, 3vw, 40px);
   --max: 1360px;
-  --r: 10px;
-  --r-sm: 6px;
+  --r: 20px;
+  --r-sm: 12px;
   color-scheme: light;
 }
 
@@ -100,9 +100,9 @@ p { margin: 0; }
 /* Section header: title on a hairline rule with a short red marker under it. */
 .module { padding-block: 32px; }
 .mod-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
-.mod-head h2 { padding-bottom: 9px; margin-bottom: -1px; border-bottom: 2px solid var(--brand); }
-.mod-head a { font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; padding-bottom: 10px; }
-.mod-head a:hover { text-decoration: underline; }
+.mod-head h2 { padding-bottom: 9px; margin-bottom: -1px; border-bottom: 4px solid transparent; border-image: linear-gradient(90deg, var(--brand), #ff8a3d 60%, var(--accent)) 1; letter-spacing: -0.02em; }
+.mod-head a { font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; margin-bottom: 8px; padding: 6px 12px; border-radius: 99px; background: var(--surface-2); transition: background-color 0.15s, transform 0.15s; }
+.mod-head a:hover { background: var(--brand-tint); transform: translateX(2px); }
 
 /* Pill tabs: the selected one is solid ink, not red, so pages stay calm. */
 .chips { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -112,19 +112,22 @@ p { margin: 0; }
   transition: background-color 0.15s, color 0.15s, border-color 0.15s;
 }
 .chip:hover { border-color: var(--line-strong); color: var(--text); }
-.chip[aria-selected='true'], .chip.on { background: var(--text); border-color: var(--text); color: var(--bg); }
+.chip[aria-selected='true'], .chip.on { background: var(--text); border-color: var(--text); color: var(--bg); box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.5); }
+.chip:active { transform: scale(0.95); }
 
-.badge { display: inline-block; font: 700 11px/1 var(--body); letter-spacing: 0.03em; text-transform: uppercase; padding: 5px 7px; border-radius: 4px; background: var(--accent); color: var(--on-accent); }
-.badge.red { background: var(--brand); color: #fff; }
+.badge { display: inline-block; font: 700 11px/1 var(--body); letter-spacing: 0.03em; text-transform: uppercase; padding: 5px 7px; border-radius: 99px; background: var(--accent); color: var(--on-accent); }
+.badge.red { background: linear-gradient(135deg, var(--brand), #ff6a3d); color: #fff; }
 .src { font: 600 12px/1 var(--body); color: var(--text-2); white-space: nowrap; }
 .src.panenka { color: var(--brand-text); }
 
 .btn {
   display: inline-flex; align-items: center; gap: 8px; background: var(--brand); color: #fff; font: 600 14.5px/1 var(--body);
-  padding: 12px 20px; border-radius: 99px; text-decoration: none; border: 1px solid transparent; transition: filter 0.15s, background-color 0.15s;
+  padding: 13px 22px; border-radius: 99px; text-decoration: none; border: 1px solid transparent; transition: filter 0.15s, background-color 0.15s, transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1.4), box-shadow 0.15s;
+  background-image: linear-gradient(135deg, var(--brand), #ff6a3d); box-shadow: 0 10px 22px -10px rgba(200, 16, 46, 0.8);
 }
-.btn:hover { filter: brightness(1.08); }
-.btn.ghost { background: transparent; color: var(--text); border-color: var(--line-strong); }
+.btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.btn:active { transform: scale(0.96); }
+.btn.ghost { background: transparent; background-image: none; box-shadow: none; color: var(--text); border-color: var(--line-strong); }
 .btn.ghost:hover { background: var(--surface-2); filter: none; }
 
 /* Horizontal rail that snaps on phones */
@@ -135,16 +138,16 @@ p { margin: 0; }
 @media (max-width: 560px) { .rail { grid-auto-columns: 78%; } }
 
 /* White (or dark) cards. .card-head.red / .yellow / .green add a thin coloured top edge. */
-.panel-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; }
+.panel-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: 0 14px 34px -24px rgba(20, 22, 26, 0.55); overflow: hidden; }
 .card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 18px; border-bottom: 1px solid var(--line); }
-.card-head h2, .card-head h3 { font-size: 18px; }
-.card-head a { font-size: 13.5px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.card-head h2, .card-head h3 { font-size: 18px; letter-spacing: -0.02em; }
+.card-head a { font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .card-head a:hover { text-decoration: underline; }
-.card-head.red { box-shadow: inset 0 2px 0 var(--brand); }
-.card-head.yellow { box-shadow: inset 0 2px 0 var(--accent); }
-.card-head.green { box-shadow: inset 0 2px 0 var(--win); }
+.card-head.red { box-shadow: inset 0 4px 0 var(--brand); }
+.card-head.yellow { box-shadow: inset 0 4px 0 var(--accent); }
+.card-head.green { box-shadow: inset 0 4px 0 var(--win); }
 .card-body { padding: 14px 18px; }
-.note { border-radius: var(--r); background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); padding: 12px 16px; font-size: 15px; }
+.note { border-radius: var(--r); background: var(--accent-tint); border: 1.5px dashed color-mix(in srgb, var(--accent) 60%, transparent); padding: 14px 18px; font-size: 15px; }
 
 /* Table shell: tables scroll inside their own box, never the page */
 .tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
@@ -185,37 +188,40 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
 }
 
 /* Page tabs (underline style) used on Stats, section pages, Karnataka and Outfield Talks. */
-.tabs { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 5px; width: fit-content; max-width: 100%; background: var(--surface-2); border: 1px solid var(--line); border-radius: 99px; margin-bottom: 22px; }
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
-  flex: none; border: 0; border-bottom: 3px solid transparent; margin-bottom: -1px; background: none; cursor: pointer;
-  padding: 11px 16px; font: 600 15px/1.2 var(--body); color: var(--text-2); text-decoration: none; white-space: nowrap;
-  transition: color 0.15s, border-color 0.15s;
+  flex: none; border: 0; border-radius: 99px; background: none; cursor: pointer;
+  padding: 9px 18px; font: 700 14.5px/1.2 var(--body); color: var(--text-2); text-decoration: none; white-space: nowrap;
+  transition: color 0.15s, background-color 0.15s, box-shadow 0.15s;
 }
 .tab:hover { color: var(--text); }
-.tab[aria-selected='true'] { color: var(--text); border-bottom-color: var(--brand); }
+.tab[aria-selected='true'] { color: #fff; background: linear-gradient(135deg, var(--brand), #ff6a3d); box-shadow: 0 8px 18px -8px rgba(200, 16, 46, 0.75); }
+.tab[aria-selected='true'] .n { background: #fff; color: var(--brand-text); }
 .tab .n { margin-left: 6px; background: var(--accent); color: var(--on-accent); border-radius: 99px; font-size: 11px; padding: 1px 7px; font-weight: 700; }
 .tabpanel[hidden] { display: none; }
 
 /* Tiles: one shape everywhere (label, title, detail, footer) so every grid lines up. */
 .tiles { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
 .tile {
-  display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; min-height: 156px; min-width: 0; text-align: left;
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow);
-  color: var(--text); text-decoration: none; font: inherit; transition: border-color 0.15s, transform 0.15s;
+  display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; min-height: 156px; min-width: 0; text-align: left;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: 0 14px 34px -26px rgba(20, 22, 26, 0.6);
+  color: var(--text); text-decoration: none; font: inherit; transition: border-color 0.15s, transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.4), box-shadow 0.2s;
 }
-a.tile:hover, button.tile:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+a.tile:hover, button.tile:hover { border-color: color-mix(in srgb, var(--brand) 50%, transparent); transform: translateY(-4px) rotate(-0.4deg); box-shadow: 0 22px 36px -22px rgba(200, 16, 46, 0.55); }
+a.tile:active, button.tile:active { transform: scale(0.98); }
 a.tile:hover h3, button.tile:hover h3 { color: var(--brand-text); }
 button.tile { cursor: pointer; width: 100%; }
 .tile .lphoto { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border-radius: calc(var(--r) - 4px); margin-bottom: 6px; }
 .tile .eyebrow { font-size: 11.5px; }
-.tile h3 { font-size: 19px; line-height: 1.22; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.tile h3 { font-size: 19px; letter-spacing: -0.02em; line-height: 1.22; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .tile .meta { color: var(--text-2); font-size: 14px; line-height: 1.45; }
 .tile .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-top: 8px; font-size: 13px; font-weight: 700; color: var(--brand-text); }
 .tile .foot .plain { color: var(--text-3); font-weight: 500; }
 .tile .badge { width: fit-content; }
 
 .pagehead { display: grid; gap: 6px; padding-block: 36px 20px; }
+.pagehead h1 { letter-spacing: -0.03em; }
 .pagehead p { color: var(--text-2); max-width: 62ch; }
 .pagehead .kn { color: var(--brand-text); font-weight: 700; font-size: 16px; }
 .tile[hidden] { display: none; }

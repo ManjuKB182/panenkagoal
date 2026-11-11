@@ -202,8 +202,8 @@ const groupByComp = (ms: typeof allMatches) => {
       <div class="mod-head">
         <h2 id="news-h" class="sr-only">{t(locale, 'home.newsAndBlogs')}</h2>
         <div class="chips nb-tabs" role="tablist" aria-label={t(locale, 'home.newsOrBlogs')}>
-          <button class="chip" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="true">{t(locale, 'home.news')}</button>
           <button class="chip" role="tab" id="tab-blogs" aria-controls="panel-blogs" aria-selected="false">{t(locale, 'home.blogs')}</button>
+          <button class="chip" role="tab" id="tab-news" aria-controls="panel-news" aria-selected="true">{t(locale, 'home.news')}</button>
         </div>
         <a id="link-news" href={href('/news')}>{t(locale, 'home.allNews')}</a>
         <a id="link-blogs" href={href('/armchair-gaffers/write')} hidden>{t(locale, 'home.allBlogs')}</a>
