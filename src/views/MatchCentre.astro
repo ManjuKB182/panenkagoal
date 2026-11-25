@@ -192,8 +192,9 @@ const href = (p: string) => localePath(locale, p);
   }
   function squads(d: MatchDetail) {
     const s = d.squads!;
-    return h('div', 'mc-sqwrap', h('p', 'mc-sq-hint', t(locale, 'mc.squadHint')),
-      h('div', 'mc-two', squadTeam(teamName(locale, d.home.name), s.home, d.home), squadTeam(teamName(locale, d.away.name), s.away, d.away)));
+    return h('div', 'mc-sqwrap',
+      h('div', 'mc-two', squadTeam(teamName(locale, d.home.name), s.home, d.home), squadTeam(teamName(locale, d.away.name), s.away, d.away)),
+      h('p', 'mc-sq-hint', t(locale, 'mc.squadHint')));
   }
 
   // ---- stats ----
@@ -239,6 +240,7 @@ const href = (p: string) => localePath(locale, p);
       root.append(h('p', 'mc-empty', note(d)));
     } else {
       const bar = h('div', 'mc-tabs');
+      if (tabs.length === 1) bar.style.display = 'none'; // a lone tab is just noise
       bar.setAttribute('role', 'tablist');
       for (const x of tabs) {
         const b = h('button', 'mc-tab', x.label) as HTMLButtonElement;
@@ -373,7 +375,7 @@ const href = (p: string) => localePath(locale, p);
   /* Desktop: dense three-across tiles so a whole squad of ~30 fits on one screen without scrolling. */
   @media (min-width: 900px) {
     .mc-sqwrap { gap: 8px; }
-    .mc-sq-hint { font-size: 12.5px; }
+    .mc-sq-hint { font-size: 12px; margin-top: -2px; }
     .mc-sq { gap: 6px; padding: 12px 14px; border-radius: 16px; }
     .mc-sq-head { padding-bottom: 8px; font-size: 15px; gap: 10px; }
     .mc-sq-head .mc-crest, .mc-sq-head .mc-crest img { width: 30px; height: 30px; }
