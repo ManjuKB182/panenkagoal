@@ -27,6 +27,7 @@ const kn = {
   'footer.aboutLink': 'ನಮ್ಮ ಕಥೆ',
   'footer.installApp': 'ಆ್ಯಪ್ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ',
   'footer.installIosHint': 'Share ಒತ್ತಿ, ನಂತರ "Add to Home Screen" ಆಯ್ಕೆ ಮಾಡಿ.',
+  'footer.installChromeIosHint': 'iPhone ನಲ್ಲಿ Chrome ಮೂಲಕ ಸೇರಿಸಲಾಗುವುದಿಲ್ಲ. ಈ ಪುಟವನ್ನು Safari ನಲ್ಲಿ ತೆರೆಯಿರಿ, Share ಒತ್ತಿ, ನಂತರ "Add to Home Screen" ಆಯ್ಕೆ ಮಾಡಿ.',
   'footer.contact': 'ಸಂಪರ್ಕಿಸಿ',
   'footer.emailGmail': 'Gmail ಮೂಲಕ ಪನೇಂಕ ಗೋಲ್‌ಗೆ ಮೇಲ್ ಕಳುಹಿಸಿ',
   'footer.emailTitle': 'Gmail ನಲ್ಲಿ ಮೇಲ್ ಕಳುಹಿಸಿ',

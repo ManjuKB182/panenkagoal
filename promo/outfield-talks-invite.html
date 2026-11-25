@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Outfield Talks – Write for us</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a}
+:root{--ink:#111;--cream:#FBF4E6;--teal:#1f9e8f;--yellow:#FFD23F;--red:#E23B30;--pink:#FF8FB1}
+.slide{width:1200px;height:675px;position:relative;overflow:hidden;background:var(--cream);color:var(--ink);font-family:Inter,sans-serif;
+ background-image:linear-gradient(#11111110 1px,transparent 1px),linear-gradient(90deg,#11111110 1px,transparent 1px);background-size:40px 40px}
+.abs{position:absolute}
+.box{border:2.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+
+/* left */
+.brand{left:48px;top:38px;display:flex;align-items:center;gap:12px}
+.brand img{width:50px;height:50px;border-radius:50%;border:2.5px solid var(--ink)}
+.brand b{font:800 27px/1 'Barlow Condensed';letter-spacing:.5px;display:block}
+.brand b i{font-style:normal;color:var(--red)}
+.brand span{font:700 10.5px Inter;letter-spacing:2.5px;color:#555}
+.kicker{left:48px;top:122px;font:800 14px Inter;letter-spacing:2px;color:var(--teal);text-transform:uppercase}
+h1{left:44px;top:146px;font:900 94px/.95 'Barlow Condensed';text-transform:uppercase;white-space:nowrap;letter-spacing:-.5px}
+h1 .hl{display:inline-block;background:var(--yellow);padding:0 14px;margin-left:-4px;border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transform:rotate(-2deg);line-height:1}
+.sub{left:48px;top:352px;width:500px;font:500 19px/1.5 Inter;color:#333}
+.sub b{color:var(--ink);font-weight:800}
+.chips{left:48px;top:432px;display:flex;gap:10px}
+.chips span{font:700 14px Inter;padding:7px 14px;border-radius:99px;border:2px solid var(--ink);background:#fff}
+.chips span:nth-child(1){background:#C9F2EC}
+.chips span:nth-child(2){background:#FFE3EC}
+.chips span:nth-child(3){background:#FFF1B8}
+.cta{left:48px;top:504px;display:flex;align-items:center;gap:18px}
+.btn{background:var(--red);color:#fff;font:800 26px 'Barlow Condensed';letter-spacing:.5px;text-transform:uppercase;padding:13px 26px;border-radius:14px}
+.url{font:800 21px Inter}
+.url small{display:block;font:600 12px Inter;color:#666;letter-spacing:.3px}
+.clubs{left:48px;top:588px;display:flex;flex-direction:column;gap:7px}
+.clubs .row{display:flex;align-items:center;gap:10px}
+.lg{font:900 15px 'Barlow Condensed';letter-spacing:1px;width:44px;text-align:center;padding:4px 0;border:2px solid var(--ink);border-radius:8px;box-shadow:2px 2px 0 var(--ink)}
+.lg.isl{background:#C9F2EC}.lg.iwl{background:#FFE3EC}
+.crests{display:flex}
+.crests img{width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid var(--ink);padding:3px;margin-left:-6px;object-fit:contain}
+.crests img:first-child{margin-left:0}
+.all{font:800 11px Inter;letter-spacing:1.5px;text-transform:uppercase;color:#555;margin-left:6px}
+.polaroid{left:906px;top:384px;width:248px;padding:8px 8px 0;background:#fff;border-radius:6px;transform:rotate(4deg)}
+.polaroid .ph{height:150px;background:url(crowd.jpg) 55% 70%/cover;border:2px solid var(--ink);border-radius:3px}
+.polaroid p{font:800 24px/1 'Barlow Condensed';text-transform:uppercase;text-align:center;padding:9px 0 10px;letter-spacing:.5px}
+.polaroid p span{color:var(--red)}
+.tape{position:absolute;top:-12px;left:88px;width:70px;height:22px;background:#FFD23Fcc;border:1.5px solid #11111155;transform:rotate(-5deg)}
+
+/* right */
+.win{left:640px;top:62px;width:510px;border-radius:16px;overflow:hidden;background:#fff;transform:rotate(1.5deg)}
+.chrome{height:30px;background:#fff;border-bottom:2.5px solid var(--ink);display:flex;align-items:center;gap:6px;padding:0 12px}
+.chrome i{width:11px;height:11px;border-radius:50%;border:2px solid var(--ink)}
+.chrome i:nth-child(1){background:var(--red)}.chrome i:nth-child(2){background:var(--yellow)}.chrome i:nth-child(3){background:var(--teal)}
+.chrome em{margin-left:10px;font:600 11px Inter;font-style:normal;color:#555;background:#f1ece2;padding:3px 12px;border-radius:99px}
+.view{position:relative;height:250px;overflow:hidden}
+.view img{position:absolute;width:556px;left:-38px;top:-30px}
+
+.card{width:232px;height:200px;border-radius:14px;overflow:hidden;background:#fff}
+.card img{position:absolute;width:776px;top:-46px}
+.c1{left:652px;top:378px;transform:rotate(-4deg)}
+.c1 img{left:-19px}
+.c2{left:910px;top:392px;transform:rotate(3deg)}
+.c2 img{left:-500px}
+
+.sticker{left:1062px;top:20px;width:112px;height:112px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;text-align:center;transform:rotate(12deg);font:900 24px/.9 'Barlow Condensed';text-transform:uppercase}
+.sticker small{display:block;font:800 10px Inter;letter-spacing:1.5px;margin-top:4px}
+.pill{left:604px;top:300px;background:var(--pink);font:800 15px Inter;padding:8px 16px;border-radius:99px;transform:rotate(-6deg)}
+.spark{font:900 40px Inter;color:var(--teal)}
+.s1{left:600px;top:44px;transform:rotate(10deg)}
+.s2{left:1140px;top:600px;color:var(--red)}
+</style></head><body>
+<div class="slide">
+ <!-- left -->
+ <div class="abs brand"><img src="logo.png" alt=""><div><b>PANENKA <i>GOAL</i></b><span>FOOTBALL IN KANNADA</span></div></div>
+ <div class="abs kicker">📣 Calling every Indian football fan</div>
+ <h1 class="abs">Your club.<br><span class="hl">Your take.</span></h1>
+ <p class="abs sub"><b>Write for Outfield Talks.</b> Match reactions, hot takes, tactics, terrace stories. Fans of every club welcome.</p>
+ <div class="abs chips"><span>⚽ Any club</span><span>🗣️ Fans &amp; analysts</span><span>✍️ Your byline</span></div>
+ <div class="abs cta"><div class="btn box">Pitch your piece →</div><div class="url">panenkagoal.com<small>Outfield Talks → Write → Submit</small></div></div>
+
+ <div class="abs clubs"><div class="row"><b class="lg isl">ISL</b><div class="crests"><img src="isl/1101.png" alt=""><img src="isl/1102.png" alt=""><img src="isl/1252.png" alt=""><img src="isl/1499.png" alt=""><img src="isl/1874.png" alt=""><img src="isl/2354.png" alt=""><img src="isl/3234.png" alt=""><img src="isl/496.png" alt=""><img src="isl/498.png" alt=""><img src="isl/504.png" alt=""><img src="isl/505.png" alt=""><img src="isl/506.png" alt=""><img src="isl/656.png" alt=""></div></div><div class="row"><b class="lg iwl">IWL</b><div class="crests"><img src="iwl/1.png" alt=""><img src="iwl/2.png" alt=""><img src="iwl/3.png" alt=""><img src="iwl/4.jpg" alt=""><img src="iwl/5.jpg" alt=""><img src="iwl/6.jpg" alt=""><img src="iwl/7.jpeg" alt=""><img src="iwl/8.jpeg" alt=""></div><span class="all">+ every club welcome</span></div></div>
+
+ <!-- right -->
+ <div class="abs win box"><div class="chrome"><i></i><i></i><i></i><em>panenkagoal.com/outfield-talks</em></div><div class="view"><img src="shot1.png" alt=""></div></div>
+ <div class="abs card box c1"><img src="shot2.png" alt=""></div>
+ <div class="abs polaroid box"><div class="tape"></div><div class="ph"></div><p>Stands <span>→</span> Stories</p></div>
+ <div class="abs sticker box">Write<br>for us<small>OPEN NOW</small></div>
+ <div class="abs pill box">your story here ✦</div>
+ <div class="abs spark s1">✦</div>
+ <div class="abs spark s2">✦</div>
+</div>
+</body></html>
