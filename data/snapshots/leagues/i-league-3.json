@@ -4,84 +4,14 @@
   "season": "2026-27",
   "stages": [
     {
-      "name": "Group Stage",
+      "name": "Play-Off's",
       "groups": [
         {
-          "name": "Group A",
+          "name": "",
           "rows": [
             {
               "pos": 1,
-              "team": "Keinou Library & Sports Association, Bishnupur",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_KLASAFCLOGO_1655717709.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 2,
-              "team": "NEROCA FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8728-logo_small-1645794060.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 3,
-              "team": "Southern Sporting Union",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_SSULOGOwoBG2edited_1723196019.jpg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 4,
-              "team": "Tiddim Road Athletic Union",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8042-logo_small-1645794024.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            }
-          ]
-        },
-        {
-          "name": "Group B",
-          "rows": [
-            {
-              "pos": 1,
-              "team": "Corbett FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_13750-logo_small-1629904943.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 2,
-              "team": "Garhwal Heroes Football Club",
+              "team": "BBFS Garhwal Heroes Football Club",
               "logo": "https://aiff.b-cdn.net/logos/sm_10929-logo_small-1699437762.png",
               "played": 0,
               "won": 0,
@@ -93,121 +23,7 @@
               "points": 0
             },
             {
-              "pos": 3,
-              "team": "Ghaziabad City Fc",
-              "logo": "https://aiff.b-cdn.net/logos/sm_18676-logo_small-1750091906.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 4,
-              "team": "Sher-e-Punjab Sports Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG8009_1786104909.jpeg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 5,
-              "team": "Techtro Swades United FC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_FullColorLogo_1604567592.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            }
-          ]
-        },
-        {
-          "name": "Group C",
-          "rows": [
-            {
-              "pos": 1,
-              "team": "Chhaygaon F C",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_NewLogoCGFC_1788663911.jpg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
               "pos": 2,
-              "team": "Godavari FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_18696-logo_small-1782197047.jpg",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 3,
-              "team": "Kuppuraj FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11053-logo_small-1667055691.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 4,
-              "team": "LAKECITY FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_16083-logo_small-1660983613.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 5,
-              "team": "NONGKSEH SPORT & CULTURAL CLUB",
-              "logo": "https://aiff.b-cdn.net/logos/lr_18930-logo-1718271704.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            }
-          ]
-        },
-        {
-          "name": "Group D",
-          "rows": [
-            {
-              "pos": 1,
               "team": "Clube De Salgaocar",
               "logo": "https://aiff.b-cdn.net/uploads/sm_CDSLogoInstagram_1716895626.png",
               "played": 0,
@@ -220,9 +36,9 @@
               "points": 0
             },
             {
-              "pos": 2,
-              "team": "GOG FCC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG2781_1790426254.jpeg",
+              "pos": 3,
+              "team": "Godavari FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_18696-logo_small-1782197047.jpg",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -233,7 +49,7 @@
               "points": 0
             },
             {
-              "pos": 3,
+              "pos": 4,
               "team": "Kickstart FC Karnataka",
               "logo": "https://aiff.b-cdn.net/logos/sm_12772-logo_small-1683175136.png",
               "played": 0,
@@ -246,9 +62,9 @@
               "points": 0
             },
             {
-              "pos": 4,
-              "team": "R.T Boys Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_logoartyboys_1743598612.jpg",
+              "pos": 5,
+              "team": "NEROCA FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8728-logo_small-1645794060.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -259,9 +75,9 @@
               "points": 0
             },
             {
-              "pos": 5,
-              "team": "Zinc Football Academy",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_ZFALogo_1659445434.png",
+              "pos": 6,
+              "team": "NONGKSEH SPORT & CULTURAL CLUB",
+              "logo": "https://aiff.b-cdn.net/logos/lr_18930-logo-1718271704.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -270,6 +86,278 @@
               "ga": 0,
               "gd": 0,
               "points": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Group Stage",
+      "groups": [
+        {
+          "name": "Group A",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "NEROCA FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8728-logo_small-1645794060.png",
+              "played": 3,
+              "won": 2,
+              "drawn": 1,
+              "lost": 0,
+              "gf": 4,
+              "ga": 2,
+              "gd": 2,
+              "points": 7
+            },
+            {
+              "pos": 2,
+              "team": "Tiddim Road Athletic Union",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8042-logo_small-1645794024.png",
+              "played": 3,
+              "won": 1,
+              "drawn": 2,
+              "lost": 0,
+              "gf": 6,
+              "ga": 4,
+              "gd": 2,
+              "points": 5
+            },
+            {
+              "pos": 3,
+              "team": "Southern Sporting Union",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_SSULOGOwoBG2edited_1723196019.jpg",
+              "played": 3,
+              "won": 0,
+              "drawn": 2,
+              "lost": 1,
+              "gf": 4,
+              "ga": 5,
+              "gd": -1,
+              "points": 2
+            },
+            {
+              "pos": 4,
+              "team": "Keinou Library & Sports Association, Bishnupur",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_KLASAFCLOGO_1655717709.png",
+              "played": 3,
+              "won": 0,
+              "drawn": 1,
+              "lost": 2,
+              "gf": 4,
+              "ga": 7,
+              "gd": -3,
+              "points": 1
+            }
+          ]
+        },
+        {
+          "name": "Group B",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "BBFS Garhwal Heroes Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_10929-logo_small-1699437762.png",
+              "played": 4,
+              "won": 2,
+              "drawn": 2,
+              "lost": 0,
+              "gf": 3,
+              "ga": 1,
+              "gd": 2,
+              "points": 8
+            },
+            {
+              "pos": 2,
+              "team": "Corbett FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13750-logo_small-1629904943.png",
+              "played": 4,
+              "won": 2,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 5,
+              "ga": 5,
+              "gd": 0,
+              "points": 7
+            },
+            {
+              "pos": 3,
+              "team": "Techtro Swades United FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_FullColorLogo_1604567592.png",
+              "played": 4,
+              "won": 1,
+              "drawn": 2,
+              "lost": 1,
+              "gf": 5,
+              "ga": 3,
+              "gd": 2,
+              "points": 5
+            },
+            {
+              "pos": 4,
+              "team": "Sher-e-Punjab Sports Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG8009_1786104909.jpeg",
+              "played": 4,
+              "won": 0,
+              "drawn": 3,
+              "lost": 1,
+              "gf": 4,
+              "ga": 5,
+              "gd": -1,
+              "points": 3
+            },
+            {
+              "pos": 5,
+              "team": "Ghaziabad City Fc",
+              "logo": "https://aiff.b-cdn.net/logos/sm_18676-logo_small-1750091906.png",
+              "played": 4,
+              "won": 0,
+              "drawn": 2,
+              "lost": 2,
+              "gf": 1,
+              "ga": 4,
+              "gd": -3,
+              "points": 2
+            }
+          ]
+        },
+        {
+          "name": "Group C",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "NONGKSEH SPORT & CULTURAL CLUB",
+              "logo": "https://aiff.b-cdn.net/logos/lr_18930-logo-1718271704.png",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 11,
+              "ga": 3,
+              "gd": 8,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "Godavari FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_18696-logo_small-1782197047.jpg",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 14,
+              "ga": 8,
+              "gd": 6,
+              "points": 9
+            },
+            {
+              "pos": 3,
+              "team": "LAKECITY FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_16083-logo_small-1660983613.png",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 9,
+              "ga": 7,
+              "gd": 2,
+              "points": 9
+            },
+            {
+              "pos": 4,
+              "team": "Chhaygaon F C",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_NewLogoCGFC_1788663911.jpg",
+              "played": 4,
+              "won": 1,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 9,
+              "ga": 9,
+              "gd": 0,
+              "points": 3
+            },
+            {
+              "pos": 5,
+              "team": "Kuppuraj FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11053-logo_small-1667055691.png",
+              "played": 4,
+              "won": 0,
+              "drawn": 0,
+              "lost": 4,
+              "gf": 3,
+              "ga": 19,
+              "gd": -16,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "name": "Group D",
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Clube De Salgaocar",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_CDSLogoInstagram_1716895626.png",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 9,
+              "ga": 4,
+              "gd": 5,
+              "points": 9
+            },
+            {
+              "pos": 2,
+              "team": "Kickstart FC Karnataka",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12772-logo_small-1683175136.png",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 11,
+              "ga": 5,
+              "gd": 6,
+              "points": 9
+            },
+            {
+              "pos": 3,
+              "team": "GOG FCC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG2781_1790426254.jpeg",
+              "played": 4,
+              "won": 2,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 7,
+              "ga": 6,
+              "gd": 1,
+              "points": 7
+            },
+            {
+              "pos": 4,
+              "team": "Zinc Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_ZFALogo_1659445434.png",
+              "played": 4,
+              "won": 1,
+              "drawn": 0,
+              "lost": 3,
+              "gf": 3,
+              "ga": 5,
+              "gd": -2,
+              "points": 3
+            },
+            {
+              "pos": 5,
+              "team": "R.T Boys Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_logoartyboys_1743598612.jpg",
+              "played": 4,
+              "won": 0,
+              "drawn": 1,
+              "lost": 3,
+              "gf": 4,
+              "ga": 14,
+              "gd": -10,
+              "points": 1
             }
           ]
         }
@@ -396,8 +484,204 @@
       "away": "NEROCA FC",
       "status": "scheduled",
       "venue": "Khuman Lampak Football Stadium"
+    },
+    {
+      "id": "aiff-75540",
+      "kickoff": "2026-11-07T03:00:00.000Z",
+      "home": "Kickstart FC Karnataka",
+      "away": "GOG FCC",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "ft",
+      "venue": "Duler Football Stadium"
+    },
+    {
+      "id": "aiff-75539",
+      "kickoff": "2026-11-07T03:00:00.000Z",
+      "home": "Kickstart FC Karnataka",
+      "away": "GOG FCC",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "Duler Football Stadium"
+    },
+    {
+      "id": "aiff-75541",
+      "kickoff": "2026-11-07T10:30:00.000Z",
+      "home": "Clube De Salgaocar",
+      "away": "R.T Boys Football Club",
+      "homeScore": 5,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "Duler Football Stadium"
+    },
+    {
+      "id": "aiff-75544",
+      "kickoff": "2026-11-09T03:00:00.000Z",
+      "home": "Zinc Football Academy",
+      "away": "Kickstart FC Karnataka",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "ft",
+      "venue": "Duler Football Stadium"
+    },
+    {
+      "id": "aiff-75542",
+      "kickoff": "2026-11-09T10:30:00.000Z",
+      "home": "GOG FCC",
+      "away": "Clube De Salgaocar",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "Duler Football Stadium"
+    },
+    {
+      "id": "aiff-77695",
+      "kickoff": "2026-12-06T03:30:00.000Z",
+      "home": "NEROCA FC",
+      "away": "Godavari FC",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77696",
+      "kickoff": "2026-12-06T08:30:00.000Z",
+      "home": "BBFS Garhwal Heroes Football Club",
+      "away": "Kickstart FC Karnataka",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77697",
+      "kickoff": "2026-12-06T13:30:00.000Z",
+      "home": "NONGKSEH SPORT & CULTURAL CLUB",
+      "away": "Clube De Salgaocar",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77698",
+      "kickoff": "2026-12-08T03:30:00.000Z",
+      "home": "NEROCA FC",
+      "away": "Kickstart FC Karnataka",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77699",
+      "kickoff": "2026-12-08T08:30:00.000Z",
+      "home": "Godavari FC",
+      "away": "Clube De Salgaocar",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77700",
+      "kickoff": "2026-12-08T13:30:00.000Z",
+      "home": "BBFS Garhwal Heroes Football Club",
+      "away": "NONGKSEH SPORT & CULTURAL CLUB",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77701",
+      "kickoff": "2026-12-10T03:30:00.000Z",
+      "home": "NEROCA FC",
+      "away": "Clube De Salgaocar",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77702",
+      "kickoff": "2026-12-10T08:30:00.000Z",
+      "home": "Godavari FC",
+      "away": "BBFS Garhwal Heroes Football Club",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77703",
+      "kickoff": "2026-12-10T13:30:00.000Z",
+      "home": "Kickstart FC Karnataka",
+      "away": "NONGKSEH SPORT & CULTURAL CLUB",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77704",
+      "kickoff": "2026-12-12T03:30:00.000Z",
+      "home": "Clube De Salgaocar",
+      "away": "BBFS Garhwal Heroes Football Club",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77705",
+      "kickoff": "2026-12-12T08:30:00.000Z",
+      "home": "Kickstart FC Karnataka",
+      "away": "Godavari FC",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77706",
+      "kickoff": "2026-12-12T13:30:00.000Z",
+      "home": "NEROCA FC",
+      "away": "NONGKSEH SPORT & CULTURAL CLUB",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77707",
+      "kickoff": "2026-12-13T18:30:00.000Z",
+      "home": "NEROCA FC",
+      "away": "BBFS Garhwal Heroes Football Club",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77708",
+      "kickoff": "2026-12-13T18:30:00.000Z",
+      "home": "Clube De Salgaocar",
+      "away": "Kickstart FC Karnataka",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
+    },
+    {
+      "id": "aiff-77709",
+      "kickoff": "2026-12-13T18:30:00.000Z",
+      "home": "NONGKSEH SPORT & CULTURAL CLUB",
+      "away": "Godavari FC",
+      "status": "scheduled",
+      "venue": "SSA Stadium"
     }
   ],
-  "scorers": [],
-  "updatedAt": "2026-10-21T15:34:58.669Z"
+  "scorers": [
+    {
+      "player": "Ngairangbam Rakesh Singh",
+      "team": "Kickstart FC Karnataka",
+      "goals": 5
+    },
+    {
+      "player": "SYED SUHAIL  PASHA ",
+      "team": "Godavari FC",
+      "goals": 5
+    },
+    {
+      "player": "Yhoto Lohe",
+      "team": "Godavari FC",
+      "goals": 5
+    },
+    {
+      "player": "Hardy Cliff Nongbri",
+      "team": "NONGKSEH SPORT & CULTURAL CLUB",
+      "goals": 4
+    },
+    {
+      "player": "Sankalp Sandeep Kankonkar",
+      "team": "Clube De Salgaocar",
+      "goals": 4
+    }
+  ],
+  "updatedAt": "2026-11-25T05:41:44.866Z"
 }

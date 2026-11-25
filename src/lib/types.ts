@@ -149,6 +149,8 @@ export interface MatchDetail {
   away: MatchTeam;
   events: MatchEvent[];
   lineups?: { home: Lineup; away: Lineup };
+  /** Full registered squads, as published before the lineups are. Shown when there is no lineup yet. */
+  squads?: { home: Player[]; away: Player[] };
   stats?: TeamStat[];
   playerOfTheMatch?: string;
   updatedAt: string;

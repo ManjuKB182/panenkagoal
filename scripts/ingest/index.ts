@@ -44,7 +44,7 @@ const leagueArg = argv.indexOf('--leagues') >= 0 ? (argv[argv.indexOf('--leagues
 JOBS.leagues = () => leaguesJob((c) => leagueArg.includes(c.slug));
 const names = pickJobs(argv);
 let anyChanged = argv.includes(DAILY_REBUILD) || argv.includes('--force');
-let failed = false;
+let failures = 0;
 
 for (const name of names) {
   const run = JOBS[name];
@@ -59,14 +59,15 @@ for (const name of names) {
     console.log(`✓ ${name}${changed ? ' (changed)' : ''} in ${Date.now() - started.getTime()} ms`);
     await recordRun(name, started, 'ok', changed);
   } catch (e) {
-    failed = true;
+    failures++;
     const changed = Boolean((e as any).changed);
     anyChanged ||= changed;
-    console.error(`::error::${name} failed: ${(e as Error).message}`);
+    console.warn(`::warning::${name} failed: ${(e as Error).message}`);
     await recordRun(name, started, 'error', changed, (e as Error).message).catch(() => {});
   }
 }
 
 if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `changed=${anyChanged}\n`);
-// Still deploy what changed, but mark the run red so the failure is visible.
-process.exitCode = failed ? 1 : 0;
+// A source that hiccups (one outlet down, one league 5xx) is a warning: everything else is saved, deployed, and retried next run.
+// The run goes red only when every job failed, i.e. nothing was refreshed at all.
+process.exitCode = failures > 0 && failures === names.length ? 1 : 0;

@@ -1,0 +1,10 @@
+---
+import TeamPage from '../../../views/TeamPage.astro';
+import { teamPaths } from '../../../lib/teams';
+
+export function getStaticPaths() {
+  return teamPaths();
+}
+const { comp, row, stageName, groupName } = Astro.props;
+---
+<TeamPage comp={comp} row={row} stageName={stageName} groupName={groupName} />

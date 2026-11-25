@@ -21,7 +21,7 @@ const href = (p: string) => localePath(locale, p);
   import { digits, personName, t, teamName, type Locale } from '../i18n';
   import type { Lineup, MatchDetail, MatchEvent, Player, Side } from '../lib/types';
 
-  type Tab = 'timeline' | 'lineups' | 'stats';
+  type Tab = 'timeline' | 'lineups' | 'squads' | 'stats';
   const root = document.getElementById('mc-body')!;
   const locale = (document.getElementById('mc')?.dataset.locale ?? 'en') as Locale;
   const id = new URLSearchParams(location.search).get('id') ?? '';
@@ -175,6 +175,23 @@ const href = (p: string) => localePath(locale, p);
     return h('div', 'mc-two', team(teamName(locale, d.home.name), l.home), team(teamName(locale, d.away.name), l.away));
   }
 
+  // ---- squads (before the lineups are out) ----
+  function squadTeam(name: string, ps: Player[]) {
+    const col = h('div', 'mc-lteam', h('div', 'mc-lhead', h('b', null, name), span('mc-badge', digits(locale, String(ps.length)))));
+    for (const pos of ['GK', 'DEF', 'MID', 'FWD', 'none'] as const) {
+      const group = ps.filter((p) => (p.position ?? 'none') === pos);
+      if (!group.length) continue;
+      col.append(h('div', 'mc-subs', h('b', null, t(locale, `mc.squadPos.${pos}` as any)),
+        ...group.map((p) => h('div', null, span('mc-no', digits(locale, String(p.number ?? ''))), personName(locale, p.name), p.captain ? span('mc-pos', 'C') : null))));
+    }
+    return col;
+  }
+  function squads(d: MatchDetail) {
+    const s = d.squads!;
+    return h('div', null, h('p', 'mc-hint', t(locale, 'mc.squadHint')),
+      h('div', 'mc-two', squadTeam(teamName(locale, d.home.name), s.home), squadTeam(teamName(locale, d.away.name), s.away)));
+  }
+
   // ---- stats ----
   function stats(d: MatchDetail) {
     const card = h('div', 'mc-card-box');
@@ -194,8 +211,9 @@ const href = (p: string) => localePath(locale, p);
     return [
       { key: 'timeline', label: t(locale, 'mc.timeline') },
       { key: 'lineups', label: t(locale, 'mc.lineups') },
+      { key: 'squads', label: t(locale, 'mc.squads') },
       { key: 'stats', label: t(locale, 'mc.stats') },
-    ].filter((x) => (x.key === 'timeline' ? d.events.length > 0 : x.key === 'lineups' ? !!d.lineups : !!d.stats?.length)) as { key: Tab; label: string }[];
+    ].filter((x) => (x.key === 'timeline' ? d.events.length > 0 : x.key === 'lineups' ? !!d.lineups : x.key === 'squads' ? !d.lineups && !!d.squads : !!d.stats?.length)) as { key: Tab; label: string }[];
   }
 
   function note(d: MatchDetail): string {
@@ -224,12 +242,12 @@ const href = (p: string) => localePath(locale, p);
         b.onclick = () => { tab = x.key; history.replaceState(null, '', `#${x.key}`); render(); };
         bar.append(b);
       }
-      const panel = h('div', 'mc-panel', tab === 'timeline' ? timeline(d) : tab === 'lineups' ? lineups(d) : stats(d));
+      const panel = h('div', 'mc-panel', tab === 'timeline' ? timeline(d) : tab === 'lineups' ? lineups(d) : tab === 'squads' ? squads(d) : stats(d));
       panel.setAttribute('role', 'tabpanel');
       root.append(bar, panel);
       // Lineups are often missing before kick-off: say so rather than hiding it silently.
-      if (!d.lineups && d.status !== 'ft') root.append(h('p', 'mc-hint', t(locale, 'mc.lineupsHint')));
-      else if (!d.lineups) root.append(h('p', 'mc-hint', t(locale, 'mc.lineupsNA')));
+      if (!d.lineups && !d.squads && d.status !== 'ft') root.append(h('p', 'mc-hint', t(locale, 'mc.lineupsHint')));
+      else if (!d.lineups && !d.squads) root.append(h('p', 'mc-hint', t(locale, 'mc.lineupsNA')));
     }
     window.scrollTo(0, scrollY);
   }

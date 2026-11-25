@@ -13,245 +13,245 @@
               "pos": 1,
               "team": "FC Bengaluru United",
               "logo": "https://aiff.b-cdn.net/logos/sm_12681-logo_small-1602235138.png",
-              "played": 8,
-              "won": 7,
+              "played": 13,
+              "won": 12,
               "drawn": 1,
               "lost": 0,
-              "gf": 26,
-              "ga": 4,
-              "gd": 22,
-              "points": 22
+              "gf": 44,
+              "ga": 6,
+              "gd": 38,
+              "points": 37
             },
             {
               "pos": 2,
               "team": "South United FC",
               "logo": "https://aiff.b-cdn.net/logos/sm_11949-logo_small-1658233791.jpg",
-              "played": 9,
-              "won": 6,
-              "drawn": 2,
-              "lost": 1,
-              "gf": 25,
-              "ga": 4,
-              "gd": 21,
-              "points": 20
+              "played": 16,
+              "won": 11,
+              "drawn": 3,
+              "lost": 2,
+              "gf": 36,
+              "ga": 11,
+              "gd": 25,
+              "points": 36
             },
             {
               "pos": 3,
-              "team": "Bengaluru Football Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8021-logo_small-1578937550.png",
-              "played": 8,
-              "won": 5,
-              "drawn": 3,
-              "lost": 0,
-              "gf": 27,
-              "ga": 6,
-              "gd": 21,
-              "points": 18
+              "team": "Kodagu FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_KODAGUFCLOGO2021_1634318445.jpg",
+              "played": 15,
+              "won": 11,
+              "drawn": 2,
+              "lost": 2,
+              "gf": 39,
+              "ga": 19,
+              "gd": 20,
+              "points": 35
             },
             {
               "pos": 4,
-              "team": "Kodagu FC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_KODAGUFCLOGO2021_1634318445.jpg",
-              "played": 8,
-              "won": 5,
-              "drawn": 2,
-              "lost": 1,
-              "gf": 17,
-              "ga": 11,
-              "gd": 6,
-              "points": 17
+              "team": "MEG & Centre FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_IMG20261116WA0023_1794843553.jpg",
+              "played": 15,
+              "won": 9,
+              "drawn": 4,
+              "lost": 2,
+              "gf": 36,
+              "ga": 25,
+              "gd": 11,
+              "points": 31
             },
             {
               "pos": 5,
-              "team": "MEG & Centre FC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_onlinelogomaker1101191311771815730341901_1756552237.png",
-              "played": 8,
-              "won": 5,
-              "drawn": 2,
+              "team": "Bengaluru Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8021-logo_small-1578937550.png",
+              "played": 14,
+              "won": 8,
+              "drawn": 5,
               "lost": 1,
-              "gf": 22,
-              "ga": 18,
-              "gd": 4,
-              "points": 17
+              "gf": 39,
+              "ga": 10,
+              "gd": 29,
+              "points": 29
             },
             {
               "pos": 6,
-              "team": "Kickstart FC Karnataka",
-              "logo": "https://aiff.b-cdn.net/logos/sm_12772-logo_small-1683175136.png",
-              "played": 9,
-              "won": 5,
-              "drawn": 2,
-              "lost": 2,
-              "gf": 12,
-              "ga": 9,
-              "gd": 3,
-              "points": 17
+              "team": "FC Real Bengaluru",
+              "logo": "https://aiff.b-cdn.net/logos/sm_19327-logo_small-1748421286.png",
+              "played": 15,
+              "won": 7,
+              "drawn": 4,
+              "lost": 4,
+              "gf": 32,
+              "ga": 22,
+              "gd": 10,
+              "points": 25
             },
             {
               "pos": 7,
-              "team": "Sporting Club Bengaluru",
-              "logo": "https://aiff.b-cdn.net/logos/sm_16032-logo_small-1726592615.png",
-              "played": 9,
-              "won": 3,
-              "drawn": 3,
-              "lost": 3,
-              "gf": 15,
-              "ga": 10,
-              "gd": 5,
-              "points": 12
+              "team": "Kickstart FC Karnataka",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12772-logo_small-1683175136.png",
+              "played": 15,
+              "won": 7,
+              "drawn": 4,
+              "lost": 4,
+              "gf": 21,
+              "ga": 18,
+              "gd": 3,
+              "points": 25
             },
             {
               "pos": 8,
-              "team": "Bangalore City FC",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_bcfclogo2_1597415004.jpg",
-              "played": 9,
-              "won": 3,
-              "drawn": 3,
-              "lost": 3,
-              "gf": 10,
-              "ga": 9,
-              "gd": 1,
-              "points": 12
+              "team": "Sporting Club Bengaluru",
+              "logo": "https://aiff.b-cdn.net/logos/sm_16032-logo_small-1726592615.png",
+              "played": 16,
+              "won": 6,
+              "drawn": 4,
+              "lost": 6,
+              "gf": 25,
+              "ga": 19,
+              "gd": 6,
+              "points": 22
             },
             {
               "pos": 9,
               "team": "Stride Sports Football Club",
               "logo": "https://aiff.b-cdn.net/uploads/sm_PicsArt1017100641_1642679915.jpg",
-              "played": 8,
-              "won": 3,
+              "played": 15,
+              "won": 6,
               "drawn": 3,
-              "lost": 2,
-              "gf": 12,
-              "ga": 13,
-              "gd": -1,
-              "points": 12
+              "lost": 6,
+              "gf": 19,
+              "ga": 25,
+              "gd": -6,
+              "points": 21
             },
             {
               "pos": 10,
               "team": "FC Agniputhra",
               "logo": "https://aiff.b-cdn.net/uploads/sm_logo_1660377428.jpeg",
-              "played": 8,
-              "won": 3,
+              "played": 15,
+              "won": 6,
               "drawn": 2,
-              "lost": 3,
-              "gf": 11,
-              "ga": 11,
-              "gd": 0,
-              "points": 11
+              "lost": 7,
+              "gf": 19,
+              "ga": 25,
+              "gd": -6,
+              "points": 20
             },
             {
               "pos": 11,
-              "team": "FC Real Bengaluru",
-              "logo": "https://aiff.b-cdn.net/logos/sm_19327-logo_small-1748421286.png",
-              "played": 8,
-              "won": 2,
-              "drawn": 3,
-              "lost": 3,
-              "gf": 14,
-              "ga": 15,
+              "team": "Parikrma FC",
+              "played": 14,
+              "won": 5,
+              "drawn": 4,
+              "lost": 5,
+              "gf": 19,
+              "ga": 20,
               "gd": -1,
-              "points": 9
+              "points": 19
             },
             {
               "pos": 12,
-              "team": "Roots Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_rootsfootballpng200x200_1659611505.png",
-              "played": 9,
-              "won": 2,
-              "drawn": 2,
-              "lost": 5,
-              "gf": 11,
-              "ga": 16,
-              "gd": -5,
-              "points": 8
+              "team": "Bangalore City FC",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_bcfclogo2_1597415004.jpg",
+              "played": 15,
+              "won": 5,
+              "drawn": 4,
+              "lost": 6,
+              "gf": 15,
+              "ga": 17,
+              "gd": -2,
+              "points": 19
             },
             {
               "pos": 13,
-              "team": "Parikrma FC",
-              "played": 8,
-              "won": 2,
-              "drawn": 2,
-              "lost": 4,
-              "gf": 8,
-              "ga": 14,
-              "gd": -6,
-              "points": 8
+              "team": "United Stars Football Club",
+              "played": 14,
+              "won": 5,
+              "drawn": 3,
+              "lost": 6,
+              "gf": 19,
+              "ga": 33,
+              "gd": -14,
+              "points": 18
             },
             {
               "pos": 14,
-              "team": "Bangalore Dream United",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_Transparentpng07_1609815740.png",
-              "played": 8,
-              "won": 2,
+              "team": "Roots Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_rootsfootballpng200x200_1659611505.png",
+              "played": 16,
+              "won": 5,
               "drawn": 2,
-              "lost": 4,
-              "gf": 4,
-              "ga": 12,
-              "gd": -8,
-              "points": 8
+              "lost": 9,
+              "gf": 19,
+              "ga": 23,
+              "gd": -4,
+              "points": 17
             },
             {
               "pos": 15,
               "team": "Rebels FC",
               "logo": "https://aiff.b-cdn.net/logos/12998-Slogo-1576385898.jpg",
-              "played": 9,
-              "won": 1,
-              "drawn": 4,
-              "lost": 4,
-              "gf": 10,
-              "ga": 16,
-              "gd": -6,
-              "points": 7
+              "played": 16,
+              "won": 2,
+              "drawn": 6,
+              "lost": 8,
+              "gf": 16,
+              "ga": 29,
+              "gd": -13,
+              "points": 12
             },
             {
               "pos": 16,
-              "team": "United Stars Football Club",
-              "played": 8,
+              "team": "ASC Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_1660804780245_1660804878.jpg",
+              "played": 15,
               "won": 2,
-              "drawn": 1,
-              "lost": 5,
-              "gf": 9,
-              "ga": 24,
-              "gd": -15,
-              "points": 7
+              "drawn": 3,
+              "lost": 10,
+              "gf": 17,
+              "ga": 31,
+              "gd": -14,
+              "points": 9
             },
             {
               "pos": 17,
-              "team": "HAL Sports Club",
-              "played": 8,
-              "won": 1,
-              "drawn": 3,
-              "lost": 4,
-              "gf": 18,
-              "ga": 15,
-              "gd": 3,
-              "points": 6
+              "team": "Technico Football Foundation",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_TFFLogo_1641725229.png",
+              "played": 16,
+              "won": 3,
+              "drawn": 0,
+              "lost": 13,
+              "gf": 14,
+              "ga": 58,
+              "gd": -44,
+              "points": 9
             },
             {
               "pos": 18,
-              "team": "Technico Football Foundation",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_TFFLogo_1641725229.png",
-              "played": 8,
-              "won": 1,
-              "drawn": 0,
-              "lost": 7,
-              "gf": 5,
-              "ga": 36,
-              "gd": -31,
-              "points": 3
+              "team": "Bangalore Dream United",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Transparentpng07_1609815740.png",
+              "played": 16,
+              "won": 2,
+              "drawn": 2,
+              "lost": 12,
+              "gf": 11,
+              "ga": 41,
+              "gd": -30,
+              "points": 8
             },
             {
               "pos": 19,
-              "team": "ASC Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_1660804780245_1660804878.jpg",
-              "played": 8,
-              "won": 0,
-              "drawn": 2,
-              "lost": 6,
-              "gf": 5,
-              "ga": 18,
-              "gd": -13,
-              "points": 2
+              "team": "HAL Sports Club",
+              "played": 15,
+              "won": 1,
+              "drawn": 4,
+              "lost": 10,
+              "gf": 23,
+              "ga": 31,
+              "gd": -8,
+              "points": 7
             }
           ]
         }
@@ -279,18 +279,6 @@
           "team": "FC Bengaluru United"
         }
       ]
-    },
-    {
-      "id": "aiff-73412",
-      "kickoff": "2026-09-10T11:00:00+05:30",
-      "home": "Kickstart FC Karnataka",
-      "away": "Stride Sports Football Club",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 0,
-      "awayScore": 0,
-      "goals": []
     },
     {
       "id": "aiff-73413",
@@ -322,6 +310,18 @@
       ]
     },
     {
+      "id": "aiff-73412",
+      "kickoff": "2026-09-10T11:00:00+05:30",
+      "home": "Kickstart FC Karnataka",
+      "away": "Stride Sports Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 0,
+      "goals": []
+    },
+    {
       "id": "aiff-73490",
       "kickoff": "2026-09-11T11:00:00+05:30",
       "home": "Technico Football Foundation",
@@ -343,6 +343,31 @@
         {
           "player": "Akshay Tyagi",
           "team": "Technico Football Foundation"
+        }
+      ]
+    },
+    {
+      "id": "aiff-73492",
+      "kickoff": "2026-09-11T16:00:00+05:30",
+      "home": "Kodagu FC",
+      "away": "FC Real Bengaluru",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 3,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "R Karthikeyan",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Jobin Johnson",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
         }
       ]
     },
@@ -376,31 +401,6 @@
         {
           "player": "Felix Varghese",
           "team": "FC Agniputhra"
-        }
-      ]
-    },
-    {
-      "id": "aiff-73492",
-      "kickoff": "2026-09-11T16:00:00+05:30",
-      "home": "Kodagu FC",
-      "away": "FC Real Bengaluru",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 3,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "R Karthikeyan",
-          "team": "FC Real Bengaluru"
-        },
-        {
-          "player": "Jobin Johnson",
-          "team": "FC Real Bengaluru"
-        },
-        {
-          "player": "Jithu",
-          "team": "Kodagu FC"
         }
       ]
     },
@@ -488,16 +488,25 @@
       ]
     },
     {
-      "id": "aiff-73495",
-      "kickoff": "2026-09-15T11:00:00+05:30",
-      "home": "Bengaluru Football Club",
-      "away": "Parikrma FC",
+      "id": "aiff-73496",
+      "kickoff": "2026-09-15T13:30:00+05:30",
+      "home": "South United FC",
+      "away": "FC Real Bengaluru",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 0,
-      "awayScore": 0,
-      "goals": []
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Ringsangmi Lw",
+          "team": "South United FC"
+        },
+        {
+          "player": "Mustafa Shaikh",
+          "team": "South United FC"
+        }
+      ]
     },
     {
       "id": "aiff-73497",
@@ -525,48 +534,31 @@
       ]
     },
     {
-      "id": "aiff-73496",
-      "kickoff": "2026-09-15T13:30:00+05:30",
-      "home": "South United FC",
-      "away": "FC Real Bengaluru",
+      "id": "aiff-73495",
+      "kickoff": "2026-09-15T11:00:00+05:30",
+      "home": "Bengaluru Football Club",
+      "away": "Parikrma FC",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 2,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Ringsangmi Lw",
-          "team": "South United FC"
-        },
-        {
-          "player": "Mustafa Shaikh",
-          "team": "South United FC"
-        }
-      ]
+      "homeScore": 0,
+      "awayScore": 0,
+      "goals": []
     },
     {
-      "id": "aiff-73498",
-      "kickoff": "2026-09-16T13:30:00+05:30",
-      "home": "Kodagu FC",
-      "away": "FC Agniputhra",
+      "id": "aiff-73538",
+      "kickoff": "2026-09-16T11:00:00+05:30",
+      "home": "Bangalore Dream United",
+      "away": "Roots Football Club",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 2,
-      "awayScore": 1,
+      "homeScore": 1,
+      "awayScore": 0,
       "goals": [
         {
-          "player": "Aditya Kumar",
-          "team": "Kodagu FC"
-        },
-        {
-          "player": "Jithu",
-          "team": "Kodagu FC"
-        },
-        {
-          "player": "Felix Varghese",
-          "team": "FC Agniputhra"
+          "player": "Londup Lepcha",
+          "team": "Bangalore Dream United"
         }
       ]
     },
@@ -612,19 +604,27 @@
       ]
     },
     {
-      "id": "aiff-73538",
-      "kickoff": "2026-09-16T11:00:00+05:30",
-      "home": "Bangalore Dream United",
-      "away": "Roots Football Club",
+      "id": "aiff-73498",
+      "kickoff": "2026-09-16T13:30:00+05:30",
+      "home": "Kodagu FC",
+      "away": "FC Agniputhra",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 1,
-      "awayScore": 0,
+      "homeScore": 2,
+      "awayScore": 1,
       "goals": [
         {
-          "player": "Londup Lepcha",
-          "team": "Bangalore Dream United"
+          "player": "Aditya Kumar",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Felix Varghese",
+          "team": "FC Agniputhra"
         }
       ]
     },
@@ -639,31 +639,6 @@
       "homeScore": 0,
       "awayScore": 0,
       "goals": []
-    },
-    {
-      "id": "aiff-73501",
-      "kickoff": "2026-09-17T13:30:00+05:30",
-      "home": "Rebels FC",
-      "away": "MEG & Centre FC",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 1,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Ayush .",
-          "team": "MEG & Centre FC"
-        },
-        {
-          "player": "Vishnu Raj P P",
-          "team": "MEG & Centre FC"
-        },
-        {
-          "player": "Mohammad Fardeen Bhat",
-          "team": "Rebels FC"
-        }
-      ]
     },
     {
       "id": "aiff-73500",
@@ -695,6 +670,31 @@
         {
           "player": "D Akash",
           "team": "United Stars Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-73501",
+      "kickoff": "2026-09-17T13:30:00+05:30",
+      "home": "Rebels FC",
+      "away": "MEG & Centre FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Ayush .",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Vishnu Raj P P",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Mohammad Fardeen Bhat",
+          "team": "Rebels FC"
         }
       ]
     },
@@ -732,6 +732,23 @@
       ]
     },
     {
+      "id": "aiff-73505",
+      "kickoff": "2026-09-18T16:00:00+05:30",
+      "home": "Kickstart FC Karnataka",
+      "away": "Bangalore Dream United",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Sridarth Nongmeikapam",
+          "team": "Kickstart FC Karnataka"
+        }
+      ]
+    },
+    {
       "id": "aiff-73504",
       "kickoff": "2026-09-18T13:30:00+05:30",
       "home": "FC Real Bengaluru",
@@ -761,23 +778,6 @@
       ]
     },
     {
-      "id": "aiff-73505",
-      "kickoff": "2026-09-18T16:00:00+05:30",
-      "home": "Kickstart FC Karnataka",
-      "away": "Bangalore Dream United",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 1,
-      "awayScore": 0,
-      "goals": [
-        {
-          "player": "Sridarth Nongmeikapam",
-          "team": "Kickstart FC Karnataka"
-        }
-      ]
-    },
-    {
       "id": "aiff-73507",
       "kickoff": "2026-09-21T13:30:00+05:30",
       "home": "Roots Football Club",
@@ -803,18 +803,6 @@
       ]
     },
     {
-      "id": "aiff-73506",
-      "kickoff": "2026-09-21T11:00:00+05:30",
-      "home": "FC Agniputhra",
-      "away": "South United FC",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 0,
-      "awayScore": 0,
-      "goals": []
-    },
-    {
       "id": "aiff-73508",
       "kickoff": "2026-09-21T16:00:00+05:30",
       "home": "ASC Football Club",
@@ -836,29 +824,16 @@
       ]
     },
     {
-      "id": "aiff-73510",
-      "kickoff": "2026-09-22T13:30:00+05:30",
-      "home": "Bangalore City FC",
-      "away": "United Stars Football Club",
+      "id": "aiff-73506",
+      "kickoff": "2026-09-21T11:00:00+05:30",
+      "home": "FC Agniputhra",
+      "away": "South United FC",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 3,
+      "homeScore": 0,
       "awayScore": 0,
-      "goals": [
-        {
-          "player": "Sachin R",
-          "team": "Bangalore City FC"
-        },
-        {
-          "player": "Aryan Kamdar",
-          "team": "Bangalore City FC"
-        },
-        {
-          "player": "Leiphrakpam Kheljit Meitei",
-          "team": "Bangalore City FC"
-        }
-      ]
+      "goals": []
     },
     {
       "id": "aiff-73539",
@@ -915,10 +890,10 @@
       ]
     },
     {
-      "id": "aiff-73513",
-      "kickoff": "2026-09-23T16:00:00+05:30",
-      "home": "Bengaluru Football Club",
-      "away": "FC Agniputhra",
+      "id": "aiff-73510",
+      "kickoff": "2026-09-22T13:30:00+05:30",
+      "home": "Bangalore City FC",
+      "away": "United Stars Football Club",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
@@ -926,37 +901,16 @@
       "awayScore": 0,
       "goals": [
         {
-          "player": "Chaphamayum Rohen Singh",
-          "team": "Bengaluru Football Club"
+          "player": "Sachin R",
+          "team": "Bangalore City FC"
         },
         {
-          "player": "Surya Ragish",
-          "team": "Bengaluru Football Club"
+          "player": "Aryan Kamdar",
+          "team": "Bangalore City FC"
         },
         {
-          "player": "S Chinmay",
-          "team": "Bengaluru Football Club"
-        }
-      ]
-    },
-    {
-      "id": "aiff-73512",
-      "kickoff": "2026-09-23T13:30:00+05:30",
-      "home": "Bangalore Dream United",
-      "away": "Stride Sports Football Club",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 1,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Nishanth S",
-          "team": "Stride Sports Football Club"
-        },
-        {
-          "player": "Albert Lalnunfela",
-          "team": "Bangalore Dream United"
+          "player": "Leiphrakpam Kheljit Meitei",
+          "team": "Bangalore City FC"
         }
       ]
     },
@@ -990,45 +944,50 @@
       ]
     },
     {
-      "id": "aiff-73514",
-      "kickoff": "2026-09-24T11:00:00+05:30",
-      "home": "HAL Sports Club",
-      "away": "Kickstart FC Karnataka",
+      "id": "aiff-73512",
+      "kickoff": "2026-09-23T13:30:00+05:30",
+      "home": "Bangalore Dream United",
+      "away": "Stride Sports Football Club",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 2,
-      "awayScore": 3,
+      "homeScore": 1,
+      "awayScore": 2,
       "goals": [
         {
-          "player": "Dipankar Hazarika",
-          "team": "HAL Sports Club"
+          "player": "Nishanth S",
+          "team": "Stride Sports Football Club"
         },
         {
-          "player": "Saivin Ericson E",
-          "team": "Kickstart FC Karnataka"
-        },
-        {
-          "player": "Dipankar Hazarika",
-          "team": "HAL Sports Club"
-        },
-        {
-          "player": "Nongmeikapam Sanathoi Meitei",
-          "team": "Kickstart FC Karnataka"
+          "player": "Albert Lalnunfela",
+          "team": "Bangalore Dream United"
         }
       ]
     },
     {
-      "id": "aiff-73540",
-      "kickoff": "2026-09-24T16:00:00+05:30",
-      "home": "Rebels FC",
-      "away": "Roots Football Club",
+      "id": "aiff-73513",
+      "kickoff": "2026-09-23T16:00:00+05:30",
+      "home": "Bengaluru Football Club",
+      "away": "FC Agniputhra",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 0,
+      "homeScore": 3,
       "awayScore": 0,
-      "goals": []
+      "goals": [
+        {
+          "player": "Chaphamayum Rohen Singh",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "Surya Ragish",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "S Chinmay",
+          "team": "Bengaluru Football Club"
+        }
+      ]
     },
     {
       "id": "aiff-73515",
@@ -1064,32 +1023,43 @@
       ]
     },
     {
-      "id": "aiff-73518",
-      "kickoff": "nullT16:00:00+05:30",
-      "home": "United Stars Football Club",
-      "away": "MEG & Centre FC",
-      "status": "scheduled",
-      "venue": "Bangalore Football Stadium",
-      "round": "League"
-    },
-    {
-      "id": "aiff-73516",
-      "kickoff": "2026-09-25T11:00:00+05:30",
-      "home": "Bangalore City FC",
-      "away": "Kodagu FC",
+      "id": "aiff-73540",
+      "kickoff": "2026-09-24T16:00:00+05:30",
+      "home": "Rebels FC",
+      "away": "Roots Football Club",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
       "homeScore": 0,
-      "awayScore": 2,
+      "awayScore": 0,
+      "goals": []
+    },
+    {
+      "id": "aiff-73514",
+      "kickoff": "2026-09-24T11:00:00+05:30",
+      "home": "HAL Sports Club",
+      "away": "Kickstart FC Karnataka",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 3,
       "goals": [
         {
-          "player": "Samphrangshai Rani",
-          "team": "Kodagu FC"
+          "player": "Dipankar Hazarika",
+          "team": "HAL Sports Club"
         },
         {
-          "player": "Lalkrawsmawia",
-          "team": "Kodagu FC"
+          "player": "Saivin Ericson E",
+          "team": "Kickstart FC Karnataka"
+        },
+        {
+          "player": "Dipankar Hazarika",
+          "team": "HAL Sports Club"
+        },
+        {
+          "player": "Nongmeikapam Sanathoi Meitei",
+          "team": "Kickstart FC Karnataka"
         }
       ]
     },
@@ -1115,23 +1085,23 @@
       ]
     },
     {
-      "id": "aiff-73520",
-      "kickoff": "2026-09-28T13:30:00+05:30",
-      "home": "FC Agniputhra",
-      "away": "Parikrma FC",
+      "id": "aiff-73516",
+      "kickoff": "2026-09-25T11:00:00+05:30",
+      "home": "Bangalore City FC",
+      "away": "Kodagu FC",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 2,
-      "awayScore": 0,
+      "homeScore": 0,
+      "awayScore": 2,
       "goals": [
         {
-          "player": "Lalnunzama",
-          "team": "FC Agniputhra"
+          "player": "Samphrangshai Rani",
+          "team": "Kodagu FC"
         },
         {
-          "player": "Ajay Shankar Kadam",
-          "team": "FC Agniputhra"
+          "player": "Lalkrawsmawia",
+          "team": "Kodagu FC"
         }
       ]
     },
@@ -1165,6 +1135,27 @@
       ]
     },
     {
+      "id": "aiff-73520",
+      "kickoff": "2026-09-28T13:30:00+05:30",
+      "home": "FC Agniputhra",
+      "away": "Parikrma FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Lalnunzama",
+          "team": "FC Agniputhra"
+        },
+        {
+          "player": "Ajay Shankar Kadam",
+          "team": "FC Agniputhra"
+        }
+      ]
+    },
+    {
       "id": "aiff-73521",
       "kickoff": "2026-09-28T16:00:00+05:30",
       "home": "Stride Sports Football Club",
@@ -1182,6 +1173,27 @@
         {
           "player": "Lenboigin Haokip",
           "team": "HAL Sports Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-73522",
+      "kickoff": "2026-09-29T11:00:00+05:30",
+      "home": "ASC Football Club",
+      "away": "Bengaluru Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Chaphamayum Rohen Singh",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "Kundan Gurung",
+          "team": "ASC Football Club"
         }
       ]
     },
@@ -1224,52 +1236,6 @@
         {
           "player": "Vishnu  T  M",
           "team": "Kickstart FC Karnataka"
-        }
-      ]
-    },
-    {
-      "id": "aiff-73522",
-      "kickoff": "2026-09-29T11:00:00+05:30",
-      "home": "ASC Football Club",
-      "away": "Bengaluru Football Club",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 1,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Chaphamayum Rohen Singh",
-          "team": "Bengaluru Football Club"
-        },
-        {
-          "player": "Kundan Gurung",
-          "team": "ASC Football Club"
-        }
-      ]
-    },
-    {
-      "id": "aiff-73527",
-      "kickoff": "2026-09-30T16:00:00+05:30",
-      "home": "Technico Football Foundation",
-      "away": "United Stars Football Club",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 1,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "A Ajay",
-          "team": "United Stars Football Club"
-        },
-        {
-          "player": "Nathan Akash Powell",
-          "team": "Technico Football Foundation"
-        },
-        {
-          "player": "D Akash",
-          "team": "United Stars Football Club"
         }
       ]
     },
@@ -1336,6 +1302,31 @@
         {
           "player": "Asif O M",
           "team": "Sporting Club Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "aiff-73527",
+      "kickoff": "2026-09-30T16:00:00+05:30",
+      "home": "Technico Football Foundation",
+      "away": "United Stars Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "A Ajay",
+          "team": "United Stars Football Club"
+        },
+        {
+          "player": "Nathan Akash Powell",
+          "team": "Technico Football Foundation"
+        },
+        {
+          "player": "D Akash",
+          "team": "United Stars Football Club"
         }
       ]
     },
@@ -1494,35 +1485,6 @@
       ]
     },
     {
-      "id": "aiff-73535",
-      "kickoff": "2026-10-05T13:30:00+05:30",
-      "home": "United Stars Football Club",
-      "away": "Roots Football Club",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 1,
-      "awayScore": 4,
-      "goals": [
-        {
-          "player": "Shelton Nickson",
-          "team": "Roots Football Club"
-        },
-        {
-          "player": "Nitish K",
-          "team": "Roots Football Club"
-        },
-        {
-          "player": "Muhammed Jaseem Ap",
-          "team": "Roots Football Club"
-        },
-        {
-          "player": "Abhinand A",
-          "team": "Roots Football Club"
-        }
-      ]
-    },
-    {
       "id": "aiff-73534",
       "kickoff": "2026-10-05T11:00:00+05:30",
       "home": "South United FC",
@@ -1552,13 +1514,45 @@
       ]
     },
     {
-      "id": "aiff-73536",
-      "kickoff": "nullT16:00:00+05:30",
-      "home": "Kodagu FC",
-      "away": "Technico Football Foundation",
-      "status": "scheduled",
+      "id": "aiff-73535",
+      "kickoff": "2026-10-05T13:30:00+05:30",
+      "home": "United Stars Football Club",
+      "away": "Roots Football Club",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 4,
+      "goals": [
+        {
+          "player": "Shelton Nickson",
+          "team": "Roots Football Club"
+        },
+        {
+          "player": "Nitish K",
+          "team": "Roots Football Club"
+        },
+        {
+          "player": "Muhammed Jaseem Ap",
+          "team": "Roots Football Club"
+        },
+        {
+          "player": "Abhinand A",
+          "team": "Roots Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74573",
+      "kickoff": "2026-10-06T11:00:00+05:30",
+      "home": "Bangalore Dream United",
+      "away": "HAL Sports Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 0,
+      "goals": []
     },
     {
       "id": "aiff-74574",
@@ -1590,18 +1584,6 @@
       ]
     },
     {
-      "id": "aiff-74573",
-      "kickoff": "2026-10-06T11:00:00+05:30",
-      "home": "Bangalore Dream United",
-      "away": "HAL Sports Club",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 0,
-      "awayScore": 0,
-      "goals": []
-    },
-    {
       "id": "aiff-74575",
       "kickoff": "2026-10-06T16:00:00+05:30",
       "home": "ASC Football Club",
@@ -1619,6 +1601,27 @@
         {
           "player": "Mohammed Zahid Ali",
           "team": "FC Real Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74578",
+      "kickoff": "2026-10-07T16:00:00+05:30",
+      "home": "Stride Sports Football Club",
+      "away": "Sporting Club Bengaluru",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Shaurya Rastogi",
+          "team": "Sporting Club Bengaluru"
+        },
+        {
+          "player": "Arnav Raghavan",
+          "team": "Sporting Club Bengaluru"
         }
       ]
     },
@@ -1660,27 +1663,6 @@
       ]
     },
     {
-      "id": "aiff-74578",
-      "kickoff": "2026-10-07T16:00:00+05:30",
-      "home": "Stride Sports Football Club",
-      "away": "Sporting Club Bengaluru",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 0,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Shaurya Rastogi",
-          "team": "Sporting Club Bengaluru"
-        },
-        {
-          "player": "Arnav Raghavan",
-          "team": "Sporting Club Bengaluru"
-        }
-      ]
-    },
-    {
       "id": "aiff-74576",
       "kickoff": "2026-10-07T11:00:00+05:30",
       "home": "Bangalore City FC",
@@ -1702,48 +1684,6 @@
         {
           "player": "Ishaan Jagota Mittal",
           "team": "Bangalore City FC"
-        }
-      ]
-    },
-    {
-      "id": "aiff-74579",
-      "kickoff": "2026-10-08T11:00:00+05:30",
-      "home": "Roots Football Club",
-      "away": "Kodagu FC",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 0,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Jithu",
-          "team": "Kodagu FC"
-        },
-        {
-          "player": "Udit G",
-          "team": "Kodagu FC"
-        }
-      ]
-    },
-    {
-      "id": "aiff-74581",
-      "kickoff": "2026-10-08T16:00:00+05:30",
-      "home": "Kickstart FC Karnataka",
-      "away": "United Stars Football Club",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 1,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Magesh S",
-          "team": "United Stars Football Club"
-        },
-        {
-          "player": "G John Peter",
-          "team": "Kickstart FC Karnataka"
         }
       ]
     },
@@ -1785,6 +1725,48 @@
         {
           "player": "Makakmayum Daniyal",
           "team": "South United FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74581",
+      "kickoff": "2026-10-08T16:00:00+05:30",
+      "home": "Kickstart FC Karnataka",
+      "away": "United Stars Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Magesh S",
+          "team": "United Stars Football Club"
+        },
+        {
+          "player": "G John Peter",
+          "team": "Kickstart FC Karnataka"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74579",
+      "kickoff": "2026-10-08T11:00:00+05:30",
+      "home": "Roots Football Club",
+      "away": "Kodagu FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Udit G",
+          "team": "Kodagu FC"
         }
       ]
     },
@@ -1847,27 +1829,6 @@
       ]
     },
     {
-      "id": "aiff-74587",
-      "kickoff": "2026-10-12T16:00:00+05:30",
-      "home": "United Stars Football Club",
-      "away": "Stride Sports Football Club",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 0,
-      "awayScore": 3,
-      "goals": [
-        {
-          "player": "Thangkaihao Haokip",
-          "team": "Stride Sports Football Club"
-        },
-        {
-          "player": "Ginneithang Gangte",
-          "team": "Stride Sports Football Club"
-        }
-      ]
-    },
-    {
       "id": "aiff-74586",
       "kickoff": "2026-10-12T13:30:00+05:30",
       "home": "Parikrma FC",
@@ -1905,6 +1866,27 @@
       ]
     },
     {
+      "id": "aiff-74587",
+      "kickoff": "2026-10-12T16:00:00+05:30",
+      "home": "United Stars Football Club",
+      "away": "Stride Sports Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 3,
+      "goals": [
+        {
+          "player": "Thangkaihao Haokip",
+          "team": "Stride Sports Football Club"
+        },
+        {
+          "player": "Ginneithang Gangte",
+          "team": "Stride Sports Football Club"
+        }
+      ]
+    },
+    {
       "id": "aiff-74585",
       "kickoff": "2026-10-12T11:00:00+05:30",
       "home": "Sporting Club Bengaluru",
@@ -1926,27 +1908,23 @@
       ]
     },
     {
-      "id": "aiff-74590",
-      "kickoff": "2026-10-13T16:00:00+05:30",
-      "home": "South United FC",
-      "away": "Roots Football Club",
+      "id": "aiff-74589",
+      "kickoff": "2026-10-13T13:30:00+05:30",
+      "home": "Kodagu FC",
+      "away": "Kickstart FC Karnataka",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 3,
-      "awayScore": 0,
+      "homeScore": 2,
+      "awayScore": 1,
       "goals": [
         {
-          "player": "Makakmayum Daniyal",
-          "team": "South United FC"
+          "player": "Rinreithan Shaiza",
+          "team": "Kodagu FC"
         },
         {
-          "player": "Nirupam Gowda H",
-          "team": "South United FC"
-        },
-        {
-          "player": "Makakmayum Daniyal",
-          "team": "South United FC"
+          "player": "Lalkrawsmawia",
+          "team": "Kodagu FC"
         }
       ]
     },
@@ -1992,48 +1970,27 @@
       ]
     },
     {
-      "id": "aiff-74589",
-      "kickoff": "2026-10-13T13:30:00+05:30",
-      "home": "Kodagu FC",
-      "away": "Kickstart FC Karnataka",
+      "id": "aiff-74590",
+      "kickoff": "2026-10-13T16:00:00+05:30",
+      "home": "South United FC",
+      "away": "Roots Football Club",
       "status": "ft",
       "venue": "Bangalore Football Stadium",
       "round": "League",
-      "homeScore": 2,
-      "awayScore": 1,
+      "homeScore": 3,
+      "awayScore": 0,
       "goals": [
         {
-          "player": "Rinreithan Shaiza",
-          "team": "Kodagu FC"
+          "player": "Makakmayum Daniyal",
+          "team": "South United FC"
         },
         {
-          "player": "Lalkrawsmawia",
-          "team": "Kodagu FC"
-        }
-      ]
-    },
-    {
-      "id": "aiff-74591",
-      "kickoff": "2026-10-14T11:00:00+05:30",
-      "home": "HAL Sports Club",
-      "away": "Rebels FC",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 2,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Mahin Riza R",
-          "team": "Rebels FC"
+          "player": "Nirupam Gowda H",
+          "team": "South United FC"
         },
         {
-          "player": "Vivek Singh",
-          "team": "Rebels FC"
-        },
-        {
-          "player": "Md Arshad",
-          "team": "HAL Sports Club"
+          "player": "Makakmayum Daniyal",
+          "team": "South United FC"
         }
       ]
     },
@@ -2063,6 +2020,31 @@
         {
           "player": "Ishaan Sreedhar Venkataraman",
           "team": "Sporting Club Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74591",
+      "kickoff": "2026-10-14T11:00:00+05:30",
+      "home": "HAL Sports Club",
+      "away": "Rebels FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Mahin Riza R",
+          "team": "Rebels FC"
+        },
+        {
+          "player": "Vivek Singh",
+          "team": "Rebels FC"
+        },
+        {
+          "player": "Md Arshad",
+          "team": "HAL Sports Club"
         }
       ]
     },
@@ -2117,6 +2099,27 @@
       ]
     },
     {
+      "id": "aiff-74596",
+      "kickoff": "2026-10-15T16:00:00+05:30",
+      "home": "Technico Football Foundation",
+      "away": "Parikrma FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Appu Arogya Swamy P",
+          "team": "Parikrma FC"
+        },
+        {
+          "player": "Shankar Sampingiraj",
+          "team": "Parikrma FC"
+        }
+      ]
+    },
+    {
       "id": "aiff-74595",
       "kickoff": "2026-10-15T13:30:00+05:30",
       "home": "FC Bengaluru United",
@@ -2154,56 +2157,6 @@
         {
           "player": "Lijo K",
           "team": "FC Bengaluru United"
-        }
-      ]
-    },
-    {
-      "id": "aiff-74596",
-      "kickoff": "2026-10-15T16:00:00+05:30",
-      "home": "Technico Football Foundation",
-      "away": "Parikrma FC",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 0,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Appu Arogya Swamy P",
-          "team": "Parikrma FC"
-        },
-        {
-          "player": "Shankar Sampingiraj",
-          "team": "Parikrma FC"
-        }
-      ]
-    },
-    {
-      "id": "aiff-74597",
-      "kickoff": "2026-10-16T11:00:00+05:30",
-      "home": "Stride Sports Football Club",
-      "away": "Kodagu FC",
-      "status": "ft",
-      "venue": "Bangalore Football Stadium",
-      "round": "League",
-      "homeScore": 2,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Dhanush  R",
-          "team": "Kodagu FC"
-        },
-        {
-          "player": "Jithu",
-          "team": "Kodagu FC"
-        },
-        {
-          "player": "Ginneithang Gangte",
-          "team": "Stride Sports Football Club"
-        },
-        {
-          "player": "Ginneithang Gangte",
-          "team": "Stride Sports Football Club"
         }
       ]
     },
@@ -2258,217 +2211,1853 @@
       ]
     },
     {
-      "id": "aiff-74602",
-      "kickoff": "2026-10-19T16:00:00+05:30",
-      "home": "MEG & Centre FC",
-      "away": "FC Agniputhra",
-      "status": "scheduled",
+      "id": "aiff-74597",
+      "kickoff": "2026-10-16T11:00:00+05:30",
+      "home": "Stride Sports Football Club",
+      "away": "Kodagu FC",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
-    },
-    {
-      "id": "aiff-74600",
-      "kickoff": "2026-10-19T11:00:00+05:30",
-      "home": "Bangalore City FC",
-      "away": "ASC Football Club",
-      "status": "scheduled",
-      "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Dhanush  R",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Ginneithang Gangte",
+          "team": "Stride Sports Football Club"
+        },
+        {
+          "player": "Ginneithang Gangte",
+          "team": "Stride Sports Football Club"
+        }
+      ]
     },
     {
       "id": "aiff-74601",
       "kickoff": "2026-10-19T13:30:00+05:30",
       "home": "HAL Sports Club",
       "away": "Sporting Club Bengaluru",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 3,
+      "goals": [
+        {
+          "player": "Shaurya Rastogi",
+          "team": "Sporting Club Bengaluru"
+        },
+        {
+          "player": "Kangbi John",
+          "team": "Sporting Club Bengaluru"
+        },
+        {
+          "player": "Rayuel  Derryck Ahamed Beale",
+          "team": "Sporting Club Bengaluru"
+        }
+      ]
     },
     {
-      "id": "aiff-74605",
-      "kickoff": "2026-10-22T16:00:00+05:30",
-      "home": "FC Bengaluru United",
-      "away": "Kodagu FC",
-      "status": "scheduled",
+      "id": "aiff-74600",
+      "kickoff": "2026-10-19T11:00:00+05:30",
+      "home": "Bangalore City FC",
+      "away": "ASC Football Club",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Chandan S A",
+          "team": "Bangalore City FC"
+        },
+        {
+          "player": "Ishaan Jagota Mittal",
+          "team": "Bangalore City FC"
+        }
+      ]
     },
     {
-      "id": "aiff-74603",
-      "kickoff": "2026-10-22T11:00:00+05:30",
-      "home": "Bangalore Dream United",
-      "away": "United Stars Football Club",
-      "status": "scheduled",
+      "id": "aiff-74602",
+      "kickoff": "2026-10-19T16:00:00+05:30",
+      "home": "MEG & Centre FC",
+      "away": "FC Agniputhra",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 5,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Ajay Alex Antona Y",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Huitrom Poireiton Singh",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Huitrom Poireiton Singh",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Shaik Muzeeb",
+          "team": "MEG & Centre FC"
+        }
+      ]
     },
     {
       "id": "aiff-74604",
       "kickoff": "2026-10-22T13:30:00+05:30",
       "home": "Technico Football Foundation",
       "away": "FC Real Bengaluru",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 6,
+      "goals": [
+        {
+          "player": "Jangjagin Kuki",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Mohammad Saud Samdani",
+          "team": "Technico Football Foundation"
+        },
+        {
+          "player": "Jobin Johnson",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Jangjagin Kuki",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Jobin Johnson",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Ryan Wilfred S",
+          "team": "FC Real Bengaluru"
+        }
+      ]
     },
     {
-      "id": "aiff-74606",
-      "kickoff": "2026-10-23T11:00:00+05:30",
-      "home": "Roots Football Club",
-      "away": "Parikrma FC",
-      "status": "scheduled",
+      "id": "aiff-74603",
+      "kickoff": "2026-10-22T11:00:00+05:30",
+      "home": "Bangalore Dream United",
+      "away": "United Stars Football Club",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 3,
+      "goals": [
+        {
+          "player": "Londup Lepcha",
+          "team": "Bangalore Dream United"
+        },
+        {
+          "player": "Rony  C Lalenkima",
+          "team": "United Stars Football Club"
+        },
+        {
+          "player": "A Ajay",
+          "team": "United Stars Football Club"
+        },
+        {
+          "player": "Sathish Kumar",
+          "team": "United Stars Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74605",
+      "kickoff": "2026-10-22T16:00:00+05:30",
+      "home": "FC Bengaluru United",
+      "away": "Kodagu FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 3,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Lijo K",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Rinreithan Shaiza",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Lijo K",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Chunsaba Bariam",
+          "team": "FC Bengaluru United"
+        }
+      ]
     },
     {
       "id": "aiff-74607",
       "kickoff": "2026-10-23T13:30:00+05:30",
       "home": "Stride Sports Football Club",
       "away": "South United FC",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Nirupam Gowda H",
+          "team": "South United FC"
+        }
+      ]
     },
     {
       "id": "aiff-74608",
-      "kickoff": "nullT16:00:00+05:30",
+      "kickoff": "2026-10-23T16:00:00+05:30",
       "home": "Kickstart FC Karnataka",
       "away": "Bengaluru Football Club",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Ngairangbam Rakesh Singh",
+          "team": "Kickstart FC Karnataka"
+        },
+        {
+          "player": "Md Arbash",
+          "team": "Bengaluru Football Club"
+        }
+      ]
     },
     {
-      "id": "aiff-74611",
-      "kickoff": "2026-10-26T16:00:00+05:30",
-      "home": "ASC Football Club",
-      "away": "MEG & Centre FC",
-      "status": "scheduled",
+      "id": "aiff-74606",
+      "kickoff": "2026-10-23T11:00:00+05:30",
+      "home": "Roots Football Club",
+      "away": "Parikrma FC",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Appu Arogya Swamy P",
+          "team": "Parikrma FC"
+        }
+      ]
     },
     {
       "id": "aiff-74610",
       "kickoff": "2026-10-26T13:30:00+05:30",
       "home": "United Stars Football Club",
       "away": "HAL Sports Club",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Rony  C Lalenkima",
+          "team": "United Stars Football Club"
+        },
+        {
+          "player": "Johnstar M Marak",
+          "team": "HAL Sports Club"
+        },
+        {
+          "player": "Kaviarasan K",
+          "team": "United Stars Football Club"
+        }
+      ]
     },
     {
       "id": "aiff-74609",
       "kickoff": "2026-10-26T11:00:00+05:30",
       "home": "Sporting Club Bengaluru",
       "away": "Rebels FC",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 3,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Kangbi John",
+          "team": "Sporting Club Bengaluru"
+        },
+        {
+          "player": "Khailalmon Touthang",
+          "team": "Rebels FC"
+        },
+        {
+          "player": "Jomon Jacob",
+          "team": "Sporting Club Bengaluru"
+        },
+        {
+          "player": "V Vignesh",
+          "team": "Sporting Club Bengaluru"
+        }
+      ]
     },
     {
-      "id": "aiff-74612",
-      "kickoff": "2026-10-27T11:00:00+05:30",
-      "home": "FC Agniputhra",
-      "away": "Technico Football Foundation",
-      "status": "scheduled",
+      "id": "aiff-74611",
+      "kickoff": "2026-10-26T16:00:00+05:30",
+      "home": "ASC Football Club",
+      "away": "MEG & Centre FC",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
-    },
-    {
-      "id": "aiff-74613",
-      "kickoff": "2026-10-27T13:30:00+05:30",
-      "home": "Kodagu FC",
-      "away": "Bangalore Dream United",
-      "status": "scheduled",
-      "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Tongbram Krishnakanta Singh Loc)",
+          "team": "ASC Football Club"
+        },
+        {
+          "player": "Shaik Muzeeb",
+          "team": "MEG & Centre FC"
+        }
+      ]
     },
     {
       "id": "aiff-74614",
       "kickoff": "2026-10-27T16:00:00+05:30",
       "home": "FC Real Bengaluru",
       "away": "Roots Football Club",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 3,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Jangjagin Kuki",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Ryan Wilfred S",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Ryan Wilfred S",
+          "team": "FC Real Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74613",
+      "kickoff": "2026-10-27T13:30:00+05:30",
+      "home": "Kodagu FC",
+      "away": "Bangalore Dream United",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 4,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Mohamed Safwaan",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Lalkrawsmawia",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Londup Lepcha",
+          "team": "Bangalore Dream United"
+        },
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Dhanush  R",
+          "team": "Kodagu FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74612",
+      "kickoff": "2026-10-27T11:00:00+05:30",
+      "home": "FC Agniputhra",
+      "away": "Technico Football Foundation",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Sochan Shatsang",
+          "team": "Technico Football Foundation"
+        },
+        {
+          "player": "Nathan Akash Powell",
+          "team": "Technico Football Foundation"
+        },
+        {
+          "player": "Jehova Lalthagsanga",
+          "team": "FC Agniputhra"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74616",
+      "kickoff": "2026-10-28T13:30:00+05:30",
+      "home": "Parikrma FC",
+      "away": "Kickstart FC Karnataka",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Shankar Sampingiraj",
+          "team": "Parikrma FC"
+        },
+        {
+          "player": "Appu Arogya Swamy P",
+          "team": "Parikrma FC"
+        }
+      ]
     },
     {
       "id": "aiff-74615",
       "kickoff": "2026-10-28T11:00:00+05:30",
       "home": "Bengaluru Football Club",
       "away": "Stride Sports Football Club",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
-    },
-    {
-      "id": "aiff-74616",
-      "kickoff": "nullT16:00:00+05:30",
-      "home": "Parikrma FC",
-      "away": "Kickstart FC Karnataka",
-      "status": "scheduled",
-      "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Ningthoukhongjam Rishi Singh",
+          "team": "Bengaluru Football Club"
+        }
+      ]
     },
     {
       "id": "aiff-74617",
       "kickoff": "2026-10-28T16:00:00+05:30",
       "home": "South United FC",
       "away": "FC Bengaluru United",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Jakob Vanlalhimpuia",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Harmanpreet Singh",
+          "team": "FC Bengaluru United"
+        }
+      ]
     },
     {
       "id": "aiff-74620",
       "kickoff": "2026-10-29T16:00:00+05:30",
       "home": "Technico Football Foundation",
       "away": "ASC Football Club",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Ujjval Singh Sambyal",
+          "team": "ASC Football Club"
+        },
+        {
+          "player": "Suyash  Thomas  Koshy",
+          "team": "Technico Football Foundation"
+        }
+      ]
     },
     {
       "id": "aiff-74618",
       "kickoff": "2026-10-29T11:00:00+05:30",
       "home": "MEG & Centre FC",
       "away": "Bangalore City FC",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 0,
+      "goals": []
     },
     {
       "id": "aiff-74619",
       "kickoff": "2026-10-29T13:30:00+05:30",
       "home": "Rebels FC",
       "away": "United Stars Football Club",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Bangalore Football Stadium",
-      "round": "League"
-    },
-    {
-      "id": "aiff-74623",
-      "kickoff": "2026-10-30T16:00:00+05:30",
-      "home": "Bangalore Dream United",
-      "away": "South United FC",
-      "status": "scheduled",
-      "venue": "Bangalore Football Stadium",
-      "round": "League"
-    },
-    {
-      "id": "aiff-74622",
-      "kickoff": "2026-10-30T13:30:00+05:30",
-      "home": "Roots Football Club",
-      "away": "FC Agniputhra",
-      "status": "scheduled",
-      "venue": "Bangalore Football Stadium",
-      "round": "League"
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 3,
+      "goals": [
+        {
+          "player": "Sathish Kumar",
+          "team": "United Stars Football Club"
+        },
+        {
+          "player": "Sathish Kumar",
+          "team": "United Stars Football Club"
+        }
+      ]
     },
     {
       "id": "aiff-74621",
       "kickoff": "2026-10-30T11:00:00+05:30",
       "home": "HAL Sports Club",
       "away": "Kodagu FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 5,
+      "goals": [
+        {
+          "player": "Nandhakumar A",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Lenboigin Haokip",
+          "team": "HAL Sports Club"
+        },
+        {
+          "player": "Nandhakumar A",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Adhikarimayum Arunkumar Sharma",
+          "team": "HAL Sports Club"
+        },
+        {
+          "player": "Dhanush  R",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74623",
+      "kickoff": "2026-10-30T16:00:00+05:30",
+      "home": "Bangalore Dream United",
+      "away": "South United FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Ringsangmi Lw",
+          "team": "South United FC"
+        },
+        {
+          "player": "Tijo Job",
+          "team": "Bangalore Dream United"
+        },
+        {
+          "player": "Birsha Tudu",
+          "team": "South United FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-74622",
+      "kickoff": "2026-10-30T13:30:00+05:30",
+      "home": "Roots Football Club",
+      "away": "FC Agniputhra",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 1,
+      "goals": []
+    },
+    {
+      "id": "aiff-76230",
+      "kickoff": "2026-11-02T11:00:00+05:30",
+      "home": "Bangalore City FC",
+      "away": "Technico Football Foundation",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Suyash  Thomas  Koshy",
+          "team": "Technico Football Foundation"
+        },
+        {
+          "player": "Chandan S A",
+          "team": "Bangalore City FC"
+        },
+        {
+          "player": "Ishaan Jagota Mittal",
+          "team": "Bangalore City FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76231",
+      "kickoff": "2026-11-02T13:30:00+05:30",
+      "home": "Kodagu FC",
+      "away": "Rebels FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 3,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Muhammed Unais M",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "R S Jlcis",
+          "team": "Rebels FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76232",
+      "kickoff": "2026-11-02T16:00:00+05:30",
+      "home": "United Stars Football Club",
+      "away": "Sporting Club Bengaluru",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 0,
+      "goals": []
+    },
+    {
+      "id": "aiff-76235",
+      "kickoff": "2026-11-03T16:00:00+05:30",
+      "home": "South United FC",
+      "away": "HAL Sports Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 3,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Gasper Anthony",
+          "team": "HAL Sports Club"
+        },
+        {
+          "player": "Shogouhou",
+          "team": "South United FC"
+        },
+        {
+          "player": "Mustafa Shaikh",
+          "team": "South United FC"
+        },
+        {
+          "player": "Md Arshad",
+          "team": "HAL Sports Club"
+        },
+        {
+          "player": "Noel S",
+          "team": "South United FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76233",
+      "kickoff": "2026-11-03T11:00:00+05:30",
+      "home": "ASC Football Club",
+      "away": "Roots Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Heiwanbha Dkhar",
+          "team": "Roots Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76234",
+      "kickoff": "2026-11-03T13:30:00+05:30",
+      "home": "FC Agniputhra",
+      "away": "FC Bengaluru United",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 5,
+      "goals": [
+        {
+          "player": "Gautam  Rajesh",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Ribhav Sardesai",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Vinil Poojary",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Gautam  Rajesh",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Vijay Marandi",
+          "team": "FC Bengaluru United"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76236",
+      "kickoff": "2026-11-04T11:00:00+05:30",
+      "home": "Bengaluru Football Club",
+      "away": "Bangalore Dream United",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 5,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "S Chinmay",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "S Chinmay",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "Seigoulun Hengna",
+          "team": "Bangalore Dream United"
+        },
+        {
+          "player": "Cyrus Abhilash",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "Cyrus Abhilash",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "Nee Hang Subba",
+          "team": "Bengaluru Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76237",
+      "kickoff": "2026-11-04T13:30:00+05:30",
+      "home": "FC Real Bengaluru",
+      "away": "Stride Sports Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Jangjagin Kuki",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Jobin Johnson",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Vaishak N V",
+          "team": "Stride Sports Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76240",
+      "kickoff": "2026-11-05T16:00:00+05:30",
+      "home": "Sporting Club Bengaluru",
+      "away": "Kodagu FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Niketh N",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Solaimalai R",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Godwin Johnson",
+          "team": "Sporting Club Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76238",
+      "kickoff": "2026-11-05T11:00:00+05:30",
+      "home": "Technico Football Foundation",
+      "away": "MEG & Centre FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 3,
+      "goals": [
+        {
+          "player": "Akshay Tyagi",
+          "team": "Technico Football Foundation"
+        },
+        {
+          "player": "Gladson M Cheriyan",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Steve Mathew",
+          "team": "Technico Football Foundation"
+        },
+        {
+          "player": "Gladson M Cheriyan",
+          "team": "MEG & Centre FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76239",
+      "kickoff": "2026-11-05T13:30:00+05:30",
+      "home": "Roots Football Club",
+      "away": "Bangalore City FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 3,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Shelton Nickson",
+          "team": "Roots Football Club"
+        },
+        {
+          "player": "Gulab  Rauth Himbahadur",
+          "team": "Roots Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76241",
+      "kickoff": "2026-11-09T11:00:00+05:30",
+      "home": "Rebels FC",
+      "away": "South United FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Makakmayum Daniyal",
+          "team": "South United FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76242",
+      "kickoff": "2026-11-09T16:00:00+05:30",
+      "home": "HAL Sports Club",
+      "away": "Bengaluru Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 0,
+      "goals": []
+    },
+    {
+      "id": "aiff-76244",
+      "kickoff": "2026-11-10T13:30:00+05:30",
+      "home": "Bangalore Dream United",
+      "away": "Parikrma FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 5,
+      "goals": [
+        {
+          "player": "Appu Arogya Swamy P",
+          "team": "Parikrma FC"
+        },
+        {
+          "player": "Manglenthang Singsit",
+          "team": "Parikrma FC"
+        },
+        {
+          "player": "Thangjalen Haokip",
+          "team": "Parikrma FC"
+        },
+        {
+          "player": "R Neil  Joseph",
+          "team": "Parikrma FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76245",
+      "kickoff": "2026-11-10T16:00:00+05:30",
+      "home": "FC Bengaluru United",
+      "away": "FC Real Bengaluru",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 3,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Syed Ahmed",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Akshunna  Tyagi",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Harmanpreet Singh",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Gautam  Rajesh",
+          "team": "FC Bengaluru United"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76243",
+      "kickoff": "2026-11-10T11:00:00+05:30",
+      "home": "Stride Sports Football Club",
+      "away": "FC Agniputhra",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Vikupu P Swu",
+          "team": "Stride Sports Football Club"
+        },
+        {
+          "player": "Vaishak N V",
+          "team": "Stride Sports Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76248",
+      "kickoff": "2026-11-11T16:00:00+05:30",
+      "home": "South United FC",
+      "away": "Sporting Club Bengaluru",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Makakmayum Daniyal",
+          "team": "South United FC"
+        },
+        {
+          "player": "Makakmayum Daniyal",
+          "team": "South United FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76247",
+      "kickoff": "2026-11-11T13:30:00+05:30",
+      "home": "MEG & Centre FC",
+      "away": "Roots Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Sarath Narayanan M",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Shaik Muzeeb",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Muhammed Jaseem Ap",
+          "team": "Roots Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76246",
+      "kickoff": "2026-11-11T11:00:00+05:30",
+      "home": "Kodagu FC",
+      "away": "United Stars Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 5,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Lalkrawsmawia",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Lalkrawsmawia",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Udit G",
+          "team": "Kodagu FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76251",
+      "kickoff": "2026-11-12T16:00:00+05:30",
+      "home": "ASC Football Club",
+      "away": "Stride Sports Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 5,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Loukrakpam Premson Singh",
+          "team": "ASC Football Club"
+        },
+        {
+          "player": "Viveksheel Hemrom",
+          "team": "ASC Football Club"
+        },
+        {
+          "player": "Tongbram Krishnakanta Singh Loc)",
+          "team": "ASC Football Club"
+        },
+        {
+          "player": "Viveksheel Hemrom",
+          "team": "ASC Football Club"
+        },
+        {
+          "player": "Viveksheel Hemrom",
+          "team": "ASC Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76249",
+      "kickoff": "2026-11-12T11:00:00+05:30",
+      "home": "Bangalore City FC",
+      "away": "Kickstart FC Karnataka",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Saivin Ericson E",
+          "team": "Kickstart FC Karnataka"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76250",
+      "kickoff": "2026-11-12T13:30:00+05:30",
+      "home": "Bengaluru Football Club",
+      "away": "Rebels FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "R S Jlcis",
+          "team": "Rebels FC"
+        },
+        {
+          "player": "Serto Worneilen  Kom",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "R S Jlcis",
+          "team": "Rebels FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-73536",
+      "kickoff": "2026-11-13T11:30:00+05:30",
+      "home": "Kodagu FC",
+      "away": "Technico Football Foundation",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Jithu",
+          "team": "Kodagu FC"
+        },
+        {
+          "player": "Rinreithan Shaiza",
+          "team": "Kodagu FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76253",
+      "kickoff": "2026-11-13T14:00:00+05:30",
+      "home": "Parikrma FC",
+      "away": "HAL Sports Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 0,
+      "goals": []
+    },
+    {
+      "id": "aiff-76252",
+      "kickoff": "2026-11-13T09:00:00+05:30",
+      "home": "FC Real Bengaluru",
+      "away": "Bangalore Dream United",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Jangjagin Kuki",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Haljo",
+          "team": "Bangalore Dream United"
+        },
+        {
+          "player": "R Karthikeyan",
+          "team": "FC Real Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76256",
+      "kickoff": "2026-11-16T16:00:00+05:30",
+      "home": "United Stars Football Club",
+      "away": "South United FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Makakmayum Daniyal",
+          "team": "South United FC"
+        },
+        {
+          "player": "Md Altab Hussain",
+          "team": "South United FC"
+        },
+        {
+          "player": "Vinay R",
+          "team": "United Stars Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76255",
+      "kickoff": "2026-11-16T13:30:00+05:30",
+      "home": "Kickstart FC Karnataka",
+      "away": "MEG & Centre FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Sarath Narayanan M",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Sarath Narayanan M",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Ngairangbam Rakesh Singh",
+          "team": "Kickstart FC Karnataka"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76254",
+      "kickoff": "2026-11-16T11:00:00+05:30",
+      "home": "Roots Football Club",
+      "away": "Technico Football Foundation",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 3,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Ahan Gupta",
+          "team": "Roots Football Club"
+        },
+        {
+          "player": "Mushub Bin Yakoob",
+          "team": "Roots Football Club"
+        },
+        {
+          "player": "Jeff Melson Fernando",
+          "team": "Roots Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76257",
+      "kickoff": "2026-11-17T11:00:00+05:30",
+      "home": "Sporting Club Bengaluru",
+      "away": "Bengaluru Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 3,
+      "goals": [
+        {
+          "player": "Nee Hang Subba",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "Ningthoukhongjam Rishi Singh",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "Ningthoukhongjam Rishi Singh",
+          "team": "Bengaluru Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76258",
+      "kickoff": "2026-11-17T13:30:00+05:30",
+      "home": "Stride Sports Football Club",
+      "away": "Bangalore City FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Thangkaihao Haokip",
+          "team": "Stride Sports Football Club"
+        },
+        {
+          "player": "Chandan S A",
+          "team": "Bangalore City FC"
+        },
+        {
+          "player": "Ginneithang Gangte",
+          "team": "Stride Sports Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76259",
+      "kickoff": "2026-11-17T16:00:00+05:30",
+      "home": "Rebels FC",
+      "away": "Parikrma FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "R S Jlcis",
+          "team": "Rebels FC"
+        },
+        {
+          "player": "Appu Arogya Swamy P",
+          "team": "Parikrma FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76261",
+      "kickoff": "2026-11-19T13:30:00+05:30",
+      "home": "Technico Football Foundation",
+      "away": "Kickstart FC Karnataka",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 4,
+      "goals": [
+        {
+          "player": "Ngairangbam Rakesh Singh",
+          "team": "Kickstart FC Karnataka"
+        },
+        {
+          "player": "Nathan Akash Powell",
+          "team": "Technico Football Foundation"
+        },
+        {
+          "player": "Ngairangbam Rakesh Singh",
+          "team": "Kickstart FC Karnataka"
+        },
+        {
+          "player": "Ngairangbam Rakesh Singh",
+          "team": "Kickstart FC Karnataka"
+        },
+        {
+          "player": "Ngairangbam Rakesh Singh",
+          "team": "Kickstart FC Karnataka"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76260",
+      "kickoff": "2026-11-19T11:00:00+05:30",
+      "home": "Bangalore Dream United",
+      "away": "FC Agniputhra",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 4,
+      "goals": [
+        {
+          "player": "Ronn Jairus Joel",
+          "team": "FC Agniputhra"
+        },
+        {
+          "player": "Umesh Rathod",
+          "team": "FC Agniputhra"
+        },
+        {
+          "player": "Felix Varghese",
+          "team": "FC Agniputhra"
+        },
+        {
+          "player": "Ajay Shankar Kadam",
+          "team": "FC Agniputhra"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76264",
+      "kickoff": "2026-11-20T13:30:00+05:30",
+      "home": "FC Bengaluru United",
+      "away": "ASC Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 5,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Vinil Poojary",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Vishal R",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Akshunna  Tyagi",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Akshunna  Tyagi",
+          "team": "FC Bengaluru United"
+        },
+        {
+          "player": "Gautam  Rajesh",
+          "team": "FC Bengaluru United"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76267",
+      "kickoff": "2026-11-20T16:00:00+05:30",
+      "home": "Parikrma FC",
+      "away": "Sporting Club Bengaluru",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 3,
+      "goals": [
+        {
+          "player": "Ishaan Raghunanda",
+          "team": "Sporting Club Bengaluru"
+        },
+        {
+          "player": "Seiminlun Haokip",
+          "team": "Parikrma FC"
+        },
+        {
+          "player": "Jomon Jacob",
+          "team": "Sporting Club Bengaluru"
+        },
+        {
+          "player": "V Vignesh",
+          "team": "Sporting Club Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76295",
+      "kickoff": "2026-11-21T08:00:00+05:30",
+      "home": "Kickstart FC Karnataka",
+      "away": "FC Real Bengaluru",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 0,
+      "awayScore": 3,
+      "goals": [
+        {
+          "player": "Syed Ahmed",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Jangjagin Kuki",
+          "team": "FC Real Bengaluru"
+        },
+        {
+          "player": "Syed Ahmed",
+          "team": "FC Real Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76266",
+      "kickoff": "2026-11-23T13:30:00+05:30",
+      "home": "MEG & Centre FC",
+      "away": "Stride Sports Football Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Thangkaihao Haokip",
+          "team": "Stride Sports Football Club"
+        },
+        {
+          "player": "Mehakbir Singh",
+          "team": "MEG & Centre FC"
+        },
+        {
+          "player": "Ginneithang Gangte",
+          "team": "Stride Sports Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76270",
+      "kickoff": "2026-11-24T16:00:00+05:30",
+      "home": "FC Agniputhra",
+      "away": "HAL Sports Club",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 2,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Lallawmkima",
+          "team": "FC Agniputhra"
+        },
+        {
+          "player": "Lallawmkima",
+          "team": "FC Agniputhra"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76268",
+      "kickoff": "2026-11-24T11:00:00+05:30",
+      "home": "FC Real Bengaluru",
+      "away": "Rebels FC",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "R S Jlcis",
+          "team": "Rebels FC"
+        },
+        {
+          "player": "Sagar Shekhar Powar",
+          "team": "FC Real Bengaluru"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76269",
+      "kickoff": "2026-11-24T13:30:00+05:30",
+      "home": "ASC Football Club",
+      "away": "Bangalore Dream United",
+      "status": "ft",
+      "venue": "Bangalore Football Stadium",
+      "round": "League",
+      "homeScore": 4,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Oinam Gautam Singh",
+          "team": "ASC Football Club"
+        },
+        {
+          "player": "Tongbram Krishnakanta Singh Loc)",
+          "team": "ASC Football Club"
+        },
+        {
+          "player": "Viveksheel Hemrom",
+          "team": "ASC Football Club"
+        },
+        {
+          "player": "Haljo",
+          "team": "Bangalore Dream United"
+        },
+        {
+          "player": "S T Suriendran",
+          "team": "Bangalore Dream United"
+        },
+        {
+          "player": "Viveksheel Hemrom",
+          "team": "ASC Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76272",
+      "kickoff": "2026-11-25T15:00:00+05:30",
+      "home": "Stride Sports Football Club",
+      "away": "Technico Football Foundation",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76275",
+      "kickoff": "2026-11-26T16:00:00+05:30",
+      "home": "Sporting Club Bengaluru",
+      "away": "FC Real Bengaluru",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76274",
+      "kickoff": "2026-11-26T13:30:00+05:30",
+      "home": "United Stars Football Club",
+      "away": "Parikrma FC",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76278",
+      "kickoff": "2026-11-27T13:30:00+05:30",
+      "home": "Rebels FC",
+      "away": "FC Agniputhra",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76276",
+      "kickoff": "2026-11-27T08:15:00+05:30",
+      "home": "FC Bengaluru United",
+      "away": "MEG & Centre FC",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76279",
+      "kickoff": "2026-11-27T16:00:00+05:30",
+      "home": "HAL Sports Club",
+      "away": "ASC Football Club",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76277",
+      "kickoff": "2026-11-27T11:00:00+05:30",
+      "home": "Bangalore Dream United",
+      "away": "Bangalore City FC",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76273",
+      "kickoff": "2026-11-28T09:10:00+05:30",
+      "home": "Kodagu FC",
+      "away": "Bengaluru Football Club",
+      "status": "scheduled",
+      "venue": "HAL SC, Ground",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76271",
+      "kickoff": "2026-11-28T16:00:00+05:30",
+      "home": "Kickstart FC Karnataka",
+      "away": "Roots Football Club",
+      "status": "scheduled",
+      "venue": "HAL SC, Ground",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76280",
+      "kickoff": "2026-11-30T13:30:00+05:30",
+      "home": "Technico Football Foundation",
+      "away": "FC Bengaluru United",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76281",
+      "kickoff": "2026-11-30T11:00:00+05:30",
+      "home": "FC Real Bengaluru",
+      "away": "United Stars Football Club",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76292",
+      "kickoff": "2026-11-30T16:00:00+05:30",
+      "home": "FC Agniputhra",
+      "away": "Kickstart FC Karnataka",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76282",
+      "kickoff": "2026-12-01T16:00:00+05:30",
+      "home": "MEG & Centre FC",
+      "away": "Bangalore Dream United",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76283",
+      "kickoff": "2026-12-01T13:30:00+05:30",
+      "home": "Parikrma FC",
+      "away": "Kodagu FC",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76293",
+      "kickoff": "2026-12-02T11:00:00+05:30",
+      "home": "Bangalore City FC",
+      "away": "FC Bengaluru United",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76262",
+      "kickoff": "2026-12-02T13:30:00+05:30",
+      "home": "HAL Sports Club",
+      "away": "FC Real Bengaluru",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76289",
+      "kickoff": "2026-12-02T13:30:00+05:30",
+      "home": "Kickstart FC Karnataka",
+      "away": "ASC Football Club",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76286",
+      "kickoff": "2026-12-03T15:00:00+05:30",
+      "home": "FC Agniputhra",
+      "away": "Sporting Club Bengaluru",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76284",
+      "kickoff": "2026-12-04T08:15:00+05:30",
+      "home": "Roots Football Club",
+      "away": "Stride Sports Football Club",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76288",
+      "kickoff": "2026-12-04T16:00:00+05:30",
+      "home": "ASC Football Club",
+      "away": "Rebels FC",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-73518",
+      "kickoff": "2026-12-04T11:00:00+05:30",
+      "home": "United Stars Football Club",
+      "away": "MEG & Centre FC",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76290",
+      "kickoff": "2026-12-04T13:30:00+05:30",
+      "home": "Parikrma FC",
+      "away": "FC Bengaluru United",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76285",
+      "kickoff": "2026-12-05T09:10:00+05:30",
+      "home": "Bengaluru Football Club",
+      "away": "South United FC",
+      "status": "scheduled",
+      "venue": "HAL SC, Ground",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76291",
+      "kickoff": "2026-12-07T13:30:00+05:30",
+      "home": "Stride Sports Football Club",
+      "away": "Parikrma FC",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76287",
+      "kickoff": "2026-12-07T16:00:00+05:30",
+      "home": "Bangalore City FC",
+      "away": "HAL Sports Club",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76265",
+      "kickoff": "2026-12-08T14:00:00+05:30",
+      "home": "Bengaluru Football Club",
+      "away": "United Stars Football Club",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76263",
+      "kickoff": "2026-12-11T15:00:00+05:30",
+      "home": "South United FC",
+      "away": "Kodagu FC",
+      "status": "scheduled",
+      "venue": "Bangalore Football Stadium",
+      "round": "League"
+    },
+    {
+      "id": "aiff-76296",
+      "kickoff": "2026-12-11T12:00:00+05:30",
+      "home": "FC Bengaluru United",
+      "away": "Bengaluru Football Club",
       "status": "scheduled",
       "venue": "Bangalore Football Stadium",
       "round": "League"
@@ -2478,36 +4067,126 @@
     {
       "player": "Makakmayum Daniyal",
       "team": "South United FC",
-      "goals": 7
+      "goals": 11
     },
     {
       "player": "Jithu",
       "team": "Kodagu FC",
-      "goals": 5
+      "goals": 11
     },
     {
-      "player": "Harmanpreet Singh",
-      "team": "FC Bengaluru United",
-      "goals": 5
-    },
-    {
-      "player": "Md Arbash",
-      "team": "Bengaluru Football Club",
-      "goals": 5
+      "player": "R S Jlcis",
+      "team": "Rebels FC",
+      "goals": 8
     },
     {
       "player": "Shaik Muzeeb",
       "team": "MEG & Centre FC",
-      "goals": 5
-    },
-    {
-      "player": "Akshay Tyagi",
-      "team": "Technico Football Foundation",
-      "goals": 4
+      "goals": 8
     },
     {
       "player": "Jobin Johnson",
       "team": "FC Real Bengaluru",
+      "goals": 7
+    },
+    {
+      "player": "Ngairangbam Rakesh Singh",
+      "team": "Kickstart FC Karnataka",
+      "goals": 7
+    },
+    {
+      "player": "Viveksheel Hemrom",
+      "team": "ASC Football Club",
+      "goals": 7
+    },
+    {
+      "player": "Harmanpreet Singh",
+      "team": "FC Bengaluru United",
+      "goals": 7
+    },
+    {
+      "player": "Ningthoukhongjam Rishi Singh",
+      "team": "Bengaluru Football Club",
+      "goals": 7
+    },
+    {
+      "player": "Jangjagin Kuki",
+      "team": "FC Real Bengaluru",
+      "goals": 7
+    },
+    {
+      "player": "Md Arbash",
+      "team": "Bengaluru Football Club",
+      "goals": 6
+    },
+    {
+      "player": "Lijo K",
+      "team": "FC Bengaluru United",
+      "goals": 6
+    },
+    {
+      "player": "Nee Hang Subba",
+      "team": "Bengaluru Football Club",
+      "goals": 6
+    },
+    {
+      "player": "Akshay Tyagi",
+      "team": "Technico Football Foundation",
+      "goals": 5
+    },
+    {
+      "player": "Kangbi John",
+      "team": "Sporting Club Bengaluru",
+      "goals": 5
+    },
+    {
+      "player": "Akshunna  Tyagi",
+      "team": "FC Bengaluru United",
+      "goals": 5
+    },
+    {
+      "player": "Sarath Narayanan M",
+      "team": "MEG & Centre FC",
+      "goals": 5
+    },
+    {
+      "player": "Lalkrawsmawia",
+      "team": "Kodagu FC",
+      "goals": 5
+    },
+    {
+      "player": "Gautam  Rajesh",
+      "team": "FC Bengaluru United",
+      "goals": 5
+    },
+    {
+      "player": "Ginneithang Gangte",
+      "team": "Stride Sports Football Club",
+      "goals": 5
+    },
+    {
+      "player": "Appu Arogya Swamy P",
+      "team": "Parikrma FC",
+      "goals": 5
+    },
+    {
+      "player": "R Karthikeyan",
+      "team": "FC Real Bengaluru",
+      "goals": 4
+    },
+    {
+      "player": "Felix Varghese",
+      "team": "FC Agniputhra",
+      "goals": 4
+    },
+    {
+      "player": "Mustafa Shaikh",
+      "team": "South United FC",
+      "goals": 4
+    },
+    {
+      "player": "Md Arshad",
+      "team": "HAL Sports Club",
       "goals": 4
     },
     {
@@ -2516,33 +4195,38 @@
       "goals": 4
     },
     {
-      "player": "Ningthoukhongjam Rishi Singh",
+      "player": "Manglenthang Singsit",
+      "team": "Parikrma FC",
+      "goals": 4
+    },
+    {
+      "player": "S Chinmay",
       "team": "Bengaluru Football Club",
       "goals": 4
     },
     {
-      "player": "Lijo K",
+      "player": "Nirupam Gowda H",
+      "team": "South United FC",
+      "goals": 4
+    },
+    {
+      "player": "Rinreithan Shaiza",
+      "team": "Kodagu FC",
+      "goals": 4
+    },
+    {
+      "player": "Chandan S A",
+      "team": "Bangalore City FC",
+      "goals": 4
+    },
+    {
+      "player": "Ribhav Sardesai",
       "team": "FC Bengaluru United",
-      "goals": 4
-    },
-    {
-      "player": "Nee Hang Subba",
-      "team": "Bengaluru Football Club",
-      "goals": 4
-    },
-    {
-      "player": "Felix Varghese",
-      "team": "FC Agniputhra",
       "goals": 3
     },
     {
-      "player": "R Karthikeyan",
-      "team": "FC Real Bengaluru",
-      "goals": 3
-    },
-    {
-      "player": "Kangbi John",
-      "team": "Sporting Club Bengaluru",
+      "player": "Jakob Vanlalhimpuia",
+      "team": "FC Bengaluru United",
       "goals": 3
     },
     {
@@ -2551,23 +4235,23 @@
       "goals": 3
     },
     {
-      "player": "Mustafa Shaikh",
+      "player": "Ringsangmi Lw",
       "team": "South United FC",
       "goals": 3
     },
     {
-      "player": "Md Arshad",
-      "team": "HAL Sports Club",
-      "goals": 3
-    },
-    {
-      "player": "Mohammad Fardeen Bhat",
-      "team": "Rebels FC",
+      "player": "Londup Lepcha",
+      "team": "Bangalore Dream United",
       "goals": 3
     },
     {
       "player": "D Akash",
       "team": "United Stars Football Club",
+      "goals": 3
+    },
+    {
+      "player": "Mohammad Fardeen Bhat",
+      "team": "Rebels FC",
       "goals": 3
     },
     {
@@ -2581,22 +4265,12 @@
       "goals": 3
     },
     {
-      "player": "R S Jlcis",
-      "team": "Rebels FC",
-      "goals": 3
-    },
-    {
       "player": "Chaphamayum Rohen Singh",
       "team": "Bengaluru Football Club",
       "goals": 3
     },
     {
-      "player": "Manglenthang Singsit",
-      "team": "Parikrma FC",
-      "goals": 3
-    },
-    {
-      "player": "Nirupam Gowda H",
+      "player": "Birsha Tudu",
       "team": "South United FC",
       "goals": 3
     },
@@ -2606,23 +4280,73 @@
       "goals": 3
     },
     {
+      "player": "Nathan Akash Powell",
+      "team": "Technico Football Foundation",
+      "goals": 3
+    },
+    {
+      "player": "Ronn Jairus Joel",
+      "team": "FC Agniputhra",
+      "goals": 3
+    },
+    {
+      "player": "Shankar Sampingiraj",
+      "team": "Parikrma FC",
+      "goals": 3
+    },
+    {
+      "player": "Ishaan Jagota Mittal",
+      "team": "Bangalore City FC",
+      "goals": 3
+    },
+    {
       "player": "Ashwin Chakravarthy",
       "team": "Bangalore City FC",
       "goals": 3
     },
     {
-      "player": "Ginneithang Gangte",
+      "player": "Thangkaihao Haokip",
       "team": "Stride Sports Football Club",
       "goals": 3
     },
     {
-      "player": "Ribhav Sardesai",
-      "team": "FC Bengaluru United",
+      "player": "V Vignesh",
+      "team": "Sporting Club Bengaluru",
+      "goals": 3
+    },
+    {
+      "player": "Dhanush  R",
+      "team": "Kodagu FC",
+      "goals": 3
+    },
+    {
+      "player": "Ryan Wilfred S",
+      "team": "FC Real Bengaluru",
+      "goals": 3
+    },
+    {
+      "player": "Sathish Kumar",
+      "team": "United Stars Football Club",
+      "goals": 3
+    },
+    {
+      "player": "Tongbram Krishnakanta Singh Loc)",
+      "team": "ASC Football Club",
+      "goals": 3
+    },
+    {
+      "player": "Syed Ahmed",
+      "team": "FC Real Bengaluru",
+      "goals": 3
+    },
+    {
+      "player": "Md Altab Hussain",
+      "team": "South United FC",
       "goals": 2
     },
     {
-      "player": "Jakob Vanlalhimpuia",
-      "team": "FC Bengaluru United",
+      "player": "Tijo Job",
+      "team": "Bangalore Dream United",
       "goals": 2
     },
     {
@@ -2636,6 +4360,11 @@
       "goals": 2
     },
     {
+      "player": "Khailalmon Touthang",
+      "team": "Rebels FC",
+      "goals": 2
+    },
+    {
       "player": "Pramod Kumar Vate",
       "team": "HAL Sports Club",
       "goals": 2
@@ -2646,23 +4375,23 @@
       "goals": 2
     },
     {
-      "player": "Akshunna  Tyagi",
-      "team": "FC Bengaluru United",
+      "player": "Ajay Alex Antona Y",
+      "team": "MEG & Centre FC",
       "goals": 2
     },
     {
-      "player": "Ringsangmi Lw",
-      "team": "South United FC",
+      "player": "Adhikarimayum Arunkumar Sharma",
+      "team": "HAL Sports Club",
+      "goals": 2
+    },
+    {
+      "player": "Gasper Anthony",
+      "team": "HAL Sports Club",
       "goals": 2
     },
     {
       "player": "Vishnu Raj P P",
       "team": "MEG & Centre FC",
-      "goals": 2
-    },
-    {
-      "player": "Viveksheel Hemrom",
-      "team": "ASC Football Club",
       "goals": 2
     },
     {
@@ -2676,18 +4405,13 @@
       "goals": 2
     },
     {
+      "player": "Heiwanbha Dkhar",
+      "team": "Roots Football Club",
+      "goals": 2
+    },
+    {
       "player": "Samphrangshai Rani",
       "team": "Kodagu FC",
-      "goals": 2
-    },
-    {
-      "player": "Sarath Narayanan M",
-      "team": "MEG & Centre FC",
-      "goals": 2
-    },
-    {
-      "player": "S Chinmay",
-      "team": "Bengaluru Football Club",
       "goals": 2
     },
     {
@@ -2696,18 +4420,18 @@
       "goals": 2
     },
     {
-      "player": "Birsha Tudu",
-      "team": "South United FC",
+      "player": "Saivin Ericson E",
+      "team": "Kickstart FC Karnataka",
       "goals": 2
     },
     {
-      "player": "Lalkrawsmawia",
-      "team": "Kodagu FC",
+      "player": "Ajay Shankar Kadam",
+      "team": "FC Agniputhra",
       "goals": 2
     },
     {
-      "player": "Rinreithan Shaiza",
-      "team": "Kodagu FC",
+      "player": "Lenboigin Haokip",
+      "team": "HAL Sports Club",
       "goals": 2
     },
     {
@@ -2716,8 +4440,28 @@
       "goals": 2
     },
     {
-      "player": "Ronn Jairus Joel",
-      "team": "FC Agniputhra",
+      "player": "A Ajay",
+      "team": "United Stars Football Club",
+      "goals": 2
+    },
+    {
+      "player": "Johnstar M Marak",
+      "team": "HAL Sports Club",
+      "goals": 2
+    },
+    {
+      "player": "Shogouhou",
+      "team": "South United FC",
+      "goals": 2
+    },
+    {
+      "player": "Shelton Nickson",
+      "team": "Roots Football Club",
+      "goals": 2
+    },
+    {
+      "player": "Muhammed Jaseem Ap",
+      "team": "Roots Football Club",
       "goals": 2
     },
     {
@@ -2726,8 +4470,18 @@
       "goals": 2
     },
     {
-      "player": "Shankar Sampingiraj",
-      "team": "Parikrma FC",
+      "player": "Shaurya Rastogi",
+      "team": "Sporting Club Bengaluru",
+      "goals": 2
+    },
+    {
+      "player": "Udit G",
+      "team": "Kodagu FC",
+      "goals": 2
+    },
+    {
+      "player": "Godwin Johnson",
+      "team": "Sporting Club Bengaluru",
       "goals": 2
     },
     {
@@ -2736,23 +4490,78 @@
       "goals": 2
     },
     {
-      "player": "Prajwal V Gowda",
-      "team": "South United FC",
-      "goals": 1
+      "player": "Vishal R",
+      "team": "FC Bengaluru United",
+      "goals": 2
     },
     {
-      "player": "Md Altab Hussain",
+      "player": "Mushub Bin Yakoob",
+      "team": "Roots Football Club",
+      "goals": 2
+    },
+    {
+      "player": "Huitrom Poireiton Singh",
+      "team": "MEG & Centre FC",
+      "goals": 2
+    },
+    {
+      "player": "Rony  C Lalenkima",
+      "team": "United Stars Football Club",
+      "goals": 2
+    },
+    {
+      "player": "Jomon Jacob",
+      "team": "Sporting Club Bengaluru",
+      "goals": 2
+    },
+    {
+      "player": "Suyash  Thomas  Koshy",
+      "team": "Technico Football Foundation",
+      "goals": 2
+    },
+    {
+      "player": "Nandhakumar A",
+      "team": "Kodagu FC",
+      "goals": 2
+    },
+    {
+      "player": "Vinil Poojary",
+      "team": "FC Bengaluru United",
+      "goals": 2
+    },
+    {
+      "player": "Cyrus Abhilash",
+      "team": "Bengaluru Football Club",
+      "goals": 2
+    },
+    {
+      "player": "Vaishak N V",
+      "team": "Stride Sports Football Club",
+      "goals": 2
+    },
+    {
+      "player": "Gladson M Cheriyan",
+      "team": "MEG & Centre FC",
+      "goals": 2
+    },
+    {
+      "player": "Haljo",
+      "team": "Bangalore Dream United",
+      "goals": 2
+    },
+    {
+      "player": "Lallawmkima",
+      "team": "FC Agniputhra",
+      "goals": 2
+    },
+    {
+      "player": "Prajwal V Gowda",
       "team": "South United FC",
       "goals": 1
     },
     {
       "player": "Thingnam Radhakanta Singh",
       "team": "South United FC",
-      "goals": 1
-    },
-    {
-      "player": "Tijo Job",
-      "team": "Bangalore Dream United",
       "goals": 1
     },
     {
@@ -2771,11 +4580,6 @@
       "goals": 1
     },
     {
-      "player": "Khailalmon Touthang",
-      "team": "Rebels FC",
-      "goals": 1
-    },
-    {
       "player": "Ngamring Kampuinamei",
       "team": "Sporting Club Bengaluru",
       "goals": 1
@@ -2786,23 +4590,8 @@
       "goals": 1
     },
     {
-      "player": "Ajay Alex Antona Y",
-      "team": "MEG & Centre FC",
-      "goals": 1
-    },
-    {
       "player": "Abdul Hannan",
       "team": "FC Bengaluru United",
-      "goals": 1
-    },
-    {
-      "player": "Ngairangbam Rakesh Singh",
-      "team": "Kickstart FC Karnataka",
-      "goals": 1
-    },
-    {
-      "player": "Aditya Kumar",
-      "team": "Kodagu FC",
       "goals": 1
     },
     {
@@ -2821,18 +4610,8 @@
       "goals": 1
     },
     {
-      "player": "Adhikarimayum Arunkumar Sharma",
-      "team": "HAL Sports Club",
-      "goals": 1
-    },
-    {
-      "player": "Gasper Anthony",
-      "team": "HAL Sports Club",
-      "goals": 1
-    },
-    {
-      "player": "Londup Lepcha",
-      "team": "Bangalore Dream United",
+      "player": "Aditya Kumar",
+      "team": "Kodagu FC",
       "goals": 1
     },
     {
@@ -2846,13 +4625,13 @@
       "goals": 1
     },
     {
-      "player": "Lalrinfela Ralte",
-      "team": "Bengaluru Football Club",
+      "player": "Sridarth Nongmeikapam",
+      "team": "Kickstart FC Karnataka",
       "goals": 1
     },
     {
-      "player": "Sridarth Nongmeikapam",
-      "team": "Kickstart FC Karnataka",
+      "player": "Lalrinfela Ralte",
+      "team": "Bengaluru Football Club",
       "goals": 1
     },
     {
@@ -2861,13 +4640,18 @@
       "goals": 1
     },
     {
-      "player": "Heiwanbha Dkhar",
-      "team": "Roots Football Club",
+      "player": "Rabindra Kumar Thapa",
+      "team": "ASC Football Club",
       "goals": 1
     },
     {
-      "player": "Rabindra Kumar Thapa",
-      "team": "ASC Football Club",
+      "player": "Joseph Labrinawma Sailo",
+      "team": "Sporting Club Bengaluru",
+      "goals": 1
+    },
+    {
+      "player": "Vijual Kv",
+      "team": "MEG & Centre FC",
       "goals": 1
     },
     {
@@ -2886,18 +4670,8 @@
       "goals": 1
     },
     {
-      "player": "Joseph Labrinawma Sailo",
-      "team": "Sporting Club Bengaluru",
-      "goals": 1
-    },
-    {
-      "player": "Vijual Kv",
-      "team": "MEG & Centre FC",
-      "goals": 1
-    },
-    {
-      "player": "Surya Ragish",
-      "team": "Bengaluru Football Club",
+      "player": "Thangventluanga",
+      "team": "FC Real Bengaluru",
       "goals": 1
     },
     {
@@ -2911,18 +4685,8 @@
       "goals": 1
     },
     {
-      "player": "Thangventluanga",
-      "team": "FC Real Bengaluru",
-      "goals": 1
-    },
-    {
-      "player": "Saivin Ericson E",
-      "team": "Kickstart FC Karnataka",
-      "goals": 1
-    },
-    {
-      "player": "Nongmeikapam Sanathoi Meitei",
-      "team": "Kickstart FC Karnataka",
+      "player": "Surya Ragish",
+      "team": "Bengaluru Football Club",
       "goals": 1
     },
     {
@@ -2931,18 +4695,18 @@
       "goals": 1
     },
     {
+      "player": "Nongmeikapam Sanathoi Meitei",
+      "team": "Kickstart FC Karnataka",
+      "goals": 1
+    },
+    {
       "player": "Lalnunzama",
       "team": "FC Agniputhra",
       "goals": 1
     },
     {
-      "player": "Ajay Shankar Kadam",
-      "team": "FC Agniputhra",
-      "goals": 1
-    },
-    {
-      "player": "Lenboigin Haokip",
-      "team": "HAL Sports Club",
+      "player": "Kundan Gurung",
+      "team": "ASC Football Club",
       "goals": 1
     },
     {
@@ -2956,21 +4720,6 @@
       "goals": 1
     },
     {
-      "player": "Kundan Gurung",
-      "team": "ASC Football Club",
-      "goals": 1
-    },
-    {
-      "player": "A Ajay",
-      "team": "United Stars Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Nathan Akash Powell",
-      "team": "Technico Football Foundation",
-      "goals": 1
-    },
-    {
       "player": "Darshan V",
       "team": "Roots Football Club",
       "goals": 1
@@ -2978,16 +4727,6 @@
     {
       "player": "G Suresh",
       "team": "Roots Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Johnstar M Marak",
-      "team": "HAL Sports Club",
-      "goals": 1
-    },
-    {
-      "player": "Jangjagin Kuki",
-      "team": "FC Real Bengaluru",
       "goals": 1
     },
     {
@@ -3011,11 +4750,6 @@
       "goals": 1
     },
     {
-      "player": "Chandan S A",
-      "team": "Bangalore City FC",
-      "goals": 1
-    },
-    {
       "player": "Yohann Thomas Jacob",
       "team": "Stride Sports Football Club",
       "goals": 1
@@ -3031,17 +4765,7 @@
       "goals": 1
     },
     {
-      "player": "Shelton Nickson",
-      "team": "Roots Football Club",
-      "goals": 1
-    },
-    {
       "player": "Nitish K",
-      "team": "Roots Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Muhammed Jaseem Ap",
       "team": "Roots Football Club",
       "goals": 1
     },
@@ -3051,13 +4775,8 @@
       "goals": 1
     },
     {
-      "player": "Shogouhou",
-      "team": "South United FC",
-      "goals": 1
-    },
-    {
-      "player": "Gautam  Rajesh",
-      "team": "FC Bengaluru United",
+      "player": "Arnav Raghavan",
+      "team": "Sporting Club Bengaluru",
       "goals": 1
     },
     {
@@ -3071,38 +4790,13 @@
       "goals": 1
     },
     {
-      "player": "Shaurya Rastogi",
-      "team": "Sporting Club Bengaluru",
-      "goals": 1
-    },
-    {
-      "player": "Arnav Raghavan",
-      "team": "Sporting Club Bengaluru",
-      "goals": 1
-    },
-    {
       "player": "Nibo Zhimomi",
       "team": "Bangalore City FC",
       "goals": 1
     },
     {
-      "player": "Ishaan Jagota Mittal",
-      "team": "Bangalore City FC",
-      "goals": 1
-    },
-    {
-      "player": "Udit G",
-      "team": "Kodagu FC",
-      "goals": 1
-    },
-    {
       "player": "G John Peter",
       "team": "Kickstart FC Karnataka",
-      "goals": 1
-    },
-    {
-      "player": "Thangkaihao Haokip",
-      "team": "Stride Sports Football Club",
       "goals": 1
     },
     {
@@ -3116,11 +4810,6 @@
       "goals": 1
     },
     {
-      "player": "Godwin Johnson",
-      "team": "Sporting Club Bengaluru",
-      "goals": 1
-    },
-    {
       "player": "Ngangbam  Naocha  Singh",
       "team": "FC Bengaluru United",
       "goals": 1
@@ -3128,6 +4817,11 @@
     {
       "player": "Sohum Utreja",
       "team": "Bengaluru Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Aadarsh Narayanapuram",
+      "team": "Sporting Club Bengaluru",
       "goals": 1
     },
     {
@@ -3141,16 +4835,6 @@
       "goals": 1
     },
     {
-      "player": "Aadarsh Narayanapuram",
-      "team": "Sporting Club Bengaluru",
-      "goals": 1
-    },
-    {
-      "player": "V Vignesh",
-      "team": "Sporting Club Bengaluru",
-      "goals": 1
-    },
-    {
       "player": "Raghu N",
       "team": "FC Real Bengaluru",
       "goals": 1
@@ -3161,30 +4845,165 @@
       "goals": 1
     },
     {
-      "player": "Vishal R",
-      "team": "FC Bengaluru United",
-      "goals": 1
-    },
-    {
-      "player": "Appu Arogya Swamy P",
-      "team": "Parikrma FC",
-      "goals": 1
-    },
-    {
-      "player": "Dhanush  R",
-      "team": "Kodagu FC",
-      "goals": 1
-    },
-    {
       "player": "Nikhil Raj Murugesh Kumar",
       "team": "Kickstart FC Karnataka",
       "goals": 1
     },
     {
-      "player": "Mushub Bin Yakoob",
+      "player": "Rayuel  Derryck Ahamed Beale",
+      "team": "Sporting Club Bengaluru",
+      "goals": 1
+    },
+    {
+      "player": "Mohammad Saud Samdani",
+      "team": "Technico Football Foundation",
+      "goals": 1
+    },
+    {
+      "player": "Chunsaba Bariam",
+      "team": "FC Bengaluru United",
+      "goals": 1
+    },
+    {
+      "player": "Kaviarasan K",
+      "team": "United Stars Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Mohamed Safwaan",
+      "team": "Kodagu FC",
+      "goals": 1
+    },
+    {
+      "player": "Sochan Shatsang",
+      "team": "Technico Football Foundation",
+      "goals": 1
+    },
+    {
+      "player": "Jehova Lalthagsanga",
+      "team": "FC Agniputhra",
+      "goals": 1
+    },
+    {
+      "player": "Ujjval Singh Sambyal",
+      "team": "ASC Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Muhammed Unais M",
+      "team": "Kodagu FC",
+      "goals": 1
+    },
+    {
+      "player": "Noel S",
+      "team": "South United FC",
+      "goals": 1
+    },
+    {
+      "player": "Vijay Marandi",
+      "team": "FC Bengaluru United",
+      "goals": 1
+    },
+    {
+      "player": "Seigoulun Hengna",
+      "team": "Bangalore Dream United",
+      "goals": 1
+    },
+    {
+      "player": "Niketh N",
+      "team": "Kodagu FC",
+      "goals": 1
+    },
+    {
+      "player": "Solaimalai R",
+      "team": "Kodagu FC",
+      "goals": 1
+    },
+    {
+      "player": "Steve Mathew",
+      "team": "Technico Football Foundation",
+      "goals": 1
+    },
+    {
+      "player": "Gulab  Rauth Himbahadur",
       "team": "Roots Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Thangjalen Haokip",
+      "team": "Parikrma FC",
+      "goals": 1
+    },
+    {
+      "player": "R Neil  Joseph",
+      "team": "Parikrma FC",
+      "goals": 1
+    },
+    {
+      "player": "Vikupu P Swu",
+      "team": "Stride Sports Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Loukrakpam Premson Singh",
+      "team": "ASC Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Serto Worneilen  Kom",
+      "team": "Bengaluru Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Vinay R",
+      "team": "United Stars Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Ahan Gupta",
+      "team": "Roots Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Jeff Melson Fernando",
+      "team": "Roots Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Umesh Rathod",
+      "team": "FC Agniputhra",
+      "goals": 1
+    },
+    {
+      "player": "Ishaan Raghunanda",
+      "team": "Sporting Club Bengaluru",
+      "goals": 1
+    },
+    {
+      "player": "Seiminlun Haokip",
+      "team": "Parikrma FC",
+      "goals": 1
+    },
+    {
+      "player": "Mehakbir Singh",
+      "team": "MEG & Centre FC",
+      "goals": 1
+    },
+    {
+      "player": "Sagar Shekhar Powar",
+      "team": "FC Real Bengaluru",
+      "goals": 1
+    },
+    {
+      "player": "Oinam Gautam Singh",
+      "team": "ASC Football Club",
+      "goals": 1
+    },
+    {
+      "player": "S T Suriendran",
+      "team": "Bangalore Dream United",
       "goals": 1
     }
   ],
-  "updatedAt": "2026-10-16T16:47:14.127Z"
+  "updatedAt": "2026-11-25T05:46:35.886Z"
 }
