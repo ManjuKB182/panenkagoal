@@ -29,6 +29,7 @@ const href = (p: string) => localePath(locale, p);
   let basic = false; // true when only the stored score/scorers are available
   let tab: Tab | null = null;
   let timer: number | undefined;
+  let squadsShown = false;
 
   // ---- tiny DOM helper: text is always set as text, never as HTML ----
   type Child = Node | string | false | null | undefined;
@@ -257,6 +258,12 @@ const href = (p: string) => localePath(locale, p);
       else if (!d.lineups && !d.squads) root.append(h('p', 'mc-hint', t(locale, 'mc.lineupsNA')));
     }
     window.scrollTo(0, scrollY);
+    // First time the squads show on a desktop screen, bring them to the top so both whole squads are in view without scrolling.
+    if (tab === 'squads' && !squadsShown && innerWidth >= 900) {
+      squadsShown = true;
+      const el = root.querySelector('.mc-sqwrap') as HTMLElement | null;
+      if (el && scrollY < 50) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 84 });
+    }
   }
 
   // ---- data ----
