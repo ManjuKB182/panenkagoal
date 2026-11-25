@@ -176,20 +176,24 @@ const href = (p: string) => localePath(locale, p);
   }
 
   // ---- squads (before the lineups are out) ----
-  function squadTeam(name: string, ps: Player[]) {
-    const col = h('div', 'mc-lteam', h('div', 'mc-lhead', h('b', null, name), span('mc-badge', digits(locale, String(ps.length)))));
+  function squadTeam(name: string, ps: Player[], side: MatchDetail['home']) {
+    const card = h('div', 'mc-sq', h('div', 'mc-sq-head', crest(side), h('b', null, name), span('mc-sq-count', digits(locale, String(ps.length)))));
     for (const pos of ['GK', 'DEF', 'MID', 'FWD', 'none'] as const) {
       const group = ps.filter((p) => (p.position ?? 'none') === pos);
       if (!group.length) continue;
-      col.append(h('div', 'mc-subs', h('b', null, t(locale, `mc.squadPos.${pos}` as any)),
-        ...group.map((p) => h('div', null, span('mc-no', digits(locale, String(p.number ?? ''))), personName(locale, p.name), p.captain ? span('mc-pos', 'C') : null))));
+      card.append(
+        h('div', 'mc-sq-title', span(null, t(locale, `mc.squadPos.${pos}` as any)), span('mc-sq-n', digits(locale, String(group.length)))),
+        h('div', 'mc-sq-grid', ...group.map((p) => {
+          const badge = h('i', 'mc-sq-no', digits(locale, String(p.number ?? '–')));
+          return h('div', 'mc-sq-p', badge, h('span', 'mc-sq-nm', personName(locale, p.name)), p.captain ? span('mc-sq-c', 'C') : null);
+        })));
     }
-    return col;
+    return card;
   }
   function squads(d: MatchDetail) {
     const s = d.squads!;
-    return h('div', null, h('p', 'mc-hint', t(locale, 'mc.squadHint')),
-      h('div', 'mc-two', squadTeam(teamName(locale, d.home.name), s.home), squadTeam(teamName(locale, d.away.name), s.away)));
+    return h('div', 'mc-sqwrap', h('p', 'mc-sq-hint', t(locale, 'mc.squadHint')),
+      h('div', 'mc-two', squadTeam(teamName(locale, d.home.name), s.home, d.home), squadTeam(teamName(locale, d.away.name), s.away, d.away)));
   }
 
   // ---- stats ----
@@ -349,6 +353,24 @@ const href = (p: string) => localePath(locale, p);
   .mc-no { min-width: 22px; color: var(--text-3); font-weight: 700; }
   .mc-pos { margin-left: auto; font-size: 12px; color: var(--text-3); }
   .mc-subs .mc-on { margin-left: auto; }
+  /* Squads: one card per club, players as compact tiles two across, grouped by position. */
+  .mc-sqwrap { display: grid; gap: 14px; }
+  .mc-sq-hint { margin: 0; text-align: center; font-size: 13.5px; color: var(--text-3); }
+  .mc-sq { display: grid; gap: 10px; align-content: start; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); }
+  .mc-sq-head { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); font-size: 17px; letter-spacing: -0.01em; }
+  .mc-sq-head .mc-crest { width: 40px; height: 40px; flex: none; }
+  .mc-sq-head .mc-crest img { width: 40px; height: 40px; }
+  .mc-sq-count { margin-left: auto; padding: 4px 11px; border-radius: 99px; background: var(--accent); color: var(--on-accent); font: 800 12.5px var(--body); }
+  .mc-sq-title { display: flex; align-items: center; gap: 8px; margin-top: 6px; font: 800 11.5px/1 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
+  .mc-sq-title::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .mc-sq-n { order: 2; font-weight: 700; }
+  .mc-sq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .mc-sq-p { display: flex; align-items: center; gap: 9px; min-width: 0; padding: 6px 10px 6px 6px; border-radius: 12px; background: var(--surface-2); font-size: 13.5px; font-weight: 600; transition: transform 0.15s, background 0.15s; }
+  .mc-sq-p:hover { transform: translateY(-1px); background: color-mix(in srgb, var(--brand) 8%, var(--surface-2)); }
+  .mc-sq-no { flex: none; min-width: 30px; height: 30px; padding-inline: 4px; display: grid; place-items: center; border-radius: 9px; background: var(--text); color: var(--bg); font: 800 13px/1 var(--display); font-style: normal; font-variant-numeric: tabular-nums; }
+  .mc-sq-nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mc-sq-c { margin-left: auto; flex: none; width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--on-accent); font: 800 10px/1 var(--body); }
+  @media (max-width: 520px) { .mc-sq-grid { grid-template-columns: 1fr; } .mc-sq { padding: 12px; } }
   .mc-bar { display: grid; gap: 5px; padding: 12px 16px; border-top: 1px solid var(--line); }
   .mc-bar:first-child { border-top: 0; }
   .mc-lab { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; }
