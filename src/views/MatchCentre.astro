@@ -370,6 +370,20 @@ const href = (p: string) => localePath(locale, p);
   .mc-sq-no { flex: none; min-width: 30px; height: 30px; padding-inline: 4px; display: grid; place-items: center; border-radius: 9px; background: var(--text); color: var(--bg); font: 800 13px/1 var(--display); font-style: normal; font-variant-numeric: tabular-nums; }
   .mc-sq-nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .mc-sq-c { margin-left: auto; flex: none; width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--on-accent); font: 800 10px/1 var(--body); }
+  /* Desktop: dense three-across tiles so a whole squad of ~30 fits on one screen without scrolling. */
+  @media (min-width: 900px) {
+    .mc-sqwrap { gap: 8px; }
+    .mc-sq-hint { font-size: 12.5px; }
+    .mc-sq { gap: 6px; padding: 12px 14px; border-radius: 16px; }
+    .mc-sq-head { padding-bottom: 8px; font-size: 15px; gap: 10px; }
+    .mc-sq-head .mc-crest, .mc-sq-head .mc-crest img { width: 30px; height: 30px; }
+    .mc-sq-count { padding: 3px 9px; font-size: 12px; }
+    .mc-sq-title { margin-top: 2px; font-size: 10.5px; }
+    .mc-sq-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+    .mc-sq-p { gap: 7px; padding: 3px 8px 3px 4px; border-radius: 9px; font-size: 12.5px; }
+    .mc-sq-no { min-width: 24px; height: 24px; border-radius: 7px; font-size: 11.5px; }
+    .mc-sq-c { width: 16px; height: 16px; font-size: 9px; }
+  }
   @media (max-width: 520px) { .mc-sq-grid { grid-template-columns: 1fr; } .mc-sq { padding: 12px; } }
   .mc-bar { display: grid; gap: 5px; padding: 12px 16px; border-top: 1px solid var(--line); }
   .mc-bar:first-child { border-top: 0; }
