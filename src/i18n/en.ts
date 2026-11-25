@@ -26,6 +26,7 @@ const en = {
   'footer.aboutLink': 'Our story',
   'footer.installApp': 'Install app',
   'footer.installIosHint': 'Tap Share, then "Add to Home Screen".',
+  'footer.installChromeIosHint': 'Chrome on iPhone cannot add this app. Open this page in Safari, tap Share, then "Add to Home Screen".',
   'footer.contact': 'Contact Us',
   'footer.emailGmail': 'Email Panenka Goal on Gmail',
   'footer.emailTitle': 'Email us on Gmail',

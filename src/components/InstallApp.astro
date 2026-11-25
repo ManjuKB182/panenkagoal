@@ -5,7 +5,8 @@ const locale = getLocale(Astro.url);
 ---
 <div class="install" data-install hidden>
   <button type="button" class="install-btn" data-install-btn hidden>{t(locale, 'footer.installApp')}</button>
-  <p class="install-hint" data-install-ios hidden>{t(locale, 'footer.installIosHint')}</p>
+  <p class="install-hint" data-install-ios hidden><svg class="share-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4M5 11v9h14v-9"/></svg>{t(locale, 'footer.installIosHint')}</p>
+  <p class="install-hint" data-install-chrome-ios hidden><svg class="share-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4M5 11v9h14v-9"/></svg>{t(locale, 'footer.installChromeIosHint')}</p>
 </div>
 
 <script>
@@ -15,6 +16,7 @@ const locale = getLocale(Astro.url);
   if (root) {
     const btn = root.querySelector<HTMLButtonElement>('[data-install-btn]')!;
     const ios = root.querySelector<HTMLElement>('[data-install-ios]')!;
+    const chromeIos = root.querySelector<HTMLElement>('[data-install-chrome-ios]')!;
     const standalone = matchMedia('(display-mode: standalone)').matches || (navigator as any).standalone === true;
     let deferred: any = null;
 
@@ -37,7 +39,10 @@ const locale = getLocale(Astro.url);
 
       // iOS Safari never fires beforeinstallprompt, so show the manual steps instead.
       const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
-      if (isIos) { ios.hidden = false; root.hidden = false; }
+      // Chrome on iPhone (CriOS) can't add to the home screen itself; the steps only work in Safari.
+      const isChromeIos = isIos && /CriOS/.test(navigator.userAgent);
+      if (isChromeIos) { chromeIos.hidden = false; root.hidden = false; }
+      else if (isIos) { ios.hidden = false; root.hidden = false; }
     }
   }
 </script>
@@ -52,4 +57,9 @@ const locale = getLocale(Astro.url);
   }
   .install-btn:hover { background: rgba(255, 255, 255, 0.08); }
   .install-hint { margin: 0; font-size: 14px; }
+  /* The iOS Share glyph: a box with an up arrow, drawn inline so it matches the text colour. */
+  .share-icon {
+    width: 16px; height: 16px; vertical-align: -3px; margin-right: 4px;
+    fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
 </style>
