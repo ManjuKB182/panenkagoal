@@ -235,6 +235,7 @@ const href = (p: string) => localePath(locale, p);
     if (!tab || !tabs.some((x) => x.key === tab)) tab = tabs[0]?.key ?? null;
     document.title = t(locale, 'mc.docTitle', { home: teamName(locale, d.home.name), away: teamName(locale, d.away.name) });
     const scrollY = window.scrollY;
+    document.getElementById('mc')?.classList.toggle('mc-wide', tab === 'squads');
     root.replaceChildren(header(d));
     if (!tabs.length) {
       root.append(h('p', 'mc-empty', note(d)));
@@ -370,9 +371,11 @@ const href = (p: string) => localePath(locale, p);
   .mc-sq-p { display: flex; align-items: center; gap: 9px; min-width: 0; padding: 6px 10px 6px 6px; border-radius: 12px; background: var(--surface-2); font-size: 13.5px; font-weight: 600; transition: transform 0.15s, background 0.15s; }
   .mc-sq-p:hover { transform: translateY(-1px); background: color-mix(in srgb, var(--brand) 8%, var(--surface-2)); }
   .mc-sq-no { flex: none; min-width: 30px; height: 30px; padding-inline: 4px; display: grid; place-items: center; border-radius: 9px; background: var(--text); color: var(--bg); font: 800 13px/1 var(--display); font-style: normal; font-variant-numeric: tabular-nums; }
-  .mc-sq-nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mc-sq-nm { min-width: 0; line-height: 1.15; overflow-wrap: anywhere; }
   .mc-sq-c { margin-left: auto; flex: none; width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--on-accent); font: 800 10px/1 var(--body); }
   /* Desktop: dense three-across tiles so a whole squad of ~30 fits on one screen without scrolling. */
+  /* Squads use the full width of the screen: long names fit on one line instead of being cut off. */
+  .mc.mc-wide { max-width: min(1800px, 100%); }
   @media (min-width: 900px) {
     .mc-sqwrap { gap: 8px; }
     .mc-sq-hint { font-size: 12px; margin-top: -2px; }
