@@ -1,7 +1,8 @@
 ---
 import type { Competition } from '../config/competitions';
 import type { StandingRow } from '../lib/types';
-import { digits, getLocale, t, teamName } from '../i18n';
+import { digits, getLocale, localePath, t, teamName } from '../i18n';
+import { teamHref } from '../lib/teams';
 
 const locale = getLocale(Astro.url);
 
@@ -43,7 +44,7 @@ const hasZones = Boolean(z.top || z.promotion || z.relegation);
           <td class="l team">
             <span class="tm">
               {r.logo && <img src={r.logo} alt="" width="20" height="20" loading="lazy" />}
-              <span class="full">{teamName(locale, r.team)}</span>
+              <a class="full" href={localePath(locale, teamHref(comp, r.team))}>{teamName(locale, r.team)}</a>
             </span>
           </td>
           <td>{digits(locale, r.played)}</td>
@@ -96,6 +97,8 @@ const hasZones = Boolean(z.top || z.promotion || z.relegation);
   /* Flex goes on an inner span: a flex <td> stops behaving like a table cell and breaks the row lines. */
   .team { min-width: 170px; white-space: normal; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
   .tm { display: flex; align-items: center; gap: 10px; }
+  .tm a { color: inherit; text-decoration: none; }
+  .tm a:hover { color: var(--brand-text); text-decoration: underline; text-underline-offset: 3px; }
   /* Phones: narrower club column and tighter cells so P, GD and Pts always fit. */
   @media (max-width: 560px) {
     .team { min-width: 0; width: 124px; max-width: 124px; font-size: 14px; left: 40px; line-height: 1.3; }

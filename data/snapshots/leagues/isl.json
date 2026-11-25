@@ -11,211 +11,211 @@
           "rows": [
             {
               "pos": 1,
-              "prevPos": 7,
-              "team": "Kerala Blasters FC",
-              "short": "KBFC",
-              "played": 1,
-              "won": 1,
+              "prevPos": 8,
+              "team": "Mohun Bagan Super Giant",
+              "short": "MBSG",
+              "logo": "/logos/isl/1874.png",
+              "played": 6,
+              "won": 5,
               "drawn": 0,
-              "lost": 0,
-              "gf": 2,
-              "ga": 0,
-              "gd": 2,
-              "points": 3,
-              "form": "W",
-              "logo": "/logos/isl/498.png"
+              "lost": 1,
+              "gf": 10,
+              "ga": 6,
+              "gd": 4,
+              "points": 15,
+              "form": "WWWWW"
             },
             {
               "pos": 2,
               "prevPos": 1,
               "team": "Bengaluru FC",
               "short": "BFC",
-              "played": 1,
-              "won": 1,
-              "drawn": 0,
+              "logo": "/logos/isl/656.png",
+              "played": 5,
+              "won": 4,
+              "drawn": 1,
               "lost": 0,
-              "gf": 3,
-              "ga": 2,
-              "gd": 1,
-              "points": 3,
-              "form": "W",
-              "logo": "/logos/isl/656.png"
+              "gf": 10,
+              "ga": 4,
+              "gd": 6,
+              "points": 13,
+              "form": "WWDWW"
             },
             {
               "pos": 3,
-              "prevPos": 3,
-              "team": "Churchill Brothers SC",
-              "short": "CBSC",
-              "played": 1,
-              "won": 1,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 2,
-              "ga": 1,
-              "gd": 1,
-              "points": 3,
-              "form": "W",
-              "logo": "/logos/isl/1101.png"
-            },
-            {
-              "pos": 4,
-              "prevPos": 12,
-              "team": "Punjab FC",
-              "short": "PFC",
-              "played": 1,
-              "won": 1,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 2,
-              "ga": 1,
-              "gd": 1,
-              "points": 3,
-              "form": "W",
-              "logo": "/logos/isl/1252.png"
-            },
-            {
-              "pos": 5,
               "prevPos": 10,
               "team": "NorthEast United FC",
               "short": "NEUFC",
-              "played": 1,
-              "won": 1,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 1,
-              "ga": 0,
-              "gd": 1,
-              "points": 3,
-              "form": "W",
-              "logo": "/logos/isl/504.png"
+              "logo": "/logos/isl/504.png",
+              "played": 7,
+              "won": 3,
+              "drawn": 3,
+              "lost": 1,
+              "gf": 9,
+              "ga": 4,
+              "gd": 5,
+              "points": 12,
+              "form": "DDWLD"
             },
             {
-              "pos": 6,
-              "prevPos": 2,
-              "team": "Chennaiyin FC",
-              "short": "CFC",
-              "played": 1,
-              "won": 0,
-              "drawn": 1,
-              "lost": 0,
-              "gf": 1,
-              "ga": 1,
-              "gd": 0,
-              "points": 1,
-              "form": "D",
-              "logo": "/logos/isl/505.png"
-            },
-            {
-              "pos": 7,
-              "prevPos": 5,
-              "team": "FC Goa",
-              "short": "FCG",
-              "played": 1,
-              "won": 0,
-              "drawn": 1,
-              "lost": 0,
-              "gf": 1,
-              "ga": 1,
-              "gd": 0,
-              "points": 1,
-              "form": "D",
-              "logo": "/logos/isl/496.png"
-            },
-            {
-              "pos": 8,
-              "prevPos": 4,
-              "team": "East Bengal FC",
-              "short": "EBFC",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0,
-              "form": "",
-              "logo": "/logos/isl/1102.png"
-            },
-            {
-              "pos": 9,
+              "pos": 4,
               "prevPos": 13,
               "team": "Sporting Club Delhi",
               "short": "SCD",
-              "played": 1,
-              "won": 0,
-              "drawn": 0,
+              "logo": "/logos/isl/3234.png",
+              "played": 7,
+              "won": 2,
+              "drawn": 3,
+              "lost": 2,
+              "gf": 13,
+              "ga": 11,
+              "gd": 2,
+              "points": 9,
+              "form": "DWWDD"
+            },
+            {
+              "pos": 5,
+              "prevPos": 12,
+              "team": "Punjab FC",
+              "short": "PFC",
+              "logo": "/logos/isl/1252.png",
+              "played": 5,
+              "won": 2,
+              "drawn": 2,
               "lost": 1,
-              "gf": 2,
-              "ga": 3,
+              "gf": 8,
+              "ga": 7,
+              "gd": 1,
+              "points": 8,
+              "form": "WDWLD"
+            },
+            {
+              "pos": 6,
+              "prevPos": 5,
+              "team": "FC Goa",
+              "short": "FCG",
+              "logo": "/logos/isl/496.png",
+              "played": 5,
+              "won": 2,
+              "drawn": 2,
+              "lost": 1,
+              "gf": 6,
+              "ga": 5,
+              "gd": 1,
+              "points": 8,
+              "form": "DDWLW"
+            },
+            {
+              "pos": 7,
+              "prevPos": 4,
+              "team": "East Bengal FC",
+              "short": "EBFC",
+              "logo": "/logos/isl/1102.png",
+              "played": 4,
+              "won": 2,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 14,
+              "ga": 8,
+              "gd": 6,
+              "points": 7,
+              "form": "WWLD"
+            },
+            {
+              "pos": 8,
+              "prevPos": 2,
+              "team": "Chennaiyin FC",
+              "short": "CFC",
+              "logo": "/logos/isl/505.png",
+              "played": 6,
+              "won": 1,
+              "drawn": 3,
+              "lost": 2,
+              "gf": 7,
+              "ga": 8,
               "gd": -1,
-              "points": 0,
-              "form": "L",
-              "logo": "/logos/isl/3234.png"
+              "points": 6,
+              "form": "LLDWD"
+            },
+            {
+              "pos": 9,
+              "prevPos": 7,
+              "team": "Kerala Blasters FC",
+              "short": "KBFC",
+              "logo": "/logos/isl/498.png",
+              "played": 4,
+              "won": 1,
+              "drawn": 2,
+              "lost": 1,
+              "gf": 3,
+              "ga": 4,
+              "gd": -1,
+              "points": 5,
+              "form": "WLDD"
             },
             {
               "pos": 10,
-              "prevPos": 9,
-              "team": "Mumbai City FC",
-              "short": "MCFC",
-              "played": 1,
-              "won": 0,
+              "prevPos": 3,
+              "team": "Churchill Brothers SC",
+              "short": "CBSC",
+              "logo": "/logos/isl/1101.png",
+              "played": 5,
+              "won": 1,
               "drawn": 0,
-              "lost": 1,
-              "gf": 1,
-              "ga": 2,
-              "gd": -1,
-              "points": 0,
-              "form": "L",
-              "logo": "/logos/isl/506.png"
+              "lost": 4,
+              "gf": 5,
+              "ga": 12,
+              "gd": -7,
+              "points": 3,
+              "form": "WLLLL"
             },
             {
               "pos": 11,
               "prevPos": 11,
               "team": "Odisha FC",
               "short": "OFC",
-              "played": 1,
+              "logo": "/logos/isl/1499.png",
+              "played": 4,
               "won": 0,
-              "drawn": 0,
-              "lost": 1,
-              "gf": 1,
-              "ga": 2,
-              "gd": -1,
-              "points": 0,
-              "form": "L",
-              "logo": "/logos/isl/1499.png"
+              "drawn": 2,
+              "lost": 2,
+              "gf": 4,
+              "ga": 6,
+              "gd": -2,
+              "points": 2,
+              "form": "LDDL"
             },
             {
               "pos": 12,
-              "prevPos": 8,
-              "team": "Mohun Bagan Super Giant",
-              "short": "MBSG",
-              "played": 1,
+              "prevPos": 9,
+              "team": "Mumbai City FC",
+              "short": "MCFC",
+              "logo": "/logos/isl/506.png",
+              "played": 5,
               "won": 0,
-              "drawn": 0,
-              "lost": 1,
-              "gf": 0,
-              "ga": 1,
-              "gd": -1,
-              "points": 0,
-              "form": "L",
-              "logo": "/logos/isl/1874.png"
+              "drawn": 2,
+              "lost": 3,
+              "gf": 4,
+              "ga": 8,
+              "gd": -4,
+              "points": 2,
+              "form": "LDDLL"
             },
             {
               "pos": 13,
               "prevPos": 6,
               "team": "Inter Kashi",
               "short": "KSHI",
-              "played": 1,
+              "logo": "/logos/isl/2354.png",
+              "played": 5,
               "won": 0,
-              "drawn": 0,
-              "lost": 1,
-              "gf": 0,
-              "ga": 2,
-              "gd": -2,
-              "points": 0,
-              "form": "L",
-              "logo": "/logos/isl/2354.png"
+              "drawn": 1,
+              "lost": 4,
+              "gf": 3,
+              "ga": 13,
+              "gd": -10,
+              "points": 1,
+              "form": "LDLLL"
             }
           ]
         }
@@ -308,7 +308,9 @@
       "away": "Mohun Bagan Super Giant",
       "homeShort": "SCD",
       "awayShort": "MBSG",
-      "status": "scheduled",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "ft",
       "venue": "Jawaharlal Nehru Stadium, New Delhi",
       "round": "Match 7"
     },
@@ -319,8 +321,10 @@
       "away": "Odisha FC",
       "homeShort": "KSHI",
       "awayShort": "OFC",
-      "status": "scheduled",
-      "venue": "",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "ft",
+      "venue": "Shree Shivchhatrapati Sports Complex, Pune",
       "round": "Match 8"
     },
     {
@@ -330,7 +334,9 @@
       "away": "Chennaiyin FC",
       "homeShort": "BFC",
       "awayShort": "CFC",
-      "status": "scheduled",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "ft",
       "venue": "Sree Kanteerava Stadium, Bengaluru",
       "round": "Match 9"
     },
@@ -341,7 +347,9 @@
       "away": "East Bengal FC",
       "homeShort": "CBSC",
       "awayShort": "EBFC",
-      "status": "scheduled",
+      "homeScore": 0,
+      "awayScore": 4,
+      "status": "ft",
       "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
       "round": "Match 10"
     },
@@ -352,7 +360,9 @@
       "away": "Kerala Blasters FC",
       "homeShort": "NEUFC",
       "awayShort": "KBFC",
-      "status": "scheduled",
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "ft",
       "venue": "Indira Gandhi Athletic Stadium, Guwahati",
       "round": "Match 11"
     },
@@ -363,7 +373,9 @@
       "away": "Mumbai City FC",
       "homeShort": "PFC",
       "awayShort": "MCFC",
-      "status": "scheduled",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "ft",
       "venue": "Jawaharlal Nehru Stadium, New Delhi",
       "round": "Match 12"
     },
@@ -374,8 +386,10 @@
       "away": "East Bengal FC",
       "homeShort": "KSHI",
       "awayShort": "EBFC",
-      "status": "scheduled",
-      "venue": "",
+      "homeScore": 1,
+      "awayScore": 5,
+      "status": "ft",
+      "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
       "round": "Match 13"
     },
     {
@@ -385,7 +399,9 @@
       "away": "NorthEast United FC",
       "homeShort": "OFC",
       "awayShort": "NEUFC",
-      "status": "scheduled",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "ft",
       "venue": "Kalinga Stadium, Bhubaneswar",
       "round": "Match 14"
     },
@@ -396,7 +412,9 @@
       "away": "Punjab FC",
       "homeShort": "CBSC",
       "awayShort": "PFC",
-      "status": "scheduled",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "ft",
       "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
       "round": "Match 15"
     },
@@ -407,7 +425,9 @@
       "away": "Mumbai City FC",
       "homeShort": "KBFC",
       "awayShort": "MCFC",
-      "status": "scheduled",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "ft",
       "venue": "Jawaharlal Nehru Stadium, Kochi",
       "round": "Match 16"
     },
@@ -418,7 +438,9 @@
       "away": "Chennaiyin FC",
       "homeShort": "MBSG",
       "awayShort": "CFC",
-      "status": "scheduled",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "ft",
       "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
       "round": "Match 17"
     },
@@ -429,7 +451,9 @@
       "away": "Sporting Club Delhi",
       "homeShort": "FCG",
       "awayShort": "SCD",
-      "status": "scheduled",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "ft",
       "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
       "round": "Match 18"
     },
@@ -440,7 +464,9 @@
       "away": "Bengaluru FC",
       "homeShort": "NEUFC",
       "awayShort": "BFC",
-      "status": "scheduled",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "ft",
       "venue": "Indira Gandhi Athletic Stadium, Guwahati",
       "round": "Match 19"
     },
@@ -451,7 +477,9 @@
       "away": "Kerala Blasters FC",
       "homeShort": "CFC",
       "awayShort": "KBFC",
-      "status": "scheduled",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "ft",
       "venue": "Jawaharlal Nehru Stadium, Chennai",
       "round": "Match 20"
     },
@@ -462,7 +490,9 @@
       "away": "Punjab FC",
       "homeShort": "MBSG",
       "awayShort": "PFC",
-      "status": "scheduled",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "ft",
       "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
       "round": "Match 21"
     },
@@ -473,7 +503,9 @@
       "away": "Sporting Club Delhi",
       "homeShort": "MCFC",
       "awayShort": "SCD",
-      "status": "scheduled",
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "ft",
       "venue": "Mumbai Football Arena, Mumbai",
       "round": "Match 22"
     },
@@ -484,8 +516,10 @@
       "away": "FC Goa",
       "homeShort": "KSHI",
       "awayShort": "FCG",
-      "status": "scheduled",
-      "venue": "",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "ft",
+      "venue": "Shree Shivchhatrapati Sports Complex, Pune",
       "round": "Match 23"
     },
     {
@@ -495,7 +529,9 @@
       "away": "NorthEast United FC",
       "homeShort": "CBSC",
       "awayShort": "NEUFC",
-      "status": "scheduled",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "ft",
       "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
       "round": "Match 24"
     },
@@ -506,7 +542,9 @@
       "away": "Odisha FC",
       "homeShort": "MBSG",
       "awayShort": "OFC",
-      "status": "scheduled",
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "ft",
       "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
       "round": "Match 25"
     },
@@ -517,7 +555,9 @@
       "away": "Bengaluru FC",
       "homeShort": "FCG",
       "awayShort": "BFC",
-      "status": "scheduled",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "ft",
       "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
       "round": "Match 26"
     },
@@ -528,8 +568,10 @@
       "away": "Sporting Club Delhi",
       "homeShort": "KSHI",
       "awayShort": "SCD",
-      "status": "scheduled",
-      "venue": "",
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "ft",
+      "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
       "round": "Match 27"
     },
     {
@@ -539,20 +581,11 @@
       "away": "East Bengal FC",
       "homeShort": "CFC",
       "awayShort": "EBFC",
-      "status": "scheduled",
+      "homeScore": 5,
+      "awayScore": 3,
+      "status": "ft",
       "venue": "Jawaharlal Nehru Stadium, Chennai",
       "round": "Match 28"
-    },
-    {
-      "id": "isl-194690",
-      "kickoff": "2026-11-17T19:30+05:30",
-      "home": "Bengaluru FC",
-      "away": "East Bengal FC",
-      "homeShort": "BFC",
-      "awayShort": "EBFC",
-      "status": "scheduled",
-      "venue": "Sree Kanteerava Stadium, Bengaluru",
-      "round": "Match 57"
     },
     {
       "id": "isl-194662",
@@ -561,7 +594,9 @@
       "away": "Sporting Club Delhi",
       "homeShort": "EBFC",
       "awayShort": "SCD",
-      "status": "scheduled",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "ft",
       "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
       "round": "Match 29"
     },
@@ -572,7 +607,9 @@
       "away": "Mumbai City FC",
       "homeShort": "BFC",
       "awayShort": "MCFC",
-      "status": "scheduled",
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "ft",
       "venue": "Sree Kanteerava Stadium, Bengaluru",
       "round": "Match 30"
     },
@@ -583,7 +620,9 @@
       "away": "Punjab FC",
       "homeShort": "CFC",
       "awayShort": "PFC",
-      "status": "scheduled",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "ft",
       "venue": "Jawaharlal Nehru Stadium, Chennai",
       "round": "Match 31"
     },
@@ -594,7 +633,9 @@
       "away": "FC Goa",
       "homeShort": "NEUFC",
       "awayShort": "FCG",
-      "status": "scheduled",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "ft",
       "venue": "Indira Gandhi Athletic Stadium, Guwahati",
       "round": "Match 32"
     },
@@ -605,7 +646,9 @@
       "away": "Mohun Bagan Super Giant",
       "homeShort": "CBSC",
       "awayShort": "MBSG",
-      "status": "scheduled",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "ft",
       "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
       "round": "Match 33"
     },
@@ -616,7 +659,9 @@
       "away": "Sporting Club Delhi",
       "homeShort": "NEUFC",
       "awayShort": "SCD",
-      "status": "scheduled",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "ft",
       "venue": "Khuman Lampak Main Stadium, Imphal",
       "round": "Match 34"
     },
@@ -628,8 +673,19 @@
       "homeShort": "KSHI",
       "awayShort": "CBSC",
       "status": "scheduled",
-      "venue": "",
+      "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
       "round": "Match 35"
+    },
+    {
+      "id": "isl-194671",
+      "kickoff": "2026-11-28T19:30+05:30",
+      "home": "Chennaiyin FC",
+      "away": "Mumbai City FC",
+      "homeShort": "CFC",
+      "awayShort": "MCFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Chennai",
+      "round": "Match 38"
     },
     {
       "id": "isl-194669",
@@ -654,19 +710,8 @@
       "round": "Match 37"
     },
     {
-      "id": "isl-194671",
-      "kickoff": "2026-11-30T17:00+05:30",
-      "home": "Mumbai City FC",
-      "away": "Chennaiyin FC",
-      "homeShort": "MCFC",
-      "awayShort": "CFC",
-      "status": "scheduled",
-      "venue": "Mumbai Football Arena, Mumbai",
-      "round": "Match 38"
-    },
-    {
       "id": "isl-194672",
-      "kickoff": "2026-11-30T19:30+05:30",
+      "kickoff": "2026-11-30T17:00+05:30",
       "home": "NorthEast United FC",
       "away": "Punjab FC",
       "homeShort": "NEUFC",
@@ -716,7 +761,7 @@
       "homeShort": "KSHI",
       "awayShort": "MBSG",
       "status": "scheduled",
-      "venue": "",
+      "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
       "round": "Match 43"
     },
     {
@@ -793,7 +838,7 @@
       "homeShort": "KSHI",
       "awayShort": "NEUFC",
       "status": "scheduled",
-      "venue": "",
+      "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
       "round": "Match 50"
     },
     {
@@ -897,7 +942,7 @@
     },
     {
       "id": "isl-194694",
-      "kickoff": "2026-12-21T17:00+05:30",
+      "kickoff": "2026-12-21T19:30+05:30",
       "home": "Mumbai City FC",
       "away": "Inter Kashi",
       "homeShort": "MCFC",
@@ -905,17 +950,6 @@
       "status": "scheduled",
       "venue": "Mumbai Football Arena, Mumbai",
       "round": "Match 60"
-    },
-    {
-      "id": "isl-194695",
-      "kickoff": "2026-12-21T19:30+05:30",
-      "home": "East Bengal FC",
-      "away": "NorthEast United FC",
-      "homeShort": "EBFC",
-      "awayShort": "NEUFC",
-      "status": "scheduled",
-      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
-      "round": "Match 61"
     },
     {
       "id": "isl-194696",
@@ -1028,6 +1062,17 @@
       "round": "Match 71"
     },
     {
+      "id": "isl-194695",
+      "kickoff": "2027-01-12T17:00+05:30",
+      "home": "East Bengal FC",
+      "away": "NorthEast United FC",
+      "homeShort": "EBFC",
+      "awayShort": "NEUFC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 61"
+    },
+    {
       "id": "isl-194706",
       "kickoff": "2027-01-12T19:30+05:30",
       "home": "Mumbai City FC",
@@ -1103,27 +1148,1076 @@
       "status": "scheduled",
       "venue": "Mumbai Football Arena, Mumbai",
       "round": "Match 78"
+    },
+    {
+      "id": "isl-194788",
+      "kickoff": "2027-01-22T19:30+05:30",
+      "home": "Punjab FC",
+      "away": "NorthEast United FC",
+      "homeShort": "PFC",
+      "awayShort": "NEUFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 79"
+    },
+    {
+      "id": "isl-194789",
+      "kickoff": "2027-01-23T17:00+05:30",
+      "home": "Inter Kashi",
+      "away": "Bengaluru FC",
+      "homeShort": "KSHI",
+      "awayShort": "BFC",
+      "status": "scheduled",
+      "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
+      "round": "Match 80"
+    },
+    {
+      "id": "isl-194790",
+      "kickoff": "2027-01-23T19:30+05:30",
+      "home": "Kerala Blasters FC",
+      "away": "Mohun Bagan Super Giant",
+      "homeShort": "KBFC",
+      "awayShort": "MBSG",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Kochi",
+      "round": "Match 81"
+    },
+    {
+      "id": "isl-194791",
+      "kickoff": "2027-01-24T17:00+05:30",
+      "home": "East Bengal FC",
+      "away": "Chennaiyin FC",
+      "homeShort": "EBFC",
+      "awayShort": "CFC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 82"
+    },
+    {
+      "id": "isl-194792",
+      "kickoff": "2027-01-24T19:30+05:30",
+      "home": "Sporting Club Delhi",
+      "away": "Mumbai City FC",
+      "homeShort": "SCD",
+      "awayShort": "MCFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 83"
+    },
+    {
+      "id": "isl-194793",
+      "kickoff": "2027-01-30T17:00+05:30",
+      "home": "Chennaiyin FC",
+      "away": "Mohun Bagan Super Giant",
+      "homeShort": "CFC",
+      "awayShort": "MBSG",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Chennai",
+      "round": "Match 84"
+    },
+    {
+      "id": "isl-194794",
+      "kickoff": "2027-01-30T19:30+05:30",
+      "home": "East Bengal FC",
+      "away": "Bengaluru FC",
+      "homeShort": "EBFC",
+      "awayShort": "BFC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 85"
+    },
+    {
+      "id": "isl-194795",
+      "kickoff": "2027-01-31T17:00+05:30",
+      "home": "Odisha FC",
+      "away": "Mumbai City FC",
+      "homeShort": "OFC",
+      "awayShort": "MCFC",
+      "status": "scheduled",
+      "venue": "Kalinga Stadium, Bhubaneswar",
+      "round": "Match 86"
+    },
+    {
+      "id": "isl-194796",
+      "kickoff": "2027-01-31T19:30+05:30",
+      "home": "Churchill Brothers SC",
+      "away": "Inter Kashi",
+      "homeShort": "CBSC",
+      "awayShort": "KSHI",
+      "status": "scheduled",
+      "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
+      "round": "Match 87"
+    },
+    {
+      "id": "isl-194797",
+      "kickoff": "2027-02-04T19:30+05:30",
+      "home": "FC Goa",
+      "away": "Odisha FC",
+      "homeShort": "FCG",
+      "awayShort": "OFC",
+      "status": "scheduled",
+      "venue": "Atal Stadium, Bambolim",
+      "round": "Match 88"
+    },
+    {
+      "id": "isl-194798",
+      "kickoff": "2027-02-05T17:00+05:30",
+      "home": "Punjab FC",
+      "away": "East Bengal FC",
+      "homeShort": "PFC",
+      "awayShort": "EBFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 89"
+    },
+    {
+      "id": "isl-194799",
+      "kickoff": "2027-02-05T19:30+05:30",
+      "home": "Bengaluru FC",
+      "away": "Churchill Brothers SC",
+      "homeShort": "BFC",
+      "awayShort": "CBSC",
+      "status": "scheduled",
+      "venue": "Sree Kanteerava Stadium, Bengaluru",
+      "round": "Match 90"
+    },
+    {
+      "id": "isl-194800",
+      "kickoff": "2027-02-06T17:00+05:30",
+      "home": "Mohun Bagan Super Giant",
+      "away": "Sporting Club Delhi",
+      "homeShort": "MBSG",
+      "awayShort": "SCD",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 91"
+    },
+    {
+      "id": "isl-194801",
+      "kickoff": "2027-02-06T19:30+05:30",
+      "home": "Mumbai City FC",
+      "away": "Chennaiyin FC",
+      "homeShort": "MCFC",
+      "awayShort": "CFC",
+      "status": "scheduled",
+      "venue": "Mumbai Football Arena, Mumbai",
+      "round": "Match 92"
+    },
+    {
+      "id": "isl-194802",
+      "kickoff": "2027-02-07T17:00+05:30",
+      "home": "Kerala Blasters FC",
+      "away": "Inter Kashi",
+      "homeShort": "KBFC",
+      "awayShort": "KSHI",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Kochi",
+      "round": "Match 93"
+    },
+    {
+      "id": "isl-194803",
+      "kickoff": "2027-02-07T19:30+05:30",
+      "home": "FC Goa",
+      "away": "NorthEast United FC",
+      "homeShort": "FCG",
+      "awayShort": "NEUFC",
+      "status": "scheduled",
+      "venue": "Atal Stadium, Bambolim",
+      "round": "Match 94"
+    },
+    {
+      "id": "isl-194804",
+      "kickoff": "2027-02-09T19:30+05:30",
+      "home": "Sporting Club Delhi",
+      "away": "East Bengal FC",
+      "homeShort": "SCD",
+      "awayShort": "EBFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 95"
+    },
+    {
+      "id": "isl-194806",
+      "kickoff": "2027-02-12T17:00+05:30",
+      "home": "NorthEast United FC",
+      "away": "Inter Kashi",
+      "homeShort": "NEUFC",
+      "awayShort": "KSHI",
+      "status": "scheduled",
+      "venue": "Indira Gandhi Athletic Stadium, Guwahati",
+      "round": "Match 96"
+    },
+    {
+      "id": "isl-194805",
+      "kickoff": "2027-02-12T19:30+05:30",
+      "home": "Mohun Bagan Super Giant",
+      "away": "FC Goa",
+      "homeShort": "MBSG",
+      "awayShort": "FCG",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 97"
+    },
+    {
+      "id": "isl-194808",
+      "kickoff": "2027-02-14T17:00+05:30",
+      "home": "Kerala Blasters FC",
+      "away": "Odisha FC",
+      "homeShort": "KBFC",
+      "awayShort": "OFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Kochi",
+      "round": "Match 99"
+    },
+    {
+      "id": "isl-194809",
+      "kickoff": "2027-02-14T19:30+05:30",
+      "home": "Mumbai City FC",
+      "away": "Bengaluru FC",
+      "homeShort": "MCFC",
+      "awayShort": "BFC",
+      "status": "scheduled",
+      "venue": "Mumbai Football Arena, Mumbai",
+      "round": "Match 100"
+    },
+    {
+      "id": "isl-194810",
+      "kickoff": "2027-02-16T19:30+05:30",
+      "home": "NorthEast United FC",
+      "away": "Churchill Brothers SC",
+      "homeShort": "NEUFC",
+      "awayShort": "CBSC",
+      "status": "scheduled",
+      "venue": "Indira Gandhi Athletic Stadium, Guwahati",
+      "round": "Match 101"
+    },
+    {
+      "id": "isl-194811",
+      "kickoff": "2027-02-17T19:30+05:30",
+      "home": "Mumbai City FC",
+      "away": "FC Goa",
+      "homeShort": "MCFC",
+      "awayShort": "FCG",
+      "status": "scheduled",
+      "venue": "Mumbai Football Arena, Mumbai",
+      "round": "Match 102"
+    },
+    {
+      "id": "isl-194812",
+      "kickoff": "2027-02-18T19:30+05:30",
+      "home": "East Bengal FC",
+      "away": "Inter Kashi",
+      "homeShort": "EBFC",
+      "awayShort": "KSHI",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 103"
+    },
+    {
+      "id": "isl-194813",
+      "kickoff": "2027-02-20T17:00+05:30",
+      "home": "Mohun Bagan Super Giant",
+      "away": "NorthEast United FC",
+      "homeShort": "MBSG",
+      "awayShort": "NEUFC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 104"
+    },
+    {
+      "id": "isl-194814",
+      "kickoff": "2027-02-20T19:30+05:30",
+      "home": "Punjab FC",
+      "away": "Sporting Club Delhi",
+      "homeShort": "PFC",
+      "awayShort": "SCD",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 105"
+    },
+    {
+      "id": "isl-194815",
+      "kickoff": "2027-02-21T17:00+05:30",
+      "home": "Chennaiyin FC",
+      "away": "Bengaluru FC",
+      "homeShort": "CFC",
+      "awayShort": "BFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Chennai",
+      "round": "Match 106"
+    },
+    {
+      "id": "isl-194816",
+      "kickoff": "2027-02-21T19:30+05:30",
+      "home": "FC Goa",
+      "away": "Churchill Brothers SC",
+      "homeShort": "FCG",
+      "awayShort": "CBSC",
+      "status": "scheduled",
+      "venue": "Atal Stadium, Bambolim",
+      "round": "Match 107"
+    },
+    {
+      "id": "isl-194817",
+      "kickoff": "2027-02-22T19:30+05:30",
+      "home": "Odisha FC",
+      "away": "Inter Kashi",
+      "homeShort": "OFC",
+      "awayShort": "KSHI",
+      "status": "scheduled",
+      "venue": "Kalinga Stadium, Bhubaneswar",
+      "round": "Match 108"
+    },
+    {
+      "id": "isl-194818",
+      "kickoff": "2027-02-25T19:30+05:30",
+      "home": "Mumbai City FC",
+      "away": "Churchill Brothers SC",
+      "homeShort": "MCFC",
+      "awayShort": "CBSC",
+      "status": "scheduled",
+      "venue": "Mumbai Football Arena, Mumbai",
+      "round": "Match 109"
+    },
+    {
+      "id": "isl-194819",
+      "kickoff": "2027-02-27T17:00+05:30",
+      "home": "Odisha FC",
+      "away": "Punjab FC",
+      "homeShort": "OFC",
+      "awayShort": "PFC",
+      "status": "scheduled",
+      "venue": "Kalinga Stadium, Bhubaneswar",
+      "round": "Match 110"
+    },
+    {
+      "id": "isl-194820",
+      "kickoff": "2027-02-27T19:30+05:30",
+      "home": "Bengaluru FC",
+      "away": "FC Goa",
+      "homeShort": "BFC",
+      "awayShort": "FCG",
+      "status": "scheduled",
+      "venue": "Sree Kanteerava Stadium, Bengaluru",
+      "round": "Match 111"
+    },
+    {
+      "id": "isl-194821",
+      "kickoff": "2027-02-28T17:00+05:30",
+      "home": "Kerala Blasters FC",
+      "away": "Chennaiyin FC",
+      "homeShort": "KBFC",
+      "awayShort": "CFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Kochi",
+      "round": "Match 112"
+    },
+    {
+      "id": "isl-194822",
+      "kickoff": "2027-02-28T19:30+05:30",
+      "home": "Mohun Bagan Super Giant",
+      "away": "East Bengal FC",
+      "homeShort": "MBSG",
+      "awayShort": "EBFC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 113"
+    },
+    {
+      "id": "isl-194823",
+      "kickoff": "2027-03-01T17:00+05:30",
+      "home": "Churchill Brothers SC",
+      "away": "Sporting Club Delhi",
+      "homeShort": "CBSC",
+      "awayShort": "SCD",
+      "status": "scheduled",
+      "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
+      "round": "Match 114"
+    },
+    {
+      "id": "isl-194824",
+      "kickoff": "2027-03-01T19:30+05:30",
+      "home": "NorthEast United FC",
+      "away": "Mumbai City FC",
+      "homeShort": "NEUFC",
+      "awayShort": "MCFC",
+      "status": "scheduled",
+      "venue": "Indira Gandhi Athletic Stadium, Guwahati",
+      "round": "Match 115"
+    },
+    {
+      "id": "isl-194825",
+      "kickoff": "2027-03-03T19:30+05:30",
+      "home": "Punjab FC",
+      "away": "Kerala Blasters FC",
+      "homeShort": "PFC",
+      "awayShort": "KBFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 116"
+    },
+    {
+      "id": "isl-194826",
+      "kickoff": "2027-03-05T17:00+05:30",
+      "home": "Mohun Bagan Super Giant",
+      "away": "Inter Kashi",
+      "homeShort": "MBSG",
+      "awayShort": "KSHI",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 117"
+    },
+    {
+      "id": "isl-194827",
+      "kickoff": "2027-03-05T19:30+05:30",
+      "home": "Sporting Club Delhi",
+      "away": "FC Goa",
+      "homeShort": "SCD",
+      "awayShort": "FCG",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 118"
+    },
+    {
+      "id": "isl-194828",
+      "kickoff": "2027-03-06T17:00+05:30",
+      "home": "Bengaluru FC",
+      "away": "Odisha FC",
+      "homeShort": "BFC",
+      "awayShort": "OFC",
+      "status": "scheduled",
+      "venue": "Sree Kanteerava Stadium, Bengaluru",
+      "round": "Match 119"
+    },
+    {
+      "id": "isl-194829",
+      "kickoff": "2027-03-06T19:30+05:30",
+      "home": "Chennaiyin FC",
+      "away": "NorthEast United FC",
+      "homeShort": "CFC",
+      "awayShort": "NEUFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Chennai",
+      "round": "Match 120"
+    },
+    {
+      "id": "isl-194830",
+      "kickoff": "2027-03-07T17:00+05:30",
+      "home": "Punjab FC",
+      "away": "Churchill Brothers SC",
+      "homeShort": "PFC",
+      "awayShort": "CBSC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 121"
+    },
+    {
+      "id": "isl-194831",
+      "kickoff": "2027-03-07T19:30+05:30",
+      "home": "East Bengal FC",
+      "away": "Kerala Blasters FC",
+      "homeShort": "EBFC",
+      "awayShort": "KBFC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 122"
+    },
+    {
+      "id": "isl-194832",
+      "kickoff": "2027-03-09T19:30+05:30",
+      "home": "FC Goa",
+      "away": "Inter Kashi",
+      "homeShort": "FCG",
+      "awayShort": "KSHI",
+      "status": "scheduled",
+      "venue": "Atal Stadium, Bambolim",
+      "round": "Match 123"
+    },
+    {
+      "id": "isl-194833",
+      "kickoff": "2027-03-12T17:00+05:30",
+      "home": "East Bengal FC",
+      "away": "Churchill Brothers SC",
+      "homeShort": "EBFC",
+      "awayShort": "CBSC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 124"
+    },
+    {
+      "id": "isl-194834",
+      "kickoff": "2027-03-12T19:30+05:30",
+      "home": "Inter Kashi",
+      "away": "Punjab FC",
+      "homeShort": "KSHI",
+      "awayShort": "PFC",
+      "status": "scheduled",
+      "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
+      "round": "Match 125"
+    },
+    {
+      "id": "isl-194835",
+      "kickoff": "2027-03-13T17:00+05:30",
+      "home": "Chennaiyin FC",
+      "away": "FC Goa",
+      "homeShort": "CFC",
+      "awayShort": "FCG",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Chennai",
+      "round": "Match 126"
+    },
+    {
+      "id": "isl-194836",
+      "kickoff": "2027-03-13T19:30+05:30",
+      "home": "Mumbai City FC",
+      "away": "Kerala Blasters FC",
+      "homeShort": "MCFC",
+      "awayShort": "KBFC",
+      "status": "scheduled",
+      "venue": "Mumbai Football Arena, Mumbai",
+      "round": "Match 127"
+    },
+    {
+      "id": "isl-194837",
+      "kickoff": "2027-03-14T17:00+05:30",
+      "home": "NorthEast United FC",
+      "away": "Odisha FC",
+      "homeShort": "NEUFC",
+      "awayShort": "OFC",
+      "status": "scheduled",
+      "venue": "Indira Gandhi Athletic Stadium, Guwahati",
+      "round": "Match 128"
+    },
+    {
+      "id": "isl-194838",
+      "kickoff": "2027-03-14T19:30+05:30",
+      "home": "Bengaluru FC",
+      "away": "Mohun Bagan Super Giant",
+      "homeShort": "BFC",
+      "awayShort": "MBSG",
+      "status": "scheduled",
+      "venue": "Sree Kanteerava Stadium, Bengaluru",
+      "round": "Match 129"
+    },
+    {
+      "id": "isl-194839",
+      "kickoff": "2027-03-16T19:30+05:30",
+      "home": "Punjab FC",
+      "away": "Chennaiyin FC",
+      "homeShort": "PFC",
+      "awayShort": "CFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 130"
+    },
+    {
+      "id": "isl-194840",
+      "kickoff": "2027-03-18T17:00+05:30",
+      "home": "Sporting Club Delhi",
+      "away": "NorthEast United FC",
+      "homeShort": "SCD",
+      "awayShort": "NEUFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 131"
+    },
+    {
+      "id": "isl-194841",
+      "kickoff": "2027-03-18T19:30+05:30",
+      "home": "Kerala Blasters FC",
+      "away": "Bengaluru FC",
+      "homeShort": "KBFC",
+      "awayShort": "BFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Kochi",
+      "round": "Match 132"
+    },
+    {
+      "id": "isl-194842",
+      "kickoff": "2027-03-19T19:30+05:30",
+      "home": "Odisha FC",
+      "away": "East Bengal FC",
+      "homeShort": "OFC",
+      "awayShort": "EBFC",
+      "status": "scheduled",
+      "venue": "Kalinga Stadium, Bhubaneswar",
+      "round": "Match 133"
+    },
+    {
+      "id": "isl-194843",
+      "kickoff": "2027-03-20T17:00+05:30",
+      "home": "Mohun Bagan Super Giant",
+      "away": "Churchill Brothers SC",
+      "homeShort": "MBSG",
+      "awayShort": "CBSC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 134"
+    },
+    {
+      "id": "isl-194844",
+      "kickoff": "2027-03-20T19:30+05:30",
+      "home": "Mumbai City FC",
+      "away": "Punjab FC",
+      "homeShort": "MCFC",
+      "awayShort": "PFC",
+      "status": "scheduled",
+      "venue": "Mumbai Football Arena, Mumbai",
+      "round": "Match 135"
+    },
+    {
+      "id": "isl-194845",
+      "kickoff": "2027-04-03T17:00+05:30",
+      "home": "Chennaiyin FC",
+      "away": "Sporting Club Delhi",
+      "homeShort": "CFC",
+      "awayShort": "SCD",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Chennai",
+      "round": "Match 136"
+    },
+    {
+      "id": "isl-194846",
+      "kickoff": "2027-04-03T19:30+05:30",
+      "home": "Kerala Blasters FC",
+      "away": "FC Goa",
+      "homeShort": "KBFC",
+      "awayShort": "FCG",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Kochi",
+      "round": "Match 137"
+    },
+    {
+      "id": "isl-194847",
+      "kickoff": "2027-04-04T17:00+05:30",
+      "home": "Punjab FC",
+      "away": "Mohun Bagan Super Giant",
+      "homeShort": "PFC",
+      "awayShort": "MBSG",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 138"
+    },
+    {
+      "id": "isl-194848",
+      "kickoff": "2027-04-04T19:30+05:30",
+      "home": "Bengaluru FC",
+      "away": "NorthEast United FC",
+      "homeShort": "BFC",
+      "awayShort": "NEUFC",
+      "status": "scheduled",
+      "venue": "Sree Kanteerava Stadium, Bengaluru",
+      "round": "Match 139"
+    },
+    {
+      "id": "isl-194849",
+      "kickoff": "2027-04-05T17:00+05:30",
+      "home": "Churchill Brothers SC",
+      "away": "Odisha FC",
+      "homeShort": "CBSC",
+      "awayShort": "OFC",
+      "status": "scheduled",
+      "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
+      "round": "Match 140"
+    },
+    {
+      "id": "isl-194850",
+      "kickoff": "2027-04-05T19:30+05:30",
+      "home": "Inter Kashi",
+      "away": "Mumbai City FC",
+      "homeShort": "KSHI",
+      "awayShort": "MCFC",
+      "status": "scheduled",
+      "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
+      "round": "Match 141"
+    },
+    {
+      "id": "isl-194851",
+      "kickoff": "2027-04-07T17:00+05:30",
+      "home": "Sporting Club Delhi",
+      "away": "Kerala Blasters FC",
+      "homeShort": "SCD",
+      "awayShort": "KBFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 142"
+    },
+    {
+      "id": "isl-194852",
+      "kickoff": "2027-04-07T19:30+05:30",
+      "home": "FC Goa",
+      "away": "East Bengal FC",
+      "homeShort": "FCG",
+      "awayShort": "EBFC",
+      "status": "scheduled",
+      "venue": "Atal Stadium, Bambolim",
+      "round": "Match 143"
+    },
+    {
+      "id": "isl-194853",
+      "kickoff": "2027-04-09T17:00+05:30",
+      "home": "Odisha FC",
+      "away": "Chennaiyin FC",
+      "homeShort": "OFC",
+      "awayShort": "CFC",
+      "status": "scheduled",
+      "venue": "Kalinga Stadium, Bhubaneswar",
+      "round": "Match 144"
+    },
+    {
+      "id": "isl-194854",
+      "kickoff": "2027-04-09T19:30+05:30",
+      "home": "Punjab FC",
+      "away": "Bengaluru FC",
+      "homeShort": "PFC",
+      "awayShort": "BFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 145"
+    },
+    {
+      "id": "isl-194855",
+      "kickoff": "2027-04-10T17:00+05:30",
+      "home": "NorthEast United FC",
+      "away": "East Bengal FC",
+      "homeShort": "NEUFC",
+      "awayShort": "EBFC",
+      "status": "scheduled",
+      "venue": "Indira Gandhi Athletic Stadium, Guwahati",
+      "round": "Match 146"
+    },
+    {
+      "id": "isl-194856",
+      "kickoff": "2027-04-10T19:30+05:30",
+      "home": "Mohun Bagan Super Giant",
+      "away": "Mumbai City FC",
+      "homeShort": "MBSG",
+      "awayShort": "MCFC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 147"
+    },
+    {
+      "id": "isl-194857",
+      "kickoff": "2027-04-11T17:00+05:30",
+      "home": "Sporting Club Delhi",
+      "away": "Inter Kashi",
+      "homeShort": "SCD",
+      "awayShort": "KSHI",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 148"
+    },
+    {
+      "id": "isl-194858",
+      "kickoff": "2027-04-11T19:30+05:30",
+      "home": "Churchill Brothers SC",
+      "away": "Kerala Blasters FC",
+      "homeShort": "CBSC",
+      "awayShort": "KBFC",
+      "status": "scheduled",
+      "venue": "Pandit Jawaharlal Nehru Stadium, Goa",
+      "round": "Match 149"
+    },
+    {
+      "id": "isl-194859",
+      "kickoff": "2027-04-15T19:30+05:30",
+      "home": "Sporting Club Delhi",
+      "away": "Odisha FC",
+      "homeShort": "SCD",
+      "awayShort": "OFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 150"
+    },
+    {
+      "id": "isl-194860",
+      "kickoff": "2027-04-17T19:30+05:30",
+      "home": "Odisha FC",
+      "away": "Mohun Bagan Super Giant",
+      "homeShort": "OFC",
+      "awayShort": "MBSG",
+      "status": "scheduled",
+      "venue": "Kalinga Stadium, Bhubaneswar",
+      "round": "Match 151"
+    },
+    {
+      "id": "isl-194861",
+      "kickoff": "2027-04-17T19:30+05:30",
+      "home": "East Bengal FC",
+      "away": "Mumbai City FC",
+      "homeShort": "EBFC",
+      "awayShort": "MCFC",
+      "status": "scheduled",
+      "venue": "Vivekananda Yuba Bharati Krirangan, Kolkata",
+      "round": "Match 152"
+    },
+    {
+      "id": "isl-194862",
+      "kickoff": "2027-04-17T19:30+05:30",
+      "home": "Kerala Blasters FC",
+      "away": "NorthEast United FC",
+      "homeShort": "KBFC",
+      "awayShort": "NEUFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, Kochi",
+      "round": "Match 153"
+    },
+    {
+      "id": "isl-194863",
+      "kickoff": "2027-04-18T19:30+05:30",
+      "home": "Sporting Club Delhi",
+      "away": "Bengaluru FC",
+      "homeShort": "SCD",
+      "awayShort": "BFC",
+      "status": "scheduled",
+      "venue": "Jawaharlal Nehru Stadium, New Delhi",
+      "round": "Match 154"
+    },
+    {
+      "id": "isl-194864",
+      "kickoff": "2027-04-18T19:30+05:30",
+      "home": "FC Goa",
+      "away": "Punjab FC",
+      "homeShort": "FCG",
+      "awayShort": "PFC",
+      "status": "scheduled",
+      "venue": "Atal Stadium, Bambolim",
+      "round": "Match 155"
+    },
+    {
+      "id": "isl-194865",
+      "kickoff": "2027-04-18T19:30+05:30",
+      "home": "Inter Kashi",
+      "away": "Chennaiyin FC",
+      "homeShort": "KSHI",
+      "awayShort": "CFC",
+      "status": "scheduled",
+      "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
+      "round": "Match 156"
+    },
+    {
+      "id": "isl-194866",
+      "kickoff": "2027-04-24T19:30+05:30",
+      "home": "TBC",
+      "away": "TBC",
+      "homeShort": "TBC",
+      "awayShort": "TBC",
+      "status": "scheduled",
+      "venue": "TBC",
+      "round": ""
+    },
+    {
+      "id": "isl-194867",
+      "kickoff": "2027-04-25T19:30+05:30",
+      "home": "TBC",
+      "away": "TBC",
+      "homeShort": "TBC",
+      "awayShort": "TBC",
+      "status": "scheduled",
+      "venue": "",
+      "round": ""
+    },
+    {
+      "id": "isl-194868",
+      "kickoff": "2027-04-28T19:30+05:30",
+      "home": "TBC",
+      "away": "TBC",
+      "homeShort": "TBC",
+      "awayShort": "TBC",
+      "status": "scheduled",
+      "venue": "",
+      "round": ""
+    },
+    {
+      "id": "isl-194869",
+      "kickoff": "2027-04-29T19:30+05:30",
+      "home": "TBC",
+      "away": "TBC",
+      "homeShort": "TBC",
+      "awayShort": "TBC",
+      "status": "scheduled",
+      "venue": "",
+      "round": ""
+    },
+    {
+      "id": "isl-194870",
+      "kickoff": "2027-05-02T19:30+05:30",
+      "home": "TBC",
+      "away": "TBC",
+      "homeShort": "TBC",
+      "awayShort": "TBC",
+      "status": "scheduled",
+      "venue": "",
+      "round": ""
+    },
+    {
+      "id": "isl-194871",
+      "kickoff": "2027-05-03T19:30+05:30",
+      "home": "TBC",
+      "away": "TBC",
+      "homeShort": "TBC",
+      "awayShort": "TBC",
+      "status": "scheduled",
+      "venue": "",
+      "round": ""
+    },
+    {
+      "id": "isl-194872",
+      "kickoff": "2027-05-08T19:30+05:30",
+      "home": "TBC",
+      "away": "TBC",
+      "homeShort": "TBC",
+      "awayShort": "TBC",
+      "status": "scheduled",
+      "venue": "",
+      "round": ""
     }
   ],
   "scorers": [
     {
+      "player": "Ake Arnaud Loba",
+      "team": "East Bengal FC",
+      "goals": 4
+    },
+    {
+      "player": "Sebastian Gutierrez Atehortua",
+      "team": "Churchill Brothers SC",
+      "goals": 4
+    },
+    {
       "player": "Borja Martinez Giner",
       "team": "Bengaluru FC",
-      "goals": 2
+      "goals": 4
     },
     {
       "player": "Raphael Eric Messi Bouli",
       "team": "Punjab FC",
+      "goals": 4
+    },
+    {
+      "player": "Daniel Ramirez Fernandez",
+      "team": "East Bengal FC",
+      "goals": 3
+    },
+    {
+      "player": "Carlos Manuel dos Santos Fortes",
+      "team": "Sporting Club Delhi",
+      "goals": 3
+    },
+    {
+      "player": "Lee Harry Erwin",
+      "team": "Mohun Bagan Super Giant",
+      "goals": 3
+    },
+    {
+      "player": "Dejan Drazic",
+      "team": "Mohun Bagan Super Giant",
+      "goals": 3
+    },
+    {
+      "player": "Irfan Yadwad",
+      "team": "Chennaiyin FC",
+      "goals": 3
+    },
+    {
+      "player": "Juan Sebastian Pena Bermudez",
+      "team": "Sporting Club Delhi",
+      "goals": 3
+    },
+    {
+      "player": "Antonio Moyano",
+      "team": "NorthEast United FC",
+      "goals": 3
+    },
+    {
+      "player": "Edmund Lalrindika",
+      "team": "East Bengal FC",
+      "goals": 2
+    },
+    {
+      "player": "Bipin Singh Thounaojam",
+      "team": "East Bengal FC",
+      "goals": 2
+    },
+    {
+      "player": "Alfred Planas Moya",
+      "team": "Punjab FC",
+      "goals": 2
+    },
+    {
+      "player": "Francisco Feuillassier Abalo",
+      "team": "FC Goa",
+      "goals": 2
+    },
+    {
+      "player": "Ryan Dale Williams",
+      "team": "Bengaluru FC",
+      "goals": 2
+    },
+    {
+      "player": "Christian Borrego Isabel",
+      "team": "FC Goa",
+      "goals": 2
+    },
+    {
+      "player": "Brison Deuben Fernandes",
+      "team": "Chennaiyin FC",
       "goals": 2
     },
     {
       "player": "Jithin Madathil Subran",
       "team": "NorthEast United FC",
+      "goals": 2
+    },
+    {
+      "player": "Alaeddine Ajaraie",
+      "team": "NorthEast United FC",
+      "goals": 2
+    },
+    {
+      "player": "Rodrigo Araujo da Silva Filho",
+      "team": "Sporting Club Delhi",
+      "goals": 2
+    },
+    {
+      "player": "Aman CK",
+      "team": "NorthEast United FC",
       "goals": 1
     },
     {
-      "player": "Gaurav Bora",
-      "team": "Churchill Brothers SC",
+      "player": "Vinith Venkatesh",
+      "team": "Bengaluru FC",
+      "goals": 1
+    },
+    {
+      "player": "Lukasz Zwolinski",
+      "team": "East Bengal FC",
+      "goals": 1
+    },
+    {
+      "player": "Miguel Figueira Damasceno",
+      "team": "Mohun Bagan Super Giant",
+      "goals": 1
+    },
+    {
+      "player": "Akshat Mehra",
+      "team": "Sporting Club Delhi",
+      "goals": 1
+    },
+    {
+      "player": "Leandro Gaston Otormin Fumero",
+      "team": "Mumbai City FC",
+      "goals": 1
+    },
+    {
+      "player": "Mihailo Perovic",
+      "team": "Bengaluru FC",
+      "goals": 1
+    },
+    {
+      "player": "David Lalhlansanga",
+      "team": "East Bengal FC",
       "goals": 1
     },
     {
@@ -1132,13 +2226,88 @@
       "goals": 1
     },
     {
-      "player": "Irfan Yadwad",
-      "team": "Chennaiyin FC",
+      "player": "Konsam Sanathoi Singh",
+      "team": "Punjab FC",
       "goals": 1
     },
     {
-      "player": "Christian Borrego Isabel",
+      "player": "Vishnu Puthiya Valappill",
+      "team": "East Bengal FC",
+      "goals": 1
+    },
+    {
+      "player": "Momo Yansane",
+      "team": "Kerala Blasters FC",
+      "goals": 1
+    },
+    {
+      "player": "Everton Nascimento de Mendonça",
+      "team": "Odisha FC",
+      "goals": 1
+    },
+    {
+      "player": "Gaurav Bora",
+      "team": "Churchill Brothers SC",
+      "goals": 1
+    },
+    {
+      "player": "Andre Jay Green",
+      "team": "Kerala Blasters FC",
+      "goals": 1
+    },
+    {
+      "player": "Mahmoud Eid",
+      "team": "Odisha FC",
+      "goals": 1
+    },
+    {
+      "player": "Moirangthem Thoiba Singh",
+      "team": "Odisha FC",
+      "goals": 1
+    },
+    {
+      "player": "Gurkirat Singh",
+      "team": "Punjab FC",
+      "goals": 1
+    },
+    {
+      "player": "Muhammed Ajsal",
+      "team": "Mumbai City FC",
+      "goals": 1
+    },
+    {
+      "player": "Huidrom Thoi Singh",
+      "team": "Inter Kashi",
+      "goals": 1
+    },
+    {
+      "player": "Soham Varshneya",
+      "team": "Bengaluru FC",
+      "goals": 1
+    },
+    {
+      "player": "Muhammed Nemil Valiyattil",
       "team": "FC Goa",
+      "goals": 1
+    },
+    {
+      "player": "Zothanpuia",
+      "team": "Mumbai City FC",
+      "goals": 1
+    },
+    {
+      "player": "Sumeet Passi",
+      "team": "Inter Kashi",
+      "goals": 1
+    },
+    {
+      "player": "Alexander Vallejo Minguez",
+      "team": "FC Goa",
+      "goals": 1
+    },
+    {
+      "player": "Ramon de Andrade Souza",
+      "team": "Chennaiyin FC",
       "goals": 1
     },
     {
@@ -1152,25 +2321,40 @@
       "goals": 1
     },
     {
-      "player": "Andre Jay Green",
-      "team": "Kerala Blasters FC",
+      "player": "Lallianzuala Chhangte",
+      "team": "Mohun Bagan Super Giant",
       "goals": 1
     },
     {
-      "player": "Moirangthem Thoiba Singh",
-      "team": "Odisha FC",
-      "goals": 1
-    },
-    {
-      "player": "Rodrigo Araujo da Silva Filho",
+      "player": "Ashutosh Mehta",
       "team": "Sporting Club Delhi",
       "goals": 1
     },
     {
-      "player": "Sebastian Gutierrez Atehortua",
-      "team": "Churchill Brothers SC",
+      "player": "Anirudh Thapa",
+      "team": "Mohun Bagan Super Giant",
+      "goals": 1
+    },
+    {
+      "player": "Manvir Singh",
+      "team": "Mohun Bagan Super Giant",
+      "goals": 1
+    },
+    {
+      "player": "Ethyan Jesus Gonzalez Morales",
+      "team": "NorthEast United FC",
+      "goals": 1
+    },
+    {
+      "player": "Mohammed Aimen",
+      "team": "Sporting Club Delhi",
+      "goals": 1
+    },
+    {
+      "player": "Lalrinliana Hnamte",
+      "team": "Sporting Club Delhi",
       "goals": 1
     }
   ],
-  "updatedAt": "2026-10-15T15:18:51.627Z"
+  "updatedAt": "2026-11-25T05:40:23.856Z"
 }

@@ -1,7 +1,8 @@
-import { pullAll } from './ingest/store';
+import { neonEnabled, pullAll } from './ingest/store';
 
 if (!process.env.DATABASE_URL) {
   console.log('DATABASE_URL not set; building from the snapshots in the repo.');
   process.exit(0);
 }
-console.log(`Restored ${await pullAll()} datasets from Neon.`);
+const n = await pullAll();
+console.log(neonEnabled() ? `Restored ${n} newer datasets from Neon.` : 'Neon unavailable; building from the snapshots in the repo.');

@@ -43,6 +43,12 @@ function formationRows(formation: string): number[] | null {
   return parts.length >= 2 && parts.every((n) => n > 0) && parts.reduce((a, b) => a + b, 0) === 10 ? parts : null;
 }
 
+/** Squad order: keepers, defenders, midfielders, forwards; then shirt number. */
+function sortSquad(ps: Player[]): Player[] {
+  const rank = (p: Player) => (p.position === 'GK' ? 0 : p.position === 'DEF' ? 1 : p.position === 'MID' ? 2 : p.position === 'FWD' ? 3 : 4);
+  return ps.sort((a, b) => rank(a) - rank(b) || (a.number ?? 999) - (b.number ?? 999) || a.name.localeCompare(b.name));
+}
+
 // ---------- ISL ----------
 
 const islPos = (p: any): Player['position'] => (p.is_goalkeeper ? 'GK' : ({ DEF: 'DEF', MF: 'MID', MID: 'MID', FWD: 'FWD' } as const)[p.position_short as string]);
@@ -105,6 +111,10 @@ export function parseIslGame(game: any, listing?: any): MatchDetail {
     };
   };
   const lh = lineup(home), la = lineup(away);
+  const squadOf = (team: any): Player[] => sortSquad(arr<any>(team.players).map((p) => ({
+    name: cleanName(p.display_name ?? p.short_name ?? p.name), number: num(p.jersey_no) || undefined, position: islPos(p), captain: p.is_captain || undefined,
+  })).filter((p) => p.name));
+  const sqH = squadOf(home), sqA = squadOf(away);
 
   // Team stats come as nested objects; show the rows that have a number for at least one side.
   const sh = home.stats ?? {}, sa = away.stats ?? {};
@@ -146,6 +156,7 @@ export function parseIslGame(game: any, listing?: any): MatchDetail {
     home: team(home), away: team(away),
     events: evs,
     lineups: lh && la ? { home: lh, away: la } : undefined,
+    squads: sqH.length && sqA.length ? { home: sqH, away: sqA } : undefined,
     stats: played && stats.length ? stats : undefined,
     updatedAt: new Date().toISOString(),
   };
@@ -231,6 +242,11 @@ export function parseAiffMatch(j: any, id: string, now = Date.now()): MatchDetai
     };
   };
   const lh = lineup(j.team1_players, coachOf(j.official1)), la = lineup(j.team2_players, coachOf(j.official2));
+  const squad = (list: any): Player[] => sortSquad(arr<any>(list).map((p): Player => ({
+    name: cleanName(p.player_name), number: num(p.jersey_no) || undefined,
+    position: ({ 2: 'GK', 4: 'DEF', 3: 'MID', 1: 'FWD' } as const)[p.playing_position as 1 | 2 | 3 | 4],
+  })).filter((p) => p.name));
+  const sqH = squad(j.squad1_list), sqA = squad(j.squad2_list);
 
   const ft = !!f.ft;
   const sinceKo = now - Date.parse(kickoff);
@@ -257,6 +273,7 @@ export function parseAiffMatch(j: any, id: string, now = Date.now()): MatchDetai
     away: team(t2, f.t2_name, f.team2_logo, j.team2_score),
     events: evs,
     lineups: (ft || evs.length) && lh && la ? { home: lh, away: la } : undefined,
+    squads: sqH.length && sqA.length ? { home: sqH, away: sqA } : undefined,
     stats: played && stats.length ? stats : undefined,
     playerOfTheMatch: j.mvp?.player_name ? cleanName(j.mvp.player_name) : undefined,
     updatedAt: new Date().toISOString(),

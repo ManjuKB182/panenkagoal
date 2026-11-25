@@ -8,7 +8,23 @@ import { neon } from '@neondatabase/serverless';
 import { currentSeason } from './parsers';
 
 const ROOT = join(import.meta.dirname, '../../data/snapshots');
-const sql = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : null;
+const client = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : null;
+// Neon is a mirror, never a requirement: the repo snapshots are the source of truth. After the first Neon failure
+// (quota exceeded, outage, bad URL) it is switched off for the rest of the run so nothing waits on it or fails because of it.
+let neonDown = false;
+export function neonFailed(what: string, e: unknown) {
+  if (!neonDown) console.warn(`::warning::Neon unavailable (${what}): ${(e as Error).message?.slice(0, 200)}. Continuing with the repo snapshots.`);
+  neonDown = true;
+}
+const sql = client ? Object.assign(
+  async (...a: Parameters<typeof client>) => {
+    if (neonDown) return [] as any[];
+    try { return await client(...a); } catch (e) { neonFailed('query', e); return [] as any[]; }
+  },
+  { query: async (q: string) => { if (!neonDown) { try { await client.query(q); } catch (e) { neonFailed('migrate', e); } } } },
+) : null;
+export const neonEnabled = () => Boolean(sql) && !neonDown;
+export const neonSql = sql;
 
 const fileFor = (key: string) => join(ROOT, `${key}.json`);
 
@@ -59,7 +75,7 @@ export async function recordRun(job: string, startedAt: Date, status: 'ok' | 'er
 
 /** Restore every dataset from Neon into data/snapshots (used in CI before a build). */
 export async function pullAll(): Promise<number> {
-  if (!sql) throw new Error('DATABASE_URL is not set');
+  if (!sql) return 0;
   const rows = (await sql`select key, data from datasets`) as Array<{ key: string; data: unknown }>;
   const cur = currentSeason();
   let n = 0;
@@ -67,6 +83,10 @@ export async function pullAll(): Promise<number> {
     // A stale writer (an older deploy's ingest) can leave last season's league table in Neon; keep the repo's current one.
     const season = (row.data as { season?: string } | null)?.season;
     if (row.key.startsWith('leagues/') && season && /^\d{4}-\d{2}$/.test(season) && season < cur) continue;
+    // Newest wins: never replace a repo snapshot with an older copy from Neon (e.g. after Neon was unreachable for a while).
+    const local = await readDataset<{ updatedAt?: string }>(row.key);
+    const remoteAt = (row.data as { updatedAt?: string } | null)?.updatedAt ?? '';
+    if (local?.updatedAt && local.updatedAt >= remoteAt) continue;
     n++;
     await mkdir(dirname(fileFor(row.key)), { recursive: true });
     await writeFile(fileFor(row.key), JSON.stringify(row.data, null, 2) + '\n');

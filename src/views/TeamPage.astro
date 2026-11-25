@@ -1,0 +1,79 @@
+---
+// One club's page: its record, the upcoming fixtures, and every result this season. Shared by /stats/<league>/<team> and the /kn copy.
+import Base from '../layouts/Base.astro';
+import MatchList from '../components/MatchList.astro';
+import { compName, type Competition } from '../config/competitions';
+import { SITE } from '../config/site';
+import { getLeague } from '../lib/data';
+import { fixturesOf } from '../lib/teams';
+import type { StandingRow } from '../lib/types';
+import { digits, getLocale, groupName as groupLabel, localePath, t, teamName } from '../i18n';
+
+const locale = getLocale(Astro.url);
+const href = (p: string) => localePath(locale, p);
+const { comp, row, stageName, groupName } = Astro.props as { comp: Competition; row: StandingRow; stageName: string; groupName: string };
+const data = getLeague(comp);
+const all = fixturesOf(row, data?.fixtures ?? []);
+const results = all.filter((m) => m.status === 'ft').reverse();
+// Upcoming = everything not played, so a postponed or awaiting-result match stays visible.
+const upcoming = all.filter((m) => m.status !== 'ft');
+const name = teamName(locale, row.team);
+const stats: Array<[string, string | number]> = [
+  [t(locale, 'table.p'), row.played], [t(locale, 'table.w'), row.won], [t(locale, 'table.d'), row.drawn], [t(locale, 'table.l'), row.lost],
+  [t(locale, 'table.gfShort'), row.gf], [t(locale, 'table.gaShort'), row.ga], [t(locale, 'table.ptsShort'), row.points],
+];
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: compName(locale, comp), item: `${SITE.url}${href(`/stats/${comp.slug}`)}` },
+    { '@type': 'ListItem', position: 2, name },
+  ],
+};
+---
+<Base title={t(locale, 'team.title', { team: name, comp: compName(locale, comp) })} description={t(locale, 'team.description', { team: name, comp: comp.name })} jsonLd={jsonLd}>
+  <header class="bg-photo head-bg" style="--img:url(/bg/crowd.webp)"><div class="wrap module head">
+    <a class="eyebrow" href={href(`/stats/${comp.slug}`)}>← {compName(locale, comp)}</a>
+    <div class="id">
+      {row.logo && <img src={row.logo} alt="" width="64" height="64" />}
+      <div>
+        <h1>{name}</h1>
+        <p class="muted">
+          {data?.seasonLabel ?? ''}{groupName ? ` · ${groupLabel(locale, groupName)}` : ''} · {t(locale, 'team.position', { pos: digits(locale, row.pos) })}
+        </p>
+      </div>
+    </div>
+    <dl class="rec">
+      {stats.map(([k, v]) => <div><dt>{k}</dt><dd>{digits(locale, v)}</dd></div>)}
+      {row.form && <div class="fm"><dt>{t(locale, 'table.form')}</dt><dd>{row.form.split('').map((f) => <i class={f}>{f}</i>)}</dd></div>}
+    </dl>
+  </div></header>
+
+  <section class="wrap module">
+    <div class="box">
+      <h2>{t(locale, 'stats.tabFixtures')}</h2>
+      {upcoming.length ? <MatchList matches={upcoming} showDate /> : <p class="muted">{t(locale, 'stats.noUpcoming')}</p>}
+    </div>
+  </section>
+  <section class="wrap module">
+    <div class="box">
+      <h2>{t(locale, 'stats.tabResults')}</h2>
+      {results.length ? <MatchList matches={results} showDate /> : <p class="muted">{t(locale, 'stats.noResults')}</p>}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .head { display: grid; gap: 14px; padding-block: 36px 8px; }
+  .id { display: flex; align-items: center; gap: 16px; }
+  .id img { width: 64px; height: 64px; object-fit: contain; border-radius: 14px; background: var(--surface); padding: 6px; }
+  .rec { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+  .rec > div { display: grid; justify-items: center; gap: 2px; min-width: 56px; padding: 8px 12px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+  .rec dt { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--text-3); }
+  .rec dd { margin: 0; font: 800 20px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+  .rec .fm dd { display: flex; gap: 4px; padding-top: 3px; }
+  .rec .fm i { width: 20px; height: 20px; display: grid; place-items: center; font: 800 10px/1 var(--body); font-style: normal; color: #fff; border-radius: 7px; }
+  .rec .W { background: var(--win); } .rec .D { background: var(--draw); } .rec .L { background: var(--loss); }
+  .box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; box-shadow: var(--shadow); }
+  .box h2 { margin-bottom: 10px; font-size: 22px; }
+</style>
