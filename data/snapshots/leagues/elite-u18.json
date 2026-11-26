@@ -51,7 +51,7 @@
             {
               "pos": 4,
               "team": "FC Bengaluru United",
-              "logo": "https://aiff.b-cdn.net/logos/sm_12681-logo_small-1602235138.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12681-logo_small-1795593199.png",
               "played": 3,
               "won": 0,
               "drawn": 0,
@@ -328,7 +328,7 @@
             {
               "pos": 1,
               "team": "Shillong Lajong FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1660315168.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1795593490.png",
               "played": 3,
               "won": 3,
               "drawn": 0,
@@ -385,7 +385,7 @@
             {
               "pos": 1,
               "team": "Rajasthan United Football Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1617780510.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1795593406.png",
               "played": 2,
               "won": 1,
               "drawn": 1,
@@ -530,7 +530,7 @@
             {
               "pos": 2,
               "team": "Dempo Sports Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20200107at134209_1578384848.jpeg",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8008-logo_small-1795593147.png",
               "played": 2,
               "won": 0,
               "drawn": 1,
@@ -561,7 +561,7 @@
             {
               "pos": 1,
               "team": "Sreenidi Deccan Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_SreenidhiDeccanFootballClubLogo_1637303730.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12959-logo_small-1795593529.png",
               "played": 2,
               "won": 2,
               "drawn": 0,
@@ -1078,7 +1078,7 @@
             {
               "pos": 3,
               "team": "Real Kashmir FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11497-logo_small-1645793815.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11497-logo_small-1795593454.png",
               "played": 2,
               "won": 0,
               "drawn": 1,
@@ -1254,7 +1254,7 @@
             {
               "pos": 2,
               "team": "SAMALESWARI SPORTING",
-              "logo": "https://aiff.b-cdn.net/logos/sm_16934-logo_small-1795585248.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_16934-logo_small-1795589389.png",
               "played": 2,
               "won": 1,
               "drawn": 0,
@@ -1412,7 +1412,7 @@
             {
               "pos": 4,
               "team": "Rajasthan United Football Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1617780510.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1795593406.png",
               "played": 2,
               "won": 0,
               "drawn": 0,
@@ -1469,7 +1469,7 @@
             {
               "pos": 2,
               "team": "Sreenidi Deccan Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_SreenidhiDeccanFootballClubLogo_1637303730.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12959-logo_small-1795593529.png",
               "played": 2,
               "won": 2,
               "drawn": 0,
@@ -1539,7 +1539,7 @@
             {
               "pos": 1,
               "team": "Gokulam Kerala FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11821-logo_small-1704290734.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11821-logo_small-1795593246.png",
               "played": 4,
               "won": 3,
               "drawn": 1,
@@ -1936,7 +1936,7 @@
             {
               "pos": 6,
               "team": "Shillong Lajong FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1660315168.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1795593490.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -2353,5 +2353,5 @@
       "goals": 8
     }
   ],
-  "updatedAt": "2026-11-25T05:44:39.965Z"
+  "updatedAt": "2026-11-26T09:17:41.462Z"
 }
