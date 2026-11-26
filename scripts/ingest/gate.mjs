@@ -36,6 +36,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(async (e) => {
     // If the gate itself fails, run everything for this tick rather than miss a result.
     console.error(`::warning::gate failed: ${e.message}`);
-    if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `leagues=isl,ifl,i-league-2,i-league-3,iwl,iwl-2,bdfa-sd\n`);
+    if (process.env.GITHUB_OUTPUT) await appendFile(process.env.GITHUB_OUTPUT, `leagues=bdfa-sd,elite-u18,i-league-2,i-league-3,ifl,isl,iwl,iwl-2,junior-u15,rfdl-u21,sub-junior-u13\n`);
   });
 }

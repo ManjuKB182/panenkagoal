@@ -94,7 +94,7 @@
             {
               "pos": 1,
               "team": "Shillong Lajong FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1660315168.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1795593490.png",
               "played": 5,
               "won": 4,
               "drawn": 0,
@@ -176,6 +176,19 @@
           "rows": [
             {
               "pos": 1,
+              "team": "PFC Kerala",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_PFCKeralaPngLogo_1747911403.png",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 9,
+              "ga": 4,
+              "gd": 5,
+              "points": 9
+            },
+            {
+              "pos": 2,
               "team": "Kerala Blasters Football Club",
               "logo": "https://aiff.b-cdn.net/logos/sm_8982-logo_small-1608191863.jpg",
               "played": 3,
@@ -186,19 +199,6 @@
               "ga": 1,
               "gd": 13,
               "points": 7
-            },
-            {
-              "pos": 2,
-              "team": "PFC Kerala",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_PFCKeralaPngLogo_1747911403.png",
-              "played": 3,
-              "won": 2,
-              "drawn": 0,
-              "lost": 1,
-              "gf": 5,
-              "ga": 2,
-              "gd": 3,
-              "points": 6
             },
             {
               "pos": 3,
@@ -230,13 +230,13 @@
               "pos": 5,
               "team": "Altius International Football Academy - AIFA",
               "logo": "https://aiff.b-cdn.net/uploads/sm_AIFARGBPNG1_1683533007.png",
-              "played": 3,
+              "played": 4,
               "won": 1,
               "drawn": 1,
-              "lost": 1,
-              "gf": 5,
-              "ga": 9,
-              "gd": -4,
+              "lost": 2,
+              "gf": 7,
+              "ga": 13,
+              "gd": -6,
               "points": 4
             },
             {
@@ -285,21 +285,21 @@
             },
             {
               "pos": 3,
-              "team": "Maden Football Academy",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_FBIMG1795093383568_1795093396.jpg",
-              "played": 1,
+              "team": "Sp One Foundation",
+              "logo": "https://aiff.b-cdn.net/logos/sm_19115-logo_small-1757654840.jpg",
+              "played": 2,
               "won": 0,
-              "drawn": 1,
+              "drawn": 2,
               "lost": 0,
               "gf": 1,
               "ga": 1,
               "gd": 0,
-              "points": 1
+              "points": 2
             },
             {
               "pos": 4,
-              "team": "Sp One Foundation",
-              "logo": "https://aiff.b-cdn.net/logos/sm_19115-logo_small-1757654840.jpg",
+              "team": "Maden Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_FBIMG1795093383568_1795093396.jpg",
               "played": 1,
               "won": 0,
               "drawn": 1,
@@ -313,14 +313,14 @@
               "pos": 5,
               "team": "Bidhannagar Municipal Sports Academy",
               "logo": "https://aiff.b-cdn.net/logos/11644-Slogo-1576385866.png",
-              "played": 1,
+              "played": 2,
               "won": 0,
-              "drawn": 0,
+              "drawn": 1,
               "lost": 1,
               "gf": 1,
               "ga": 2,
               "gd": -1,
-              "points": 0
+              "points": 1
             },
             {
               "pos": 6,
@@ -344,14 +344,14 @@
               "pos": 1,
               "team": "BBFS Garhwal Heroes Football Club",
               "logo": "https://aiff.b-cdn.net/logos/sm_10929-logo_small-1699437762.png",
-              "played": 4,
-              "won": 4,
+              "played": 5,
+              "won": 5,
               "drawn": 0,
               "lost": 0,
-              "gf": 10,
+              "gf": 14,
               "ga": 2,
-              "gd": 8,
-              "points": 12
+              "gd": 12,
+              "points": 15
             },
             {
               "pos": 2,
@@ -381,41 +381,41 @@
             },
             {
               "pos": 4,
-              "team": "Namdhari Sports Academy",
-              "logo": "https://aiff.b-cdn.net/logos/lr_12488-logo-1655547091.png",
-              "played": 4,
+              "team": "Rajasthan United Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1795593406.png",
+              "played": 5,
               "won": 1,
-              "drawn": 0,
+              "drawn": 1,
               "lost": 3,
-              "gf": 3,
-              "ga": 12,
-              "gd": -9,
-              "points": 3
+              "gf": 5,
+              "ga": 13,
+              "gd": -8,
+              "points": 4
             },
             {
               "pos": 5,
-              "team": "Rajasthan United Football Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1617780510.png",
-              "played": 4,
-              "won": 0,
-              "drawn": 1,
-              "lost": 3,
-              "gf": 1,
-              "ga": 11,
-              "gd": -10,
-              "points": 1
+              "team": "Namdhari Sports Academy",
+              "logo": "https://aiff.b-cdn.net/logos/lr_12488-logo-1655547091.png",
+              "played": 5,
+              "won": 1,
+              "drawn": 0,
+              "lost": 4,
+              "gf": 5,
+              "ga": 16,
+              "gd": -11,
+              "points": 3
             },
             {
               "pos": 6,
               "team": "Sporting Club Delhi",
               "logo": "https://aiff.b-cdn.net/logos/sm_13371-logo_small-1766751972.png",
-              "played": 4,
+              "played": 5,
               "won": 0,
               "drawn": 1,
-              "lost": 3,
+              "lost": 4,
               "gf": 1,
-              "ga": 11,
-              "gd": -10,
+              "ga": 15,
+              "gd": -14,
               "points": 1
             }
           ]
@@ -593,30 +593,42 @@
               "pos": 1,
               "team": "Bengaluru Football Club",
               "logo": "https://aiff.b-cdn.net/logos/sm_8021-logo_small-1578937550.png",
-              "played": 2,
-              "won": 2,
+              "played": 3,
+              "won": 3,
               "drawn": 0,
               "lost": 0,
-              "gf": 10,
-              "ga": 0,
-              "gd": 10,
-              "points": 6
+              "gf": 13,
+              "ga": 2,
+              "gd": 11,
+              "points": 9
             },
             {
               "pos": 2,
               "team": "South United FC",
               "logo": "https://aiff.b-cdn.net/logos/sm_11949-logo_small-1658233791.jpg",
-              "played": 2,
+              "played": 3,
               "won": 2,
               "drawn": 0,
-              "lost": 0,
-              "gf": 9,
-              "ga": 1,
-              "gd": 8,
+              "lost": 1,
+              "gf": 11,
+              "ga": 4,
+              "gd": 7,
               "points": 6
             },
             {
               "pos": 3,
+              "team": "Sreenidhi Sports Academy",
+              "played": 3,
+              "won": 1,
+              "drawn": 1,
+              "lost": 1,
+              "gf": 3,
+              "ga": 2,
+              "gd": 1,
+              "points": 4
+            },
+            {
+              "pos": 4,
               "team": "FC Madras",
               "logo": "https://aiff.b-cdn.net/logos/sm_11396-logo_small-1732536353.png",
               "played": 2,
@@ -627,18 +639,6 @@
               "ga": 6,
               "gd": -5,
               "points": 3
-            },
-            {
-              "pos": 4,
-              "team": "Sreenidhi Sports Academy",
-              "played": 2,
-              "won": 0,
-              "drawn": 1,
-              "lost": 1,
-              "gf": 1,
-              "ga": 2,
-              "gd": -1,
-              "points": 1
             },
             {
               "pos": 5,
@@ -656,13 +656,13 @@
               "pos": 6,
               "team": "Roots Football Club",
               "logo": "https://aiff.b-cdn.net/uploads/sm_rootsfootballpng200x200_1659611505.png",
-              "played": 2,
+              "played": 3,
               "won": 0,
               "drawn": 0,
-              "lost": 2,
+              "lost": 3,
               "gf": 0,
-              "ga": 10,
-              "gd": -10,
+              "ga": 12,
+              "gd": -12,
               "points": 0
             }
           ]
@@ -673,7 +673,7 @@
             {
               "pos": 1,
               "team": "Dempo Sports Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20200107at134209_1578384848.jpeg",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8008-logo_small-1795593147.png",
               "played": 5,
               "won": 5,
               "drawn": 0,
@@ -700,14 +700,14 @@
               "pos": 3,
               "team": "SESA Football Academy",
               "logo": "https://aiff.b-cdn.net/uploads/sm_SFANewLogo_1658138240.png",
-              "played": 4,
-              "won": 2,
+              "played": 5,
+              "won": 3,
               "drawn": 1,
               "lost": 1,
-              "gf": 6,
+              "gf": 15,
               "ga": 9,
-              "gd": -3,
-              "points": 7
+              "gd": 6,
+              "points": 10
             },
             {
               "pos": 4,
@@ -738,13 +738,13 @@
             {
               "pos": 6,
               "team": "Goa Police",
-              "played": 4,
+              "played": 5,
               "won": 0,
               "drawn": 0,
-              "lost": 4,
+              "lost": 5,
               "gf": 0,
-              "ga": 66,
-              "gd": -66,
+              "ga": 75,
+              "gd": -75,
               "points": 0
             }
           ]
@@ -780,6 +780,27 @@
     }
   ],
   "fixtures": [
+    {
+      "id": "aiff-75802",
+      "kickoff": "2026-10-24T11:00:00+05:30",
+      "home": "Mumbai City FC",
+      "away": "Maharashtra Oranje FC",
+      "status": "ft",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Neev Chhipa",
+          "team": "Mumbai City FC"
+        },
+        {
+          "player": "Aarav Bhuta",
+          "team": "Maharashtra Oranje FC"
+        }
+      ]
+    },
     {
       "id": "aiff-75801",
       "kickoff": "2026-10-24T08:00:00+05:30",
@@ -835,27 +856,6 @@
         {
           "player": "Ishaan Vinod Jadhav",
           "team": "MUM - Young Guns F.C."
-        }
-      ]
-    },
-    {
-      "id": "aiff-75802",
-      "kickoff": "2026-10-24T11:00:00+05:30",
-      "home": "Mumbai City FC",
-      "away": "Maharashtra Oranje FC",
-      "status": "ft",
-      "venue": "Reliance Corporate Park, Ghansoli",
-      "round": "Regional Qualifiers",
-      "homeScore": 1,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Neev Chhipa",
-          "team": "Mumbai City FC"
-        },
-        {
-          "player": "Aarav Bhuta",
-          "team": "Maharashtra Oranje FC"
         }
       ]
     },
@@ -947,27 +947,6 @@
       ]
     },
     {
-      "id": "aiff-76434",
-      "kickoff": "2026-11-03T11:45:00+05:30",
-      "home": "Rangdajied United Football Club",
-      "away": "Langsning FC",
-      "status": "ft",
-      "venue": "MFA Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 2,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Menangpyndap Khongjee",
-          "team": "Rangdajied United Football Club"
-        },
-        {
-          "player": "Bantiplang Khongnoh",
-          "team": "Rangdajied United Football Club"
-        }
-      ]
-    },
-    {
       "id": "aiff-76435",
       "kickoff": "2026-11-03T14:30:00+05:30",
       "home": "North East United FC",
@@ -1001,44 +980,23 @@
       ]
     },
     {
-      "id": "aiff-76444",
-      "kickoff": "2026-11-04T08:00:00+05:30",
-      "home": "Classic Football Academy",
-      "away": "Imphal Youth Football Club",
+      "id": "aiff-76434",
+      "kickoff": "2026-11-03T11:45:00+05:30",
+      "home": "Rangdajied United Football Club",
+      "away": "Langsning FC",
       "status": "ft",
-      "venue": "SAI Ground",
+      "venue": "MFA Ground",
       "round": "Regional Qualifiers",
-      "homeScore": 1,
+      "homeScore": 2,
       "awayScore": 1,
       "goals": [
         {
-          "player": "Kshetrimayum Langamba Singh",
-          "team": "Classic Football Academy"
+          "player": "Menangpyndap Khongjee",
+          "team": "Rangdajied United Football Club"
         },
         {
-          "player": "Taj Khan",
-          "team": "Imphal Youth Football Club"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76446",
-      "kickoff": "2026-11-04T13:30:00+05:30",
-      "home": "Asufii Fa",
-      "away": "Regular Football Coaching Center",
-      "status": "ft",
-      "venue": "SAI Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 1,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Wangkheirakpam John Singh",
-          "team": "Asufii Fa"
-        },
-        {
-          "player": "R.k. Mangalsana Singh",
-          "team": "Regular Football Coaching Center"
+          "player": "Bantiplang Khongnoh",
+          "team": "Rangdajied United Football Club"
         }
       ]
     },
@@ -1109,31 +1067,44 @@
       ]
     },
     {
-      "id": "aiff-76641",
-      "kickoff": "2026-11-06T11:45:00+05:30",
-      "home": "Rangdajied United Football Club",
-      "away": "North East United FC",
+      "id": "aiff-76444",
+      "kickoff": "2026-11-04T08:00:00+05:30",
+      "home": "Classic Football Academy",
+      "away": "Imphal Youth Football Club",
       "status": "ft",
-      "venue": "MFA Ground",
+      "venue": "SAI Ground",
       "round": "Regional Qualifiers",
-      "homeScore": 2,
-      "awayScore": 2,
+      "homeScore": 1,
+      "awayScore": 1,
       "goals": [
         {
-          "player": "Mebannangkiew Thabah",
-          "team": "Rangdajied United Football Club"
+          "player": "Kshetrimayum Langamba Singh",
+          "team": "Classic Football Academy"
         },
         {
-          "player": "Pasborlang Khonglikong",
-          "team": "Rangdajied United Football Club"
+          "player": "Taj Khan",
+          "team": "Imphal Youth Football Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76446",
+      "kickoff": "2026-11-04T13:30:00+05:30",
+      "home": "Asufii Fa",
+      "away": "Regular Football Coaching Center",
+      "status": "ft",
+      "venue": "SAI Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Wangkheirakpam John Singh",
+          "team": "Asufii Fa"
         },
         {
-          "player": "Laishram Danny Meitei",
-          "team": "North East United FC"
-        },
-        {
-          "player": "Laishram Danny Meitei",
-          "team": "North East United FC"
+          "player": "R.k. Mangalsana Singh",
+          "team": "Regular Football Coaching Center"
         }
       ]
     },
@@ -1167,6 +1138,81 @@
         {
           "player": "Nehemaiah Warbah",
           "team": "Mawlai Sport Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76641",
+      "kickoff": "2026-11-06T11:45:00+05:30",
+      "home": "Rangdajied United Football Club",
+      "away": "North East United FC",
+      "status": "ft",
+      "venue": "MFA Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 2,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Mebannangkiew Thabah",
+          "team": "Rangdajied United Football Club"
+        },
+        {
+          "player": "Pasborlang Khonglikong",
+          "team": "Rangdajied United Football Club"
+        },
+        {
+          "player": "Laishram Danny Meitei",
+          "team": "North East United FC"
+        },
+        {
+          "player": "Laishram Danny Meitei",
+          "team": "North East United FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76449",
+      "kickoff": "2026-11-07T13:30:00+05:30",
+      "home": "Regular Football Coaching Center",
+      "away": "Sai-Rc",
+      "status": "ft",
+      "venue": "SAI Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "R.k. Mangalsana Singh",
+          "team": "Regular Football Coaching Center"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76447",
+      "kickoff": "2026-11-07T08:00:00+05:30",
+      "home": "Classic Football Academy",
+      "away": "Kshetri Iril Mapal Youth Club",
+      "status": "ft",
+      "venue": "SAI Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 3,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Md Irfan",
+          "team": "Classic Football Academy"
+        },
+        {
+          "player": "Md Irfan",
+          "team": "Classic Football Academy"
+        },
+        {
+          "player": "Thoudam Dilson Singh",
+          "team": "Kshetri Iril Mapal Youth Club"
+        },
+        {
+          "player": "Md Irfan",
+          "team": "Classic Football Academy"
         }
       ]
     },
@@ -1245,77 +1291,6 @@
       ]
     },
     {
-      "id": "aiff-76449",
-      "kickoff": "2026-11-07T13:30:00+05:30",
-      "home": "Regular Football Coaching Center",
-      "away": "Sai-Rc",
-      "status": "ft",
-      "venue": "SAI Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 1,
-      "awayScore": 0,
-      "goals": [
-        {
-          "player": "R.k. Mangalsana Singh",
-          "team": "Regular Football Coaching Center"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76447",
-      "kickoff": "2026-11-07T08:00:00+05:30",
-      "home": "Classic Football Academy",
-      "away": "Kshetri Iril Mapal Youth Club",
-      "status": "ft",
-      "venue": "SAI Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 3,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Md Irfan",
-          "team": "Classic Football Academy"
-        },
-        {
-          "player": "Md Irfan",
-          "team": "Classic Football Academy"
-        },
-        {
-          "player": "Thoudam Dilson Singh",
-          "team": "Kshetri Iril Mapal Youth Club"
-        },
-        {
-          "player": "Md Irfan",
-          "team": "Classic Football Academy"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76644",
-      "kickoff": "2026-11-09T11:45:00+05:30",
-      "home": "Rangdajied United Football Club",
-      "away": "Mawlai Sport Club",
-      "status": "ft",
-      "venue": "MFA Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 1,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Mebannangkiew Thabah",
-          "team": "Rangdajied United Football Club"
-        },
-        {
-          "player": "Mewan Rasmut",
-          "team": "Mawlai Sport Club"
-        },
-        {
-          "player": "Lovingstar Suting",
-          "team": "Mawlai Sport Club"
-        }
-      ]
-    },
-    {
       "id": "aiff-76645",
       "kickoff": "2026-11-09T14:30:00+05:30",
       "home": "Langsning FC",
@@ -1357,6 +1332,60 @@
         {
           "player": "Mecheal Roy Kurbah",
           "team": "Langsning FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76644",
+      "kickoff": "2026-11-09T11:45:00+05:30",
+      "home": "Rangdajied United Football Club",
+      "away": "Mawlai Sport Club",
+      "status": "ft",
+      "venue": "MFA Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Mebannangkiew Thabah",
+          "team": "Rangdajied United Football Club"
+        },
+        {
+          "player": "Mewan Rasmut",
+          "team": "Mawlai Sport Club"
+        },
+        {
+          "player": "Lovingstar Suting",
+          "team": "Mawlai Sport Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76452",
+      "kickoff": "2026-11-10T13:30:00+05:30",
+      "home": "Regular Football Coaching Center",
+      "away": "Imphal Youth Football Club",
+      "status": "ft",
+      "venue": "SAI Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 3,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Thoiba Konthoujam",
+          "team": "Regular Football Coaching Center"
+        },
+        {
+          "player": "Khutleibam Sultan",
+          "team": "Imphal Youth Football Club"
+        },
+        {
+          "player": "Sharungbam Sanathoi Singh",
+          "team": "Regular Football Coaching Center"
+        },
+        {
+          "player": "Ngashepam Khonish Meitei",
+          "team": "Imphal Youth Football Club"
         }
       ]
     },
@@ -1440,77 +1469,6 @@
         {
           "player": "Ricky Kharkongor",
           "team": "Shillong Lajong FC"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76452",
-      "kickoff": "2026-11-10T13:30:00+05:30",
-      "home": "Regular Football Coaching Center",
-      "away": "Imphal Youth Football Club",
-      "status": "ft",
-      "venue": "SAI Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 3,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Thoiba Konthoujam",
-          "team": "Regular Football Coaching Center"
-        },
-        {
-          "player": "Khutleibam Sultan",
-          "team": "Imphal Youth Football Club"
-        },
-        {
-          "player": "Sharungbam Sanathoi Singh",
-          "team": "Regular Football Coaching Center"
-        },
-        {
-          "player": "Ngashepam Khonish Meitei",
-          "team": "Imphal Youth Football Club"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76647",
-      "kickoff": "2026-11-12T11:45:00+05:30",
-      "home": "North East United FC",
-      "away": "Mawlai Sport Club",
-      "status": "ft",
-      "venue": "MFA Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 1,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Kh. Azlaan Shah",
-          "team": "North East United FC"
-        },
-        {
-          "player": "Lovingstar Suting",
-          "team": "Mawlai Sport Club"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76498",
-      "kickoff": "2026-11-12T15:45:00+05:30",
-      "home": "SESA Football Academy",
-      "away": "Clube De Salgaocar",
-      "status": "ft",
-      "venue": "Dhuler Football Stadium",
-      "round": "Regional Qualifiers",
-      "homeScore": 2,
-      "awayScore": 0,
-      "goals": [
-        {
-          "player": "Keanan Bhobe",
-          "team": "SESA Football Academy"
-        },
-        {
-          "player": "Likson Rebelo",
-          "team": "SESA Football Academy"
         }
       ]
     },
@@ -1650,6 +1608,48 @@
         {
           "player": "Kyrmenskhem Mukhim",
           "team": "Langsning FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76647",
+      "kickoff": "2026-11-12T11:45:00+05:30",
+      "home": "North East United FC",
+      "away": "Mawlai Sport Club",
+      "status": "ft",
+      "venue": "MFA Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Kh. Azlaan Shah",
+          "team": "North East United FC"
+        },
+        {
+          "player": "Lovingstar Suting",
+          "team": "Mawlai Sport Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76498",
+      "kickoff": "2026-11-12T15:45:00+05:30",
+      "home": "SESA Football Academy",
+      "away": "Clube De Salgaocar",
+      "status": "ft",
+      "venue": "Dhuler Football Stadium",
+      "round": "Regional Qualifiers",
+      "homeScore": 2,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Keanan Bhobe",
+          "team": "SESA Football Academy"
+        },
+        {
+          "player": "Likson Rebelo",
+          "team": "SESA Football Academy"
         }
       ]
     },
@@ -2124,52 +2124,6 @@
       ]
     },
     {
-      "id": "aiff-76474",
-      "kickoff": "2026-11-17T19:30:00+05:30",
-      "home": "Altius International Football Academy - AIFA",
-      "away": "Kerala United FC",
-      "status": "ft",
-      "venue": "TMK Arena",
-      "round": "Regional Qualifiers",
-      "homeScore": 2,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Mohammed Shamil Pp",
-          "team": "Altius International Football Academy - AIFA"
-        },
-        {
-          "player": "Abhijith N",
-          "team": "Altius International Football Academy - AIFA"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76458",
-      "kickoff": "2026-11-17T13:30:00+05:30",
-      "home": "Sai-Rc",
-      "away": "Imphal Youth Football Club",
-      "status": "ft",
-      "venue": "SAI Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 3,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Huidrom Torres Singh",
-          "team": "Imphal Youth Football Club"
-        },
-        {
-          "player": "Heikrujam Rainson Singh",
-          "team": "Sai-Rc"
-        },
-        {
-          "player": "Sagolsem Yaiphaba Singh",
-          "team": "Sai-Rc"
-        }
-      ]
-    },
-    {
       "id": "aiff-76652",
       "kickoff": "2026-11-17T11:45:00+05:30",
       "home": "Rangdajied United Football Club",
@@ -2311,6 +2265,131 @@
       ]
     },
     {
+      "id": "aiff-76474",
+      "kickoff": "2026-11-17T19:30:00+05:30",
+      "home": "Altius International Football Academy - AIFA",
+      "away": "Kerala United FC",
+      "status": "ft",
+      "venue": "TMK Arena",
+      "round": "Regional Qualifiers",
+      "homeScore": 2,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Mohammed Shamil Pp",
+          "team": "Altius International Football Academy - AIFA"
+        },
+        {
+          "player": "Abhijith N",
+          "team": "Altius International Football Academy - AIFA"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76458",
+      "kickoff": "2026-11-17T13:30:00+05:30",
+      "home": "Sai-Rc",
+      "away": "Imphal Youth Football Club",
+      "status": "ft",
+      "venue": "SAI Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 3,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Huidrom Torres Singh",
+          "team": "Imphal Youth Football Club"
+        },
+        {
+          "player": "Heikrujam Rainson Singh",
+          "team": "Sai-Rc"
+        },
+        {
+          "player": "Sagolsem Yaiphaba Singh",
+          "team": "Sai-Rc"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76504",
+      "kickoff": "2026-11-18T15:45:00+05:30",
+      "home": "Dempo Sports Club",
+      "away": "SESA Football Academy",
+      "status": "ft",
+      "venue": "Dhuler Football Stadium",
+      "round": "Regional Qualifiers",
+      "homeScore": 6,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Juvenio Simoes",
+          "team": "Dempo Sports Club"
+        },
+        {
+          "player": "Topon  Minj",
+          "team": "Dempo Sports Club"
+        },
+        {
+          "player": "Topon  Minj",
+          "team": "Dempo Sports Club"
+        },
+        {
+          "player": "Swavel Cristiano  Furtado",
+          "team": "Dempo Sports Club"
+        },
+        {
+          "player": "Nash Fernandes",
+          "team": "Dempo Sports Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76926",
+      "kickoff": "2026-11-18T08:00:00+05:30",
+      "home": "Sports Odisha",
+      "away": "Vels Football Club",
+      "status": "ft",
+      "venue": "Bhubaneswar FA",
+      "round": "Regional Qualifiers",
+      "homeScore": 2,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Dewasish Ram Marndi",
+          "team": "Sports Odisha"
+        },
+        {
+          "player": "Ronik Majhi",
+          "team": "Sports Odisha"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76928",
+      "kickoff": "2026-11-18T15:00:00+05:30",
+      "home": "Football 4 Change Academy",
+      "away": "Blg- The Diamond Rock F.C.",
+      "status": "ft",
+      "venue": "Bhubaneswar FA",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Sumo Murmu",
+          "team": "Blg- The Diamond Rock F.C."
+        },
+        {
+          "player": "Kamgoumin",
+          "team": "Football 4 Change Academy"
+        },
+        {
+          "player": "Animesh Roy",
+          "team": "Blg- The Diamond Rock F.C."
+        }
+      ]
+    },
+    {
       "id": "aiff-76927",
       "kickoff": "2026-11-18T11:30:00+05:30",
       "home": "Sirukalathur Galatipet Football Club",
@@ -2410,81 +2489,76 @@
       ]
     },
     {
-      "id": "aiff-76504",
-      "kickoff": "2026-11-18T15:45:00+05:30",
-      "home": "Dempo Sports Club",
-      "away": "SESA Football Academy",
+      "id": "aiff-76943",
+      "kickoff": "2026-11-19T14:00:00+05:30",
+      "home": "Bengaluru Football Club",
+      "away": "FC Madras",
       "status": "ft",
-      "venue": "Dhuler Football Stadium",
+      "venue": "SUFC Ground",
       "round": "Regional Qualifiers",
       "homeScore": 6,
       "awayScore": 0,
       "goals": [
         {
-          "player": "Juvenio Simoes",
-          "team": "Dempo Sports Club"
+          "player": "Aarav Gharat",
+          "team": "Bengaluru Football Club"
         },
         {
-          "player": "Topon  Minj",
-          "team": "Dempo Sports Club"
+          "player": "Md Arbash",
+          "team": "Bengaluru Football Club"
         },
         {
-          "player": "Topon  Minj",
-          "team": "Dempo Sports Club"
+          "player": "Chaphamayum Rohen Singh",
+          "team": "Bengaluru Football Club"
         },
         {
-          "player": "Swavel Cristiano  Furtado",
-          "team": "Dempo Sports Club"
+          "player": "Takhellambam Bobbish",
+          "team": "Bengaluru Football Club"
         },
         {
-          "player": "Nash Fernandes",
-          "team": "Dempo Sports Club"
+          "player": "Rakshit P Anil",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "Cyrus Abhilash",
+          "team": "Bengaluru Football Club"
         }
       ]
     },
     {
-      "id": "aiff-76926",
-      "kickoff": "2026-11-18T08:00:00+05:30",
-      "home": "Sports Odisha",
-      "away": "Vels Football Club",
+      "id": "aiff-76942",
+      "kickoff": "2026-11-19T11:00:00+05:30",
+      "home": "Roots Football Club",
+      "away": "South United FC",
       "status": "ft",
-      "venue": "Bhubaneswar FA",
+      "venue": "SUFC Ground",
       "round": "Regional Qualifiers",
-      "homeScore": 2,
-      "awayScore": 0,
+      "homeScore": 0,
+      "awayScore": 6,
       "goals": [
         {
-          "player": "Dewasish Ram Marndi",
-          "team": "Sports Odisha"
+          "player": "Md Altab Hussain",
+          "team": "South United FC"
         },
         {
-          "player": "Ronik Majhi",
-          "team": "Sports Odisha"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76928",
-      "kickoff": "2026-11-18T15:00:00+05:30",
-      "home": "Football 4 Change Academy",
-      "away": "Blg- The Diamond Rock F.C.",
-      "status": "ft",
-      "venue": "Bhubaneswar FA",
-      "round": "Regional Qualifiers",
-      "homeScore": 1,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Sumo Murmu",
-          "team": "Blg- The Diamond Rock F.C."
+          "player": "Md Altab Hussain",
+          "team": "South United FC"
         },
         {
-          "player": "Kamgoumin",
-          "team": "Football 4 Change Academy"
+          "player": "Hemgougun Touthang",
+          "team": "South United FC"
         },
         {
-          "player": "Animesh Roy",
-          "team": "Blg- The Diamond Rock F.C."
+          "player": "Md Altab Hussain",
+          "team": "South United FC"
+        },
+        {
+          "player": "Makakmayum Daniyal",
+          "team": "South United FC"
+        },
+        {
+          "player": "Ashish Chetry",
+          "team": "South United FC"
         }
       ]
     },
@@ -2577,76 +2651,23 @@
       ]
     },
     {
-      "id": "aiff-76943",
-      "kickoff": "2026-11-19T14:00:00+05:30",
-      "home": "Bengaluru Football Club",
-      "away": "FC Madras",
+      "id": "aiff-76479",
+      "kickoff": "2026-11-20T15:30:00+05:30",
+      "home": "Kerala United FC",
+      "away": "PFC Kerala",
       "status": "ft",
-      "venue": "SUFC Ground",
+      "venue": "TMK Arena",
       "round": "Regional Qualifiers",
-      "homeScore": 6,
+      "homeScore": 2,
       "awayScore": 0,
       "goals": [
         {
-          "player": "Aarav Gharat",
-          "team": "Bengaluru Football Club"
+          "player": "Amal Km",
+          "team": "Kerala United FC"
         },
         {
-          "player": "Md Arbash",
-          "team": "Bengaluru Football Club"
-        },
-        {
-          "player": "Chaphamayum Rohen Singh",
-          "team": "Bengaluru Football Club"
-        },
-        {
-          "player": "Takhellambam Bobbish",
-          "team": "Bengaluru Football Club"
-        },
-        {
-          "player": "Rakshit P Anil",
-          "team": "Bengaluru Football Club"
-        },
-        {
-          "player": "Cyrus Abhilash",
-          "team": "Bengaluru Football Club"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76942",
-      "kickoff": "2026-11-19T11:00:00+05:30",
-      "home": "Roots Football Club",
-      "away": "South United FC",
-      "status": "ft",
-      "venue": "SUFC Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 0,
-      "awayScore": 6,
-      "goals": [
-        {
-          "player": "Md Altab Hussain",
-          "team": "South United FC"
-        },
-        {
-          "player": "Md Altab Hussain",
-          "team": "South United FC"
-        },
-        {
-          "player": "Hemgougun Touthang",
-          "team": "South United FC"
-        },
-        {
-          "player": "Md Altab Hussain",
-          "team": "South United FC"
-        },
-        {
-          "player": "Makakmayum Daniyal",
-          "team": "South United FC"
-        },
-        {
-          "player": "Ashish Chetry",
-          "team": "South United FC"
+          "player": "Amal Km",
+          "team": "Kerala United FC"
         }
       ]
     },
@@ -2729,102 +2750,23 @@
       ]
     },
     {
-      "id": "aiff-76479",
-      "kickoff": "2026-11-20T15:30:00+05:30",
-      "home": "Kerala United FC",
-      "away": "PFC Kerala",
+      "id": "aiff-75809",
+      "kickoff": "2026-11-21T14:00:00+05:30",
+      "home": "Reliance Foundation Young Champs",
+      "away": "Maharashtra Oranje FC",
       "status": "ft",
-      "venue": "TMK Arena",
+      "venue": "Reliance Corporate Park, Ghansoli",
       "round": "Regional Qualifiers",
       "homeScore": 2,
       "awayScore": 0,
       "goals": [
         {
-          "player": "Amal Km",
-          "team": "Kerala United FC"
+          "player": "Ayush  Sihag",
+          "team": "Reliance Foundation Young Champs"
         },
         {
-          "player": "Amal Km",
-          "team": "Kerala United FC"
-        }
-      ]
-    },
-    {
-      "id": "aiff-75808",
-      "kickoff": "2026-11-21T11:00:00+05:30",
-      "home": "Community Football Club India",
-      "away": "MUM - Young Guns F.C.",
-      "status": "ft",
-      "venue": "Reliance Corporate Park, Ghansoli",
-      "round": "Regional Qualifiers",
-      "homeScore": 1,
-      "awayScore": 4,
-      "goals": [
-        {
-          "player": "Kevin Coutinho",
-          "team": "MUM - Young Guns F.C."
-        },
-        {
-          "player": "Kevin Coutinho",
-          "team": "MUM - Young Guns F.C."
-        },
-        {
-          "player": "Prameet Prakash Irde",
-          "team": "MUM - Young Guns F.C."
-        },
-        {
-          "player": "Kevin Coutinho",
-          "team": "MUM - Young Guns F.C."
-        },
-        {
-          "player": "Nirvaan Bhatt",
-          "team": "Community Football Club India"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76929",
-      "kickoff": "2026-11-21T08:00:00+05:30",
-      "home": "Sports Odisha",
-      "away": "Sirukalathur Galatipet Football Club",
-      "status": "ft",
-      "venue": "Bhubaneswar FA",
-      "round": "Regional Qualifiers",
-      "homeScore": 3,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Aariyamaan Rajinikanth",
-          "team": "Sirukalathur Galatipet Football Club"
-        },
-        {
-          "player": "Dewasish Ram Marndi",
-          "team": "Sports Odisha"
-        },
-        {
-          "player": "Alok Kumar Das",
-          "team": "Sports Odisha"
-        },
-        {
-          "player": "Dewasish Ram Marndi",
-          "team": "Sports Odisha"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76656",
-      "kickoff": "2026-11-21T15:45:00+05:30",
-      "home": "Dempo Sports Club",
-      "away": "Clube De Salgaocar",
-      "status": "ft",
-      "venue": "Vagator Parish Football Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 1,
-      "awayScore": 0,
-      "goals": [
-        {
-          "player": "Phati Ashok Mayekar",
-          "team": "Dempo Sports Club"
+          "player": "Arjun Devendra Singh",
+          "team": "Reliance Foundation Young Champs"
         }
       ]
     },
@@ -2846,27 +2788,6 @@
         {
           "player": "Kingson  Konthoujam",
           "team": "FC Goa"
-        }
-      ]
-    },
-    {
-      "id": "aiff-75809",
-      "kickoff": "2026-11-21T14:00:00+05:30",
-      "home": "Reliance Foundation Young Champs",
-      "away": "Maharashtra Oranje FC",
-      "status": "ft",
-      "venue": "Reliance Corporate Park, Ghansoli",
-      "round": "Regional Qualifiers",
-      "homeScore": 2,
-      "awayScore": 0,
-      "goals": [
-        {
-          "player": "Ayush  Sihag",
-          "team": "Reliance Foundation Young Champs"
-        },
-        {
-          "player": "Arjun Devendra Singh",
-          "team": "Reliance Foundation Young Champs"
         }
       ]
     },
@@ -3002,131 +2923,81 @@
       ]
     },
     {
-      "id": "aiff-76470",
-      "kickoff": "2026-11-23T15:00:00+05:30",
-      "home": "Namdhari Sports Academy",
-      "away": "BBFS Garhwal Heroes Football Club",
+      "id": "aiff-75808",
+      "kickoff": "2026-11-21T11:00:00+05:30",
+      "home": "Community Football Club India",
+      "away": "MUM - Young Guns F.C.",
       "status": "ft",
-      "venue": "Frontier FC Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 0,
-      "awayScore": 1,
-      "goals": [
-        {
-          "player": "Lalbiakdika",
-          "team": "BBFS Garhwal Heroes Football Club"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76469",
-      "kickoff": "2026-11-23T11:00:00+05:30",
-      "home": "Punjab FC",
-      "away": "Sporting Club Delhi",
-      "status": "ft",
-      "venue": "Frontier FC Ground",
-      "round": "Regional Qualifiers",
-      "homeScore": 6,
-      "awayScore": 0,
-      "goals": [
-        {
-          "player": "James Kumar",
-          "team": "Punjab FC"
-        },
-        {
-          "player": "James Kumar",
-          "team": "Punjab FC"
-        },
-        {
-          "player": "Sameer",
-          "team": "Punjab FC"
-        },
-        {
-          "player": "Thongram Rishikanta Singh",
-          "team": "Punjab FC"
-        },
-        {
-          "player": "Usham  Thoungamba  Singh",
-          "team": "Punjab FC"
-        },
-        {
-          "player": "Suraj Murmu",
-          "team": "Punjab FC"
-        }
-      ]
-    },
-    {
-      "id": "aiff-77793",
-      "kickoff": "2026-11-23T10:30:00+05:30",
-      "home": "Bidhannagar Municipal Sports Academy",
-      "away": "United Sports Club",
-      "status": "ft",
-      "venue": "Bidhannagar MSA Ground",
+      "venue": "Reliance Corporate Park, Ghansoli",
       "round": "Regional Qualifiers",
       "homeScore": 1,
-      "awayScore": 2,
-      "goals": [
-        {
-          "player": "Saidul Biswas",
-          "team": "Bidhannagar Municipal Sports Academy"
-        },
-        {
-          "player": "Debasish Haldar",
-          "team": "United Sports Club"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76480",
-      "kickoff": "2026-11-23T19:30:00+05:30",
-      "home": "Sportto Soccer Club",
-      "away": "PFC Kerala",
-      "status": "ft",
-      "venue": "TMK Arena",
-      "round": "Regional Qualifiers",
-      "homeScore": 0,
       "awayScore": 4,
       "goals": [
         {
-          "player": "Adwaith M A",
-          "team": "PFC Kerala"
+          "player": "Kevin Coutinho",
+          "team": "MUM - Young Guns F.C."
         },
         {
-          "player": "Shifan K M",
-          "team": "PFC Kerala"
+          "player": "Kevin Coutinho",
+          "team": "MUM - Young Guns F.C."
         },
         {
-          "player": "Niranjan T S",
-          "team": "PFC Kerala"
+          "player": "Prameet Prakash Irde",
+          "team": "MUM - Young Guns F.C."
         },
         {
-          "player": "Ibrahim A N",
-          "team": "PFC Kerala"
+          "player": "Kevin Coutinho",
+          "team": "MUM - Young Guns F.C."
+        },
+        {
+          "player": "Nirvaan Bhatt",
+          "team": "Community Football Club India"
         }
       ]
     },
     {
-      "id": "aiff-76944",
-      "kickoff": "2026-11-23T08:00:00+05:30",
-      "home": "South United FC",
-      "away": "HAL Sports Club",
+      "id": "aiff-76929",
+      "kickoff": "2026-11-21T08:00:00+05:30",
+      "home": "Sports Odisha",
+      "away": "Sirukalathur Galatipet Football Club",
       "status": "ft",
-      "venue": "SUFC Ground",
+      "venue": "Bhubaneswar FA",
       "round": "Regional Qualifiers",
       "homeScore": 3,
       "awayScore": 1,
       "goals": [
         {
-          "player": "Makakmayum Daniyal",
-          "team": "South United FC"
+          "player": "Aariyamaan Rajinikanth",
+          "team": "Sirukalathur Galatipet Football Club"
         },
         {
-          "player": "Makakmayum Daniyal",
-          "team": "South United FC"
+          "player": "Dewasish Ram Marndi",
+          "team": "Sports Odisha"
         },
         {
-          "player": "Mohamed Rishan Rasheed",
-          "team": "HAL Sports Club"
+          "player": "Alok Kumar Das",
+          "team": "Sports Odisha"
+        },
+        {
+          "player": "Dewasish Ram Marndi",
+          "team": "Sports Odisha"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76656",
+      "kickoff": "2026-11-21T15:45:00+05:30",
+      "home": "Dempo Sports Club",
+      "away": "Clube De Salgaocar",
+      "status": "ft",
+      "venue": "Vagator Parish Football Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Phati Ashok Mayekar",
+          "team": "Dempo Sports Club"
         }
       ]
     },
@@ -3227,35 +3098,6 @@
       ]
     },
     {
-      "id": "aiff-77795",
-      "kickoff": "2026-11-23T14:30:00+05:30",
-      "home": "Peerless Sports Club",
-      "away": "Adamas United Sports Academy",
-      "status": "ft",
-      "venue": "Barrackpore Stadium",
-      "round": "Regional Qualifiers",
-      "homeScore": 0,
-      "awayScore": 4,
-      "goals": [
-        {
-          "player": "Nur Islam Mondal",
-          "team": "Adamas United Sports Academy"
-        },
-        {
-          "player": "Sayan Roy",
-          "team": "Adamas United Sports Academy"
-        },
-        {
-          "player": "Sayan Roy",
-          "team": "Adamas United Sports Academy"
-        },
-        {
-          "player": "Sayan Roy",
-          "team": "Adamas United Sports Academy"
-        }
-      ]
-    },
-    {
       "id": "aiff-76946",
       "kickoff": "2026-11-23T14:00:00+05:30",
       "home": "Roots Football Club",
@@ -3285,6 +3127,35 @@
       ]
     },
     {
+      "id": "aiff-77795",
+      "kickoff": "2026-11-23T14:30:00+05:30",
+      "home": "Peerless Sports Club",
+      "away": "Adamas United Sports Academy",
+      "status": "ft",
+      "venue": "Barrackpore Stadium",
+      "round": "Regional Qualifiers",
+      "homeScore": 0,
+      "awayScore": 4,
+      "goals": [
+        {
+          "player": "Nur Islam Mondal",
+          "team": "Adamas United Sports Academy"
+        },
+        {
+          "player": "Sayan Roy",
+          "team": "Adamas United Sports Academy"
+        },
+        {
+          "player": "Sayan Roy",
+          "team": "Adamas United Sports Academy"
+        },
+        {
+          "player": "Sayan Roy",
+          "team": "Adamas United Sports Academy"
+        }
+      ]
+    },
+    {
       "id": "aiff-76481",
       "kickoff": "2026-11-23T10:00:00+05:30",
       "home": "Kerala Blasters Football Club",
@@ -3306,154 +3177,131 @@
       ]
     },
     {
-      "id": "aiff-75811",
-      "kickoff": "2026-11-24T11:00:00+05:30",
-      "home": "Reliance Foundation Young Champs",
-      "away": "Mumbai Ultras FC",
+      "id": "aiff-76469",
+      "kickoff": "2026-11-23T11:00:00+05:30",
+      "home": "Punjab FC",
+      "away": "Sporting Club Delhi",
       "status": "ft",
-      "venue": "Reliance Corporate Park, Ghansoli",
+      "venue": "Frontier FC Ground",
       "round": "Regional Qualifiers",
-      "homeScore": 11,
+      "homeScore": 6,
       "awayScore": 0,
       "goals": [
         {
-          "player": "Mohammed  Farhan",
-          "team": "Reliance Foundation Young Champs"
+          "player": "James Kumar",
+          "team": "Punjab FC"
         },
         {
-          "player": "Uthkarsh Bora",
-          "team": "Reliance Foundation Young Champs"
+          "player": "James Kumar",
+          "team": "Punjab FC"
         },
         {
-          "player": "Arjun Devendra Singh",
-          "team": "Reliance Foundation Young Champs"
+          "player": "Sameer",
+          "team": "Punjab FC"
         },
         {
-          "player": "Arjun Devendra Singh",
-          "team": "Reliance Foundation Young Champs"
+          "player": "Thongram Rishikanta Singh",
+          "team": "Punjab FC"
         },
         {
-          "player": "Rajkumar Sharungbam",
-          "team": "Reliance Foundation Young Champs"
+          "player": "Usham  Thoungamba  Singh",
+          "team": "Punjab FC"
         },
         {
-          "player": "Vanlalthazuala .",
-          "team": "Reliance Foundation Young Champs"
-        },
-        {
-          "player": "Ayush  Sihag",
-          "team": "Reliance Foundation Young Champs"
-        },
-        {
-          "player": "Mohammed  Farhan",
-          "team": "Reliance Foundation Young Champs"
-        },
-        {
-          "player": "Ayush  Sihag",
-          "team": "Reliance Foundation Young Champs"
-        },
-        {
-          "player": "Vanlalthazuala .",
-          "team": "Reliance Foundation Young Champs"
-        },
-        {
-          "player": "Shawn Appolinario Fernandes",
-          "team": "Reliance Foundation Young Champs"
+          "player": "Suraj Murmu",
+          "team": "Punjab FC"
         }
       ]
     },
     {
-      "id": "aiff-76934",
-      "kickoff": "2026-11-24T15:00:00+05:30",
-      "home": "Vels Football Club",
-      "away": "Sirukalathur Galatipet Football Club",
+      "id": "aiff-76470",
+      "kickoff": "2026-11-23T15:00:00+05:30",
+      "home": "Namdhari Sports Academy",
+      "away": "BBFS Garhwal Heroes Football Club",
       "status": "ft",
-      "venue": "Bhubaneswar FA",
+      "venue": "Frontier FC Ground",
       "round": "Regional Qualifiers",
-      "homeScore": 3,
+      "homeScore": 0,
       "awayScore": 1,
       "goals": [
         {
-          "player": "Amal Shinaj",
-          "team": "Vels Football Club"
-        },
-        {
-          "player": "J Thamizhk Kanal",
-          "team": "Vels Football Club"
-        },
-        {
-          "player": "Amal Shinaj",
-          "team": "Vels Football Club"
-        },
-        {
-          "player": "Madhan Kumar J",
-          "team": "Sirukalathur Galatipet Football Club"
+          "player": "Lalbiakdika",
+          "team": "BBFS Garhwal Heroes Football Club"
         }
       ]
     },
     {
-      "id": "aiff-76789",
-      "kickoff": "2026-11-24T15:45:00+05:30",
-      "home": "Goa Police",
-      "away": "SESA Football Academy",
+      "id": "aiff-77793",
+      "kickoff": "2026-11-23T10:30:00+05:30",
+      "home": "Bidhannagar Municipal Sports Academy",
+      "away": "United Sports Club",
       "status": "ft",
-      "venue": "Dhuler Football Stadium",
-      "round": "Regional Qualifiers",
-      "homeScore": 0,
-      "awayScore": 9,
-      "goals": [
-        {
-          "player": "Anmesh Sahadev Majik",
-          "team": "SESA Football Academy"
-        },
-        {
-          "player": "Pramod Pradeep Gawas",
-          "team": "SESA Football Academy"
-        },
-        {
-          "player": "Anmesh Sahadev Majik",
-          "team": "SESA Football Academy"
-        },
-        {
-          "player": "Pruthvi Mane",
-          "team": "SESA Football Academy"
-        },
-        {
-          "player": "Salman Khan",
-          "team": "SESA Football Academy"
-        },
-        {
-          "player": "Salman Khan",
-          "team": "SESA Football Academy"
-        },
-        {
-          "player": "Pruthvi Mane",
-          "team": "SESA Football Academy"
-        }
-      ]
-    },
-    {
-      "id": "aiff-76932",
-      "kickoff": "2026-11-24T08:00:00+05:30",
-      "home": "Baghpat Fc",
-      "away": "Football 4 Change Academy",
-      "status": "ft",
-      "venue": "Bhubaneswar FA",
+      "venue": "Bidhannagar MSA Ground",
       "round": "Regional Qualifiers",
       "homeScore": 1,
       "awayScore": 2,
       "goals": [
         {
-          "player": "Mangminlal Haokip",
-          "team": "Football 4 Change Academy"
+          "player": "Saidul Biswas",
+          "team": "Bidhannagar Municipal Sports Academy"
         },
         {
-          "player": "Thonggouhao Lotjem",
-          "team": "Football 4 Change Academy"
+          "player": "Debasish Haldar",
+          "team": "United Sports Club"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76480",
+      "kickoff": "2026-11-23T19:30:00+05:30",
+      "home": "Sportto Soccer Club",
+      "away": "PFC Kerala",
+      "status": "ft",
+      "venue": "TMK Arena",
+      "round": "Regional Qualifiers",
+      "homeScore": 0,
+      "awayScore": 4,
+      "goals": [
+        {
+          "player": "Adwaith M A",
+          "team": "PFC Kerala"
         },
         {
-          "player": "Arman Ahmad",
-          "team": "Baghpat Fc"
+          "player": "Shifan K M",
+          "team": "PFC Kerala"
+        },
+        {
+          "player": "Niranjan T S",
+          "team": "PFC Kerala"
+        },
+        {
+          "player": "Ibrahim A N",
+          "team": "PFC Kerala"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76944",
+      "kickoff": "2026-11-23T08:00:00+05:30",
+      "home": "South United FC",
+      "away": "HAL Sports Club",
+      "status": "ft",
+      "venue": "SUFC Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 3,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Makakmayum Daniyal",
+          "team": "South United FC"
+        },
+        {
+          "player": "Makakmayum Daniyal",
+          "team": "South United FC"
+        },
+        {
+          "player": "Mohamed Rishan Rasheed",
+          "team": "HAL Sports Club"
         }
       ]
     },
@@ -3575,49 +3423,156 @@
       ]
     },
     {
-      "id": "aiff-77797",
-      "kickoff": "2026-11-26T10:30:00+05:30",
-      "home": "Sp One Foundation",
-      "away": "Bidhannagar Municipal Sports Academy",
-      "status": "scheduled",
-      "venue": "Bidhannagar MSA Ground",
-      "round": "Regional Qualifiers"
+      "id": "aiff-76934",
+      "kickoff": "2026-11-24T15:00:00+05:30",
+      "home": "Vels Football Club",
+      "away": "Sirukalathur Galatipet Football Club",
+      "status": "ft",
+      "venue": "Bhubaneswar FA",
+      "round": "Regional Qualifiers",
+      "homeScore": 3,
+      "awayScore": 1,
+      "goals": [
+        {
+          "player": "Amal Shinaj",
+          "team": "Vels Football Club"
+        },
+        {
+          "player": "J Thamizhk Kanal",
+          "team": "Vels Football Club"
+        },
+        {
+          "player": "Amal Shinaj",
+          "team": "Vels Football Club"
+        },
+        {
+          "player": "Madhan Kumar J",
+          "team": "Sirukalathur Galatipet Football Club"
+        }
+      ]
     },
     {
-      "id": "aiff-76483",
-      "kickoff": "2026-11-26T19:30:00+05:30",
-      "home": "Kerala United FC",
-      "away": "Sportto Soccer Club",
-      "status": "scheduled",
-      "venue": "TMK Arena",
-      "round": "Regional Qualifiers"
+      "id": "aiff-75811",
+      "kickoff": "2026-11-24T11:00:00+05:30",
+      "home": "Reliance Foundation Young Champs",
+      "away": "Mumbai Ultras FC",
+      "status": "ft",
+      "venue": "Reliance Corporate Park, Ghansoli",
+      "round": "Regional Qualifiers",
+      "homeScore": 11,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Mohammed  Farhan",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Uthkarsh Bora",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Arjun Devendra Singh",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Arjun Devendra Singh",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Rajkumar Sharungbam",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Vanlalthazuala .",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Ayush  Sihag",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Mohammed  Farhan",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Ayush  Sihag",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Vanlalthazuala .",
+          "team": "Reliance Foundation Young Champs"
+        },
+        {
+          "player": "Shawn Appolinario Fernandes",
+          "team": "Reliance Foundation Young Champs"
+        }
+      ]
     },
     {
-      "id": "aiff-77796",
-      "kickoff": "2026-11-26T10:30:00+05:30",
-      "home": "Adamas United Sports Academy",
-      "away": "Maden Football Academy",
-      "status": "scheduled",
-      "venue": "Barrackpore Stadium",
-      "round": "Regional Qualifiers"
+      "id": "aiff-76789",
+      "kickoff": "2026-11-24T15:45:00+05:30",
+      "home": "Goa Police",
+      "away": "SESA Football Academy",
+      "status": "ft",
+      "venue": "Dhuler Football Stadium",
+      "round": "Regional Qualifiers",
+      "homeScore": 0,
+      "awayScore": 9,
+      "goals": [
+        {
+          "player": "Anmesh Sahadev Majik",
+          "team": "SESA Football Academy"
+        },
+        {
+          "player": "Pramod Pradeep Gawas",
+          "team": "SESA Football Academy"
+        },
+        {
+          "player": "Anmesh Sahadev Majik",
+          "team": "SESA Football Academy"
+        },
+        {
+          "player": "Pruthvi Mane",
+          "team": "SESA Football Academy"
+        },
+        {
+          "player": "Salman Khan",
+          "team": "SESA Football Academy"
+        },
+        {
+          "player": "Salman Khan",
+          "team": "SESA Football Academy"
+        },
+        {
+          "player": "Pruthvi Mane",
+          "team": "SESA Football Academy"
+        }
+      ]
     },
     {
-      "id": "aiff-76948",
-      "kickoff": "2026-11-26T11:00:00+05:30",
-      "home": "Roots Football Club",
-      "away": "Sreenidhi Sports Academy",
-      "status": "scheduled",
-      "venue": "SUFC Ground",
-      "round": "Regional Qualifiers"
-    },
-    {
-      "id": "aiff-76472",
-      "kickoff": "2026-11-26T11:00:00+05:30",
-      "home": "Rajasthan United Football Club",
-      "away": "Namdhari Sports Academy",
-      "status": "scheduled",
-      "venue": "Frontier FC Ground",
-      "round": "Regional Qualifiers"
+      "id": "aiff-76932",
+      "kickoff": "2026-11-24T08:00:00+05:30",
+      "home": "Baghpat Fc",
+      "away": "Football 4 Change Academy",
+      "status": "ft",
+      "venue": "Bhubaneswar FA",
+      "round": "Regional Qualifiers",
+      "homeScore": 1,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Mangminlal Haokip",
+          "team": "Football 4 Change Academy"
+        },
+        {
+          "player": "Thonggouhao Lotjem",
+          "team": "Football 4 Change Academy"
+        },
+        {
+          "player": "Arman Ahmad",
+          "team": "Baghpat Fc"
+        }
+      ]
     },
     {
       "id": "aiff-77798",
@@ -3642,9 +3597,33 @@
       "kickoff": "2026-11-26T10:00:00+05:30",
       "home": "PFC Kerala",
       "away": "Altius International Football Academy - AIFA",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "TMK Arena",
-      "round": "Regional Qualifiers"
+      "round": "Regional Qualifiers",
+      "homeScore": 4,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Shifan K M",
+          "team": "PFC Kerala"
+        },
+        {
+          "player": "Niranjan T S",
+          "team": "PFC Kerala"
+        },
+        {
+          "player": "Sayanth Tk",
+          "team": "Altius International Football Academy - AIFA"
+        },
+        {
+          "player": "Adwaith M A",
+          "team": "PFC Kerala"
+        },
+        {
+          "player": "Shifan K M",
+          "team": "PFC Kerala"
+        }
+      ]
     },
     {
       "id": "aiff-76485",
@@ -3660,18 +3639,54 @@
       "kickoff": "2026-11-26T08:00:00+05:30",
       "home": "Sporting Club Delhi",
       "away": "BBFS Garhwal Heroes Football Club",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "Frontier FC Ground",
-      "round": "Regional Qualifiers"
+      "round": "Regional Qualifiers",
+      "homeScore": 0,
+      "awayScore": 4,
+      "goals": [
+        {
+          "player": "Phermanbha Lyngdoh",
+          "team": "BBFS Garhwal Heroes Football Club"
+        },
+        {
+          "player": "Richie  Kharbani",
+          "team": "BBFS Garhwal Heroes Football Club"
+        },
+        {
+          "player": "Phermanbha Lyngdoh",
+          "team": "BBFS Garhwal Heroes Football Club"
+        },
+        {
+          "player": "Iminstar Mawlong",
+          "team": "BBFS Garhwal Heroes Football Club"
+        }
+      ]
     },
     {
       "id": "aiff-76947",
       "kickoff": "2026-11-26T08:00:00+05:30",
       "home": "South United FC",
       "away": "Bengaluru Football Club",
-      "status": "scheduled",
+      "status": "ft",
       "venue": "SUFC Ground",
-      "round": "Regional Qualifiers"
+      "round": "Regional Qualifiers",
+      "homeScore": 2,
+      "awayScore": 3,
+      "goals": [
+        {
+          "player": "Ashish Chetry",
+          "team": "South United FC"
+        },
+        {
+          "player": "Ningthoukhongjam Rishi Singh",
+          "team": "Bengaluru Football Club"
+        },
+        {
+          "player": "Cyrus Abhilash",
+          "team": "Bengaluru Football Club"
+        }
+      ]
     },
     {
       "id": "aiff-76949",
@@ -3683,13 +3698,120 @@
       "round": "Regional Qualifiers"
     },
     {
-      "id": "aiff-76935",
-      "kickoff": "2026-11-27T08:00:00+05:30",
-      "home": "Blg- The Diamond Rock F.C.",
-      "away": "Sirukalathur Galatipet Football Club",
+      "id": "aiff-77797",
+      "kickoff": "2026-11-26T10:30:00+05:30",
+      "home": "Sp One Foundation",
+      "away": "Bidhannagar Municipal Sports Academy",
+      "status": "ft",
+      "venue": "Bidhannagar MSA Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 0,
+      "awayScore": 0,
+      "goals": []
+    },
+    {
+      "id": "aiff-76483",
+      "kickoff": "2026-11-26T19:30:00+05:30",
+      "home": "Kerala United FC",
+      "away": "Sportto Soccer Club",
+      "status": "ft",
+      "venue": "TMK Arena",
+      "round": "Regional Qualifiers",
+      "homeScore": 6,
+      "awayScore": 0,
+      "goals": [
+        {
+          "player": "Karthik  K",
+          "team": "Kerala United FC"
+        },
+        {
+          "player": "Muhammed Sinas E",
+          "team": "Kerala United FC"
+        },
+        {
+          "player": "Karthik  K",
+          "team": "Kerala United FC"
+        },
+        {
+          "player": "Muhammed Minshan",
+          "team": "Kerala United FC"
+        },
+        {
+          "player": "Muhammed Minshan",
+          "team": "Kerala United FC"
+        },
+        {
+          "player": "Abhiram A",
+          "team": "Kerala United FC"
+        }
+      ]
+    },
+    {
+      "id": "aiff-76948",
+      "kickoff": "2026-11-26T11:00:00+05:30",
+      "home": "Roots Football Club",
+      "away": "Sreenidhi Sports Academy",
+      "status": "ft",
+      "venue": "SUFC Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 0,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Singamayum Sajaan Khan",
+          "team": "Sreenidhi Sports Academy"
+        },
+        {
+          "player": "Lemmet Tangvah",
+          "team": "Sreenidhi Sports Academy"
+        }
+      ]
+    },
+    {
+      "id": "aiff-77796",
+      "kickoff": "2026-11-26T14:30:00+05:30",
+      "home": "Adamas United Sports Academy",
+      "away": "Maden Football Academy",
       "status": "scheduled",
-      "venue": "Bhubaneswar FA",
+      "venue": "Barrackpore Stadium",
       "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-76472",
+      "kickoff": "2026-11-26T11:00:00+05:30",
+      "home": "Rajasthan United Football Club",
+      "away": "Namdhari Sports Academy",
+      "status": "ft",
+      "venue": "Frontier FC Ground",
+      "round": "Regional Qualifiers",
+      "homeScore": 4,
+      "awayScore": 2,
+      "goals": [
+        {
+          "player": "Aatma Singh",
+          "team": "Namdhari Sports Academy"
+        },
+        {
+          "player": "Mungsuanlun Suantak",
+          "team": "Rajasthan United Football Club"
+        },
+        {
+          "player": "Asem Nikash Singh",
+          "team": "Rajasthan United Football Club"
+        },
+        {
+          "player": "Jassa Singh",
+          "team": "Namdhari Sports Academy"
+        },
+        {
+          "player": "Kamrul Hoda",
+          "team": "Rajasthan United Football Club"
+        },
+        {
+          "player": "Yumnam Utam Singh",
+          "team": "Rajasthan United Football Club"
+        }
+      ]
     },
     {
       "id": "aiff-76937",
@@ -3737,30 +3859,12 @@
       "round": "Regional Qualifiers"
     },
     {
-      "id": "aiff-76488",
-      "kickoff": "2026-11-29T15:30:00+05:30",
-      "home": "PFC Kerala",
-      "away": "Kerala Blasters Football Club",
+      "id": "aiff-76935",
+      "kickoff": "2026-11-27T08:00:00+05:30",
+      "home": "Blg- The Diamond Rock F.C.",
+      "away": "Sirukalathur Galatipet Football Club",
       "status": "scheduled",
-      "venue": "TMK Arena",
-      "round": "Regional Qualifiers"
-    },
-    {
-      "id": "aiff-77800",
-      "kickoff": "2026-11-29T14:30:00+05:30",
-      "home": "United Sports Club",
-      "away": "Adamas United Sports Academy",
-      "status": "scheduled",
-      "venue": "Barrackpore Stadium",
-      "round": "Regional Qualifiers"
-    },
-    {
-      "id": "aiff-77799",
-      "kickoff": "2026-11-29T10:30:00+05:30",
-      "home": "Bidhannagar Municipal Sports Academy",
-      "away": "Maden Football Academy",
-      "status": "scheduled",
-      "venue": "Bidhannagar MSA Ground",
+      "venue": "Bhubaneswar FA",
       "round": "Regional Qualifiers"
     },
     {
@@ -3768,6 +3872,15 @@
       "kickoff": "2026-11-29T14:30:00+05:30",
       "home": "Sp One Foundation",
       "away": "Peerless Sports Club",
+      "status": "scheduled",
+      "venue": "Bidhannagar MSA Ground",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-77799",
+      "kickoff": "2026-11-29T10:30:00+05:30",
+      "home": "Bidhannagar Municipal Sports Academy",
+      "away": "Maden Football Academy",
       "status": "scheduled",
       "venue": "Bidhannagar MSA Ground",
       "round": "Regional Qualifiers"
@@ -3791,12 +3904,21 @@
       "round": "Regional Qualifiers"
     },
     {
-      "id": "aiff-76952",
-      "kickoff": "2026-11-30T14:00:00+05:30",
-      "home": "Sreenidhi Sports Academy",
-      "away": "Bengaluru Football Club",
+      "id": "aiff-76488",
+      "kickoff": "2026-11-29T15:30:00+05:30",
+      "home": "PFC Kerala",
+      "away": "Kerala Blasters Football Club",
       "status": "scheduled",
-      "venue": "SUFC Ground",
+      "venue": "TMK Arena",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-77800",
+      "kickoff": "2026-11-29T14:30:00+05:30",
+      "home": "United Sports Club",
+      "away": "Adamas United Sports Academy",
+      "status": "scheduled",
+      "venue": "Barrackpore Stadium",
       "round": "Regional Qualifiers"
     },
     {
@@ -3845,12 +3967,12 @@
       "round": "Regional Qualifiers"
     },
     {
-      "id": "aiff-77804",
-      "kickoff": "2026-12-02T14:30:00+05:30",
-      "home": "Adamas United Sports Academy",
-      "away": "Bidhannagar Municipal Sports Academy",
+      "id": "aiff-76952",
+      "kickoff": "2026-11-30T14:00:00+05:30",
+      "home": "Sreenidhi Sports Academy",
+      "away": "Bengaluru Football Club",
       "status": "scheduled",
-      "venue": "Barrackpore Stadium",
+      "venue": "SUFC Ground",
       "round": "Regional Qualifiers"
     },
     {
@@ -3872,6 +3994,24 @@
       "round": "Regional Qualifiers"
     },
     {
+      "id": "aiff-77804",
+      "kickoff": "2026-12-02T14:30:00+05:30",
+      "home": "Adamas United Sports Academy",
+      "away": "Bidhannagar Municipal Sports Academy",
+      "status": "scheduled",
+      "venue": "Barrackpore Stadium",
+      "round": "Regional Qualifiers"
+    },
+    {
+      "id": "aiff-76954",
+      "kickoff": "2026-12-03T11:00:00+05:30",
+      "home": "Bengaluru Football Club",
+      "away": "HAL Sports Club",
+      "status": "scheduled",
+      "venue": "SUFC Ground",
+      "round": "Regional Qualifiers"
+    },
+    {
       "id": "aiff-76953",
       "kickoff": "2026-12-03T08:00:00+05:30",
       "home": "Sreenidhi Sports Academy",
@@ -3885,15 +4025,6 @@
       "kickoff": "2026-12-03T14:00:00+05:30",
       "home": "Roots Football Club",
       "away": "FC Madras",
-      "status": "scheduled",
-      "venue": "SUFC Ground",
-      "round": "Regional Qualifiers"
-    },
-    {
-      "id": "aiff-76954",
-      "kickoff": "2026-12-03T11:00:00+05:30",
-      "home": "Bengaluru Football Club",
-      "away": "HAL Sports Club",
       "status": "scheduled",
       "venue": "SUFC Ground",
       "round": "Regional Qualifiers"
@@ -4018,18 +4149,13 @@
       "goals": 3
     },
     {
-      "player": "Mebannangkiew Thabah",
-      "team": "Rangdajied United Football Club",
-      "goals": 3
-    },
-    {
       "player": "Mewan Rasmut",
       "team": "Mawlai Sport Club",
       "goals": 3
     },
     {
-      "player": "Alvish Keidongbam Singh",
-      "team": "Asufii Fa",
+      "player": "Mebannangkiew Thabah",
+      "team": "Rangdajied United Football Club",
       "goals": 3
     },
     {
@@ -4038,8 +4164,8 @@
       "goals": 3
     },
     {
-      "player": "Likson Rebelo",
-      "team": "SESA Football Academy",
+      "player": "Alvish Keidongbam Singh",
+      "team": "Asufii Fa",
       "goals": 3
     },
     {
@@ -4050,6 +4176,11 @@
     {
       "player": "Shawn Franxer Fernandes",
       "team": "FC Goa",
+      "goals": 3
+    },
+    {
+      "player": "Likson Rebelo",
+      "team": "SESA Football Academy",
       "goals": 3
     },
     {
@@ -4083,13 +4214,13 @@
       "goals": 3
     },
     {
-      "player": "Dewasish Ram Marndi",
-      "team": "Sports Odisha",
+      "player": "Phermanbha Lyngdoh",
+      "team": "BBFS Garhwal Heroes Football Club",
       "goals": 3
     },
     {
-      "player": "James Kumar",
-      "team": "Punjab FC",
+      "player": "Dewasish Ram Marndi",
+      "team": "Sports Odisha",
       "goals": 3
     },
     {
@@ -4100,6 +4231,11 @@
     {
       "player": "Makakmayum Daniyal",
       "team": "South United FC",
+      "goals": 3
+    },
+    {
+      "player": "James Kumar",
+      "team": "Punjab FC",
       "goals": 3
     },
     {
@@ -4118,13 +4254,23 @@
       "goals": 3
     },
     {
-      "player": "Ishaan Vinod Jadhav",
-      "team": "MUM - Young Guns F.C.",
-      "goals": 2
+      "player": "Karthik  K",
+      "team": "Kerala United FC",
+      "goals": 3
+    },
+    {
+      "player": "Shifan K M",
+      "team": "PFC Kerala",
+      "goals": 3
     },
     {
       "player": "Neev Chhipa",
       "team": "Mumbai City FC",
+      "goals": 2
+    },
+    {
+      "player": "Ishaan Vinod Jadhav",
+      "team": "MUM - Young Guns F.C.",
       "goals": 2
     },
     {
@@ -4148,23 +4294,13 @@
       "goals": 2
     },
     {
-      "player": "Menangpyndap Khongjee",
-      "team": "Rangdajied United Football Club",
-      "goals": 2
-    },
-    {
       "player": "Gunleiba Wangkheirakpam",
       "team": "North East United FC",
       "goals": 2
     },
     {
-      "player": "Kshetrimayum Langamba Singh",
-      "team": "Classic Football Academy",
-      "goals": 2
-    },
-    {
-      "player": "R.k. Mangalsana Singh",
-      "team": "Regular Football Coaching Center",
+      "player": "Menangpyndap Khongjee",
+      "team": "Rangdajied United Football Club",
       "goals": 2
     },
     {
@@ -4178,8 +4314,23 @@
       "goals": 2
     },
     {
+      "player": "Kshetrimayum Langamba Singh",
+      "team": "Classic Football Academy",
+      "goals": 2
+    },
+    {
+      "player": "R.k. Mangalsana Singh",
+      "team": "Regular Football Coaching Center",
+      "goals": 2
+    },
+    {
       "player": "Pasborlang Khonglikong",
       "team": "Rangdajied United Football Club",
+      "goals": 2
+    },
+    {
+      "player": "Thoudam Dilson Singh",
+      "team": "Kshetri Iril Mapal Youth Club",
       "goals": 2
     },
     {
@@ -4193,16 +4344,6 @@
       "goals": 2
     },
     {
-      "player": "Thoudam Dilson Singh",
-      "team": "Kshetri Iril Mapal Youth Club",
-      "goals": 2
-    },
-    {
-      "player": "Lovingstar Suting",
-      "team": "Mawlai Sport Club",
-      "goals": 2
-    },
-    {
       "player": "Bankitlyngkor Diengdoh",
       "team": "Langsning FC",
       "goals": 2
@@ -4210,6 +4351,11 @@
     {
       "player": "Tanbir Dey",
       "team": "North East United FC",
+      "goals": 2
+    },
+    {
+      "player": "Lovingstar Suting",
+      "team": "Mawlai Sport Club",
       "goals": 2
     },
     {
@@ -4248,6 +4394,11 @@
       "goals": 2
     },
     {
+      "player": "Iminstar Mawlong",
+      "team": "BBFS Garhwal Heroes Football Club",
+      "goals": 2
+    },
+    {
       "player": "Aviraj Singh Kapur",
       "team": "Kerala Blasters Football Club",
       "goals": 2
@@ -4283,13 +4434,33 @@
       "goals": 2
     },
     {
-      "player": "Joel Lalramengmawia",
-      "team": "Kerala Blasters Football Club",
+      "player": "Cyrus Abhilash",
+      "team": "Bengaluru Football Club",
+      "goals": 2
+    },
+    {
+      "player": "Ashish Chetry",
+      "team": "South United FC",
+      "goals": 2
+    },
+    {
+      "player": "Aatma Singh",
+      "team": "Namdhari Sports Academy",
+      "goals": 2
+    },
+    {
+      "player": "Kamrul Hoda",
+      "team": "Rajasthan United Football Club",
       "goals": 2
     },
     {
       "player": "Amal Km",
       "team": "Kerala United FC",
+      "goals": 2
+    },
+    {
+      "player": "Joel Lalramengmawia",
+      "team": "Kerala Blasters Football Club",
       "goals": 2
     },
     {
@@ -4308,18 +4479,33 @@
       "goals": 2
     },
     {
+      "player": "Sayanth Tk",
+      "team": "Altius International Football Academy - AIFA",
+      "goals": 2
+    },
+    {
       "player": "Muhammed Sinan",
       "team": "Luca Soccer Club",
       "goals": 2
     },
     {
-      "player": "Mohammed  Farhan",
-      "team": "Reliance Foundation Young Champs",
+      "player": "Adwaith M A",
+      "team": "PFC Kerala",
+      "goals": 2
+    },
+    {
+      "player": "Niranjan T S",
+      "team": "PFC Kerala",
       "goals": 2
     },
     {
       "player": "Amal Shinaj",
       "team": "Vels Football Club",
+      "goals": 2
+    },
+    {
+      "player": "Mohammed  Farhan",
+      "team": "Reliance Foundation Young Champs",
       "goals": 2
     },
     {
@@ -4338,13 +4524,18 @@
       "goals": 2
     },
     {
-      "player": "Vaibhav Bakle",
-      "team": "Community Football Club India",
-      "goals": 1
+      "player": "Muhammed Minshan",
+      "team": "Kerala United FC",
+      "goals": 2
     },
     {
       "player": "Aarav Bhuta",
       "team": "Maharashtra Oranje FC",
+      "goals": 1
+    },
+    {
+      "player": "Vaibhav Bakle",
+      "team": "Community Football Club India",
       "goals": 1
     },
     {
@@ -4373,11 +4564,6 @@
       "goals": 1
     },
     {
-      "player": "Bantiplang Khongnoh",
-      "team": "Rangdajied United Football Club",
-      "goals": 1
-    },
-    {
       "player": "Korimayum Soyet",
       "team": "North East United FC",
       "goals": 1
@@ -4388,8 +4574,8 @@
       "goals": 1
     },
     {
-      "player": "Taj Khan",
-      "team": "Imphal Youth Football Club",
+      "player": "Bantiplang Khongnoh",
+      "team": "Rangdajied United Football Club",
       "goals": 1
     },
     {
@@ -4410,6 +4596,11 @@
     {
       "player": "Riborlang Lyngdoh Lyngkhoi",
       "team": "Shillong Lajong FC",
+      "goals": 1
+    },
+    {
+      "player": "Taj Khan",
+      "team": "Imphal Youth Football Club",
       "goals": 1
     },
     {
@@ -4458,6 +4649,16 @@
       "goals": 1
     },
     {
+      "player": "Sharungbam Sanathoi Singh",
+      "team": "Regular Football Coaching Center",
+      "goals": 1
+    },
+    {
+      "player": "Ngashepam Khonish Meitei",
+      "team": "Imphal Youth Football Club",
+      "goals": 1
+    },
+    {
       "player": "D Choziiveio Paokhomai",
       "team": "Asufii Fa",
       "goals": 1
@@ -4475,21 +4676,6 @@
     {
       "player": "Dabetskhem Rympei",
       "team": "Shillong Lajong FC",
-      "goals": 1
-    },
-    {
-      "player": "Sharungbam Sanathoi Singh",
-      "team": "Regular Football Coaching Center",
-      "goals": 1
-    },
-    {
-      "player": "Ngashepam Khonish Meitei",
-      "team": "Imphal Youth Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Keanan Bhobe",
-      "team": "SESA Football Academy",
       "goals": 1
     },
     {
@@ -4530,6 +4716,11 @@
     {
       "player": "Rishan Muktieh",
       "team": "Pay For Right Youth And Cultural Club Shillong",
+      "goals": 1
+    },
+    {
+      "player": "Keanan Bhobe",
+      "team": "SESA Football Academy",
       "goals": 1
     },
     {
@@ -4623,11 +4814,6 @@
       "goals": 1
     },
     {
-      "player": "Phermanbha Lyngdoh",
-      "team": "BBFS Garhwal Heroes Football Club",
-      "goals": 1
-    },
-    {
       "player": "Hemgoulal Lupho",
       "team": "BBFS Garhwal Heroes Football Club",
       "goals": 1
@@ -4638,38 +4824,8 @@
       "goals": 1
     },
     {
-      "player": "Iminstar Mawlong",
-      "team": "BBFS Garhwal Heroes Football Club",
-      "goals": 1
-    },
-    {
       "player": "Gaurav Singh Bohara",
       "team": "BBFS Garhwal Heroes Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Mohammed Shamil Pp",
-      "team": "Altius International Football Academy - AIFA",
-      "goals": 1
-    },
-    {
-      "player": "Abhijith N",
-      "team": "Altius International Football Academy - AIFA",
-      "goals": 1
-    },
-    {
-      "player": "Huidrom Torres Singh",
-      "team": "Imphal Youth Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Heikrujam Rainson Singh",
-      "team": "Sai-Rc",
-      "goals": 1
-    },
-    {
-      "player": "Sagolsem Yaiphaba Singh",
-      "team": "Sai-Rc",
       "goals": 1
     },
     {
@@ -4723,6 +4879,56 @@
       "goals": 1
     },
     {
+      "player": "Mohammed Shamil Pp",
+      "team": "Altius International Football Academy - AIFA",
+      "goals": 1
+    },
+    {
+      "player": "Abhijith N",
+      "team": "Altius International Football Academy - AIFA",
+      "goals": 1
+    },
+    {
+      "player": "Huidrom Torres Singh",
+      "team": "Imphal Youth Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Heikrujam Rainson Singh",
+      "team": "Sai-Rc",
+      "goals": 1
+    },
+    {
+      "player": "Sagolsem Yaiphaba Singh",
+      "team": "Sai-Rc",
+      "goals": 1
+    },
+    {
+      "player": "Juvenio Simoes",
+      "team": "Dempo Sports Club",
+      "goals": 1
+    },
+    {
+      "player": "Ronik Majhi",
+      "team": "Sports Odisha",
+      "goals": 1
+    },
+    {
+      "player": "Sumo Murmu",
+      "team": "Blg- The Diamond Rock F.C.",
+      "goals": 1
+    },
+    {
+      "player": "Kamgoumin",
+      "team": "Football 4 Change Academy",
+      "goals": 1
+    },
+    {
+      "player": "Animesh Roy",
+      "team": "Blg- The Diamond Rock F.C.",
+      "goals": 1
+    },
+    {
       "player": "Thupden Wangchuk Sherpa",
       "team": "Baghpat Fc",
       "goals": 1
@@ -4758,33 +4964,28 @@
       "goals": 1
     },
     {
-      "player": "Juvenio Simoes",
-      "team": "Dempo Sports Club",
+      "player": "Aarav Gharat",
+      "team": "Bengaluru Football Club",
       "goals": 1
     },
     {
-      "player": "Ronik Majhi",
-      "team": "Sports Odisha",
+      "player": "Chaphamayum Rohen Singh",
+      "team": "Bengaluru Football Club",
       "goals": 1
     },
     {
-      "player": "Sumo Murmu",
-      "team": "Blg- The Diamond Rock F.C.",
+      "player": "Takhellambam Bobbish",
+      "team": "Bengaluru Football Club",
       "goals": 1
     },
     {
-      "player": "Kamgoumin",
-      "team": "Football 4 Change Academy",
+      "player": "Rakshit P Anil",
+      "team": "Bengaluru Football Club",
       "goals": 1
     },
     {
-      "player": "Animesh Roy",
-      "team": "Blg- The Diamond Rock F.C.",
-      "goals": 1
-    },
-    {
-      "player": "Aatma Singh",
-      "team": "Namdhari Sports Academy",
+      "player": "Hemgougun Touthang",
+      "team": "South United FC",
       "goals": 1
     },
     {
@@ -4810,46 +5011,6 @@
     {
       "player": "Aniket Yadav",
       "team": "Punjab FC",
-      "goals": 1
-    },
-    {
-      "player": "Kamrul Hoda",
-      "team": "Rajasthan United Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Aarav Gharat",
-      "team": "Bengaluru Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Chaphamayum Rohen Singh",
-      "team": "Bengaluru Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Takhellambam Bobbish",
-      "team": "Bengaluru Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Rakshit P Anil",
-      "team": "Bengaluru Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Cyrus Abhilash",
-      "team": "Bengaluru Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Hemgougun Touthang",
-      "team": "South United FC",
-      "goals": 1
-    },
-    {
-      "player": "Ashish Chetry",
-      "team": "South United FC",
       "goals": 1
     },
     {
@@ -4888,26 +5049,6 @@
       "goals": 1
     },
     {
-      "player": "Prameet Prakash Irde",
-      "team": "MUM - Young Guns F.C.",
-      "goals": 1
-    },
-    {
-      "player": "Aariyamaan Rajinikanth",
-      "team": "Sirukalathur Galatipet Football Club",
-      "goals": 1
-    },
-    {
-      "player": "Alok Kumar Das",
-      "team": "Sports Odisha",
-      "goals": 1
-    },
-    {
-      "player": "Phati Ashok Mayekar",
-      "team": "Dempo Sports Club",
-      "goals": 1
-    },
-    {
       "player": "Austin Nigel Fernandes",
       "team": "Sporting Clube de Goa",
       "goals": 1
@@ -4928,58 +5069,23 @@
       "goals": 1
     },
     {
-      "player": "Lalbiakdika",
-      "team": "BBFS Garhwal Heroes Football Club",
+      "player": "Prameet Prakash Irde",
+      "team": "MUM - Young Guns F.C.",
       "goals": 1
     },
     {
-      "player": "Sameer",
-      "team": "Punjab FC",
+      "player": "Aariyamaan Rajinikanth",
+      "team": "Sirukalathur Galatipet Football Club",
       "goals": 1
     },
     {
-      "player": "Thongram Rishikanta Singh",
-      "team": "Punjab FC",
+      "player": "Alok Kumar Das",
+      "team": "Sports Odisha",
       "goals": 1
     },
     {
-      "player": "Usham  Thoungamba  Singh",
-      "team": "Punjab FC",
-      "goals": 1
-    },
-    {
-      "player": "Saidul Biswas",
-      "team": "Bidhannagar Municipal Sports Academy",
-      "goals": 1
-    },
-    {
-      "player": "Debasish Haldar",
-      "team": "United Sports Club",
-      "goals": 1
-    },
-    {
-      "player": "Adwaith M A",
-      "team": "PFC Kerala",
-      "goals": 1
-    },
-    {
-      "player": "Shifan K M",
-      "team": "PFC Kerala",
-      "goals": 1
-    },
-    {
-      "player": "Niranjan T S",
-      "team": "PFC Kerala",
-      "goals": 1
-    },
-    {
-      "player": "Ibrahim A N",
-      "team": "PFC Kerala",
-      "goals": 1
-    },
-    {
-      "player": "Mohamed Rishan Rasheed",
-      "team": "HAL Sports Club",
+      "player": "Phati Ashok Mayekar",
+      "team": "Dempo Sports Club",
       "goals": 1
     },
     {
@@ -4990,11 +5096,6 @@
     {
       "player": "Mohammed Rishal P",
       "team": "Sp One Foundation",
-      "goals": 1
-    },
-    {
-      "player": "Sayanth Tk",
-      "team": "Altius International Football Academy - AIFA",
       "goals": 1
     },
     {
@@ -5023,11 +5124,6 @@
       "goals": 1
     },
     {
-      "player": "Nur Islam Mondal",
-      "team": "Adamas United Sports Academy",
-      "goals": 1
-    },
-    {
       "player": "Nee Hang Subba",
       "team": "Bengaluru Football Club",
       "goals": 1
@@ -5043,8 +5139,8 @@
       "goals": 1
     },
     {
-      "player": "Karthik  K",
-      "team": "Kerala United FC",
+      "player": "Nur Islam Mondal",
+      "team": "Adamas United Sports Academy",
       "goals": 1
     },
     {
@@ -5053,43 +5149,43 @@
       "goals": 1
     },
     {
-      "player": "Uthkarsh Bora",
-      "team": "Reliance Foundation Young Champs",
+      "player": "Sameer",
+      "team": "Punjab FC",
       "goals": 1
     },
     {
-      "player": "Rajkumar Sharungbam",
-      "team": "Reliance Foundation Young Champs",
+      "player": "Thongram Rishikanta Singh",
+      "team": "Punjab FC",
       "goals": 1
     },
     {
-      "player": "Shawn Appolinario Fernandes",
-      "team": "Reliance Foundation Young Champs",
+      "player": "Usham  Thoungamba  Singh",
+      "team": "Punjab FC",
       "goals": 1
     },
     {
-      "player": "J Thamizhk Kanal",
-      "team": "Vels Football Club",
+      "player": "Lalbiakdika",
+      "team": "BBFS Garhwal Heroes Football Club",
       "goals": 1
     },
     {
-      "player": "Pramod Pradeep Gawas",
-      "team": "SESA Football Academy",
+      "player": "Saidul Biswas",
+      "team": "Bidhannagar Municipal Sports Academy",
       "goals": 1
     },
     {
-      "player": "Mangminlal Haokip",
-      "team": "Football 4 Change Academy",
+      "player": "Debasish Haldar",
+      "team": "United Sports Club",
       "goals": 1
     },
     {
-      "player": "Thonggouhao Lotjem",
-      "team": "Football 4 Change Academy",
+      "player": "Ibrahim A N",
+      "team": "PFC Kerala",
       "goals": 1
     },
     {
-      "player": "Arman Ahmad",
-      "team": "Baghpat Fc",
+      "player": "Mohamed Rishan Rasheed",
+      "team": "HAL Sports Club",
       "goals": 1
     },
     {
@@ -5126,7 +5222,97 @@
       "player": "Tanvir Shaikh",
       "team": "Maharashtra Oranje FC",
       "goals": 1
+    },
+    {
+      "player": "J Thamizhk Kanal",
+      "team": "Vels Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Uthkarsh Bora",
+      "team": "Reliance Foundation Young Champs",
+      "goals": 1
+    },
+    {
+      "player": "Rajkumar Sharungbam",
+      "team": "Reliance Foundation Young Champs",
+      "goals": 1
+    },
+    {
+      "player": "Shawn Appolinario Fernandes",
+      "team": "Reliance Foundation Young Champs",
+      "goals": 1
+    },
+    {
+      "player": "Pramod Pradeep Gawas",
+      "team": "SESA Football Academy",
+      "goals": 1
+    },
+    {
+      "player": "Mangminlal Haokip",
+      "team": "Football 4 Change Academy",
+      "goals": 1
+    },
+    {
+      "player": "Thonggouhao Lotjem",
+      "team": "Football 4 Change Academy",
+      "goals": 1
+    },
+    {
+      "player": "Arman Ahmad",
+      "team": "Baghpat Fc",
+      "goals": 1
+    },
+    {
+      "player": "Richie  Kharbani",
+      "team": "BBFS Garhwal Heroes Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Ningthoukhongjam Rishi Singh",
+      "team": "Bengaluru Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Muhammed Sinas E",
+      "team": "Kerala United FC",
+      "goals": 1
+    },
+    {
+      "player": "Abhiram A",
+      "team": "Kerala United FC",
+      "goals": 1
+    },
+    {
+      "player": "Singamayum Sajaan Khan",
+      "team": "Sreenidhi Sports Academy",
+      "goals": 1
+    },
+    {
+      "player": "Lemmet Tangvah",
+      "team": "Sreenidhi Sports Academy",
+      "goals": 1
+    },
+    {
+      "player": "Mungsuanlun Suantak",
+      "team": "Rajasthan United Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Asem Nikash Singh",
+      "team": "Rajasthan United Football Club",
+      "goals": 1
+    },
+    {
+      "player": "Jassa Singh",
+      "team": "Namdhari Sports Academy",
+      "goals": 1
+    },
+    {
+      "player": "Yumnam Utam Singh",
+      "team": "Rajasthan United Football Club",
+      "goals": 1
     }
   ],
-  "updatedAt": "2026-11-25T05:44:39.672Z"
+  "updatedAt": "2026-11-26T08:46:11.737Z"
 }

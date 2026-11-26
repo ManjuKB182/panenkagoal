@@ -1,9 +1,9 @@
 // Match-day trigger. Runs every 5 min on Cloudflare cron (more reliable than GitHub's */5 schedule).
-// Reads today's kickoffs from Neon and, only when a league has a match in its window, dispatches the ingest workflow for those leagues.
-// activeLeagues mirrors scripts/ingest/gate.mjs; keep the two in sync.
+// Reads today's kickoffs from the league snapshots committed to the repo (no Neon: its free quota ran out and silently stopped every dispatch),
+// and only when a league has a match in its window, dispatches the ingest workflow for those leagues.
+// Keep LEAGUE_SLUGS and the window in sync with scripts/ingest/gate.mjs.
 
 export interface Env {
-  DATABASE_URL: string; // Neon connection string (secret)
   GITHUB_TOKEN: string; // fine-grained token, Actions: read/write on this repo (secret)
   GITHUB_REPO: string; // "owner/repo"
 }
@@ -11,25 +11,30 @@ export interface Env {
 const BEFORE = 15 * 60_000;
 const AFTER = 240 * 60_000;
 
+// Every league with a snapshot file under data/snapshots/leagues/ (archive excluded).
+export const LEAGUE_SLUGS = [
+  'bdfa-sd', 'elite-u18', 'i-league-2', 'i-league-3', 'ifl', 'isl', 'iwl', 'iwl-2', 'junior-u15', 'rfdl-u21', 'sub-junior-u13',
+];
+
 export function activeLeagues(rows: { key: string; ks: string[] }[], now = Date.now()): string[] {
   return rows
     .filter((r) => (r.ks ?? []).some((k) => { const d = now - Date.parse(k); return d >= -BEFORE && d <= AFTER; }))
     .map((r) => String(r.key).replace(/^leagues\//, ''));
 }
 
-async function kickoffRows(env: Env) {
-  const host = new URL(env.DATABASE_URL.replace(/^postgres(ql)?:/, 'https:')).hostname;
-  const res = await fetch(`https://${host}/sql`, {
-    method: 'POST',
-    headers: { 'Neon-Connection-String': env.DATABASE_URL, 'content-type': 'application/json' },
-    body: JSON.stringify({
-      query: `select key, (select coalesce(jsonb_agg(f->>'kickoff'), '[]'::jsonb) from jsonb_array_elements(coalesce(data->'fixtures', '[]'::jsonb)) f) as ks
-              from datasets where key like 'leagues/%' and key not like 'leagues/archive/%'`,
-    }),
-  });
-  if (!res.ok) throw new Error(`Neon ${res.status}: ${await res.text()}`);
-  const body: any = await res.json();
-  return (body.rows ?? []).map((r: any) => (Array.isArray(r) ? { key: r[0], ks: r[1] } : r));
+// Reads kickoffs for one league from the repo snapshot. A failed read counts as "in play" so a result is never missed.
+async function kickoffsFor(env: Env, slug: string): Promise<{ key: string; ks: string[] }> {
+  const url = `https://raw.githubusercontent.com/${env.GITHUB_REPO}/main/data/snapshots/leagues/${slug}.json?t=${Date.now()}`;
+  try {
+    const res = await fetch(url, { headers: { 'User-Agent': 'panenka-match-gate' } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const snap: any = await res.json();
+    const ks = (snap.fixtures ?? []).map((f: any) => f.kickoff).filter(Boolean);
+    return { key: `leagues/${slug}`, ks };
+  } catch (e) {
+    console.log(`snapshot read failed for ${slug}: ${(e as Error).message}; treating as active`);
+    return { key: `leagues/${slug}`, ks: [new Date().toISOString()] };
+  }
 }
 
 async function dispatchIngest(env: Env, leagues: string[]) {
@@ -48,7 +53,8 @@ async function dispatchIngest(env: Env, leagues: string[]) {
 
 export default {
   async scheduled(_event: { cron: string }, env: Env): Promise<void> {
-    const leagues = activeLeagues(await kickoffRows(env));
+    const rows = await Promise.all(LEAGUE_SLUGS.map((s) => kickoffsFor(env, s)));
+    const leagues = activeLeagues(rows);
     console.log(`leagues=${leagues.join(',')}`);
     if (leagues.length) await dispatchIngest(env, leagues);
   },
