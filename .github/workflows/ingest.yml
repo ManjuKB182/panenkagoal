@@ -56,15 +56,17 @@ jobs:
           command: pages deploy dist --project-name=panenkagoal --branch=main
       # data/snapshots in the repo is the source of truth. Neon is only a mirror, so a Neon outage or quota never loses data.
       # Pushes made with GITHUB_TOKEN do not trigger other workflows, so this does not start a second deploy.
+      # No continue-on-error: a snapshot that fails to reach main must turn the run red, not vanish silently.
+      # --autostash: any tracked file a step touched (e.g. a tooling install) must not block the rebase.
       - if: steps.ingest.outputs.changed == 'true'
-        continue-on-error: true
         run: |
           git config user.name "panenka-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/snapshots
           git diff --cached --quiet && exit 0
           git commit -m "data: refresh snapshots [skip ci]"
-          for i in 1 2 3; do git pull --rebase -X theirs origin main && git push origin HEAD:main && exit 0; sleep 3; done
+          for i in 1 2 3; do git pull --rebase --autostash -X theirs origin main && git push origin HEAD:main && exit 0; sleep 3; done
+          echo "::error::Snapshot commit could not be pushed to main"
           exit 1
       - if: steps.ingest.outcome == 'failure'
         run: |

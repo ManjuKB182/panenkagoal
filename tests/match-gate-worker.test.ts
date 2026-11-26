@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { activeLeagues } from '../workers/match-gate/src/index';
+import { activeLeagues, LEAGUE_SLUGS } from '../workers/match-gate/src/index';
 
 const at = (iso: string) => Date.parse(iso);
 const rows = [
@@ -19,5 +19,9 @@ describe('match-gate worker', () => {
   it('stays open 4 h after the last kickoff', () => {
     expect(activeLeagues(rows, at('2026-10-17T23:30:00+05:30'))).toEqual(['isl']);
     expect(activeLeagues(rows, at('2026-10-17T23:31:00+05:30'))).toEqual([]);
+  });
+  it('covers every league with a snapshot, including the youth ones', () => {
+    expect(LEAGUE_SLUGS).toEqual(expect.arrayContaining(['isl', 'rfdl-u21', 'elite-u18', 'junior-u15', 'sub-junior-u13']));
+    expect(new Set(LEAGUE_SLUGS).size).toBe(LEAGUE_SLUGS.length);
   });
 });
