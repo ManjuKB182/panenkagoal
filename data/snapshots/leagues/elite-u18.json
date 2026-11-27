@@ -1289,6 +1289,19 @@
           "rows": [
             {
               "pos": 1,
+              "team": "Community Football Club India ",
+              "logo": "https://aiff.b-cdn.net/logos/12356-Slogo-1576385887.png",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 8,
+              "ga": 1,
+              "gd": 7,
+              "points": 9
+            },
+            {
+              "pos": 2,
               "team": "Bravo Football",
               "logo": "https://aiff.b-cdn.net/uploads/sm_BravoFootballLogo_1707119780.png",
               "played": 2,
@@ -1297,19 +1310,6 @@
               "lost": 0,
               "gf": 6,
               "ga": 2,
-              "gd": 4,
-              "points": 6
-            },
-            {
-              "pos": 2,
-              "team": "Community Football Club India ",
-              "logo": "https://aiff.b-cdn.net/logos/12356-Slogo-1576385887.png",
-              "played": 3,
-              "won": 2,
-              "drawn": 0,
-              "lost": 1,
-              "gf": 5,
-              "ga": 1,
               "gd": 4,
               "points": 6
             },
@@ -1356,13 +1356,13 @@
               "pos": 6,
               "team": "Mumbai Soccer Prodigies",
               "logo": "https://aiff.b-cdn.net/uploads/sm_MSPFINALLOGO_1782219330.png",
-              "played": 3,
+              "played": 4,
               "won": 0,
               "drawn": 0,
-              "lost": 3,
+              "lost": 4,
               "gf": 3,
-              "ga": 8,
-              "gd": -5,
+              "ga": 11,
+              "gd": -8,
               "points": 0
             }
           ]
@@ -1732,14 +1732,14 @@
               "pos": 3,
               "team": "Thadam FC",
               "logo": "https://aiff.b-cdn.net/uploads/sm_TFC_1737099591.jpg",
-              "played": 2,
-              "won": 1,
+              "played": 3,
+              "won": 2,
               "drawn": 0,
               "lost": 1,
-              "gf": 2,
-              "ga": 2,
-              "gd": 0,
-              "points": 3
+              "gf": 4,
+              "ga": 3,
+              "gd": 1,
+              "points": 6
             },
             {
               "pos": 4,
@@ -1758,13 +1758,13 @@
               "pos": 5,
               "team": "New Football Club Kerala",
               "logo": "https://aiff.b-cdn.net/uploads/sm_FOOTBALLCLUBKERALA11_1749178615.png",
-              "played": 2,
+              "played": 3,
               "won": 0,
               "drawn": 0,
-              "lost": 2,
-              "gf": 5,
-              "ga": 8,
-              "gd": -3,
+              "lost": 3,
+              "gf": 6,
+              "ga": 10,
+              "gd": -4,
               "points": 0
             },
             {
@@ -1950,7 +1950,86 @@
         },
         {
           "name": "Group A",
-          "rows": []
+          "rows": [
+            {
+              "pos": 1,
+              "team": "Doon City Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_18187-logo_small-1786717998.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 2,
+              "team": "Downtown Heroes Football Club",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_Logo_1674754228.jpg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 3,
+              "team": "Minerva Academy FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13797-logo_small-1790845672.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 4,
+              "team": "Punjab FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11135-logo_small-1757679563.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 5,
+              "team": "Real Kashmir FC",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11497-logo_small-1795593454.png",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "pos": 6,
+              "team": "Sri Dashmesh Martial Sports Academy",
+              "logo": "https://aiff.b-cdn.net/logos/9502-Slogo-1576385738.jpg",
+              "played": 0,
+              "won": 0,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
         },
         {
           "name": "Group J",
@@ -2210,16 +2289,20 @@
       "kickoff": "2026-11-26T10:00:00.000Z",
       "home": "New Football Club Kerala",
       "away": "Thadam FC",
-      "status": "scheduled",
-      "venue": "THRISSURE CORPORATION STADIUM"
+      "status": "ft",
+      "venue": "THRISSURE CORPORATION STADIUM",
+      "homeScore": 1,
+      "awayScore": 2
     },
     {
       "id": "aiff-75934",
-      "kickoff": "2026-11-27T04:30:00.000Z",
+      "kickoff": "2026-11-27T03:30:00.000Z",
       "home": "Mumbai Soccer Prodigies",
       "away": "Community Football Club India ",
-      "status": "scheduled",
-      "venue": "Cooperage Football Stadium, Churchgate"
+      "status": "ft",
+      "venue": "Cooperage Football Stadium, Churchgate",
+      "homeScore": 0,
+      "awayScore": 3
     },
     {
       "id": "aiff-77863",
@@ -2324,6 +2407,14 @@
       "away": "Bengaluru Football Club",
       "status": "scheduled",
       "venue": "CES PHASE 1"
+    },
+    {
+      "id": "aiff-76023",
+      "kickoff": "2026-11-29T09:30:00.000Z",
+      "home": "The Sports School",
+      "away": "Stadium Football Club",
+      "status": "scheduled",
+      "venue": "THE SPORTS SCHOOL, KANAKPURA RD."
     }
   ],
   "scorers": [
@@ -2343,8 +2434,8 @@
       "goals": 9
     },
     {
-      "player": "Oinam Borish Singh",
-      "team": "Vels Football Club",
+      "player": "Nirvaan Bhatt",
+      "team": "Community Football Club India ",
       "goals": 8
     },
     {
@@ -2353,5 +2444,5 @@
       "goals": 8
     }
   ],
-  "updatedAt": "2026-11-26T09:17:41.462Z"
+  "updatedAt": "2026-11-27T09:32:41.991Z"
 }
