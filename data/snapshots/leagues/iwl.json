@@ -11,6 +11,19 @@
           "rows": [
             {
               "pos": 1,
+              "team": "SETHU, MADURAI",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20250812at105652AM_1754986256.jpeg",
+              "played": 2,
+              "won": 2,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 7,
+              "ga": 2,
+              "gd": 5,
+              "points": 6
+            },
+            {
+              "pos": 2,
               "team": "East Bengal FC",
               "logo": "https://aiff.b-cdn.net/uploads/sm_EastBengalFClogowebp1_1680264050.png",
               "played": 2,
@@ -23,7 +36,7 @@
               "points": 6
             },
             {
-              "pos": 2,
+              "pos": 3,
               "team": "BBFS Garhwal United Football Club",
               "logo": "https://aiff.b-cdn.net/uploads/sm_IMG20240329WA0003_1711692243.jpg",
               "played": 3,
@@ -36,22 +49,9 @@
               "points": 4
             },
             {
-              "pos": 3,
+              "pos": 4,
               "team": "NITA FOOTBALL ACADEMY",
               "logo": "https://aiff.b-cdn.net/uploads/sm_LOGONFBA_1711611548.jpeg",
-              "played": 1,
-              "won": 1,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 2,
-              "ga": 1,
-              "gd": 1,
-              "points": 3
-            },
-            {
-              "pos": 4,
-              "team": "SETHU, MADURAI",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20250812at105652AM_1754986256.jpeg",
               "played": 1,
               "won": 1,
               "drawn": 0,
@@ -77,7 +77,7 @@
             {
               "pos": 6,
               "team": "Gokulam Kerala FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11821-logo_small-1704290734.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11821-logo_small-1795593246.png",
               "played": 2,
               "won": 0,
               "drawn": 1,
@@ -104,13 +104,13 @@
               "pos": 8,
               "team": "HOPS Football Club",
               "logo": "https://aiff.b-cdn.net/uploads/sm_0001_1616604252.jpg",
-              "played": 1,
+              "played": 2,
               "won": 0,
               "drawn": 0,
-              "lost": 1,
-              "gf": 0,
-              "ga": 2,
-              "gd": -2,
+              "lost": 2,
+              "gf": 1,
+              "ga": 7,
+              "gd": -6,
               "points": 0
             }
           ]
@@ -214,8 +214,10 @@
       "kickoff": "2026-11-26T13:30:00.000Z",
       "home": "HOPS Football Club",
       "away": "SETHU, MADURAI",
-      "status": "scheduled",
-      "venue": "Kalyani Stadium, West Bengal"
+      "status": "ft",
+      "venue": "Kalyani Stadium, West Bengal",
+      "homeScore": 1,
+      "awayScore": 5
     },
     {
       "id": "aiff-75605",
@@ -328,6 +330,14 @@
       "away": "Juba Sangha FC",
       "status": "scheduled",
       "venue": "Tata Football Ground, Jamshedpur"
+    },
+    {
+      "id": "aiff-78146",
+      "kickoff": "2026-11-29T13:30:00.000Z",
+      "home": "NITA FOOTBALL ACADEMY",
+      "away": "East Bengal FC",
+      "status": "scheduled",
+      "venue": "Kalyani Stadium"
     }
   ],
   "scorers": [
@@ -335,6 +345,16 @@
       "player": "LHINGDEIKIM",
       "team": "BBFS Garhwal United Football Club",
       "goals": 3
+    },
+    {
+      "player": "VICTOIRE BIATHOLI MAIMOUNA",
+      "team": "SETHU, MADURAI",
+      "goals": 2
+    },
+    {
+      "player": "NIDHI",
+      "team": "BBFS Garhwal United Football Club",
+      "goals": 2
     },
     {
       "player": "JUANITA AGUADZE",
@@ -345,17 +365,7 @@
       "player": "Elizabeth Danso",
       "team": "BBFS Garhwal United Football Club",
       "goals": 2
-    },
-    {
-      "player": "Vipanshi",
-      "team": "Juba Sangha FC",
-      "goals": 2
-    },
-    {
-      "player": "NIDHI",
-      "team": "BBFS Garhwal United Football Club",
-      "goals": 2
     }
   ],
-  "updatedAt": "2026-11-25T05:41:45.001Z"
+  "updatedAt": "2026-11-27T01:53:59.747Z"
 }

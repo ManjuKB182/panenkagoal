@@ -12,7 +12,7 @@
             {
               "pos": 1,
               "team": "Gokulam Kerala FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11821-logo_small-1704290734.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11821-logo_small-1795593246.png",
               "played": 4,
               "won": 4,
               "drawn": 0,
@@ -24,8 +24,21 @@
             },
             {
               "pos": 2,
+              "team": "Nagaland United Sports Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_20306-logo_small-1795593358.png",
+              "played": 4,
+              "won": 3,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 8,
+              "ga": 4,
+              "gd": 4,
+              "points": 9
+            },
+            {
+              "pos": 3,
               "team": "Dempo Sports Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_WhatsAppImage20200107at134209_1578384848.jpeg",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8008-logo_small-1795593147.png",
               "played": 5,
               "won": 3,
               "drawn": 0,
@@ -36,9 +49,9 @@
               "points": 9
             },
             {
-              "pos": 3,
+              "pos": 4,
               "team": "Sreenidi Deccan Football Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_SreenidhiDeccanFootballClubLogo_1637303730.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12959-logo_small-1795593529.png",
               "played": 5,
               "won": 2,
               "drawn": 2,
@@ -49,9 +62,9 @@
               "points": 8
             },
             {
-              "pos": 4,
+              "pos": 5,
               "team": "Chanmari FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8220-logo_small-1662528887.jpg",
+              "logo": "https://aiff.b-cdn.net/logos/sm_8220-logo_small-1795592923.png",
               "played": 4,
               "won": 2,
               "drawn": 1,
@@ -62,35 +75,35 @@
               "points": 7
             },
             {
-              "pos": 5,
+              "pos": 6,
               "team": "Shillong Lajong FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1660315168.png",
-              "played": 4,
+              "logo": "https://aiff.b-cdn.net/logos/sm_8012-logo_small-1795593490.png",
+              "played": 5,
               "won": 2,
               "drawn": 1,
-              "lost": 1,
-              "gf": 5,
-              "ga": 4,
-              "gd": 1,
+              "lost": 2,
+              "gf": 6,
+              "ga": 6,
+              "gd": 0,
               "points": 7
             },
             {
-              "pos": 6,
-              "team": "Nagaland United Sports Club",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_NUSClogo_1790675639.png",
-              "played": 3,
+              "pos": 7,
+              "team": "Rajasthan United Football Club",
+              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1795593406.png",
+              "played": 5,
               "won": 2,
               "drawn": 0,
-              "lost": 1,
-              "gf": 6,
-              "ga": 3,
-              "gd": 3,
+              "lost": 3,
+              "gf": 7,
+              "ga": 6,
+              "gd": 1,
               "points": 6
             },
             {
-              "pos": 7,
+              "pos": 8,
               "team": "FC Bengaluru United",
-              "logo": "https://aiff.b-cdn.net/logos/sm_12681-logo_small-1602235138.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_12681-logo_small-1795593199.png",
               "played": 5,
               "won": 1,
               "drawn": 3,
@@ -101,9 +114,9 @@
               "points": 6
             },
             {
-              "pos": 8,
+              "pos": 9,
               "team": "Real Kashmir FC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_11497-logo_small-1645793815.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_11497-logo_small-1795593454.png",
               "played": 4,
               "won": 1,
               "drawn": 2,
@@ -114,22 +127,9 @@
               "points": 5
             },
             {
-              "pos": 9,
-              "team": "Rajasthan United Football Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1617780510.png",
-              "played": 4,
-              "won": 1,
-              "drawn": 0,
-              "lost": 3,
-              "gf": 3,
-              "ga": 6,
-              "gd": -3,
-              "points": 3
-            },
-            {
               "pos": 10,
               "team": "Samaleswari SC",
-              "logo": "https://aiff.b-cdn.net/logos/sm_16934-logo_small-1795585248.png",
+              "logo": "https://aiff.b-cdn.net/logos/sm_16934-logo_small-1795589389.png",
               "played": 5,
               "won": 0,
               "drawn": 1,
@@ -142,14 +142,14 @@
             {
               "pos": 11,
               "team": "Mohammedan Sporting Club",
-              "logo": "https://aiff.b-cdn.net/logos/sm_8020-logo_small-1645793900.png",
-              "played": 3,
+              "logo": "https://aiff.b-cdn.net/logos/sm_8020-logo_small-1795593299.png",
+              "played": 4,
               "won": 0,
               "drawn": 0,
-              "lost": 3,
+              "lost": 4,
               "gf": 4,
-              "ga": 9,
-              "gd": -5,
+              "ga": 13,
+              "gd": -9,
               "points": 0
             }
           ]
@@ -213,16 +213,20 @@
       "kickoff": "2026-11-25T10:30:00.000Z",
       "home": "Mohammedan Sporting Club",
       "away": "Rajasthan United Football Club",
-      "status": "scheduled",
-      "venue": "Kalyani Municipality Stadium"
+      "status": "ft",
+      "venue": "Kishore Bharti Krirangan",
+      "homeScore": 0,
+      "awayScore": 4
     },
     {
       "id": "aiff-75333",
       "kickoff": "2026-11-25T13:00:00.000Z",
       "home": "Shillong Lajong FC",
       "away": "Nagaland United Sports Club",
-      "status": "scheduled",
-      "venue": "SSA Stadium"
+      "status": "ft",
+      "venue": "SSA Stadium",
+      "homeScore": 1,
+      "awayScore": 2
     },
     {
       "id": "aiff-75334",
@@ -270,7 +274,7 @@
       "home": "Nagaland United Sports Club",
       "away": "Chanmari FC",
       "status": "scheduled",
-      "venue": "Rajiv Gandhi Stadium"
+      "venue": "Chümoukedima Football Stadium"
     },
     {
       "id": "aiff-75340",
@@ -302,7 +306,7 @@
       "home": "Mohammedan Sporting Club",
       "away": "Samaleswari SC",
       "status": "scheduled",
-      "venue": "Kalyani Municipality Stadium"
+      "venue": "Kishore Bharti Krirangan"
     },
     {
       "id": "aiff-75344",
@@ -327,6 +331,22 @@
       "away": "Mohammedan Sporting Club",
       "status": "scheduled",
       "venue": "TRC Stadium"
+    },
+    {
+      "id": "aiff-75347",
+      "kickoff": "2026-12-15T10:30:00.000Z",
+      "home": "Chanmari FC",
+      "away": "Gokulam Kerala FC",
+      "status": "scheduled",
+      "venue": "Rajiv Gandhi Stadium"
+    },
+    {
+      "id": "aiff-75348",
+      "kickoff": "2026-12-15T13:00:00.000Z",
+      "home": "Nagaland United Sports Club",
+      "away": "Sreenidi Deccan Football Club",
+      "status": "scheduled",
+      "venue": "Chümoukedima Football Stadium"
     }
   ],
   "scorers": [
@@ -336,13 +356,13 @@
       "goals": 6
     },
     {
-      "player": "Laximanrao Rane",
-      "team": "Dempo Sports Club",
-      "goals": 3
-    },
-    {
       "player": "Zomuansanga",
       "team": "Nagaland United Sports Club",
+      "goals": 4
+    },
+    {
+      "player": "Laximanrao Rane",
+      "team": "Dempo Sports Club",
       "goals": 3
     },
     {
@@ -351,10 +371,10 @@
       "goals": 2
     },
     {
-      "player": "David Castaneda Munoz",
-      "team": "Sreenidi Deccan Football Club",
+      "player": "Brijesh Giri",
+      "team": "Rajasthan United Football Club",
       "goals": 2
     }
   ],
-  "updatedAt": "2026-11-25T05:41:41.735Z"
+  "updatedAt": "2026-11-27T01:53:56.702Z"
 }

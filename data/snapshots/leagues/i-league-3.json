@@ -658,11 +658,6 @@
   ],
   "scorers": [
     {
-      "player": "Ngairangbam Rakesh Singh",
-      "team": "Kickstart FC Karnataka",
-      "goals": 5
-    },
-    {
       "player": "SYED SUHAIL  PASHA ",
       "team": "Godavari FC",
       "goals": 5
@@ -673,15 +668,20 @@
       "goals": 5
     },
     {
-      "player": "Hardy Cliff Nongbri",
-      "team": "NONGKSEH SPORT & CULTURAL CLUB",
-      "goals": 4
+      "player": "Ngairangbam Rakesh Singh",
+      "team": "Kickstart FC Karnataka",
+      "goals": 5
     },
     {
       "player": "Sankalp Sandeep Kankonkar",
       "team": "Clube De Salgaocar",
       "goals": 4
+    },
+    {
+      "player": "Hardy Cliff Nongbri",
+      "team": "NONGKSEH SPORT & CULTURAL CLUB",
+      "goals": 4
     }
   ],
-  "updatedAt": "2026-11-25T05:41:44.866Z"
+  "updatedAt": "2026-11-27T01:53:59.320Z"
 }
