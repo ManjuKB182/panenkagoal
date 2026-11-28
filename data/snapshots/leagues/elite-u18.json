@@ -1413,17 +1413,30 @@
               "pos": 4,
               "team": "Rajasthan United Football Club",
               "logo": "https://aiff.b-cdn.net/logos/sm_13472-logo_small-1795593406.png",
-              "played": 2,
-              "won": 0,
+              "played": 3,
+              "won": 1,
               "drawn": 0,
               "lost": 2,
-              "gf": 0,
-              "ga": 5,
-              "gd": -5,
-              "points": 0
+              "gf": 2,
+              "ga": 6,
+              "gd": -4,
+              "points": 3
             },
             {
               "pos": 5,
+              "team": "Premier Sporting Football Academy",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_footballacadmey1_1642750650.png",
+              "played": 1,
+              "won": 0,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 1,
+              "ga": 2,
+              "gd": -1,
+              "points": 0
+            },
+            {
+              "pos": 6,
               "team": "Awadh Mutineers Sports Club",
               "logo": "https://aiff.b-cdn.net/logos/sm_21827-logo_small-1784141193.png",
               "played": 2,
@@ -1433,19 +1446,6 @@
               "gf": 0,
               "ga": 10,
               "gd": -10,
-              "points": 0
-            },
-            {
-              "pos": 6,
-              "team": "Premier Sporting Football Academy",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_footballacadmey1_1642750650.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
               "points": 0
             }
           ]
@@ -1870,6 +1870,32 @@
           "rows": [
             {
               "pos": 1,
+              "team": "PEHLUM LAMHIL LAWM",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_plllogopng_1793293635.png",
+              "played": 1,
+              "won": 1,
+              "drawn": 0,
+              "lost": 0,
+              "gf": 3,
+              "ga": 2,
+              "gd": 1,
+              "points": 3
+            },
+            {
+              "pos": 2,
+              "team": "Lushai Corner FA",
+              "logo": "https://aiff.b-cdn.net/uploads/sm_LOGOFINAL4x_1782132019.png",
+              "played": 1,
+              "won": 0,
+              "drawn": 0,
+              "lost": 1,
+              "gf": 2,
+              "ga": 3,
+              "gd": -1,
+              "points": 0
+            },
+            {
+              "pos": 3,
               "team": "FOOTBALL 4 CHANGE ACADEMY",
               "logo": "https://aiff.b-cdn.net/logos/sm_12771-logo_small-1628786764.png",
               "played": 0,
@@ -1882,35 +1908,9 @@
               "points": 0
             },
             {
-              "pos": 2,
-              "team": "Lushai Corner FA",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_LOGOFINAL4x_1782132019.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 3,
+              "pos": 4,
               "team": "North East United FC",
               "logo": "https://aiff.b-cdn.net/logos/sm_11042-logo_small-1576475847.png",
-              "played": 0,
-              "won": 0,
-              "drawn": 0,
-              "lost": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "pos": 4,
-              "team": "PEHLUM LAMHIL LAWM",
-              "logo": "https://aiff.b-cdn.net/uploads/sm_plllogopng_1793293635.png",
               "played": 0,
               "won": 0,
               "drawn": 0,
@@ -2309,16 +2309,20 @@
       "kickoff": "2026-11-27T07:30:00.000Z",
       "home": "Lushai Corner FA",
       "away": "PEHLUM LAMHIL LAWM",
-      "status": "scheduled",
-      "venue": "DURTLANG FOOTBALL STADIUM, AIZAWL."
+      "status": "ft",
+      "venue": "DURTLANG FOOTBALL STADIUM, AIZAWL.",
+      "homeScore": 2,
+      "awayScore": 3
     },
     {
       "id": "aiff-75962",
       "kickoff": "2026-11-27T08:30:00.000Z",
       "home": "Rajasthan United Football Club",
       "away": "Premier Sporting Football Academy",
-      "status": "scheduled",
-      "venue": "VIDYADHAR NAGAR STADIUM, JAIPUR"
+      "status": "ft",
+      "venue": "VIDYADHAR NAGAR STADIUM, JAIPUR",
+      "homeScore": 2,
+      "awayScore": 1
     },
     {
       "id": "aiff-76025",
@@ -2346,11 +2350,11 @@
     },
     {
       "id": "aiff-77865",
-      "kickoff": "2026-11-28T18:30:00.000Z",
+      "kickoff": "2026-11-29T05:30:00.000Z",
       "home": "North East United FC",
       "away": "Shillong Lajong FC",
       "status": "scheduled",
-      "venue": "TBD"
+      "venue": "KARARA MINI STADIUM, KARARA"
     },
     {
       "id": "aiff-75995",
@@ -2370,7 +2374,7 @@
     },
     {
       "id": "aiff-77864",
-      "kickoff": "2026-11-29T04:30:00.000Z",
+      "kickoff": "2026-11-29T08:00:00.000Z",
       "home": "FOOTBALL 4 CHANGE ACADEMY",
       "away": "SADAR HILLS FA",
       "status": "scheduled",
@@ -2415,6 +2419,38 @@
       "away": "Stadium Football Club",
       "status": "scheduled",
       "venue": "THE SPORTS SCHOOL, KANAKPURA RD."
+    },
+    {
+      "id": "aiff-77897",
+      "kickoff": "2026-11-29T07:30:00.000Z",
+      "home": "ASUFII FA",
+      "away": "TLT SPORTS ACADEMY",
+      "status": "scheduled",
+      "venue": "SAI TAKYEL TURF GROUND"
+    },
+    {
+      "id": "aiff-77898",
+      "kickoff": "2026-11-29T07:30:00.000Z",
+      "home": "IMA FOOTBALL ACADEMY",
+      "away": "TYDA",
+      "status": "scheduled",
+      "venue": "AMFA TURF"
+    },
+    {
+      "id": "aiff-76564",
+      "kickoff": "2026-11-29T09:30:00.000Z",
+      "home": "Vels Football Club",
+      "away": "Thadam FC",
+      "status": "scheduled",
+      "venue": "COL. DR. JEPPIAR FOOTBALL STADIUM, CHENNAI"
+    },
+    {
+      "id": "aiff-76024",
+      "kickoff": "2026-11-29T10:00:00.000Z",
+      "home": "Murugappa Youth Football Academy",
+      "away": "Roots Football Club",
+      "status": "scheduled",
+      "venue": "MURUGAPPA SPORTS CENTRE, AVADI"
     }
   ],
   "scorers": [
@@ -2444,5 +2480,5 @@
       "goals": 8
     }
   ],
-  "updatedAt": "2026-11-27T09:32:41.991Z"
+  "updatedAt": "2026-11-28T08:45:36.678Z"
 }
