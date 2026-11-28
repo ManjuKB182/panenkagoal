@@ -139,6 +139,22 @@
             },
             {
               "pos": 9,
+              "prevPos": 3,
+              "team": "Churchill Brothers SC",
+              "short": "CBSC",
+              "logo": "/logos/isl/1101.png",
+              "played": 6,
+              "won": 2,
+              "drawn": 0,
+              "lost": 4,
+              "gf": 6,
+              "ga": 12,
+              "gd": -6,
+              "points": 6,
+              "form": "LLLLW"
+            },
+            {
+              "pos": 10,
               "prevPos": 7,
               "team": "Kerala Blasters FC",
               "short": "KBFC",
@@ -152,22 +168,6 @@
               "gd": -1,
               "points": 5,
               "form": "WLDD"
-            },
-            {
-              "pos": 10,
-              "prevPos": 3,
-              "team": "Churchill Brothers SC",
-              "short": "CBSC",
-              "logo": "/logos/isl/1101.png",
-              "played": 5,
-              "won": 1,
-              "drawn": 0,
-              "lost": 4,
-              "gf": 5,
-              "ga": 12,
-              "gd": -7,
-              "points": 3,
-              "form": "WLLLL"
             },
             {
               "pos": 11,
@@ -207,15 +207,15 @@
               "team": "Inter Kashi",
               "short": "KSHI",
               "logo": "/logos/isl/2354.png",
-              "played": 5,
+              "played": 6,
               "won": 0,
               "drawn": 1,
-              "lost": 4,
+              "lost": 5,
               "gf": 3,
-              "ga": 13,
-              "gd": -10,
+              "ga": 14,
+              "gd": -11,
               "points": 1,
-              "form": "LDLLL"
+              "form": "DLLLL"
             }
           ]
         }
@@ -672,7 +672,9 @@
       "away": "Churchill Brothers SC",
       "homeShort": "KSHI",
       "awayShort": "CBSC",
-      "status": "scheduled",
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "ft",
       "venue": "Shree Shiv Chhatrapati Sports Complex, Pune",
       "round": "Match 35"
     },
@@ -2081,11 +2083,6 @@
       "goals": 4
     },
     {
-      "player": "Sebastian Gutierrez Atehortua",
-      "team": "Churchill Brothers SC",
-      "goals": 4
-    },
-    {
       "player": "Borja Martinez Giner",
       "team": "Bengaluru FC",
       "goals": 4
@@ -2093,6 +2090,11 @@
     {
       "player": "Raphael Eric Messi Bouli",
       "team": "Punjab FC",
+      "goals": 4
+    },
+    {
+      "player": "Sebastian Gutierrez Atehortua",
+      "team": "Churchill Brothers SC",
       "goals": 4
     },
     {
@@ -2221,6 +2223,11 @@
       "goals": 1
     },
     {
+      "player": "Trijoy Savio Dias",
+      "team": "Churchill Brothers SC",
+      "goals": 1
+    },
+    {
       "player": "Vibin Mohanan",
       "team": "Kerala Blasters FC",
       "goals": 1
@@ -2243,11 +2250,6 @@
     {
       "player": "Everton Nascimento de Mendonça",
       "team": "Odisha FC",
-      "goals": 1
-    },
-    {
-      "player": "Gaurav Bora",
-      "team": "Churchill Brothers SC",
       "goals": 1
     },
     {
@@ -2276,8 +2278,8 @@
       "goals": 1
     },
     {
-      "player": "Huidrom Thoi Singh",
-      "team": "Inter Kashi",
+      "player": "Gaurav Bora",
+      "team": "Churchill Brothers SC",
       "goals": 1
     },
     {
@@ -2293,11 +2295,6 @@
     {
       "player": "Zothanpuia",
       "team": "Mumbai City FC",
-      "goals": 1
-    },
-    {
-      "player": "Sumeet Passi",
-      "team": "Inter Kashi",
       "goals": 1
     },
     {
@@ -2336,8 +2333,18 @@
       "goals": 1
     },
     {
+      "player": "Huidrom Thoi Singh",
+      "team": "Inter Kashi",
+      "goals": 1
+    },
+    {
       "player": "Manvir Singh",
       "team": "Mohun Bagan Super Giant",
+      "goals": 1
+    },
+    {
+      "player": "Sumeet Passi",
+      "team": "Inter Kashi",
       "goals": 1
     },
     {
@@ -2356,5 +2363,5 @@
       "goals": 1
     }
   ],
-  "updatedAt": "2026-11-27T01:53:55.488Z"
+  "updatedAt": "2026-11-28T01:37:17.406Z"
 }
